@@ -1,9 +1,0 @@
-diff a/src/views/teamMembers.vue b/src/views/teamMembers.vue	(rejected hunks)
-@@ -1,6 +0,0 @@
--<template>
-- 
--    <h3>this is teamMembers</h3>
--    <router-view/>
--
--  </template>
-\ No newline at end of file
