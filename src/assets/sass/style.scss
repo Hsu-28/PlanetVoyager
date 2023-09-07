@@ -1,12 +1,12 @@
 // base
 @import "base/reset";
+@import "base/color";
+@import "base/font";
 
 // minix
 @import "minix/minix";
 
-@import "component/btn";
-@import "base/color";
-
-
 // component
-// @import "component/test2";
+@import "component/button";
+
+
