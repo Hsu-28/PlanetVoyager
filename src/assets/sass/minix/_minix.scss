@@ -1,1 +1,26 @@
 // 建立完成後不更動 更動之前要跟大家講
+@mixin wh($width, $height) {
+    width: $width;
+    height: $height;
+  }
+// wh  width, height
+// 引入方法
+// .element {
+//     @include wh(125px, 50px);
+//   }
+
+@mixin marginLT($left, $top) {
+    margin-left: $left;
+    margin-top: $top;
+  }
+//   .element {
+//     @include marginLT(10px, 20px);
+//   }
+
+@mixin marginRT($left, $top) {
+    margin-right: $left;
+    margin-top: $top;
+  }
+//   .element {
+//     @include marginLT(10px, 20px);
+//   }
