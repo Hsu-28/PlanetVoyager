@@ -17,7 +17,7 @@
 //     @include marginLT(10px, 20px);
 //   }
 
-@mixin marginRT($left, $top) {
+@mixin marginRT($right, $top) {
     margin-right: $right;
     margin-top: $top;
   }
