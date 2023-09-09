@@ -1,14 +1,4 @@
 <template>
-<<<<<<< HEAD
-  <!-- <nav>
-    
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/login">login</router-link> |
-    <router-link to="/donate">donate</router-link> |
-
-  </nav> -->
-=======
 
    <div class="menu-btn">
 
@@ -75,7 +65,6 @@
     
     
 
->>>>>>> 1f56db2b3c502e4bb88d476eecaf28ee3602db64
   <router-view/>
 
   <footer class="footer">
