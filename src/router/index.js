@@ -35,9 +35,9 @@ const routes = [
     component: () => import(/* webpackChunkName: "faq" */ '../views/Faq.vue')
   },
   {
-    path: '/introduce',
-    name: 'introduce',
-    component: () => import(/* webpackChunkName: "introduce" */ '../views/Introduce.vue')
+    path: '/training',
+    name: 'training',
+    component: () => import(/* webpackChunkName: "training" */ '../views/Training.vue')
   },
   {
     path: '/teamMembers',
@@ -48,6 +48,20 @@ const routes = [
     path: '/memberCenter',
     name: 'memberCenter',
     component: () => import(/* webpackChunkName: "memberCenter" */ '../views/MemberCenter.vue')
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: () => import(/* webpackChunkName: "Login" */ '../views/Register.vue')
+  }, { 
+    path: '/order',
+    name: 'order',
+    component: () => import(/* webpackChunkName: "order" */ '../views/Order.vue')
+  },
+  {
+    path: '/technology',
+    name: 'technology',
+    component: () => import(/* webpackChunkName: "order" */ '../views/Technology.vue')
   },
   { path: '/:pathMatch(.*)*', 
   name: 'NotFound', 

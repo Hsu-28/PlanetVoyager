@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <div class="login-section">
       <h3>LOGIN</h3>
       <div class="button_group">
@@ -31,3 +32,11 @@
   <style>
   @import "@/assets/sass/page/_login.scss";
   </style>
+=======
+ 
+  <h3>this is login.</h3>
+  <Button type="primary">test.  change</Button>
+  <router-view/>
+
+</template>
+>>>>>>> 1f56db2b3c502e4bb88d476eecaf28ee3602db64
