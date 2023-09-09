@@ -157,5 +157,7 @@ footer.footer{
   height: 100%;
   width: 500px;
 }
-
+.menu{
+  display: none;
+}
 </style>
