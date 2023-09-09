@@ -24,3 +24,14 @@
 //   .element {
 //     @include marginLT(10px, 20px);
 //   }
+
+@mixin marginBL($bottom, $left) {
+  margin-bottom: $bottom;
+  margin-left: $left;
+}
+
+@mixin marginBR($bottom, $right) {
+  margin-bottom: $bottom;
+  margin-right: $right;
+}
+
