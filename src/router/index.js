@@ -49,6 +49,11 @@ const routes = [
     name: 'memberCenter',
     component: () => import(/* webpackChunkName: "memberCenter" */ '../views/MemberCenter.vue')
   },
+  {
+    path: '/register',
+    name: 'register',
+    component: () => import(/* webpackChunkName: "Login" */ '../views/Register.vue')
+  },  
   { path: '/:pathMatch(.*)*', 
   name: 'NotFound', 
   component: () => import(/* webpackChunkName: "error" */ '../views/NotFound.vue') 

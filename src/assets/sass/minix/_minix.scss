@@ -18,7 +18,7 @@
 //   }
 
 @mixin marginRT($left, $top) {
-    margin-right: $left;
+    margin-right: $right;
     margin-top: $top;
   }
 //   .element {
