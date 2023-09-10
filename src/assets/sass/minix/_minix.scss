@@ -17,10 +17,21 @@
 //     @include marginLT(10px, 20px);
 //   }
 
-@mixin marginRT($left, $top) {
-    margin-right: $left;
+@mixin marginRT($right, $top) {
+    margin-right: $right;
     margin-top: $top;
   }
 //   .element {
 //     @include marginLT(10px, 20px);
 //   }
+
+@mixin marginBL($bottom, $left) {
+  margin-bottom: $bottom;
+  margin-left: $left;
+}
+
+@mixin marginBR($bottom, $right) {
+  margin-bottom: $bottom;
+  margin-right: $right;
+}
+
