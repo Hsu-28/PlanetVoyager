@@ -58,10 +58,10 @@
       </div>
     </div>
     </div>
-    
- 
 
    </section>
+      
+    
   <router-view/>
   <footer class="footer">
     <div class="footer-content">
