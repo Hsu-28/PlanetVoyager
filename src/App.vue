@@ -16,7 +16,7 @@
     </div>
     <div class="list">
       <ul >
-        <li  v-for="item in titlelist" :key="index"><router-link to="/about" style="color: item.color;"> {{item.titleC}} &nbsp; {{item.titleE}}</router-link></li>
+        <li  v-for="item in titlelist" :key="index"><router-link :to="item.path" style="color: item.color;"> {{item.titleC}} &nbsp; {{item.titleE}}</router-link></li>
       </ul>
     </div>
     <div class="mediaLink">
@@ -73,6 +73,7 @@
     </div> 
   </footer>
 </template>
+
 <script src="./views/js/app.js"></script>
 <style scoped lang="scss">
 // #app {
@@ -114,7 +115,7 @@ div.login-btn img{
   height: 60px;
   position: absolute;
   bottom: 0px;
-  
+  left: 0;
 }
 
 .footer-content{
@@ -136,7 +137,7 @@ div.login-btn img{
   @include wh(1920px, 1200px);
   position: fixed;
   left: 0;
-  right: 0;
+  top: 0;
   background-color: rgba(0, 0, 0, 0.86);
   z-index: 10;
   display: flex;

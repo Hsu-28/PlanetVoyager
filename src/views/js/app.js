@@ -7,35 +7,43 @@ export default {
           {
             titleC: "關於我們" ,
             titleE: "ABOUT US",
-            color: "$white"
+            color: "$white",
+            path:"aboutus",
           }, {
             titleC: "星際旅程" ,
             titleE: "DESTINATION",
-            color: "$turquoise"
+            color: "$turquoise",
+            path:"aboutus",
           }, {
             titleC: "訂購旅程" ,
             titleE: "BOOKING",
-            color: "$turquoise"
+            color: "$turquoise",
+            path:"order",
           }, {
             titleC: "行前訓練" ,
             titleE: "TRAINING",
-            color: "$turquoise"
+            color: "$turquoise",
+            path:"training",
           }, {
             titleC: "科技創新" ,
             titleE: "THE VEHICLE",
-            color: "$white"
+            color: "$white",
+            path:"technology"
           }, {
             titleC: "團隊介紹" ,
             titleE: "TOURIST GUIDE",
-            color: "$white"
+            color: "$white",
+            path:"teamMembers"
           }, {
             titleC: "支持星際探索" ,
             titleE: "SUPPORT",
-            color: "$white"
+            color: "$white",
+            path:"donate"
           },{
             titleC: "問與答" ,
             titleE: "FAQS",
-            color: "$white"
+            color: "$white",
+            path:"faq"
           }       
         ],
       };
