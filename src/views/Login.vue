@@ -1,6 +1,7 @@
 <template>
-    <div class="login-section">
-      <h3>LOGIN</h3>
+    <div class="login-tag">LOGIN</div>   
+   <div class="login-section">
+      
       <div class="button_group">
         <button id="register">註冊</button>
         <button id="login">登入</button>

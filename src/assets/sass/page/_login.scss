@@ -1,8 +1,19 @@
 body{
     background-color: #000;
 }
-h3{
+.login-tag{
+    width: 252px;
+    height: 45px;
     text-align: left;
+    background-color: #5B13EC;
+    position: relative;
+}
+.login-tag::after{
+  content: '';
+  display: block;
+  width: 45px;
+  background-color: #fff;
+  position: absolute;
 }
 .login-section{
     width: 475.11px;
@@ -11,6 +22,7 @@ h3{
     font-size: 20px;
     margin: 0 auto;
     border-radius: 0px 20px 20px 20px;
+    border: 2px solid #0DF2F2;
     background-color: rgba(91, 19, 236, 40%);
 }
 .button_group{
