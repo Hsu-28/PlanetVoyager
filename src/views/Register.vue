@@ -10,11 +10,11 @@
           <div>註冊</div>
           <router-link to="/login">登入</router-link>
       </div>
-      <div class="register-from" >  
+      <div class="register-from-con" >  
           <div></div>
           <p>請輸入以下資訊</p> 
           <form action="">
-          
+            
               <label ></label>
               <input type="text" placeholder="姓名" required v-model="name">
               <label ></label>
@@ -39,7 +39,7 @@
     </div>
   </div>
 </div>
-<router-view/>
+<!-- <router-view/> -->
 
 </template>
 
