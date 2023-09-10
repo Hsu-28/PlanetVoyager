@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    background-color: #000;
+}
+
+/* 打開和關閉手風琴面板樣式 */
+.accordion {
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    padding: 0px 90px 10px 18px;
+    width: 100%;
+    text-align: left;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    border-left: none;
+    outline: none;
+    transition: 0.4s;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+/* 設置點擊和鼠標移到選項上面時（懸停）的樣式 */
+.active,
+.accordion:hover {
+    background-color: #ffffff38;
+    color: #ffffff;
+}
+
+/* 為手風琴面板設計樣式。默認隱藏 */
+.panel {
+    padding: 0 18px;
+    /* background-color: transparent; */
+    color: #fff;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    font-size: 14px;
+    line-height: 2;
+    width: 800px;
+}
+
+.panel p {
+    padding: 15px 0;
+}
+
+/* 設置 +、- 標誌 */
+.accordion:after {
+    content: '\002B';
+    /*Unicode + 號 */
+    color: #777;
+    font-weight: bold;
+    /* float: right; */
+    margin-left: 5px;
+    font-size: 20px;
+    display: block;
+    margin-left: auto;
+}
+
+.accordion span {
+    font-size: 30px;
+    padding: 0 20px;
+}
+
+.accordion img {
+    width: 10px;
+}
+
+.active:after {
+    content: "\2212";
+    /* Unicode - 號 */
+}
+
+.title {
+    padding-top: 40px;
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    color: #fff;
+}
+
+.title h2 {
+    writing-mode: vertical-lr;
+    letter-spacing: 1em;
+    font-size: 35px;
+    color: #fff;
+}
+
+.title .line {
+    border: 2px solid #fff;
+    margin-left: 40px;
+    height: 100px;
+}
+
+.faq {
+    max-width: 1000px;
+    margin-left: auto;
+    padding-bottom: 60px;
+}
+
+.faq h3 {
+    text-align: center;
+    font-size: 40px;
+    color: #fff;
+    padding-bottom: 20px;
+}
+
+.caption {
+    color: #fff;
+    font-size: 30px;
+    display: block;
+    padding-bottom: 10px;
+}
+
+.card {
+    padding-left: 20px;
+}
+
+.card img {
+    max-width: 350px;
+}
+
+.card p {
+    font-size: 14px;
+}
