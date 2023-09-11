@@ -40,7 +40,7 @@
 <script src="./js/faq.js"></script>
 
 
-<style>
+<style >
 body {
     background-color: #000;
 }

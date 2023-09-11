@@ -12,7 +12,6 @@
     <router-link to="/login">  
       <img src="~@/assets/image/headerfooter/login.svg" alt="login" >
     </router-link>
-    
    </div>
   </nav>
 
@@ -97,6 +96,7 @@
 </template>
 
 <script src="./views/js/app.js"></script>
+
 <style lang="scss">
 body{ 
   font-family: 'Oswald', 'Roboto Mono','Noto Serif JP', 'Noto Serif TC',  serif;
@@ -192,13 +192,13 @@ div.login-btn img{
    color: $white;
 }
 // .list a:nth-of-type(2){
-//   color: $turquoise;
+//   color: $blueL;
 // }
 
 .list ul li:nth-child(2) a,
 .list ul li:nth-child(3) a,
 .list ul li:nth-child(4) a{
-  color: $turquoise;
+  color: $blueL;
 }
 
 div.mediaLink{
@@ -216,7 +216,7 @@ div.mediaLink{
 
 .tipsContainer{
   height: 350px;
-  border: 3px solid $turquoise;
+  border: 3px solid $blueL;
   margin-bottom: 10px;
   background-image: url(~@/assets/image/headerfooter/tipsbg.svg);
   background-position: 100px -20px;
