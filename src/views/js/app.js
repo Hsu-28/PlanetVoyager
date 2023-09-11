@@ -41,7 +41,7 @@ export default {
             path:"donate"
           },{
             titleC: "問與答" ,
-            titleE: "FAQS",
+            titleE: "FAQs",
             color: "$white",
             path:"faq"
           }       
