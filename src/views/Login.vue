@@ -2,7 +2,9 @@
     <div class="login-section">
       <h3>LOGIN</h3>
       <div class="button_group">
-        <button id="register">註冊</button>
+        <!-- <button id="register">註冊</button> -->
+        <router-link to="/register" id="register">註冊</router-link>
+        
         <button id="login">登入</button>
       </div>
       <form action="">
@@ -16,19 +18,19 @@
 
   </template>
   <script>
-  export default {
-  props: {
-    value: String
-  },
-  methods: {
-    updateValue(newValue) {
-      this.$emit('input', newValue);
+    export default {
+    props: {
+      value: String
+    },
+    methods: {
+      updateValue(newValue) {
+        this.$emit('input', newValue);
+      }
     }
-  }
-};
+  };
 
   </script>
-  <style>
+  <style scoped lang="scss">
   @import "@/assets/sass/page/_login.scss";
   </style>
  

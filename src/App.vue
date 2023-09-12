@@ -63,7 +63,7 @@
       
     
   <router-view/>
-  <footer class="footer">
+  <!-- <footer class="footer">
     <div class="footer-content">
       <div><a href="">Social Media </a> </div>
       <div><a href="https://www.facebook.com/?ref=tn_tnmn" target="_blank" >  FACEBOOK </a></div>
@@ -71,18 +71,18 @@
       <div><a href="https://twitter.com/?lang=zh-Hant" target="_blank" >  TWITTER </a></div>
       <div><a href="https://www.youtube.com/" target="_blank" > YOUTUBE </a> </div>
     </div> 
-  </footer>
+  </footer> -->
 </template>
 
 <script src="./views/js/app.js"></script>
 <style scoped lang="scss">
-// #app {
-//   font-family: Avenir, Helvetica, Arial, sans-serif;
-//   -webkit-font-smoothing: antialiased;
-//   -moz-osx-font-smoothing: grayscale;
-//   text-align: center;
-//   color: #2c3e50;
-// }
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
 
 body{ 
   font-family: 'Oswald', 'Roboto Mono','Noto Serif JP', 'Noto Serif TC',  serif;
