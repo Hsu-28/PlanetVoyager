@@ -1,20 +1,27 @@
 <template>
   <div class="asd">
   <div class="register-form">
-      <div class="register-title">
-           <div class="black"></div>
-           <h1>REGISTER</h1>
-      </div>
+      
+      
+      <svg class="register-title" width="230px" height="40px">
+                <polygon points="0,0 190,0 230,40 0,40"  stroke="rgba(13, 242, 242, 0.88)"/>
+                <rect  x="15" y="15" width="10" height="10"/>
+                <text x="50"  y="28" 
+                  font-weight="700"
+                  font-size="20">REGISTER</text>
+      </svg>
+      
+   
     <div class="register-border">
       <div class="register-select">
           <div>註冊</div>
           <router-link to="/login">登入</router-link>
       </div>
-      <div class="register-from" >  
+      <div class="register-from-con" >  
           <div></div>
           <p>請輸入以下資訊</p> 
           <form action="">
-          
+            
               <label ></label>
               <input type="text" placeholder="姓名" required v-model="name">
               <label ></label>
@@ -29,17 +36,18 @@
               <input type="text" placeholder="手機號碼" required v-model="phoneNum">
               <label ></label>
               <input type="text" placeholder="收件/聯絡地址" required v-model="address">
-              <button class="cybr-btn">
+              <!-- <button class="cybr-btn">
                 送出<span aria-hidden></span>
                 <span aria-hidden class="cybr-btn__glitch">送出</span>
                 <span aria-hidden class="cybr-btn__tag">-pv-</span>
-              </button>
+              </button> -->
+              <ButtonFlashBox :buttonText="'送出'" :buttonBottomText="'-pv-'"></ButtonFlashBox>
           </form>
       </div>
     </div>
   </div>
 </div>
-<router-view/>
+<!-- <router-view/> -->
 
 </template>
 
@@ -47,7 +55,11 @@
 @import "~@/assets/sass/page/register.scss";
 </style>
 <script>
+import ButtonFlashBox from '@/components/ButtonFlash.vue' 
 export default {
+    components: {
+      ButtonFlashBox: ButtonFlashBox
+    },
   data() {
     return {
       name: "",

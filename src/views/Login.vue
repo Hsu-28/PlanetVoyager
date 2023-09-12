@@ -32,16 +32,16 @@
   </div>  
   </template>
   <script>
-  export default {
-  props: {
-    value: String
-  },
-  methods: {
-    updateValue(newValue) {
-      this.$emit('input', newValue);
+    export default {
+    props: {
+      value: String
+    },
+    methods: {
+      updateValue(newValue) {
+        this.$emit('input', newValue);
+      }
     }
-  }
-};
+  };
 
   </script>
 
