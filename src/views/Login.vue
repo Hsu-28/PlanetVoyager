@@ -3,17 +3,24 @@
 <div id="login">
   <img src="~@/assets/image/login/loginastronaut.svg" alt="astronaut">
   <div class="wrap">  
-    <div class="login-tag">
-      <svg height="45" width="200">
-        <text x="10" y="10" fill="black">LOGIN</text>
+      <svg class="login-tag" height="45" width="200">
         <polygon points="0,0 120,0 140,47 0,47"
         style="fill:#5B13EC; stroke:turquoise ;stroke-width:3" />
+        <rect  x="15" y="18" width="10" height="10"/>
+        <text x="40" y="33" fill="black" font-size="20" font-weight="700" letter-spacing="2">LOGIN</text>
+        
       </svg>
-    </div>  
+      <!-- <svg class="register-title" width="230px" height="40px">
+                <polygon points="0,0 190,0 230,40 0,40"  stroke="rgba(13, 242, 242, 0.88)"/>
+                <rect  x="15" y="15" width="10" height="10"/>
+                <text x="50"  y="28" 
+                  font-weight="700"
+                  font-size="20">REGISTER</text>
+      </svg> -->
       <div class="login-section">   
         <div class="button_group">
           <button id="register-btn">
-            <router-link to="/register" >
+            <router-link to="/register">
               註冊
             </router-link>
           </button>

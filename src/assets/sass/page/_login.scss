@@ -40,27 +40,13 @@
   .wrap{
     width: 475.11px;
   }
-  // .login-tag{
-  //     width: 252px;
-  //     height: 45px;
-  //     text-align: left;
-  //     background-color: $blue;
-  //     position: relative;
-  // }
-  // .login-tag::after{
-  //   content: '';
-  //   display: block;
-  //   width: 45px;
-  //   background-color: #fff;
-  //   position: absolute;
-  // }
   .login-section{
       padding: 40px;
       font-size: 20px;
       margin: 0 auto;
       border-radius: 0px 20px 20px 20px;
-      border: 2px solid #0DF2F2;
-      background-color: rgba(91, 19, 236, 40%);
+      border: 2px solid $blueL;
+      background-color: $blueO;
   }
   .button_group{
       display: flex;
@@ -69,10 +55,10 @@
   }
   #register-btn, #login-btn{
       border-radius: 5px;
-      width: 90px;
-      height: 42px;
+      width: 85px;
       font-weight: 700;
-      line-height: 42px;
+      padding-top: 5px;
+      padding-bottom: 7px;
   }
   #register-btn{
       border: 2px solid #01C1FD;
