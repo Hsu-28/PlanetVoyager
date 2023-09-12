@@ -12,17 +12,17 @@ export default {
           }, {
             titleC: "星際旅程" ,
             titleE: "DESTINATION",
-            color: "$turquoise",
+            color: "$blueL",
             path:"aboutus",
           }, {
             titleC: "訂購旅程" ,
             titleE: "BOOKING",
-            color: "$turquoise",
+            color: "$blueL",
             path:"order",
           }, {
             titleC: "行前訓練" ,
             titleE: "TRAINING",
-            color: "$turquoise",
+            color: "$blueL",
             path:"training",
           }, {
             titleC: "科技創新" ,
@@ -41,7 +41,7 @@ export default {
             path:"donate"
           },{
             titleC: "問與答" ,
-            titleE: "FAQS",
+            titleE: "FAQs",
             color: "$white",
             path:"faq"
           }       

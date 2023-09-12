@@ -3,7 +3,11 @@
    <div class="login-section">
       
       <div class="button_group">
-        <button id="register">註冊</button>
+        <button id="register">
+          <router-link to="/register" >
+            註冊
+          </router-link>
+        </button>
         <button id="login">登入</button>
       </div>
       <form action="">
@@ -29,6 +33,7 @@
 };
 
   </script>
-  <style>
+
+  <style scoped lang="scss"> //這是正確寫法 這邊一開始沒有scpoed 所以污染
   @import "@/assets/sass/page/_login.scss";
   </style>
