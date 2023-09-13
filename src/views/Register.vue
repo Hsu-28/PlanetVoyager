@@ -4,7 +4,10 @@
       
       
       <svg class="register-title" width="230px" height="40px">
-                <polygon points="0,0 190,0 230,40 0,40"  stroke="rgba(13, 242, 242, 0.88)"/>
+                <path d="M 10,0 Q 0,0 0,10 L 0,40 L 230,40 L 190,0 L 10,0" 
+                stroke="rgba(13, 242, 242, 0.88)" />
+
+                <!-- <polygon points="0,0 190,0 230,40 0,40"  stroke="rgba(13, 242, 242, 0.88)"/> -->
                 <rect  x="15" y="15" width="10" height="10"/>
                 <text x="50"  y="28" 
                   font-weight="700"
@@ -41,7 +44,8 @@
                 <span aria-hidden class="cybr-btn__glitch">送出</span>
                 <span aria-hidden class="cybr-btn__tag">-pv-</span>
               </button> -->
-              <ButtonFlashBox :buttonText="'送出'" :buttonBottomText="'-pv-'"></ButtonFlashBox>
+              <ButtonFlashBox :buttonText="'送出'" :buttonBottomText="'-pv-'" @click="submitForm">
+              </ButtonFlashBox>
           </form>
       </div>
     </div>
@@ -69,6 +73,13 @@ export default {
       idNum:"",
       phoneNum:""
     };
+  } ,
+  methods: {
+  //  submitForm(){
+
+  //   alert("aaaa");
+  //  }
   }
 }
+ 
 </script>
