@@ -1,0 +1,57 @@
+.order-container{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 90%;
+    justify-content: space-around;
+    margin: auto;
+}
+
+.order-item{
+    position: relative;
+    background-image: url("~@/assets/image/ordertitle/PLANETARYORBITBg.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 400px;
+    width: 22%;
+    margin-bottom: 200px;
+    .order-title{
+        width: 100%;
+        color: $white;
+        position: absolute;
+        left: 50%;
+        top: -50px;
+        transform: translateX(-50%);
+        img{
+            display: block;
+            margin: auto;
+            
+        }
+        p,h2{
+            text-align: center;
+        }
+        p{
+            font-size: $c2;
+        }
+        h2{
+            font-size: $titleS;
+        }
+        
+    }
+    .choose{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 25%;
+        height: 30px;
+        color: $white;
+        background-color: $blueO;
+        position: absolute;
+        bottom: 0%;
+        left: 37%;
+    }
+    p{
+        margin-top: 20px;
+        margin-bottom: -8px;
+    }
+}
+

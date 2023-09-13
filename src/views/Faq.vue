@@ -23,7 +23,7 @@
     </div>
 </template>
 
-<style lang="scss">
+<style s lang="scss">
 @import "@/assets/sass/page/_faq.scss";
 </style>
 
