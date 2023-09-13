@@ -1,7 +1,181 @@
-// header{
-//     display: flex;
-//     flex-direction: row;
-//     flex-wrap: nowrap;
-//     justify-content: space-between;
-//     width: 1200px;
-// }
+body{
+  background-color: black;
+}
+
+  #app{
+    width: 100%;
+    font-family: 'Oswald', 'Roboto Mono','Noto Serif JP', 'Noto Serif TC',  serif;
+  }
+  nav{
+    position: relative;
+    height: 104px;
+  }
+  
+  
+  .indexLogo{
+    width: 120px;
+  }
+  div.menu-btn img
+  {
+    @include wh(70px, 50px);
+  }
+  
+  div.login-btn img{
+    @include wh(50px, 50px);
+  }
+  .footer{
+    display: flex;
+    width: 100%;
+    background-color: $blackBG;
+    height: 80px;
+    position: relative;
+    bottom: 0px;
+    left: 0;
+    justify-content: center;
+    flex-flow: column wrap;
+    align-items: center;
+  }
+  
+  .footer-content{
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-content-info{
+    color: $white;
+  }
+  
+  .footer-content a{
+    color: $white;
+  }
+  .menu{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.86);
+    z-index: 10;
+    display: flex;
+    flex-flow: row wrap;
+  }
+  
+  .menu-nav,
+  .indexNav{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+  } 
+  .menu-nav img,
+  .indexNav img{
+    margin: 20px;
+    cursor: pointer;
+  }
+  
+  .list,
+  .socialLink{
+    height: 100%;
+    width: 50%;
+  }
+  
+  .list li {
+    font-size: 46px;
+    text-align: start;
+    margin-bottom: 24px;
+    margin-left: 14%;
+    font-weight: 700;
+  }
+   .list a {
+     color: $white;
+  }
+  // .list a:nth-of-type(2){
+  //   color: $blueL;
+  // }
+  
+  .list ul li:nth-child(2) a,
+  .list ul li:nth-child(3) a,
+  .list ul li:nth-child(4) a{
+    color: $blueL;
+  }
+  
+  div.mediaLink{
+    display: flex;
+    flex-flow: column nowrap;
+    font-size: $c1;
+    width: 26%;
+    margin: 0 auto 0 auto;
+    font-weight: 700;
+  }
+  .tips{
+    @include wh(100%, 300px);
+    margin: 10px auto 20px auto;
+    padding: 10px  60px 60px 50px;
+  }
+  
+  .tipsContainer{
+    height: 350px;
+    border: 3px solid $blueL;
+    margin-bottom: 10px;
+    background-image: url(~@/assets/image/headerfooter/tipsbg.svg);
+    background-position: 100px -20px;
+    background-size: 120%;
+  }
+  .tipsContainer h3{
+  margin-top: 20px;
+  }
+   .socialMediaLink  a{
+     color: $white;
+   }
+  
+  
+   .mediaLink{
+     color: $white;
+  }
+  .socialMediaLink{
+    display: flex;
+    flex-flow: row wrap;
+  
+  }
+  
+  .socialMediaLink div{
+    width: 50%;
+  }
+  .mediaLink div{
+   text-align: start;
+   font-size: $c1;
+   line-height: 1.8;
+  }
+  .mediaLink h3{
+    font-size: $titleS;
+    color: $blue;
+    text-align: center;
+    
+  }
+  .mediaLink h4{
+    margin-top: 10px;
+    margin-bottom: 4px;
+    text-align: start;
+    font-size: 32px;
+    color: $blue;
+  }
+  .socialMediaLink img{
+    width: 32px;
+    transform: translateY(5px);
+  }
+  .socialMediaLink .twitterImg{
+    width: 28px;
+  }
+  img.facebookImg,
+  img.instagramImg{
+    transform: translateY(10px);
+  }
+  
+  nav img{
+    cursor: pointer;
+  }
+  
