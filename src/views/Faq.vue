@@ -9,15 +9,19 @@
                 discussions with our experts.</p>
         </div>
     </div>
-    <div class="faq">
-        <h3>FAQs</h3>
-        <span class="caption">GENERAL</span>
-        <div v-for="(item, index) in questions" :key="item.order">
-            <button class="accordion">
-                <img src="~@/assets/image/faq/title.svg" alt="">
-                <span>{{ item.order }}</span>{{ item.question }}</button>
-            <div class="panel">
-                <p>{{ item.answer }}</p>
+    <div class="faq-width">
+        <div class="faq">
+            <div class="heading">
+                <h3>F A Q s</h3>
+            </div>
+            <span class="caption">GENERAL</span>
+            <div v-for="(item, index) in questions" :key="item.order">
+                <button class="accordion">
+                    <img src="~@/assets/image/faq/title.svg" alt="">
+                    <span>{{ item.order }}</span>{{ item.question }}</button>
+                <div class="panel">
+                    <p>{{ item.answer }}</p>
+                </div>
             </div>
         </div>
     </div>
@@ -26,7 +30,7 @@
 <style lang="scss">
 @import "@/assets/sass/page/_faq.scss";
 </style>
-
+<script src="./js/faq.js"></script>
 <script>
 export default {
     data() {
@@ -50,13 +54,13 @@ export default {
                 },
                 {
                     order: '04',
-                    question: '問題4：  太空旅遊是否對地球環境有負面影響？',
-                    answer: '回答4：  太空旅遊行業一直在努力減少對地球環境的影響。我們致力於減少火箭發射的碳排放，參與太空碎片清理，並探索在太空中利用資源以減少地球資源的壓力。同時，我們也支持環保項目，以促進地球的可持續性。'
+                    question: '太空旅遊是否對地球環境有負面影響？',
+                    answer: '太空旅遊行業一直在努力減少對地球環境的影響。我們致力於減少火箭發射的碳排放，參與太空碎片清理，並探索在太空中利用資源以減少地球資源的壓力。同時，我們也支持環保項目，以促進地球的可持續性。'
                 },
                 {
                     order: '05',
-                    question: '問題5：  太空旅遊的未來是什麼？',
-                    answer: '回答5：  太空旅遊的未來令人興奮。我們預期未來將有更多的太空旅遊目的地，包括登陸火星和其他星體。技術的不斷發展將使太空旅遊更加普及，並帶來更多的科學和商業機會。我們致力於推動太空旅遊的發展，讓更多人能夠參與這一獨特的探險體驗。'
+                    question: '太空旅遊的未來是什麼？',
+                    answer: '太空旅遊的未來令人興奮。我們預期未來將有更多的太空旅遊目的地，包括登陸火星和其他星體。技術的不斷發展將使太空旅遊更加普及，並帶來更多的科學和商業機會。我們致力於推動太空旅遊的發展，讓更多人能夠參與這一獨特的探險體驗。'
                 },
             ]
         };
