@@ -35,6 +35,12 @@
   </template>
   <script>
     export default {
+      data() {
+    return {
+      headericon: false // 初始化为false，隐藏登录按钮
+    };
+  },
+
     props: {
       value: String
     },
@@ -46,6 +52,7 @@
   };
 
   </script>
+
 
   <style scoped lang="scss"> 
   @import "@/assets/sass/page/_login.scss";
