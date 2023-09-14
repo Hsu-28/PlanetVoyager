@@ -98,6 +98,6 @@
 
 <script src="./views/js/app.js"></script>
 
-<style scope lang="scss">
+<style lang="scss">
  @import "~@/assets/sass/component/headerFooter.scss";
 </style>

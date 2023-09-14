@@ -1,3 +1,6 @@
+body{
+  background-color: black;
+}
 
   #app{
     width: 100%;
@@ -85,6 +88,7 @@
     text-align: start;
     margin-bottom: 24px;
     margin-left: 14%;
+    font-weight: 700;
   }
    .list a {
      color: $white;
@@ -105,6 +109,7 @@
     font-size: $c1;
     width: 26%;
     margin: 0 auto 0 auto;
+    font-weight: 700;
   }
   .tips{
     @include wh(100%, 300px);
