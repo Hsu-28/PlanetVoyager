@@ -5,23 +5,24 @@ export default {
           {
             titleC: "星際繞行" ,
             titleE: "PLANETARY ORBIT",
-            src: require("@/assets/image/ordertitle/PLANETARYORBIT.svg"),
-            path:"aboutus",
-          }, {
+            psrc: require("@/assets/image/ordertitle/Maskgroup.svg"),
+            bgsrc: require("@/assets/image/ordertitle/PLANETARYORBITBg.svg"),
+          }, 
+          {
             titleC: "月球" ,
             titleE: "MOON",
-            src: require("@/assets/image/ordertitle/moonp.svg"),
-            path:"aboutus",
-          }, {
+            psrc: require("@/assets/image/ordertitle/moon.svg"),
+            bgsrc: require("@/assets/image/ordertitle/moonbg.svg"),
+          },  {
             titleC: "火星" ,
             titleE: "MARS",
-            src: require("@/assets/image/ordertitle/PLANETARYORBIT.svg"),
-            path:"aboutus",
+            psrc: require("@/assets/image/ordertitle/mars.svg"),
+            bgsrc: require("@/assets/image/ordertitle/marsbg.svg"),
           }, {
             titleC: "金星" ,
             titleE: "VENUS",
-            src: require("@/assets/image/ordertitle/PLANETARYORBIT.svg"),
-            path:"aboutus",
+            psrc: require("@/assets/image/ordertitle/venus.svg"),
+            bgsrc: require("@/assets/image/ordertitle/venusbg.svg"),
           }
         ],
       };

@@ -1,3 +1,220 @@
+
+//   nav{
+//     position: relative;
+//     height: 104px;
+//   }
+  
+  
+//   .indexLogo{
+//     width: 120px;
+//   }
+//   .menu-p1{
+//     margin-left: 30%;
+//     margin-top: -10px;
+//     color: $white;
+//   }
+//   .menu-p2{
+//     text-align: center;
+//     margin-top: -10px;
+//     color: $white;
+//   }
+//   div.menu-btn img
+//   {
+//     @include wh(70px, 50px);
+//   }
+  
+//   div.login-btn img{
+//     @include wh(70px, 50px);
+//   }
+//   .btn-container{
+//     position: relative;
+//     margin-top: -5px;
+//     .btn{
+//       position: absolute;
+//       border: 1px solid transparent;
+//       top: -30%;
+//       left: 0;
+//       width: 74%;
+//       z-index: -1;
+//     }
+//     .btn-p{
+//       position: relative;
+//       margin-left: 11%;
+//       img{
+//         position: absolute;
+//         left: 13vw;
+//         bottom: 0.8vh;
+//       }
+      
+      
+     
+
+//     }
+//   }
+//   // img.btn-g{
+//   //   margin-top: -10px;
+//   // }
+ 
+
+//   .menu{
+//     width: 100%;
+//     height: 100vh;
+//     position: fixed;
+//     left: 0;
+//     top: 0;
+//     background-color: a(0, 0, 0, 0.86);
+//     z-index: 10;
+//     display: flex;
+//     flex-flow: row wrap;
+//   }
+  
+//   .menu-nav,
+//   .indexNav{
+//     width: 100%;
+//     height: 100px;
+//     display: flex;
+//     justify-content: space-between;
+//   } 
+//   .menu-nav img,
+//   .indexNav img{
+//     margin: 20px;
+//     margin-right: 10px;
+//     cursor: pointer;
+//     @include wh(70px, 50px);
+//   }
+  
+//   .list,
+//   .socialLink{
+//     height: 100%;
+//     width: 50%;
+//   }
+  
+//   .list li {
+//     font-size: 2.9vw;
+//     text-align: start;
+//     margin-bottom: 1.7vw;
+//     margin-left: 14%;
+//     font-weight: 600;
+//   }
+//    .list a {
+//      color: $white;
+//   }
+//   // .list a:nth-of-type(2){
+//   //   color: $blueL;
+//   // }
+  
+//   .list ul li:nth-child(2) a,
+//   .list ul li:nth-child(3) a,
+//   .list ul li:nth-child(4) a{
+//     color: $blueL;
+//   }
+  
+//   div.mediaLink{
+//     display: flex;
+//     flex-flow: column nowrap;
+//     font-size: 2vw;
+//     width: 26%;
+//     margin: 0 auto 0 auto;
+//     font-weight: 700;
+//   }
+//   .tips{
+//     @include wh(100%, 300px);
+//     margin: 0px auto 20px auto;
+//     padding: 10px  60px 60px 50px;
+//   }
+//   .tips p{
+//     font-size: 1.1vw;
+//   }
+  
+//   .tipsContainer{
+//     height: 40vh;
+//     border: 3px solid $blueL;
+//     margin-bottom: 10px;
+//     background-image: url(~@/assets/image/headerfooter/tipsbg.svg);
+//     background-position: 100px -20px;
+//     background-size: 120%;
+//   }
+//   .tipsContainer h3{
+//   margin-top: 10px;
+//   }
+//    .socialMediaLink  a{
+//      color: $white;
+//    }
+  
+  
+//    .mediaLink{
+//      color: $white;
+//   }
+//   .socialMediaLink{
+//     display: flex;
+//     flex-flow: row wrap;
+  
+//   }
+  
+//   .socialMediaLink div{
+//     width: 50%;
+//   }
+//   .mediaLink div{
+//    text-align: start;
+//    font-size: 1.1vw;
+//    line-height: 1.8;
+//    letter-spacing: 2px;
+//   }
+//   .mediaLink h3{
+//     font-size: 2.1vw;
+//     color: $blue;
+//     text-align: center;
+    
+//   }
+//   .mediaLink h4{
+//     margin-top: 2px;
+//     margin-bottom: 6px;
+//     text-align: start;
+//     font-size: 1.8vw;
+//     color: $blue;
+//   }
+//   .socialMediaLink img{
+//     width: 14%;
+//     transform: translateY(5px);
+//     // margin-top: 2px;
+//     margin-right: 2px;
+//   }
+//   .socialMediaLink .twitterImg{
+//     width: 12%;
+//   }
+//   img.facebookImg,
+//   img.instagramImg{
+//     transform: translateY(6px);
+//     margin-right: 4px;
+//     margin-top: 4px;
+//   }
+  
+//   nav img{
+//     cursor: pointer;
+//   }
+  
+//   .noweight{
+//     font-weight: 300;
+//   }
+
+//   .dec{
+//     position: absolute;
+//     margin-top: 10px;
+//     width: 1.46%;
+//     display: inline-block;
+//   }
+//   .dec-h4{
+//     margin-left: 10%;
+//   }
+//   .dec-p{
+//     margin-left:10%;
+//     margin-top: -10px;
+//     margin-bottom: 20px;
+//   }
+//   .dec-container{
+//     margin-top: 10px;
+//   }
+
 body{
   background-color: black;
 }
@@ -6,34 +223,173 @@ body{
     width: 100%;
     font-family: 'Oswald', 'Roboto Mono','Noto Serif JP', 'Noto Serif TC',  serif;
   }
-  nav{
-    position: relative;
-    height: 104px;
+
+.menu-nav,
+.indexNav{
+  margin-top: 20px;
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  img{
+    height: 26px;
   }
-  
-  
-  .indexLogo{
-    width: 120px;
+  .menu-btn,
+  .login-btn{
+    position: absolute;
   }
-  div.menu-btn img
-  {
-    @include wh(70px, 50px);
+  .menu-btn{
+    left: 10px;
+    top: 20px;
+    cursor: pointer;
   }
-  
-  div.login-btn img{
-    @include wh(50px, 50px);
+  .login-btn{
+    right: 10px;
+    top: 20px;
   }
-  .footer{
+}
+
+.menu{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  z-index: 10px;
+  background-color: rgba(0, 0, 0, 0.86);
+  font-size: 14px;
+  width: 100%;
+  .close-btn{
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    height: 26px;
+    cursor: pointer;
+  }
+  .login-btn-menu{
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    height: 26px;
+    .login-m{
+      opacity: 0;
+    }
+  }
+  .menu-content{
+    display: flex;
+    flex-flow: column wrap;
+    .list{
+      font-size: 24px;
+      width: 90%;
+      margin: 10px auto 0px auto;
+      li{
+        margin-top: 14px;
+        a{
+          color: $white;
+        }
+      }
+      li:nth-child(2) a,
+      li:nth-child(3) a,
+      li:nth-child(4) a {
+        color: $blueL; 
+      }
+    }
+    .mediaLink{
+      margin: 40px auto 0px auto;
+      font-size: 14px;
+      color: $white;
+      line-height: 1.5;
+      width: 90%;
+      h3{
+        color: $blueL;
+        font-size: 20px;
+      }
+    }
+    .socialMediaLink{
+      display: flex;
+      flex-flow: row wrap;
+      width: 90%;
+      a{
+        color: $white;
+      }
+      
+      .twitter,
+      .facebook,
+      .instagram,
+      .youtube{
+        width: 50%;
+        img{
+          height: 14px;
+          vertical-align:text-bottom;
+          margin-right: 2px;
+        }
+      }
+      // .youtube img{
+      //   display: block;
+      //   width: 14px;
+      //   height: 12px;
+      // }
+
+    }
+    h4{
+      margin-top: 20px;
+      margin-bottom: 5px;
+      font-size: 20px;
+      color: $blueL;
+    }
+    .dec-container{
+      margin-top: 20px;
+      .subus{
+        display: flex;
+        flex-flow: row nowrap;
+      }
+      .subus-contain{
+        margin-left: 10px;
+        display: flex;
+        flex-flow: column wrap;
+      }
+      .btn-container{
+        margin-top: 3px;
+        margin-bottom: 30px;
+        height: 38px;
+        background-image: url(~@/assets/image/headerfooter/btn.svg);
+        background-repeat: no-repeat;
+      }
+      .btn-p{
+        margin-left: 20px;
+        position: relative;
+        padding: auto;
+        background-repeat: no-repeat;
+        width: 240px;
+        height: 40px;
+        z-index: 1;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        img{
+          width: 16px;
+          margin: 0 20px 0 10px;
+        }
+
+      }
+      .dec-h4{
+        margin-top: 4px;
+      }
+    }
+    
+  }
+}
+
+   .footer{
     display: flex;
     width: 100%;
     background-color: $blackBG;
-    height: 80px;
+    height: 120px;
     position: relative;
     bottom: 0px;
     left: 0;
     justify-content: center;
     flex-flow: column wrap;
     align-items: center;
+    z-index: -1;
   }
   
   .footer-content{
@@ -41,141 +397,24 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 16px;
+    margin-bottom: 24px;
+    letter-spacing: 3px;
+    
   }
   
   .footer-content-info{
     color: $white;
+    font-weight: 600;
+    letter-spacing: 3px;
   }
   
   .footer-content a{
     color: $white;
+    font-weight: 400!important;
   }
-  .menu{
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.86);
-    z-index: 10;
-    display: flex;
-    flex-flow: row wrap;
+    .Social-Media{
+    color: $white;
+    font-weight: 200;
   }
-  
-  .menu-nav,
-  .indexNav{
-    width: 100%;
-    height: 100px;
-    display: flex;
-    justify-content: space-between;
-  } 
-  .menu-nav img,
-  .indexNav img{
-    margin: 20px;
-    cursor: pointer;
-  }
-  
-  .list,
-  .socialLink{
-    height: 100%;
-    width: 50%;
-  }
-  
-  .list li {
-    font-size: 46px;
-    text-align: start;
-    margin-bottom: 24px;
-    margin-left: 14%;
-    font-weight: 700;
-  }
-   .list a {
-     color: $white;
-  }
-  // .list a:nth-of-type(2){
-  //   color: $blueL;
-  // }
-  
-  .list ul li:nth-child(2) a,
-  .list ul li:nth-child(3) a,
-  .list ul li:nth-child(4) a{
-    color: $blueL;
-  }
-  
-  div.mediaLink{
-    display: flex;
-    flex-flow: column nowrap;
-    font-size: $c1;
-    width: 26%;
-    margin: 0 auto 0 auto;
-    font-weight: 700;
-  }
-  .tips{
-    @include wh(100%, 300px);
-    margin: 10px auto 20px auto;
-    padding: 10px  60px 60px 50px;
-  }
-  
-  .tipsContainer{
-    height: 350px;
-    border: 3px solid $blueL;
-    margin-bottom: 10px;
-    background-image: url(~@/assets/image/headerfooter/tipsbg.svg);
-    background-position: 100px -20px;
-    background-size: 120%;
-  }
-  .tipsContainer h3{
-  margin-top: 20px;
-  }
-   .socialMediaLink  a{
-     color: $white;
-   }
-  
-  
-   .mediaLink{
-     color: $white;
-  }
-  .socialMediaLink{
-    display: flex;
-    flex-flow: row wrap;
-  
-  }
-  
-  .socialMediaLink div{
-    width: 50%;
-  }
-  .mediaLink div{
-   text-align: start;
-   font-size: $c1;
-   line-height: 1.8;
-  }
-  .mediaLink h3{
-    font-size: $titleS;
-    color: $blue;
-    text-align: center;
-    
-  }
-  .mediaLink h4{
-    margin-top: 10px;
-    margin-bottom: 4px;
-    text-align: start;
-    font-size: 32px;
-    color: $blue;
-  }
-  .socialMediaLink img{
-    width: 32px;
-    transform: translateY(5px);
-  }
-  .socialMediaLink .twitterImg{
-    width: 28px;
-  }
-  img.facebookImg,
-  img.instagramImg{
-    transform: translateY(10px);
-  }
-  
-  nav img{
-    cursor: pointer;
-  }
-  
+
