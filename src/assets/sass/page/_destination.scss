@@ -1,29 +1,36 @@
-body{
+body {
     background-color: black;
 }
-h1{
-    font-size: $h1-l;
+
+h1 {
+    font-size: $h1-s;
     color: $white;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.h1-ch{
-    writing-mode:vertical-lr;
+
+
+.h1-ch {
+    writing-mode: vertical-lr;
 }
 
-.h1-en{
+.h1-en {
     margin-top: 50px;
-    font-weight:bolder;
+    font-weight: bolder;
 }
+
 /* 大氣層的樣式，使用box-shadow來產生特定的陰影效果。
 使用radial-gradient來模擬由中心向外的透明度變化，並且使其呈圓形。*/
 .planet__atmosphere {
-    box-shadow: 
-    -5px 0px 10px -4px #999999,/* 白色亮外框 */
-    inset 10px 0px 12px -2px rgba(255, 255, 255, .3),/* 白色亮內框 */
-    inset -50px 0px 50px 0px rgb(31, 30, 30); /*星球右側陰影*/
+    box-shadow:
+        -5px 0px 10px -4px #999999,
+        /* 白色亮外框 */
+        inset 10px 0px 12px -2px rgba(255, 255, 255, .3),
+        /* 白色亮內框 */
+        inset -50px 0px 50px 0px rgb(31, 30, 30);
+    /*星球右側陰影*/
     height: 190px;
     width: 190px;
     position: relative;
@@ -31,18 +38,22 @@ h1{
     border-radius: 100px;
     overflow: hidden;
 }
+
 /* 行星地表的樣式。並且有一個旋轉和縮放的效果，模仿行星的自轉。
 planetRotate的動畫，該動畫將背景位置由0%移動到-200%。 
 佔據其父元素（即大氣層）的整個空間，並將其背景圖像大小設置為cover以填充整個元素。*/
-.mars{
+.mars {
     background-image: url(/src/assets/image/destination/mars.jpg);
 }
-.moon{
+
+.moon {
     background-image: url(/src/assets/image/destination/moon.jpg);
 }
-.venus{
+
+.venus {
     background-image: url(/src/assets/image/destination/venus.jpg);
 }
+
 .planet__surface {
     transform: rotate(0.034deg) scale(1.2);
     animation: planetRotate 30s linear infinite;
@@ -52,6 +63,7 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     z-index: -1;
     background-size: cover;
 }
+
 @keyframes planetRotate {
     0% {
         background-position: 0% center;
@@ -61,3 +73,20 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
         background-position: -200% center;
     }
 }
+
+@media screen and (min-width: 700px) {
+    h1 {
+        font-size: $h1-m;
+    }
+
+
+}
+
+@media screen and (min-width: 1024px) {
+    h1 {
+        font-size: $h1-l;
+    }
+
+}
+
+@media screen and (min-width: 1800px) {}
