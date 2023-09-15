@@ -1,288 +1,155 @@
-.register-form{
-    font-size: 20px;
-   width: 488px;
-   font-weight: 700;
-    margin: 20px auto;
-    box-sizing: border-box;
-   .register-title{
-    vertical-align:middle;
+.register-all {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 120px;
 
-        path{
-          fill: $blue;
-        }
-       
-        text{
-            color: $black;
-        }
-       
-       
-  //  text-align: left;
-   } 
-   .register-border{
-    // opacity: 0.6;
-    // background: #1F084E;
-    // z-index: ;
-    box-sizing: border-box;
-    border-radius: 0px 20px 20px 20px;
-    border: 1px solid rgba(13, 242, 242, 0.88);
-        .register-select{
-            text-align: center;
-            *{
-                border-radius: 5px;
-                width: 97px;
-                height: 42px;
-                font-weight: 700;
-                line-height: 42px;
-            }
-            :first-child{
-                border: 2px solid $blueL  ;
-                background: $blueL;
-                color: #043260;
-            }
-            :last-child{
-                border: 2px solid #01C1FD;
-                background: rgba(1, 193, 253, 0.40);
-                color: #2D0779;
-            }
-
-                margin:50px 85px 35px 85px;
-                display:flex;
-                justify-content:space-between;
-        }
-
-        .register-from-con{
-                p{
-                text-align: center;
-            }
-            color: $black;
-            
-            form{
-                font-size: 16px;
-                margin: 0 auto;
-                width: 305px;
-                input{
-                    border-radius: 5px;
-                    border: 2px solid rgba(13, 242, 242, 0.88);
-                    background: rgba(217, 217, 217, 0.60);
-                    width: 100%;
-                    margin-top: 25px;
-                    padding: 5px;
-                    height: 35px;
-                
-                }
-            button{
-                
-                    margin-top: 27px;
-                    margin-bottom: 60px;
-                   
-                }
-
-            }
-
-        }
-    }
-
-}
-@font-face {
-    font-family: Cyber;
-    src: url("https://assets.codepen.io/605876/Blender-Pro-Bold.otf");
-    font-display: swap;
+  .sapcemanRight {
+    margin-top: 60px;
   }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-//   body {
-//     display: flex;
-//     align-items: center;
-//     flex-direction: column;
-//     justify-content: center;
-//     min-height: 100vh;
-//     font-family: 'Cyber', sans-serif;
-//     background: linear-gradient(90deg, #f5ed00 70%, #e6de00 70%), #fff700;
-//   }
-  
-  body .cybr-btn + .cybr-btn {
-    margin-top: 2rem;
-  }
-  
-  .cybr-btn {
-    --primary: hsl(var(--primary-hue), 85%, calc(var(--primary-lightness, 50) * 1%));
-    --shadow-primary: hsl(var(--shadow-primary-hue), 90%, 50%);
-    --primary-hue: 0;
-    --primary-lightness: 50;
-    --color: hsl(0, 0%, 100%);
-    --font-size: 20px;
-    --shadow-primary-hue: 180;
-    --label-size: 9px;
-    --shadow-secondary-hue: 60;
-    --shadow-secondary: hsl(var(--shadow-secondary-hue), 90%, 60%);
-    --clip: polygon(0 0, 100% 0, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 70%);//形狀
-    --border: 4px;
-    --shimmy-distance: 5;
-    --clip-one: polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 8% 95%, 0 70%);
-    --clip-two: polygon(0 78%, 100% 78%, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 78%);
-    --clip-three: polygon(0 44%, 100% 44%, 100% 54%, 95% 54%, 95% 54%, 85% 54%, 85% 54%, 8% 54%, 0 54%);
-    --clip-four: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
-    --clip-five: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
-    --clip-six: polygon(0 40%, 100% 40%, 100% 85%, 95% 85%, 95% 85%, 85% 85%, 85% 85%, 8% 85%, 0 70%);
-    --clip-seven: polygon(0 63%, 100% 63%, 100% 80%, 95% 80%, 95% 80%, 85% 80%, 85% 80%, 8% 80%, 0 70%);
-    font-family: 'Cyber', sans-serif;
-    color: var(--color);
-    cursor: pointer;
-    background: transparent;
-    text-transform: uppercase;
-    font-size: var(--font-size);
-    outline: transparent;
-    letter-spacing: 2px;
-    position: relative;
+
+  .register-form {
+    margin-left: 200px;
+    letter-spacing: 4.8px;
+
+    margin-right: 60px;
+    margin-top: 120px;
+    font-size: 16px;
+    width: 390px;
     font-weight: 700;
-    border: 0;
-    @include wh(308px,50px);
-    
-    min-width: 300px;
-    line-height: 55px;
-    transition: background 0.2s;
-  }
-  
-  .cybr-btn:hover {
-    --primary: hsl(var(--primary-hue), 85%, calc(var(--primary-lightness, 50) * 0.8%));
-  }
-  .cybr-btn:active {
-    --primary: hsl(var(--primary-hue), 85%, calc(var(--primary-lightness, 50) * 0.6%));
-  }
-  
-  .cybr-btn:after,
-  .cybr-btn:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    clip-path: var(--clip);  //形狀
-    z-index: -1;
-  }
-  
-  .cybr-btn:before {
-    background: var(--shadow-primary);
-    transform: translate(var(--border), 0);
-  }
-  
-  .cybr-btn:after {
-    // background: var(--primary); //之前顏色
-    background: $blue;
+    box-sizing: border-box;
+
+    .register-title {
+      vertical-align: middle;
+
+      path {
+        fill: $blue;
+      }
+
+      text {
+        color: $black;
+        // letter-spacing: 4.8px;
+
+      }
+
+
+      //  text-align: left;
+    }
+
+    .register-border {
+      background: $blueO ;
+      // opacity: 0.6;
+      // background: #1F084E;
+      // z-index: ;
+      box-sizing: border-box;
+      border-radius: 0px 20px 20px 20px;
+      border: 1px solid rgba(13, 242, 242, 0.88);
+
+      .register-select {
+        width: 297px;
+        text-align: center;
+        display: flex;
+        margin: 42px 42px 28px 42px;
+        justify-content: space-between;
+
+        * {
+          border-radius: 5px;
+          width: 78px;
+          height: 34px;
+          font-weight: 700;
+          line-height: 28px;
+        }
+
+        a:hover {
+          background: $blueL;
+        }
+
+        :first-child {
+          border: 2px solid $blueL ;
+          background: $blueL;
+          color: #043260;
+        }
+
+        :last-child {
+          border: 2px solid #01C1FD;
+          background: rgba(1, 193, 253, 0.40);
+          color: #2D0779;
+        }
+
+      }
+
+      .register-from-con {
+        border-top: 2px solid $blueL;
+        width: 297px;
+        color: $black;
+        margin: 0 auto;
+        position: relative;
+        ;
+
+        .black {
+          background: $blueL;
+          width: 1.6px;
+          height: 4px;
+
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+
+        p {
+          color: $blueL;
+          margin-top: 24px;
+          text-align: center;
+        }
+
+
+        form {
+          font-size: 12px;
+          margin: 0 auto;
+          width: 244px;
+
+          ::placeholder {
+            color: rgba(70, 66, 66, 0.6);
+            letter-spacing: 2px;
+          }
+
+          input {
+            border-radius: 5px;
+            border: 2px solid rgba(13, 242, 242, 0.88);
+            background: rgba(217, 217, 217, 0.60);
+            width: 100%;
+            margin-top: 20px;
+            padding: 3px;
+            height: 28px;
+            letter-spacing: 2px;
+          }
+
+          button {
+
+            --font-size: 16px;
+            // --label-size: 3px;
+            @include wh(243px, 35px);
+            letter-spacing: 4.8px;
+            --rightTag: 3%;
+            --bottomTag: -18%;
+            --label-size: 12px;
+            min-width: 243px;
+            line-height: 40px;
+            margin-top: 21px;
+            margin-bottom: 60px;
+
+            span:last-child {
+              padding: 0px 2px;
+
+              letter-spacing: 1.4px;
+            }
+
+
+          }
+
+        }
+
+      }
+    }
 
   }
-  
-  .cybr-btn__tag {
-    position: absolute;
-    padding: 1px 4px;
-    letter-spacing: 1px;
-    line-height: 1;
-    bottom: -13%;
-    right: 5%;
-    font-weight: normal;
-    color: hsl(0, 0%, 0%);
-    font-size: var(--label-size);
-  }
-  
-  .cybr-btn__glitch {
-    position: absolute;
-    top: calc(var(--border) * -1);
-    left: calc(var(--border) * -1);
-    right: calc(var(--border) * -1);
-    bottom: calc(var(--border) * -1);
-    background: var(--shadow-primary);
-    text-shadow: 2px 2px var(--shadow-primary), -2px -2px var(--shadow-secondary);
-    clip-path: var(--clip);
-    animation: glitch 1.6s infinite;
-    display: none;
-  }
-  
-  .cybr-btn:hover .cybr-btn__glitch {
-    display: block;
-  }
-  
-  .cybr-btn__glitch:before {
-    content: '';
-    position: absolute;
-    top: calc(var(--border) * 1);
-    right: calc(var(--border) * 1);
-    bottom: calc(var(--border) * 1);
-    left: calc(var(--border) * 1);
-    clip-path: var(--clip);
-    // background: var(--primary);
-    // background: #0DF2F2; //閃顏色
-    background:#29e2f3;
-    z-index: -1;
-     
-  }
-  
-  @keyframes glitch {
-    0% {
-      clip-path: var(--clip-one);
-    }
-    2%, 8% {
-      clip-path: var(--clip-two);
-      transform: translate(calc(var(--shimmy-distance) * -1%), 0);
-    }
-    6% {
-      clip-path: var(--clip-two);
-      transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-    }
-    9% {
-      clip-path: var(--clip-two);
-      transform: translate(0, 0);
-    }
-    10% {
-      clip-path: var(--clip-three);
-      transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-    }
-    13% {
-      clip-path: var(--clip-three);
-      transform: translate(0, 0);
-    }
-    14%, 21% {
-      clip-path: var(--clip-four);
-      transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-    }
-    25% {
-      clip-path: var(--clip-five);
-      transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-    }
-    30% {
-      clip-path: var(--clip-five);
-      transform: translate(calc(var(--shimmy-distance) * -1%), 0);
-    }
-    35%, 45% {
-      clip-path: var(--clip-six);
-      transform: translate(calc(var(--shimmy-distance) * -1%));
-    }
-    40% {
-      clip-path: var(--clip-six);
-      transform: translate(calc(var(--shimmy-distance) * 1%));
-    }
-    50% {
-      clip-path: var(--clip-six);
-      transform: translate(0, 0);
-    }
-    55% {
-      clip-path: var(--clip-seven);
-      transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-    }
-    60% {
-      clip-path: var(--clip-seven);
-      transform: translate(0, 0);
-    }
-    31%, 61%, 100% {
-      clip-path: var(--clip-four);
-    }
-  }
-  .cybr-btn:nth-of-type(2) {
-    --primary-hue: 260;
-  }
-//   .asd{
-//   background: #08060B;
-//   }
+}
