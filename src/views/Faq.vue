@@ -30,7 +30,7 @@
 <style s lang="scss">
 @import "@/assets/sass/page/_faq.scss";
 </style>
-<script src="./js/faq.js"></script>
+<!-- <script src="./js/faq.js"></script> -->
 <script>
 export default {
     data() {

@@ -1,6 +1,14 @@
 #technology{
+    // body{
+    //     background-image: ;
+    // }
     .ma-0{
         margin: 0 auto;
+    }
+    img{
+        display: block;
+        max-width: 100%;
+        height: auto;
     }
     .banner{
         width: 100%;
@@ -12,6 +20,9 @@
                 font-size: 62px;
                 font-weight: 700;
                 color: $white;
+                &:first-child{
+                    padding-top: 100px;
+                }
             }
         }
         .spaceship-pic img{
@@ -33,5 +44,40 @@
     }
     .wrap{
         max-width: 1200px;
+        .spaceship-intro{
+            display: grid;
+            width: 1100px;
+            grid-template-columns: 385px 40px 415px 40px 205px;
+            grid-template-rows: 250px 145px 250px 20px 150px;
+            .center{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .neon-border{
+                border: 2px solid $blueL;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px 4px $blueL;
+            }
+            .spaceship-pic:first-child{
+                grid-area: 1/1/4/5;
+            }
+            .spaceship-pic:nth-child(2){
+                grid-area: 1/4/2/6;
+                z-index: 5;
+            }
+            .spaceship-pic:nth-child(3){
+                grid-area: 3/4/4/6;
+                z-index: 5;
+            }
+            .spaceship-feature{
+                grid-area: 5/-6/6/-5;
+                padding: 10px;
+            }
+            .spaceship-txt{
+                grid-area: 5/-4/6/-1;
+                padding: 10px;
+            }
+        }
     }
 }
