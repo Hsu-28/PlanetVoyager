@@ -13,7 +13,7 @@ export default {
             titleC: "星際旅程" ,
             titleE: "DESTINATION",
             color: "$blueL",
-            path:"aboutus",
+            path:"destination",
           }, {
             titleC: "訂購旅程" ,
             titleE: "BOOKING",

@@ -19,13 +19,13 @@ body{
 planetRotate的動畫，該動畫將背景位置由0%移動到-200%。 
 佔據其父元素（即大氣層）的整個空間，並將其背景圖像大小設置為cover以填充整個元素。*/
 .mars{
-    background-image: url(/src/assets/image/aboutus/mars.jpg);
+    background-image: url(/src/assets/image/destination/mars.jpg);
 }
 .moon{
-    background-image: url(/src/assets/image/aboutus/moon.jpg);
+    background-image: url(/src/assets/image/destination/moon.jpg);
 }
 .venus{
-    background-image: url(/src/assets/image/aboutus/venus.jpg);
+    background-image: url(/src/assets/image/destination/venus.jpg);
 }
 .planet__surface {
     transform: rotate(0.034deg) scale(1.2);
