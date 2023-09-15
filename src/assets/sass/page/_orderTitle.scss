@@ -4,16 +4,28 @@
     width: 90%;
     justify-content: space-around;
     margin: auto;
+    margin-top: 100px;
+    margin-bottom: 120px;
+    height: 90%;
 }
 
 .order-item{
     position: relative;
-    background-image: url("~@/assets/image/ordertitle/PLANETARYORBITBg.svg");
+    // background-image: url("~@/assets/image/ordertitle/PLANETARYORBITBg.svg");
     background-repeat: no-repeat;
-    background-size: contain;
-    height: 400px;
-    width: 22%;
-    margin-bottom: 200px;
+    background-size: cover;
+    height: 600px;
+    width: 21%;
+    .imgContaint{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        .img-bg{
+            height: 100%;
+            
+        }
+    }
+    
     .order-title{
         width: 100%;
         color: $white;
@@ -24,16 +36,17 @@
         img{
             display: block;
             margin: auto;
-            
+            width: 50%;  
         }
         p,h2{
             text-align: center;
         }
         p{
-            font-size: $c2;
+            font-size: $p2-l;
+            margin-bottom: 10px;
         }
         h2{
-            font-size: $titleS;
+            font-size: $h1-l;
         }
         
     }
@@ -52,6 +65,24 @@
     p{
         margin-top: 20px;
         margin-bottom: -8px;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .order-container{
+        flex-flow: row wrap;
+        margin-bottom: 0;
+    }
+    .order-item{
+        width: 40%;
+        margin-bottom: 160px;
+        
+    }
+    .order-item .order-title h2{
+        font-size: 48px;
+    }
+    .order-item .order-title p{
+        font-size: 30px;
     }
 }
 
