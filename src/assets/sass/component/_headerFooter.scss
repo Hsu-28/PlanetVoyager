@@ -218,17 +218,10 @@ body {
   background-color: black;
 }
 
-<<<<<<< HEAD
 #app {
 
   font-family: 'Oswald', 'Roboto Mono', 'Noto Serif JP', 'Noto Serif TC', serif;
 }
-=======
-  #app{
-
-    font-family: 'Oswald', 'Roboto Mono','Noto Serif JP', 'Noto Serif TC',  serif;
-  }
->>>>>>> Xu
 
 .menu-nav,
 .indexNav {
@@ -410,10 +403,6 @@ body {
   }
 }
 
-<<<<<<< HEAD
-.footer {
-  display: flex;
-=======
 .footer{
   display: flex;
 
@@ -574,6 +563,7 @@ body {
     }
     .menu-content .dec-container .btn-container{
       margin-top: -10px;
+      cursor: pointer;
     }
   } 
   .menu {
@@ -592,9 +582,7 @@ body {
   .menu .menu-content .dec-container .subus{
     margin-top: -20px;
   }
-}
->>>>>>> Xu
-
+.footer{
   width: 100%;
   background-color: $blackBG;
   height: 120px;
@@ -626,13 +614,4 @@ body {
   letter-spacing: 3px;
 }
 
-.footer-content a {
-  color: $white;
-  font-weight: 400 !important;
-  cursor: pointer;
-}
-
-.Social-Media {
-  color: $white;
-  font-weight: 200;
 }
