@@ -218,10 +218,17 @@ body {
   background-color: black;
 }
 
+<<<<<<< HEAD
 #app {
 
   font-family: 'Oswald', 'Roboto Mono', 'Noto Serif JP', 'Noto Serif TC', serif;
 }
+=======
+  #app{
+
+    font-family: 'Oswald', 'Roboto Mono','Noto Serif JP', 'Noto Serif TC',  serif;
+  }
+>>>>>>> Xu
 
 .menu-nav,
 .indexNav {
@@ -403,8 +410,190 @@ body {
   }
 }
 
+<<<<<<< HEAD
 .footer {
   display: flex;
+=======
+.footer{
+  display: flex;
+
+  width: 100%;
+  background-color: $blackBG;
+  height: 120px;
+  position: relative;
+  bottom: 0px;
+  left: 0;
+  justify-content: center;
+  flex-flow: column wrap;
+  align-items: center;
+  z-index: 1;
+}
+
+.footer-content{
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 16px;
+  margin-bottom: 24px;
+  letter-spacing: 3px;
+  z-index: 2;
+
+  
+}
+
+.footer-content-info{
+  color: $white;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+.footer-content a{
+  color: $white;
+  font-weight: 400!important;
+  cursor: pointer;
+}
+
+  .Social-Media{
+  color: $white;
+  font-weight: 200;
+}
+
+
+@media screen and (min-width: 580px) {
+  .menu {
+    .menu-content {
+      .socialMediaLink {
+        .twitter,
+        .facebook,
+        .instagram,
+        .youtube {
+          width: 25%;
+        }
+      }
+    }
+  } 
+}
+
+
+@media screen and (min-width: 768px) {
+  .menu-nav,
+  .indexNav{
+    img{
+      height: 70px;
+      width: 50px;
+    }
+    .indexLogo{
+      width: 70px;
+
+    }
+  }
+  .menu {
+    .close-btn{
+      height: 70px;
+      width: 50px;
+    }
+    .menu-content{
+      max-width: 1200px;
+      flex-flow: row nowrap;
+      width: 90%;
+      margin: auto;
+      .socialMediaLink {
+        .twitter,
+        .facebook,
+        .instagram,
+        .youtube {
+          width: 0px;
+        }
+      }
+      .list{
+        margin-top: 0px;
+        font-size: 48px;
+        li {
+            font-size: 2.9vw;
+            text-align: start;
+            margin-bottom: 1.7vw;
+            font-weight: 600;
+          }
+      }
+      .mediaLink{
+        max-width: 360px;
+        margin: 10px 10% 0 auto;
+        .tipsContainer{
+          width: 100%;
+          margin: auto;
+          border: 3px solid $blue;
+          padding: 4%;
+          background-image: url(~@/assets/image/headerfooter/tipsbg.svg);
+          h3{
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 30px;
+          }
+          .tips p{
+                font-size: 1.3vw;
+                letter-spacing: 1px;
+              }
+          
+        }
+        h4{
+          margin: 16px auto 10px auto;
+          font-size: 28px;
+        }
+        .socialMediaLink {
+          .twitter,
+          .facebook,
+          .instagram,
+          .youtube {
+            width: 50%;
+            font-size: 16px;
+            margin-bottom: 10px;
+          }
+          h4.dec-h4{
+            margin-left:-100px;
+          }
+        }
+      } 
+      .dec-container{
+        h4{
+          margin-left: 0;
+          margin-bottom: 3px;
+        }
+        .dec{
+          width: 5%;
+          height: 90px;
+        }
+        .subus-contain{
+          margin-top: -100ox;
+        }
+        
+      }
+      .dec-container .btn-container p{
+        margin-left: 30px;
+      }
+    }
+    .menu-content .dec-container .btn-container{
+      margin-top: -10px;
+    }
+  } 
+  .menu {
+    .menu-content {
+      .socialMediaLink {
+        .twitter img,
+        .facebook img,
+        .instagram img,
+        .youtube img {
+          height: 24px;
+          margin-top: 2px;
+        }
+      }
+    }
+  }
+  .menu .menu-content .dec-container .subus{
+    margin-top: -20px;
+  }
+}
+>>>>>>> Xu
 
   width: 100%;
   background-color: $blackBG;

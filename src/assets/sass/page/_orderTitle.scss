@@ -1,6 +1,26 @@
+
+  .order-item:hover .orderP{
+    transition: all 0.8s;
+    transform: scale(1.2);
+  }
+  .order-item:hover .img-bg{
+    transform: scale(1.2);
+    transition: all 0.8s;
+    
+  }
+  .order-item:hover {
+    box-shadow: 
+    6px 6px 8px rgba($color: #c1c1c1, $alpha: 0.6), 
+    -6px 6px 8px rgba($color: #c1c1c1, $alpha: 0.6), 
+    6px -6px 8px rgba($color: #c1c1c1, $alpha: 0.6),
+    -6px -6px 8px rgba($color: #c1c1c1, $alpha: 0.6); 
+    transition: all 0.8s;
+  }
+
 .order-container{
+    max-width: 1280px;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     width: 90%;
     justify-content: space-around;
     margin: auto;
@@ -14,15 +34,16 @@
     // background-image: url("~@/assets/image/ordertitle/PLANETARYORBITBg.svg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 600px;
-    width: 21%;
+    height: 460px;
+    width: 80%;
+    margin-bottom: 100px;
     .imgContaint{
         width: 100%;
         height: 100%;
         overflow: hidden;
+        z-index: 0;
         .img-bg{
             height: 100%;
-            
         }
     }
     
@@ -42,11 +63,11 @@
             text-align: center;
         }
         p{
-            font-size: $p2-l;
+            font-size: 16px;
             margin-bottom: 10px;
         }
         h2{
-            font-size: $h1-l;
+            font-size: 36px;
         }
         
     }
@@ -68,7 +89,7 @@
     }
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (min-width: 375px) {
     .order-container{
         flex-flow: row wrap;
         margin-bottom: 0;
@@ -76,13 +97,49 @@
     .order-item{
         width: 40%;
         margin-bottom: 160px;
-        
+        .imgContaint{
+            height: 100%;
+            overflow: hidden;
+            .img-bg{
+                height: 100%;
+                
+                
+            }
+        } 
     }
     .order-item .order-title h2{
-        font-size: 48px;
+        font-size: 34px;
     }
     .order-item .order-title p{
-        font-size: 30px;
+        font-size: 18px;
     }
 }
+
+
+@media screen and (min-width: 768px) {
+    .order-item{
+        height: 460px;
+        width: 21%;
+        margin-bottom: 100px;
+        .imgContaint{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            .img-bg{
+               height: 100%;
+               width: auto;
+                display: block;
+                margin: auto;
+     
+                
+            }
+        }
+
+    .order-item .order-title h2{
+        font-size: $h1-l;
+    }
+    .order-item .order-title p{
+        font-size: $p2-l;
+    }
+}}
 

@@ -12,7 +12,6 @@
 export default {
 
     props: ['cTitle', 'eTitle']
-
 }
 </script>
 <style scoped lang="scss">
