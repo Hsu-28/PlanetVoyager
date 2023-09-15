@@ -1,6 +1,6 @@
 <template>
-  <h1>星際旅程 <span>DESTINATION</span></h1>
-  <h2>行星介紹 <span>INTRODUCTION</span></h2>
+  <h1><span class="h1-ch">星際旅程</span> <span class="h1-en">DESTINATION</span></h1>
+  <H2Style cTitle="行星介紹" eTitle="INTRODUCTION"></H2Style>
   <article class="tab-demo">
     <ul class="tab-title">
       <li v-for="(planet, index) in planetCard" :key="planet.en_name" class="active">
@@ -21,7 +21,7 @@
       </article>
 
       <article >
-        <h2>{{ planet.ch_name }}<span>{{ planet.en_namebig }}</span></h2>
+        <H2Style :cTitle=" planet.ch_name " :eTitle=" planet.en_namebig "></H2Style>
         <article>
           <div>
             <div>
@@ -35,7 +35,7 @@
             <div>
               <h3>{{ planet.title1 }}</h3>
               <p>{{ planet.note1 }}</p>
-              <button>訂購</button>
+              <ButtonStyle buttonText="訂購" buttonBottomText="-PV-"></ButtonStyle>
             </div>
             <div>
               <p>{{ planet.info1 }}</p>
@@ -74,8 +74,16 @@
 <style  scoped lang="scss">
 @import "~@/assets/sass/page/destination.scss";
 </style>
+
 <script>
+
+import H2Style from '../components/SectionTitle.vue';
+import ButtonStyle from '../components/ButtonFlash.vue';
 export default {
+  components: {
+          H2Style,ButtonStyle
+        },
+
   data() {
     return {
       planetCard: [
@@ -98,7 +106,7 @@ export default {
         {
           en_name: 'moon',
           en_namebig: 'MOON',
-          info: '月球是地球唯一的自然卫星，距离地球约38.4万千米。它没有大气层，没有液态水，因此气候极端。月球表面分为高地和低地，前者布满撞击坑，后者相对平坦。著名特征包括巨大的撞击坑，最著名的是环形山。月球还有古老的火山平原，被称为月海。月球对地球产生引潮力，导致潮汐现象。人类首次登月是在1969年阿波罗11号任务中，月球一直是太空探索的关键目标，未来可能成为太空基地，支持更深入的太空探索。',
+          info: '月球是地球唯一的自然衛星，距離地球約38.4萬千米。它沒有大氣層，沒有液態水，因此氣候極端。月球表面分為高地和低地，前者佈滿撞擊坑，後者相對平坦。著名特徵包括巨大的撞擊坑，最著名的是環形山。月球還有古老的火山平原，被稱為月海。月球對地球產生引潮力，導致潮汐現象。人類首次登月是在1969年阿波羅11號任務中，月球一直是太空探索的關鍵目標，未來可能成為太空基地，支持更深入的太空探索。',
           ch_name: '月球',
           img1: require("@/assets/image/destination/moon01.svg"),
           img2: require("@/assets/image/destination/moon02.svg"),

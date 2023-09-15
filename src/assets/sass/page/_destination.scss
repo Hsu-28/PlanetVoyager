@@ -1,6 +1,22 @@
 body{
     background-color: black;
 }
+h1{
+    font-size: $h1-l;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.h1-ch{
+    writing-mode:vertical-lr;
+}
+
+.h1-en{
+    margin-top: 50px;
+    font-weight:bolder;
+}
 /* 大氣層的樣式，使用box-shadow來產生特定的陰影效果。
 使用radial-gradient來模擬由中心向外的透明度變化，並且使其呈圓形。*/
 .planet__atmosphere {
