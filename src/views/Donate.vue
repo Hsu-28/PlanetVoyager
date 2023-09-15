@@ -1,6 +1,10 @@
 <template>
-  <!-- <img src="../assets/image/donate/bg.svg" alt="" style="width: 100%;"> -->
-  <img src="../assets/image/donate/donate.svg" alt="" style="width: 100%;">
+  <div class="banner">
+    <div class="tit">
+      <h1>支持星際探險</h1>
+      <span>SUPPORT</span>
+    </div>
+  </div>
   <div class="donate">
     <section class="preface">
       <div class="down">
@@ -39,35 +43,66 @@
         </div>
         <p>另外，加入會員還可以根據您的支持程度兌換精美禮品！這是我們對您忠誠支持的感謝，也是實現太空探索的一部分。<br>
           捐款金額擊兌換禮品如以下圖示，歡迎加入Planet Voyager會員計畫，享受這些精彩特典，並一同點亮太空的星星！</p>
-        <table>
-          <tr>
-            <td> </td>
-            <td><img style="width: 30px;" src="../assets/image/donate/member.svg" alt=""><br>銀</td>
-            <td><img style="width: 30px;" src="../assets/image/donate/member.svg" alt=""><br>金</td>
-            <td><img style="width: 30px;" src="../assets/image/donate/member.svg" alt=""><br>白金</td>
-            <td><img style="width: 30px;" src="../assets/image/donate/member-top.svg" alt=""><br>鑽石</td>
-          </tr>
-          <div class="line"></div>
-          <tr>
-            <td>達標金額</td>
-            <td>NT$3,000</td>
-            <td>NT$6,000</td>
-            <td>NT$20,000</td>
-            <td>NT$100,000</td>
-          </tr>
-          <tr>
-            <td>贈品</td>
-            <td>鑰匙圈</td>
-            <td>棒球帽</td>
-            <td>帽T</td>
-            <td>太空人頭盔</td>
-          </tr>
-        </table>
+        <div class="tb-l">
+          <table>
+            <tr>
+              <td> </td>
+              <td><img style="width: 30px;" src="../assets/image/donate/member.svg" alt=""><br>銀</td>
+              <td><img style="width: 30px;" src="../assets/image/donate/member.svg" alt=""><br>金</td>
+              <td><img style="width: 30px;" src="../assets/image/donate/member.svg" alt=""><br>白金</td>
+              <td><img style="width: 30px;" src="../assets/image/donate/member-top.svg" alt=""><br>鑽石</td>
+            </tr>
+            <tr>
+              <td>達標金額</td>
+              <td>NT$3,000</td>
+              <td>NT$6,000</td>
+              <td>NT$20,000</td>
+              <td>NT$100,000</td>
+            </tr>
+            <tr>
+              <td>贈品</td>
+              <td>鑰匙圈</td>
+              <td>棒球帽</td>
+              <td>帽T</td>
+              <td>太空人頭盔</td>
+            </tr>
+          </table>
+        </div>
+        <div class="tb-c">
+          <table>
+            <tr>
+              <td> </td>
+              <td>達標金額</td>
+              <td>贈品</td>
+            </tr>
+            <div class="line"></div>
+            <tr>
+              <td><img style="width: 30px;" src="../assets/image/donate/member.svg" alt=""> 銀</td>
+              <td>NT$3,000</td>
+              <td>鑰匙圈</td>
+            </tr>
+            <tr>
+              <td><img style="width: 30px;" src="../assets/image/donate/member.svg" alt=""> 金</td>
+              <td>NT$6,000</td>
+              <td>棒球帽</td>
+            </tr>
+            <tr>
+              <td><img style="width: 30px;" src="../assets/image/donate/member.svg" alt=""> 白金</td>
+              <td>NT$20,000</td>
+              <td>帽T</td>
+            </tr>
+            <tr>
+              <td><img style="width: 30px;" src="../assets/image/donate/member-top.svg" alt=""> 鑽石</td>
+              <td>NT$100,000</td>
+              <td>太空人頭盔</td>
+            </tr>
+          </table>
+        </div>
         <div class="bottom">
           <img src="../assets/image/donate/detail02.svg" alt="">
         </div>
       </div>
-      <div class="money">
+      <div class="money" id="section1">
         <div class="sticky">
           <h3>選擇金額</h3>
           <div class="support">
@@ -88,6 +123,9 @@
         </div>
       </div>
     </section>
+    <div class="btn-bottom-c">
+      <a href="#section1" class="btn-bottom">我要捐款</a>
+    </div>
   </div>
   <router-view />
 </template>
