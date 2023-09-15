@@ -4,18 +4,10 @@ body {
 main{
     margin-top:10%
 }
-.tab-title li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    background-color: #ccc;
-    text-decoration: none;
-  }
-  
-  .tab-title li.active a {
-    color: #fff;
-    background-color: #0071bc;
-  }
+
+.active button{ 
+    color: $white;
+}
 
 p{
     color: $white;
@@ -96,7 +88,6 @@ h3{
     
     font-size:$p2-s;
 }
-
 
 @media screen and (min-width: 700px) {
     h1 {
