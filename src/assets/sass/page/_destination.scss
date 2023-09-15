@@ -1,7 +1,25 @@
 body {
     background-color: black;
 }
+main{
+    margin-top:10%
+}
+.tab-title li a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    background-color: #ccc;
+    text-decoration: none;
+  }
+  
+  .tab-title li.active a {
+    color: #fff;
+    background-color: #0071bc;
+  }
 
+p{
+    color: $white;
+}
 h1 {
     font-size: $h1-s;
     color: $white;
@@ -9,15 +27,11 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-
-.h1-ch {
-    writing-mode: vertical-lr;
+    margin: 35% 0;
 }
 
 .h1-en {
-    margin-top: 50px;
+    margin-top: 1rem;
     font-weight: bolder;
 }
 
@@ -74,17 +88,42 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     }
 }
 
+h3{
+    color: $white;
+    font-size:$h2-s;
+}
+.info{
+    
+    font-size:$p2-s;
+}
+
+
 @media screen and (min-width: 700px) {
     h1 {
         font-size: $h1-m;
     }
+    .h1-ch {
+        writing-mode: vertical-lr;
+    }
+    h3{
+        font-size:$h2-m;
+    }
 
+    .info{
+        font-size:$p2-m;
+    }
 
 }
 
 @media screen and (min-width: 1024px) {
     h1 {
         font-size: $h1-l;
+    }
+    h3{
+        font-size:$h2-l;
+    }
+    .info{
+        font-size:$p2-l;
     }
 
 }
