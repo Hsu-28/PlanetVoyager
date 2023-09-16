@@ -71,7 +71,17 @@ export default {
             this.headericon = true;
         },
         login(){
-          fetch('https://tibamef2e.com/cgd103/g1/api/getProducts.php?order=prod_name&limit=9&page=1')
+          let input = {
+              mem_account: 'charmy101@gmail.com',
+              mem_psw: 'charmy101'
+          }
+          fetch('https://tibamef2e.com/cgd103/g1/api/getProducts.php?order=prod_name&limit=9&page=1',{
+          method: 'POST',
+          body: new URLSearchParams(input)
+          }
+        )
+          
+
           .then(res=>res.json())
           .then(json => console.log(json))
         }

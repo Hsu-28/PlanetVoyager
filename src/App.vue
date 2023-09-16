@@ -9,7 +9,7 @@
       <img src="~@/assets/image/pvlogo.svg" alt="" class="indexLogo" v-show="headericon" router-link to="/">
     </router-link>
 
-    <div ref="loginButton" class="login-btn" v-show="headericon" @click="login">
+    <div ref="loginButton" class="login-btn" v-show="headericon">
       <router-link to="/login">
         <img src="~@/assets/image/headerfooter/login.svg" alt="login" class="login">
 
