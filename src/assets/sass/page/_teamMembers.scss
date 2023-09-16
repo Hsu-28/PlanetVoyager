@@ -2,12 +2,14 @@
     margin-top: 20px;
     position: relative;
     color: $white;
+    // 
+    width: 100vw;
+    max-width: 100%;
 
     img {
         max-width: 100%;
         width: 100vw;
     }
-
     .introduceTitle {
         font-size: $h1-l ;
         color: $white;
@@ -15,7 +17,7 @@
         top: 19%;
         right: 19.8%;
         text-align: center;
-
+        line-height: 1.2;
     }
 }
 .jobAll{
@@ -23,11 +25,13 @@
     // position: relative;
     color: $white;
     font-weight: 700;
-    width: 1200px;
+    // width: 1200px;
+    max-width: 1200px;
+    width: 95%;
     margin: 0 auto;
     margin-bottom: 200px;
     .introduceTeam {
-        width: 1000px;
+        width: 83vw;
         margin: 0 auto;
         margin-top:  10vh;
        
@@ -60,7 +64,10 @@
                 border-radius: 10px 10px 50px 10px;
                 border: 3px solid $white;
                 background: rgba(43, 42, 42, 0.80);
+                // transform: scale();
                 .imgContent{  
+                    
+                    min-width: 200px;
                      @include wh(270px,334px); 
                      overflow: hidden;
                     img{    
@@ -200,9 +207,19 @@
 
 
 // ===================R E D ====================
-@media screen and (min-width: 768px) {
+// @media screen and (max-width: 768px) {
+//     .individual{
+//         transform: scale(0.8);
+//     }
 
 
+// }
+// @media screen and (max-width: 375px) {
+//     .individual{
+//         transform: scale(0.8);
+//     }
 
-}
+
+// }
+
 

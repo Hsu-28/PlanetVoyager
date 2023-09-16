@@ -46,7 +46,7 @@
             <div v-if="showDetail" class="allDetail">
                 <div class="memberDetail"> 
                     <div class="blur"></div>
-                    <button @click="detailClose">close</button>
+                    <button @click="detailClose">CLOSE</button>
                     <p class="clickName">{{ detailContent.name }}</p>
                     <p class="clickTitle">{{ detailContent.nameJob }}</p>
                     <div class="memberContent">
@@ -191,7 +191,7 @@ export default {
                     name: "ETHAN LAMBERT",
                     nameJob: "外部維修",
                     imgSvg: require("@/assets/image/teamMembers/memberSvg/ASTRONAUT02.svg"),
-                    text: `Sienna Foster，澳大利亞出生，是太空機械工程的先驅者。他在悉尼科技大學完成她的機械工程學位，後在美國太空機構NASA深化其太空機械維護的技能。她是首批專門受訓於太空外部維修的工程師之一，曾多次成功完成國際太空站的緊急維修任務。Sienna 的工作不只是維護，她還參與了許多太空船設計的創新，使其更適應外部維修。在太空旅遊公司，Sienna 負責確保所有航天器在太空旅行中的結構完整與功能正常，她的技能和經驗對於旅行的順利與旅客的安全至關重要。`,
+                    text: `ETHAN LAMBERT澳大利亞出生，是太空機械工程的先驅者。他在悉尼科技大學完成她的機械工程學位，後在美國太空機構NASA深化其太空機械維護的技能。她是首批專門受訓於太空外部維修的工程師之一，曾多次成功完成國際太空站的緊急維修任務。ETHAN的工作不只是維護，她還參與了許多太空船設計的創新，使其更適應外部維修。在太空旅遊公司，Sienna 負責確保所有航天器在太空旅行中的結構完整與功能正常，她的技能和經驗對於旅行的順利與旅客的安全至關重要。`,
                 },
                 {
                     number: "003",
@@ -216,7 +216,7 @@ export default {
                     name: "	ADELAIDE SANTOS",//女
                     nameJob: "火星導遊",
                     imgSvg: require("@/assets/image/teamMembers/memberSvg/TourGuide02.svg"),
-                    text: `出生於西班牙的瓦倫西亞，是一位傑出的行星地質學者。她於馬德里自治大學完成其地質學學位，後於加州理工學院進修，專攻火星的地質與氣候系統。ADELAIDE參與了多次火星探索任務，是業界公認的火星環境專家。擁有深厚的火星知識和探索經驗，她在太空旅遊公司負責帶領遊客探索火星的神秘與魅力。透過她的專業解說，遊客能深入了解火星的地質、氣候和可能的生命跡象。Isabella 的熱情和專業為遊客提供了一次獨一無二的火星冒險之旅。`,
+                    text: `ADELAIDE SANTOS出生於西班牙的瓦倫西亞，是一位傑出的行星地質學者。她於馬德里自治大學完成其地質學學位，後於加州理工學院進修，專攻火星的地質與氣候系統。ADELAIDE參與了多次火星探索任務，是業界公認的火星環境專家。擁有深厚的火星知識和探索經驗，她在太空旅遊公司負責帶領遊客探索火星的神秘與魅力。透過她的專業解說，遊客能深入了解火星的地質、氣候和可能的生命跡象。Isabella 的熱情和專業為遊客提供了一次獨一無二的火星冒險之旅。`,
                 },
                 {
                     number: "003",
