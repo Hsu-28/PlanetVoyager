@@ -21,9 +21,16 @@
         <div class="wrap ma-0">
             <section>
                 <SectionTitle cTitle="太空船" eTitle="SPACESHIP"></SectionTitle>
-                <div class="spaceship-intro">
-
-
+                <div class="spaceship-intro ma-0">
+                    <div v-for=" (box, index) in spaceIntro" :class="box.class" class="neon-border center">
+                        <img :src="box.imgSrc" alt="">
+                    </div>
+                    <div class="spaceship-feature neon-border center"> 
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam ex quaerat porro nobis iure officiis, sint numquam blanditiis ipsam perspiciatis quibusdam aspernatur? Perspiciatis sapiente molestias eius sed nihil dignissimos incidunt?</p>
+                    </div>
+                    <div class="spaceship-txt neon-border center">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis fugiat vitae animi dolorum fuga dolor. Provident, corrupti excepturi similique, labore expedita explicabo eveniet consequuntur illo optio cupiditate recusandae quidem quos.</p>
+                    </div>
                 </div>
             </section>
 
@@ -50,6 +57,22 @@ import SectionTitle from '../components/SectionTitle.vue';
         data(){
             return{
                 titles: ['科技創新', 'THE VEHICLES'],
+                spaceIntro: [
+                                {
+                                    class:'spaceship-pic', 
+                                    imgSrc: require('@/assets/image/technology/spaceship1.svg')
+                                },
+                                {
+                                    class:'spaceship-pic', 
+                                    imgSrc: require('@/assets/image/technology/spaceship2.png')
+                                },
+                                {
+                                    class:'spaceship-pic',
+                                    imgSrc: require('@/assets/image/technology/spaceship3.png')
+                                },
+                                // {class:'spaceship-feature', imgSrc:''},
+                                // {class:'spaceship-pic', imgSrc:''},
+                        ],
             };
         },
         components: {
