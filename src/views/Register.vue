@@ -47,7 +47,9 @@
         </div>
       </div>
     </div>
-    <img class="" src="../assets/image/register/sapcemanRight.svg" alt="sapcemanRight">
+    <div class="imgContent">
+        <img class="sapcemanRight" src="../assets/image/register/sapcemanRight.svg" alt="sapcemanRight">
+  </div>
     <!-- <img src="../assets/image/register/sapcemanRight.svg" alt="sapcemanRight"> -->
   </div>
   <!-- <router-view/> -->

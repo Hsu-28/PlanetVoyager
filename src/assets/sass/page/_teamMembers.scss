@@ -19,6 +19,7 @@
     }
 }
 .jobAll{
+    line-height: 1.5;
     // position: relative;
     color: $white;
     font-weight: 700;
@@ -36,14 +37,17 @@
     }
     .jobContent{
         .jobTitle{
+            // text-align: center;
             margin-top: 120px;
             p:first-child{
+                text-align: center;
                 font-size: $h2-l;
             }
             p:last-child{
                 width: 600px;
                 font-size: $p1-l;
-                margin: 55px 0 50px 0;
+                margin: 50px auto;
+                // margin: 55px 0 50px 0;
             }
 
         }
@@ -97,79 +101,108 @@
               
             }
         }
-        .blurDetail{
+        // .blurDetail{
 
-                   width: 100%;
-                height: 100%;
-                backdrop-filter: blur(5px);
+        //            width: 100%;
+        //         height: 100%;
+        //         backdrop-filter: blur(5px);
 
 
 
-        }
-        .memberDetail{
-
+        // }
+        .allDetail{
             position:fixed;  
             top: 50%;          
             left: 50%;        
-            transform: translate(-50%, -55%);
-            
-            //  overflow-y: auto;
-             overflow: auto;            // position: absolute;
-            // left: 50%;
-            // transform: translateX(-50%);
-           
-            // top: 200vh;
-            // top: 330vh;
-            // top: 460vh;
-            // top: 600vh;
-            width: 505px;
-            padding: 20px;
-            height: 90vh;
-            background-color:$blackBG ;
-            border: 1px solid #ddd;
-            // box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-         
+            transform: translate( -50%, -50%);
+            width: 100vw;
+            height: 110vh;
+            background-color: rgba(156, 147, 147, 0.2);
+            backdrop-filter: blur(5px);
             z-index: 10;
-             button{
-                text-align: center;
-                border-radius: 15px;
-                position: absolute;
-                top: 15px;
-                right: 15px;
-                padding: 10px;
-                font-size:$p1-l ;
-                cursor: pointer;
+            .memberDetail{
 
-             }
-             >p{
-                font-size: 24px;
-                margin-bottom: 6px
-             }
-             .memberContent{
-                .detailImg{  
-                    @include wh(320px,500px); 
-                    margin: 30px auto;
-                    overflow: hidden;
-                   img{    
-                        
-                       width: 100%;
-                       height: 100%;
-    
-                       object-fit: cover;
-                   }
-               }
-               p{
-                width: 400px;
+
+                // position:fixed;  
+                // top: 50%;          
+                // left: 50%;        
+                // transform: translate(-50%, -55%);
+
+                position:relative;
                 margin: 0 auto;
-
-               }
-
-             }
-           
-          
+                margin-top: 10vh;
+                //  overflow-y: auto;
+                overflow: auto;            // position: absolute;
+                // left: 50%;
+                // transform: translateX(-50%);
+               
+                // top: 200vh;
+                // top: 330vh;
+                // top: 460vh;
+                // top: 600vh;
+                // position: relative;
+                line-height: 1.5;
+                width: 505px;
+                padding: 20px;
+                height: 90vh;
+                background-color:$blackBG ;
+                border: 1px solid #ddd;
+                // box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+             
+                z-index: 10;
+                 button{
+                    background: $white;
+                    text-align: center;
+                    border-radius: 15px;
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                    padding:3px 15px;
+                    font-size:$p1-l ;
+                    cursor: pointer;
+                    vertical-align :middle;
+    
+                 }
+                 >p{
+                    font-size: 24px;
+                    // margin-bottom: 6px
+                 }
+                 .memberContent{
+                    .detailImg{  
+                        @include wh(320px,500px); 
+                        margin: 30px auto;
+                        overflow: hidden;
+                       img{    
+                            
+                           width: 100%;
+                           height: 100%;
+        
+                           object-fit: cover;
+                       }
+                   }
+                   p{
+                    width: 400px;
+                    margin: 0 auto;
+    
+                   }
+    
+                 }
+               
+              
+            }
         }
+
 
 
     }
 
 }
+
+
+// ===================R E D ====================
+@media screen and (min-width: 768px) {
+
+
+
+}
+

@@ -43,19 +43,20 @@
                 </div>
             </div>
 
-
-            <div v-if="showDetail" class="memberDetail"> 
-                <div class="blur"></div>
-                <button @click="detailClose">close</button>
-                <p class="clickName">{{ detailContent.name }}</p>
-                <p class="clickTitle">{{ detailContent.nameJob }}</p>
-                <div class="memberContent">
-                    <div class="detailImg">               
-                        <img :src="detailContent.imgSvg" alt="團隊照片" class="memberImg">
+            <div v-if="showDetail" class="allDetail">
+                <div class="memberDetail"> 
+                    <div class="blur"></div>
+                    <button @click="detailClose">close</button>
+                    <p class="clickName">{{ detailContent.name }}</p>
+                    <p class="clickTitle">{{ detailContent.nameJob }}</p>
+                    <div class="memberContent">
+                        <div class="detailImg">               
+                            <img :src="detailContent.imgSvg" alt="團隊照片" class="memberImg">
+                        </div>
+                        <p>{{detailContent.text}}</p>
                     </div>
-                    <p>{{detailContent.text}}</p>
+                
                 </div>
-             
             </div>
         </div>
     </div>
@@ -131,7 +132,8 @@ export default {
                     name: "VICTOR MCKENZIE	",
                     nameJob: "電子、電力計算系統工程師",
                     imgSvg: require("@/assets/image/teamMembers/memberSvg/ENGINEER02.svg"),
-                    text: `VICTOR MCKENZIE一位印度裔的電子工程天才，在班加羅爾的印度科技學院完成他的電子工程學士學位，之後在斯坦福大學進修，專攻航天電力系統。憑藉超過10年的專業經驗，他已成為太空電子和計算系統設計的領先人物。他研發的節能太空電力系統已在多次太空探險中得到應用。在太空旅遊公司他負責監督和創新所有航天器的電子系統，確保在太空的極端環境中都能保持最佳性能。他的熱情、知識和持續創新使他在太空工程界中受到極高的讚譽。`,
+                    text: `VICTOR MCKENZIE一位電子工程天才，在美國阿拉巴馬州奧本市奧本大學完成他的電子工程學士學位，之後在斯坦福大學進修，
+                            專攻航天電力系統。憑藉超過10年的專業經驗，他已成為太空電子和計算系統設計的領先人物。他研發的節能太空電力系統已在多次太空探險中得到應用。在太空旅遊公司他負責監督和創新所有航天器的電子系統，確保在太空的極端環境中都能保持最佳性能。他的熱情、知識和持續創新使他在太空工程界中受到極高的讚譽。`,
                 },
                 {
                     number: "003",
