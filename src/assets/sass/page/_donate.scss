@@ -9,7 +9,7 @@ body {
 }
 
 .banner {
-    background-image: url(http://localhost:8080/img/donate.b0569625.svg);
+    background-image: url(../assets/image/donate/donate.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top right;
@@ -102,7 +102,9 @@ body {
     font-size: 16px;
 }
 
-.detail img {
+.detail-pic {}
+
+.detail-pic img {
     width: 100%;
     vertical-align: top;
 }
@@ -143,10 +145,19 @@ body {
     line-height: 2;
 }
 
+.member {
+    width: 30px;
+}
+
 .bottom {
     max-width: 450px;
     margin: auto;
     padding: 40px 0;
+}
+
+.bottom img {
+    width: 100%;
+    vertical-align: top;
 }
 
 // .money {
@@ -283,6 +294,10 @@ input {
 .btn-bottom:hover {
     background-color: #7338eb;
     color: #fff;
+}
+
+.pre-formatted {
+    white-space: pre-line;
 }
 
 @media screen and (min-width:1200px) {

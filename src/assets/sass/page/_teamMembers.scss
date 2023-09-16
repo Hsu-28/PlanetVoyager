@@ -1,8 +1,208 @@
 .bigImg {
+    margin-top: 20px;
     position: relative;
+    color: $white;
 
-    div {
+    img {
+        max-width: 100%;
+        width: 100vw;
+    }
+
+    .introduceTitle {
+        font-size: $h1-l ;
+        color: $white;
+        position: absolute;
+        top: 19%;
+        right: 19.8%;
         text-align: center;
 
     }
 }
+.jobAll{
+    line-height: 1.5;
+    // position: relative;
+    color: $white;
+    font-weight: 700;
+    width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 200px;
+    .introduceTeam {
+        width: 1000px;
+        margin: 0 auto;
+        margin-top:  10vh;
+       
+        line-height: 2rem;
+        font-size: 24px;
+       
+    }
+    .jobContent{
+        .jobTitle{
+            // text-align: center;
+            margin-top: 120px;
+            p:first-child{
+                text-align: center;
+                font-size: $h2-l;
+            }
+            p:last-child{
+                width: 600px;
+                font-size: $p1-l;
+                margin: 50px auto;
+                // margin: 55px 0 50px 0;
+            }
+
+        }
+        .memberComtent{
+            display: flex;
+            justify-content: space-between;
+            .individual{
+                cursor: pointer;
+                box-sizing: border-box;
+                border-radius: 10px 10px 50px 10px;
+                border: 3px solid $white;
+                background: rgba(43, 42, 42, 0.80);
+                .imgContent{  
+                     @include wh(270px,334px); 
+                     overflow: hidden;
+                    img{    
+                   
+                        width: 100%;
+                        height: 100%;
+                        padding:26px 29px 0 29px; 
+                        object-fit: cover;
+                    }
+                }
+                .membersSpan{
+                    margin: 40px 29px 25px 29px;
+                    border-bottom: $blueL;
+                    position: relative;
+                    p:first-child{
+                        font-size:24px ;
+                        display: block;
+                    }
+                    .jobTitle{
+                        margin-top: 15px;
+                        font-size:16px;
+                        line-height: 1.5rem;
+                        width: 130px;
+                    }
+                    div{
+                        background: $blueL;
+                        position: absolute;
+                        @include wh(70px ,25px);
+                        font-size: $p1-l;
+                        right: 0;
+                        top:35px;
+                        text-align: center;
+                        color: $black;
+
+                    }
+                }
+
+              
+            }
+        }
+        // .blurDetail{
+
+        //            width: 100%;
+        //         height: 100%;
+        //         backdrop-filter: blur(5px);
+
+
+
+        // }
+        .allDetail{
+            position:fixed;  
+            top: 50%;          
+            left: 50%;        
+            transform: translate( -50%, -50%);
+            width: 100vw;
+            height: 110vh;
+            background-color: rgba(156, 147, 147, 0.2);
+            backdrop-filter: blur(5px);
+            z-index: 10;
+            .memberDetail{
+
+
+                // position:fixed;  
+                // top: 50%;          
+                // left: 50%;        
+                // transform: translate(-50%, -55%);
+
+                position:relative;
+                margin: 0 auto;
+                margin-top: 10vh;
+                //  overflow-y: auto;
+                overflow: auto;            // position: absolute;
+                // left: 50%;
+                // transform: translateX(-50%);
+               
+                // top: 200vh;
+                // top: 330vh;
+                // top: 460vh;
+                // top: 600vh;
+                // position: relative;
+                line-height: 1.5;
+                width: 505px;
+                padding: 20px;
+                height: 90vh;
+                background-color:$blackBG ;
+                border: 1px solid #ddd;
+                // box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+             
+                z-index: 10;
+                 button{
+                    background: $white;
+                    text-align: center;
+                    border-radius: 15px;
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                    padding:3px 15px;
+                    font-size:$p1-l ;
+                    cursor: pointer;
+                    vertical-align :middle;
+    
+                 }
+                 >p{
+                    font-size: 24px;
+                    // margin-bottom: 6px
+                 }
+                 .memberContent{
+                    .detailImg{  
+                        @include wh(320px,500px); 
+                        margin: 30px auto;
+                        overflow: hidden;
+                       img{    
+                            
+                           width: 100%;
+                           height: 100%;
+        
+                           object-fit: cover;
+                       }
+                   }
+                   p{
+                    width: 400px;
+                    margin: 0 auto;
+    
+                   }
+    
+                 }
+               
+              
+            }
+        }
+
+
+
+    }
+
+}
+
+
+// ===================R E D ====================
+@media screen and (min-width: 768px) {
+
+
+
+}
+

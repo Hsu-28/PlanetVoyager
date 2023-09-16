@@ -1,18 +1,28 @@
 .register-all {
+  margin: 0 auto;
   display: flex;
   justify-content: center;
-  margin-bottom: 120px;
+  margin-top: 120px;
 
-  .sapcemanRight {
-    margin-top: 60px;
+  margin-bottom: 120px;
+  .imgContent{
+      width: 49%;
+      position: relative;
+      object-fit: contain;
+      // top: 60px; 
+      // margin-top: 60px; 
+      .sapcemanRight {
+        float: right;
+        max-width: 70%;
+        color: rgb(255 255 255 / 0.3);
+      }
   }
+ 
 
   .register-form {
-    margin-left: 200px;
+    // margin-left: 200px;
     letter-spacing: 4.8px;
 
-    margin-right: 60px;
-    margin-top: 120px;
     font-size: 16px;
     width: 390px;
     font-weight: 700;
@@ -137,11 +147,11 @@
             margin-top: 21px;
             margin-bottom: 60px;
 
-            span:last-child {
-              padding: 0px 2px;
-
-              letter-spacing: 1.4px;
-            }
+            // #www {
+            //   padding: 0px 2px;
+            //   transform: scale(0.4);
+            //   letter-spacing: 1.4px;
+            // }
 
 
           }
