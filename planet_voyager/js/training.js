@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkspacev"]=self["webpackChunkspacev"]||[]).push([[446],{8075:function(n,e,r){r.r(e),r.d(e,{default:function(){return l}});var t=r(3396);const u=(0,t._)("h3",null,"this is training change.",-1);function c(n,e){const r=(0,t.up)("router-view");return(0,t.wg)(),(0,t.iD)(t.HY,null,[u,(0,t.Wm)(r)],64)}var s=r(89);const a={},i=(0,s.Z)(a,[["render",c]]);var l=i}}]);
+//# sourceMappingURL=training.js.map

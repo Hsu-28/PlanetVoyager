@@ -69,6 +69,11 @@ export default {
         closeMenuF() {
             this.showMenu = false;
             this.headericon = true;
+        },
+        login(){
+          fetch('https://tibamef2e.com/cgd103/g1/api/getProducts.php?order=prod_name&limit=9&page=1')
+          .then(res=>res.json())
+          .then(json => console.log(json))
         }
     },
     computed: {

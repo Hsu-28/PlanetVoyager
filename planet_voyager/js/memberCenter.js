@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkspacev"]=self["webpackChunkspacev"]||[]).push([[653],{9719:function(e,n,r){r.r(n),r.d(n,{default:function(){return o}});var u=r(3396);const c=(0,u._)("h3",null,"member-center change",-1);function t(e,n){const r=(0,u.up)("router-view");return(0,u.wg)(),(0,u.iD)(u.HY,null,[c,(0,u.Wm)(r)],64)}var s=r(89);const a={},l=(0,s.Z)(a,[["render",t]]);var o=l}}]);
+//# sourceMappingURL=memberCenter.js.map

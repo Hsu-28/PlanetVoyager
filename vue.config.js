@@ -12,7 +12,14 @@ module.exports = defineConfig({
         `
       },
     }
-  }
+  },
+  
+    transpileDependencies: true,
+    publicPath: process.env.NODE_ENV === 'production'
+    ? '/chd103/g3/planet_voyager/'
+    : '/',
+    outputDir: 'planet_voyager'
+  
 })
 
 // https://cli.vuejs.org/zh/config/
