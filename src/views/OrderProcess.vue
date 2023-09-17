@@ -1,7 +1,7 @@
 <template>
   <div>
-    <carousel  :items-to-show="3" :wrapAround="true"  :paginationColor="'#FFF'" class="custom-carousel" :autoplay="3000" >
-      <slide v-for="item in imgs" :key="slide">
+    <carousel  :items-to-show="3" :wrapAround="true"  :paginationColor="'#FFF'" class="custom-carousel" :autoplay="3000"  >
+      <slide v-for="(item, index) in imgs" :key="item.index">
         <div class="cimgs">
          <img :src=item.slide  alt="輪播圖片">
         </div>
@@ -39,7 +39,7 @@
 <script>
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
-import { ArrayCamera } from 'three'
+// import { ArrayCamera } from 'three'
 
 export default {
   data() {
@@ -70,23 +70,24 @@ export default {
       // formList: [],
       
       imgs: [ {
-            slide: require('@/assets/image/orderProcess/moonc4.svg')
+              slide: require('@/assets/image/orderProcess/moonc1.svg'),
+              altp:"在月球等你",
             },    
             {
               slide: require('@/assets/image/orderProcess/moonc2.svg'),
-              
+              altp:"太空儀器",
             },{
               slide: require('@/assets/image/orderProcess/moonc3.svg'),
-              
+              altp:"月球外星人",
             },{
               slide: require('@/assets/image/orderProcess/moonc6.svg'),
-              
+              altp:"太空環境",
             },{
               slide: require('@/assets/image/orderProcess/moonc5.svg'),
-              
+              altp:"月球景色",
             },{
-              slide: require('@/assets/image/orderProcess/moonc1.svg'),
-              
+              slide: require('@/assets/image/orderProcess/moonc4.svg'),
+              altp:"太空高爾夫",
             }
           ]
               }
