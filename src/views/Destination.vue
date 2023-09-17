@@ -6,50 +6,66 @@
 
     <article class="planet-container">
       <div class="planet-group">
-        <article class="col-6 ">
-          <ul class="tab-title">
-            <li v-for="(planet, index) in planetCard" :key="planet.id" class="planet-tab"
+        <article class="col-5 col-md-4 planet-list">
+          <ul class="tab-ul">
+            <li v-for="(planet, index) in planetCard" :key="planet.id" class="tab-li"
               :class="{ 'active': activeId === planet.id }">
-              <button 
-              @click="activeId = planet.id" 
-              class="planet-button">
+              <button @click="activeId = planet.id" class="planet-button">
                 <span v-show="activeId === planet.id">
                   <img class="button-icon" src="~@/assets/image/destination/icon-planets.svg" alt="星球icon">
                 </span>
-                {{ planet.ch_name}}{{ planet.en_namebig }}
+                {{ planet.ch_name }}{{ planet.en_namebig }}
               </button>
             </li>
           </ul>
         </article>
-        <article v-for="(planet, index) in planetCard" 
-        v-show="activeId === planet.id" 
-        :key="planet.id"
-          class="planet-info col-6">
-          <h3>{{ planet.ch_name }} <span>{{ planet.en_namebig }}</span></h3>
-          <article class="card-planet">
-            <div class="planet__atmosphere">
-              <div :class="planet.en_name" class="planet__surface"></div>
-            </div>
+        <article class="col-7 col-md-5 planet-img">
+          <article v-for="(planet, index) in planetCard" v-show="activeId === planet.id" :key="planet.id"
+            class="planet-info">
+            <h3 class="planet-h3">
+              <span class="h3-ch">{{ planet.ch_name }}</span>
+              <span class="h3-en">{{ planet.en_namebig }}</span>
+              <span class="h3-dec1"></span>
+              <span class="h3-dec2"></span>
+              <span class="h3-dec3"></span>
+              <span class="h3-dec4"></span>
+            </h3>
+            <article class="card-planet">
+              <div class="planet__atmosphere">
+                <div :class="planet.en_name" class="planet__surface"></div>
+              </div>
+            </article>
           </article>
+        </article>
+        <article v-for="(planet, index) in planetCard" v-show="activeId === planet.id" :key="planet.id"
+          class="col-10 col-md-3 planet-text">
+          <h3 class="planet-h3">
+            <span class="h3-ch">{{ planet.ch_name }}</span>
+            <span class="h3-en">{{ planet.en_namebig }}</span>
+            <span class="h3-dec1"></span>
+            <span class="h3-dec2"></span>
+            <span class="h3-dec3"></span>
+            <span class="h3-dec4"></span>
+          </h3>
           <p class="info">{{ planet.info }}</p>
         </article>
       </div>
     </article>
 
 
-    <article v-for="(travel, index) in travelCard" 
-    v-show="activeId === travel.id" 
-    :key="travel.en_name"
+    <article v-for="(travel, index) in travelCard" v-show="activeId === travel.id" :key="travel.en_name"
       class="planet-info">
       <H2Style :cTitle="travel.ch_name" :eTitle="travel.en_namebig"></H2Style>
       <article>
-        <div>
-          <div>
-            <img :src="travel.img1" :alt="travel.title1">
-          </div>
-          <div>
-            <img :src="travel.img2" :alt="travel.title1">
-          </div>
+        <div class="slideshow">
+          <ul class="slider-container">
+            <li class="travel-img-li">
+              <img class="travel-img" :src="travel.img1" :alt="travel.title1">
+            </li>
+            <li class="travel-img-li">
+              <img class="travel-img" :src="travel.img2" :alt="travel.title1">
+            </li>
+          </ul>
         </div>
         <div>
           <div>
@@ -62,27 +78,28 @@
             <button>READ&nbspMORE</button>
           </div>
         </div>
-      </article>
-      <article>
-        <div>
-          <div>
-            <img :src="travel.img3" :alt="travel.title2">
-          </div>
-          <div>
-            <img :src="travel.img4" :alt="travel.title2">
-          </div>
+
+        <!-- <div>
+          <ul class="slider-container">
+            <li>
+              <img :src="travel.img3" :alt="travel.title2">
+            </li>
+            <li>
+              <img :src="travel.img4" :alt="travel.title2">
+            </li>
+          </ul>
         </div>
         <div>
           <div>
             <h3>{{ travel.title2 }}</h3>
             <p class="note">{{ travel.note2 }}</p>
-            <button>訂購</button>
+            <ButtonStyle buttonText="訂購" buttonBottomText="-PV-"></ButtonStyle>
           </div>
           <div>
             <p class="info">{{ travel.info2 }}</p>
             <button>READ&nbspMORE</button>
           </div>
-        </div>
+        </div> -->
       </article>
     </article>
 
@@ -197,7 +214,30 @@ export default {
 
   },
   mounted() {
+    let oUl = document.querySelector('.slider-container');
+    let oLi = document.querySelectorAll('.slider-container li');
 
+    let ulWidth = 0;
+    oLi.forEach(li => {
+      ulWidth += li.offsetWidth;
+    });
+
+    oUl.innerHTML += oUl.innerHTML;
+    oUl.style.width = ulWidth * 2 + 'px';
+
+    let position = 0;
+    const slideSpeed = 1;
+
+    function moveSlide() {
+      position -= slideSpeed;
+      if (position <= -ulWidth) {
+        position = 0;
+      }
+      oUl.style.left = position + 'px';
+      requestAnimationFrame(moveSlide);
+    }
+
+    moveSlide();
   }
 }
 
