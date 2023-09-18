@@ -4,8 +4,8 @@
 
     <H2Style cTitle="行星介紹" eTitle="INTRODUCTION"></H2Style>
 
-    <article class="planet-container">
-      <div class="planet-group">
+    <article class="plant-rwd-container">
+      <div class="plant-rwd-group">
         <article class="col-5 col-md-4 planet-list">
           <ul class="tab-ul">
             <li v-for="(planet, index) in planetCard" :key="planet.id" class="tab-li"
@@ -52,34 +52,38 @@
       </div>
     </article>
 
-
-    <article v-for="(travel, index) in travelCard" v-show="activeId === travel.id || travel.id === 4" :key="travel.title"
-      class="planet-info">
-      <H2Style :cTitle="travel.ch_name" :eTitle="travel.en_namebig" v-if="travel.en_namebig"></H2Style>
-      <article>
-        <div class="slideshow">
-          <ul class="slider-container">
-            <li class="travel-img-li">
-              <img class="travel-img" :src="travel.img1" :alt="travel.title1">
-            </li>
-            <li class="travel-img-li">
-              <img class="travel-img" :src="travel.img2" :alt="travel.title1">
-            </li>
-          </ul>
-        </div>
-        <div>
-          <div>
-            <h3>{{ travel.title }}</h3>
-            <p class="note">{{ travel.note }}</p>
-            <ButtonStyle buttonText="訂購" buttonBottomText="-PV-"></ButtonStyle>
-          </div>
-          <div>
-            <p class="info">{{ travel.info }}</p>
-            <button>READ&nbspMORE</button>
-          </div>
-        </div>
-
-      </article>
+    <article class="travel-rwd-container">
+      <div class="travel-rwd-group">
+        <article v-for="(travel, index) in travelCard" v-show="activeId === travel.id || travel.id === 4"
+          :key="travel.title" class="travel-info">
+          <H2Style :cTitle="travel.ch_name" :eTitle="travel.en_namebig" v-if="travel.en_namebig"></H2Style>
+          <article class="col-11 slideshow">      
+              <ul class="slider-container">
+                <li class="travel-img-li">
+                  <img class="travel-img" :src="travel.img1" :alt="travel.title1">
+                </li>
+                <li class="travel-img-li">
+                  <img class="travel-img" :src="travel.img2" :alt="travel.title1">
+                </li>
+              </ul>
+          </article>
+          <article class="col-12">
+            <article class="travel-info-rwd-container">
+              <div class="travel-info-rwd-group">
+                <article class="col-11 col-md-4">
+                  <h3>{{ travel.title }}</h3>
+                  <p class="note">{{ travel.note }}</p>
+                  <ButtonStyle buttonText="訂購" buttonBottomText="-PV-"></ButtonStyle>
+                </article>
+                <article class="col-11 col-md-7">
+                  <p class="info">{{ travel.info }}</p>
+                  <button>READ&nbspMORE</button>
+                </article>
+              </div>
+            </article>
+          </article>
+        </article>
+      </div>
     </article>
 
 
@@ -130,7 +134,7 @@ export default {
       ],
 
       travelCard: [
-        
+
         {
           id: 1,
           en_namebig: 'MARS',
@@ -193,17 +197,17 @@ export default {
         },
 
         {
-        id: 4,
-        en_namebig: 'TOUR',
-        ch_name: '套裝行程',
-        img1: require("@/assets/image/destination/tour01.svg"),
-        img2: require("@/assets/image/destination/tour02.svg"),
-        title: '行星繞行',
-        note: '一次探索所有星球',
-        info: '七天的壯遊，在太空中飄浮，感受銀河的奧秘。我們從地球出發，抵達月球探索未知的生物和美麗的地貌；於金星探索這炎熱的星球，發現更多驚奇；火星尋找遠古遺跡，感受生命的謎團。最後，第五天回歸地球，帶著難以忘懷的回憶，沉浸在銀河的壯麗美景中。',
+          id: 4,
+          en_namebig: 'TOUR',
+          ch_name: '套裝行程',
+          img1: require("@/assets/image/destination/tour01.svg"),
+          img2: require("@/assets/image/destination/tour02.svg"),
+          title: '行星繞行',
+          note: '一次探索所有星球',
+          info: '七天的壯遊，在太空中飄浮，感受銀河的奧秘。我們從地球出發，抵達月球探索未知的生物和美麗的地貌；於金星探索這炎熱的星球，發現更多驚奇；火星尋找遠古遺跡，感受生命的謎團。最後，第五天回歸地球，帶著難以忘懷的回憶，沉浸在銀河的壯麗美景中。',
         },
       ]
-      
+
     };
   },
   methods: {
