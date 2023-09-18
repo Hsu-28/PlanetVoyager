@@ -47,7 +47,7 @@
             font-size: 20px;
         }
         @include mobileBS{
-            font-size: 18px;
+            font-size: 16px;
         }
 
     }
@@ -56,6 +56,7 @@
         .jobTitle {
             // text-align: center;
             margin-top: 120px;
+            width: 100%;
             @include padBS{
                 margin-top: 80px;
             }
@@ -79,12 +80,17 @@
                 @include padBS{
                     font-size: $p1-m;
                     width: 70%;
-                    min-width:400px;
+                    min-width:350px;
+                    margin: 50px auto;
+                    margin-bottom: 20px;
                 }
                 @include mobileBS{
-                    width: 90%;
+                    width: 80%;
                     font-size: $p1-s;
-                    min-width:200px;
+                    min-width:100px;
+                    margin: 30px auto;
+
+                    margin-bottom: 10px;
 
                 }
                 // margin: 55px 0 50px 0;
@@ -116,6 +122,7 @@
 
                 }
                 @include mobileBS{
+                    margin-top: 30px;
                     width: 80%;
                     border-radius: 10px 10px 20px 10px;
                     border: 1px solid $white;
@@ -246,6 +253,13 @@
                 // box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 
                 z-index: 10;
+                @include padBS{
+                    width: 333px;
+                 }
+                 @include mobileBS{
+                    width: 80%;
+                    padding: 10px;
+                 }
 
                 button {
                     background: $white;
@@ -258,6 +272,17 @@
                     font-size: $p1-l ;
                     cursor: pointer;
                     vertical-align: middle;
+                    @include padBS{
+                       transform:  scale(.7);
+                       top: 5px;
+                       right: 0px;
+                    }
+                    @include mobileBS{
+                        top: 3px;
+                         right: -2px;
+                         padding: 2px 10px;
+                        transform:  scale(.5);
+                    }
 
                 }
 
@@ -274,9 +299,15 @@
 
                 .memberContent {
                     .detailImg {
-                        @include wh(405px, 501px);
+                       width: 405px;
                         margin: 30px auto;
                         overflow: hidden;
+                        @include padBS{
+                            width: 270px;
+                        }
+                        @include mobileBS{
+                            width: 80%;
+                        }
 
                         img {
 
@@ -288,7 +319,7 @@
                     }
 
                     p {
-                        width: 400px;
+                        width: 90%;
                         margin: 0 auto;
 
                     }
