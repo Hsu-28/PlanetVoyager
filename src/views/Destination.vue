@@ -6,83 +6,79 @@
 
     <article class="planet-container">
       <div class="planet-group">
-        <article class="col-6 ">
-          <ul class="tab-title">
-            <li v-for="(planet, index) in planetCard" :key="planet.id" class="planet-tab"
+        <article class="col-5 col-md-4 planet-list">
+          <ul class="tab-ul">
+            <li v-for="(planet, index) in planetCard" :key="planet.id" class="tab-li"
               :class="{ 'active': activeId === planet.id }">
-              <button 
-              @click="activeId = planet.id" 
-              class="planet-button">
+              <button @click="activeId = planet.id" class="planet-button">
                 <span v-show="activeId === planet.id">
                   <img class="button-icon" src="~@/assets/image/destination/icon-planets.svg" alt="星球icon">
                 </span>
-                {{ planet.ch_name}}{{ planet.en_namebig }}
+                {{ planet.ch_name }}{{ planet.en_namebig }}
               </button>
             </li>
           </ul>
         </article>
-        <article v-for="(planet, index) in planetCard" 
-        v-show="activeId === planet.id" 
-        :key="planet.id"
-          class="planet-info col-6">
-          <h3>{{ planet.ch_name }} <span>{{ planet.en_namebig }}</span></h3>
-          <article class="card-planet">
-            <div class="planet__atmosphere">
-              <div :class="planet.en_name" class="planet__surface"></div>
-            </div>
+        <article class="col-7 col-md-5 planet-img">
+          <article v-for="(planet, index) in planetCard" v-show="activeId === planet.id" :key="planet.id"
+            class="planet-info">
+            <h3 class="planet-h3">
+              <span class="h3-ch">{{ planet.ch_name }}</span>
+              <span class="h3-en">{{ planet.en_namebig }}</span>
+              <span class="h3-dec1"></span>
+              <span class="h3-dec2"></span>
+              <span class="h3-dec3"></span>
+              <span class="h3-dec4"></span>
+            </h3>
+            <article class="card-planet">
+              <div class="planet__atmosphere">
+                <div :class="planet.en_name" class="planet__surface"></div>
+              </div>
+            </article>
           </article>
+        </article>
+        <article v-for="(planet, index) in planetCard" v-show="activeId === planet.id" :key="planet.id"
+          class="col-10 col-md-3 planet-text">
+          <h3 class="planet-h3">
+            <span class="h3-ch">{{ planet.ch_name }}</span>
+            <span class="h3-en">{{ planet.en_namebig }}</span>
+            <span class="h3-dec1"></span>
+            <span class="h3-dec2"></span>
+            <span class="h3-dec3"></span>
+            <span class="h3-dec4"></span>
+          </h3>
           <p class="info">{{ planet.info }}</p>
         </article>
       </div>
     </article>
 
 
-    <article v-for="(travel, index) in travelCard" 
-    v-show="activeId === travel.id" 
-    :key="travel.en_name"
+    <article v-for="(travel, index) in travelCard" v-show="activeId === travel.id || travel.id === 4" :key="travel.title"
       class="planet-info">
-      <H2Style :cTitle="travel.ch_name" :eTitle="travel.en_namebig"></H2Style>
+      <H2Style :cTitle="travel.ch_name" :eTitle="travel.en_namebig" v-if="travel.en_namebig"></H2Style>
       <article>
-        <div>
-          <div>
-            <img :src="travel.img1" :alt="travel.title1">
-          </div>
-          <div>
-            <img :src="travel.img2" :alt="travel.title1">
-          </div>
+        <div class="slideshow">
+          <ul class="slider-container">
+            <li class="travel-img-li">
+              <img class="travel-img" :src="travel.img1" :alt="travel.title1">
+            </li>
+            <li class="travel-img-li">
+              <img class="travel-img" :src="travel.img2" :alt="travel.title1">
+            </li>
+          </ul>
         </div>
         <div>
           <div>
-            <h3>{{ travel.title1 }}</h3>
-            <p class="note">{{ travel.note1 }}</p>
+            <h3>{{ travel.title }}</h3>
+            <p class="note">{{ travel.note }}</p>
             <ButtonStyle buttonText="訂購" buttonBottomText="-PV-"></ButtonStyle>
           </div>
           <div>
-            <p class="info">{{ travel.info1 }}</p>
+            <p class="info">{{ travel.info }}</p>
             <button>READ&nbspMORE</button>
           </div>
         </div>
-      </article>
-      <article>
-        <div>
-          <div>
-            <img :src="travel.img3" :alt="travel.title2">
-          </div>
-          <div>
-            <img :src="travel.img4" :alt="travel.title2">
-          </div>
-        </div>
-        <div>
-          <div>
-            <h3>{{ travel.title2 }}</h3>
-            <p class="note">{{ travel.note2 }}</p>
-            <button>訂購</button>
-          </div>
-          <div>
-            <p class="info">{{ travel.info2 }}</p>
-            <button>READ&nbspMORE</button>
-          </div>
-        </div>
+
       </article>
     </article>
 
@@ -134,20 +130,26 @@ export default {
       ],
 
       travelCard: [
+        
         {
           id: 1,
           en_namebig: 'MARS',
           ch_name: '火星',
           img1: require("@/assets/image/destination/mars01.svg"),
           img2: require("@/assets/image/destination/mars02.svg"),
-          title1: '奧林帕斯山脈之旅',
-          note1: '眾神的童話世界',
-          info1: '踏上一場壯闊的冒險，親臨太陽系最大的火山—奧林帕斯山。在這趟旅程中，遊客將體驗火星的獨特地貌、探索古老的火山結構，並從高空俯瞰其壯觀景色，感受宇宙中的偉大奧秘。',
-          img3: require("@/assets/image/destination/mars03.svg"),
-          img4: require("@/assets/image/destination/mars04.svg"),
-          title2: '尋找生命之旅',
-          note2: '你與我的起源',
-          info2: '探索生命存在的可能性。從巡遊壯觀的水手峽谷，到深入隱秘的地下水道，體驗火星獨特的生態與地質特徵。在這趟冒險之旅中，參與者不僅能使用先進科技親手探測微生物跡象，更可以透過氣候與大氣觀測深入了解其生命潛質。此旅程不僅是探索宇宙的奇妙之旅，追尋生命起源，帶領你挑戰未知，感受宇宙的浩瀚與生命的神奇。',
+          title: '奧林帕斯山脈之旅',
+          note: '眾神的童話世界',
+          info: '踏上一場壯闊的冒險，親臨太陽系最大的火山—奧林帕斯山。在這趟旅程中，遊客將體驗火星的獨特地貌、探索古老的火山結構，並從高空俯瞰其壯觀景色，感受宇宙中的偉大奧秘。',
+        },
+        {
+          id: 1,
+          en_namebig: '',
+          ch_name: '',
+          img1: require("@/assets/image/destination/mars03.svg"),
+          img2: require("@/assets/image/destination/mars04.svg"),
+          title: '尋找生命之旅',
+          note: '你與我的起源',
+          info: '探索生命存在的可能性。從巡遊壯觀的水手峽谷，到深入隱秘的地下水道，體驗火星獨特的生態與地質特徵。在這趟冒險之旅中，參與者不僅能使用先進科技親手探測微生物跡象，更可以透過氣候與大氣觀測深入了解其生命潛質。此旅程不僅是探索宇宙的奇妙之旅，追尋生命起源，帶領你挑戰未知，感受宇宙的浩瀚與生命的神奇。',
         },
         {
           id: 2,
@@ -155,14 +157,19 @@ export default {
           ch_name: '月球',
           img1: require("@/assets/image/destination/moon01.svg"),
           img2: require("@/assets/image/destination/moon02.svg"),
-          title1: '月球巡禮',
-          note1: '用你的一小步<br>見證人類的一大步',
-          info1: ' 一天的航程後，我們將會在第二天登陸月球，朝聖人類的星際里程碑--阿姆斯壯的腳印，之後會遊歷月球上最大的隕石坑---貝利環形山、在滿月海中馳騁、橫越東月大裂谷、參觀台日共構的月球基地，飽覽月球風光後再返回地球。',
-          img3: require("@/assets/image/destination/moon03.svg"),
-          img4: require("@/assets/image/destination/moon04.svg"),
-          title2: '太空之心',
-          note2: '月球七天六夜奇幻之旅',
-          info2: '抵達在月球基地後，您將穿上太空服，遊覽著名的月球撞擊坑，體驗月面散步的刺激。不僅如此，您還會採集珍貴的岩石和月壤樣本，並進行科學實驗。以及夜晚的天文觀測和無光污染。最後一天，盡情享受自由活動。最後登上太空船，啟程返回地球，締造您太空之旅的完美結局。',
+          title: '月球巡禮',
+          note: '用你的一小步<br>見證人類的一大步',
+          info: ' 一天的航程後，我們將會在第二天登陸月球，朝聖人類的星際里程碑--阿姆斯壯的腳印，之後會遊歷月球上最大的隕石坑---貝利環形山、在滿月海中馳騁、橫越東月大裂谷、參觀台日共構的月球基地，飽覽月球風光後再返回地球。',
+        },
+        {
+          id: 2,
+          en_namebig: '',
+          ch_name: '',
+          img1: require("@/assets/image/destination/moon03.svg"),
+          img2: require("@/assets/image/destination/moon04.svg"),
+          title: '太空之心',
+          note: '月球七天六夜奇幻之旅',
+          info: '抵達在月球基地後，您將穿上太空服，遊覽著名的月球撞擊坑，體驗月面散步的刺激。不僅如此，您還會採集珍貴的岩石和月壤樣本，並進行科學實驗。以及夜晚的天文觀測和無光污染。最後一天，盡情享受自由活動。最後登上太空船，啟程返回地球，締造您太空之旅的完美結局。',
         },
         {
           id: 3,
@@ -170,34 +177,63 @@ export default {
           ch_name: '金星',
           img1: require("@/assets/image/destination/venus01.svg"),
           img2: require("@/assets/image/destination/venus02.svg"),
-          title1: '人文遺跡之旅',
-          note1: '知識解謎探索',
-          info1: '沉浸於麥田圈迷宮的神秘符號，融入蜥蜴人社區，學習語言、文化，共享美食，追隨遺跡，穿越城市廢墟，發現寶藏，探索過去文明，挑戰銀河砂流，感受宇宙冒險。',
-          img3: require("@/assets/image/destination/venus03.svg"),
-          img4: require("@/assets/image/destination/venus04.svg"),
-          title2: '金星夢幻秘境',
-          note2: '地脈探索',
-          info2: '金星地形豐富，充滿奇特的自然地貌，有宇宙公園之稱，是一生必去的星球！這趟旅程將帶您前往伊師塔高地以及首都瑞茲城，除了驚奇美景，也能見證金星人文之美。',
+          title: '人文遺跡之旅',
+          note: '知識解謎探索',
+          info: '沉浸於麥田圈迷宮的神秘符號，融入蜥蜴人社區，學習語言、文化，共享美食，追隨遺跡，穿越城市廢墟，發現寶藏，探索過去文明，挑戰銀河砂流，感受宇宙冒險。',
+        },
+        {
+          id: 3,
+          en_namebig: '',
+          ch_name: '',
+          img1: require("@/assets/image/destination/venus03.svg"),
+          img2: require("@/assets/image/destination/venus04.svg"),
+          title: '金星夢幻秘境',
+          note: '地脈探索',
+          info: '金星地形豐富，充滿奇特的自然地貌，有宇宙公園之稱，是一生必去的星球！這趟旅程將帶您前往伊師塔高地以及首都瑞茲城，除了驚奇美景，也能見證金星人文之美。',
         },
 
+        {
+        id: 4,
+        en_namebig: 'TOUR',
+        ch_name: '套裝行程',
+        img1: require("@/assets/image/destination/tour01.svg"),
+        img2: require("@/assets/image/destination/tour02.svg"),
+        title: '行星繞行',
+        note: '一次探索所有星球',
+        info: '七天的壯遊，在太空中飄浮，感受銀河的奧秘。我們從地球出發，抵達月球探索未知的生物和美麗的地貌；於金星探索這炎熱的星球，發現更多驚奇；火星尋找遠古遺跡，感受生命的謎團。最後，第五天回歸地球，帶著難以忘懷的回憶，沉浸在銀河的壯麗美景中。',
+        },
       ]
-      // {
-      //   en_namebig: 'TOUR',
-      //   ch_name: '套裝行程',
-      //   img1: '',
-      //   img2: '',
-      //   title: '行星繞行',
-      //   note: '一次探索所有星球',
-      //   info: '七天的壯遊，在太空中飄浮，感受銀河的奧秘。我們從地球出發，抵達月球探索未知的生物和美麗的地貌；於金星探索這炎熱的星球，發現更多驚奇；火星尋找遠古遺跡，感受生命的謎團。最後，第五天回歸地球，帶著難以忘懷的回憶，沉浸在銀河的壯麗美景中。',
-      // },
-
+      
     };
   },
   methods: {
 
   },
   mounted() {
+    let oUl = document.querySelector('.slider-container');
+    let oLi = document.querySelectorAll('.slider-container li');
 
+    let ulWidth = 0;
+    oLi.forEach(li => {
+      ulWidth += li.offsetWidth;
+    });
+
+    oUl.innerHTML += oUl.innerHTML;
+    oUl.style.width = ulWidth * 2 + 'px';
+
+    let position = 0;
+    const slideSpeed = 1;
+
+    function moveSlide() {
+      position -= slideSpeed;
+      if (position <= -ulWidth) {
+        position = 0;
+      }
+      oUl.style.left = position + 'px';
+      requestAnimationFrame(moveSlide);
+    }
+
+    moveSlide();
   }
 }
 

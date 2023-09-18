@@ -51,7 +51,7 @@ h1 {
     width: 1.5rem;
 }
 
-ul {
+.tab-ul {
     position: relative;
     margin: 0 1.5rem;
     &::before {
@@ -65,7 +65,7 @@ ul {
 
 }
 
-li {
+.tab-li {
     padding-top: 2rem;
     padding-bottom: 2rem;
     // width: 50%;
@@ -77,7 +77,7 @@ li {
         padding-bottom: 4rem;
     }
 }
-$buttonLeft: 2.5rem;
+$buttonLeft: 2rem;
 $circle:1.3rem;
 $circleborder:1.8rem;
 .planet-button {
@@ -123,8 +123,82 @@ $circleborder:1.8rem;
         z-index: -1; 
     }
 }
+.planet-info{
+    margin-left: 1.5rem;
+}
+h3 {
+    color: $white;
+    font-size: $h2-s;
+}
 
-
+.planet-h3{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 10% auto ;
+    padding: 0.5rem 0;
+    align-items: center;
+    border: 1px solid $white;
+    position: relative;
+}
+.h3-ch{
+    width: 80%;
+    text-align: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid $white ;
+}
+.h3-en{
+    width: 80%;
+    text-align: center;
+    padding: 0.5rem 0;
+}
+.h3-dec1{
+    width: 0.3rem;
+    height: 0.3rem;
+    border-radius: 50%;
+    background-color: $white;
+    position: absolute;
+    top: -0.15rem;
+    left:-0.15rem;
+}
+.h3-dec2{
+    width: 0.3rem;
+    height: 0.3rem;
+    border-radius: 50%;
+    background-color: $white;
+    position: absolute;
+    bottom: -0.15rem;
+    left:-0.15rem;
+}
+.h3-dec3{
+    width: 0.3rem;
+    height: 0.3rem;
+    border-radius: 50%;
+    background-color: $white;
+    position: absolute;
+    bottom: -0.15rem;
+    right:-0.15rem;
+}
+.h3-dec4{
+    width: 0.3rem;
+    height: 0.3rem;
+    border-radius: 50%;
+    background-color: $white;
+    position: absolute;
+    top: -0.15rem;
+    right:-0.15rem;
+}
+.planet-text{
+    order: 2; 
+    h3{
+        display: none;
+    }
+}
+.card-planet{
+    width: 90%;
+    padding-top: 90%;  /* 使容器保持正方形，並使其高度等於其寬度 */
+    position: relative;  
+}
 /* 大氣層的樣式，使用box-shadow來產生特定的陰影效果。
 使用radial-gradient來模擬由中心向外的透明度變化，並且使其呈圓形。*/
 .planet__atmosphere {
@@ -135,11 +209,14 @@ $circleborder:1.8rem;
         /* 白色亮內框 */
         inset -50px 0px 50px 0px rgb(31, 30, 30);
     /*星球右側陰影*/
-    height: 190px;
-    width: 190px;
-    position: relative;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
     background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, .3) 0%, rgba(255, 255, 255, 0) 65%);
-    border-radius: 100px;
+    border-radius: 50%;
     overflow: hidden;
 }
 
@@ -162,6 +239,8 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     transform: rotate(0.034deg) scale(1.2);
     animation: planetRotate 30s linear infinite;
     position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
     z-index: -1;
@@ -178,15 +257,38 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     }
 }
 
-h3 {
-    color: $white;
-    font-size: $h2-s;
-}
-
 .info {
-
+    margin: 10% 0;
     font-size: $p2-s;
+    line-height: 1.5;
 }
+
+.slideshow{
+    margin: 5% 0;
+    width:90%;
+    min-height: 202px;
+    overflow: hidden;
+    position: relative;
+}
+.slider-container {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    position: absolute;
+    top: 0; 
+}
+.travel-img-li{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    cursor: pointer;
+}
+.travel-img{
+    width: 310px;
+    margin: 5px;
+}
+
 
 @media screen and (min-width: 700px) {
     h1 {
@@ -208,7 +310,23 @@ h3 {
     .info {
         font-size: $p2-m;
     }
-
+    .planet-list {
+        order: 0; 
+        //html 區域調整順序
+    }
+    
+    .planet-text {
+        order: 1; 
+        h3{
+            display: flex;
+        }
+    }
+    .planet-img{
+        order: 2; 
+        h3{
+            display: none;
+        }
+    }
 }
 
 @media screen and (min-width: 1024px) {
