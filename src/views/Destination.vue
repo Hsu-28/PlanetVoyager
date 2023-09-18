@@ -65,11 +65,9 @@
                 </div>
               </slide>
               <template #addons>
-                <navigation />
-                <pagination />
+                <navigation/>
               </template>
             </carousel>
-
             <!-- <ul class="slider-container">
               <li class="travel-img-li">
                 <img class="travel-img" :src="travel.img1" :alt="travel.title1">
@@ -89,7 +87,7 @@
                 </article>
                 <article class="col-11 col-md-7">
                   <p class="info travel-text">{{ travel.info }}</p>
-                  <button class="read-more">READ&nbspMORE <a href=""></a></button>
+                  <button class="read-more">READ&nbspMORE<a href=""></a></button>
                 </article>
               </div>
             </article>
@@ -97,8 +95,6 @@
         </article>
       </div>
     </article>
-
-
 
   </main>
 </template>
@@ -122,7 +118,6 @@ export default {
     H2Style, ButtonStyle,
     Carousel,
     Slide,
-    Pagination,
     Navigation,
   },
 
