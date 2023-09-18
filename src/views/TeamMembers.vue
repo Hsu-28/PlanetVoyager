@@ -37,8 +37,8 @@
                     </div><!-- <imgSvg :src="require('../assets/image/teamMembers/memberSvg/ASTRONAUT01.svg')" alt=""> -->
                     <div class="membersSpan">
                         <p>{{ thisjob.name }}</p>
-                        <p class="jobTitle">{{ thisjob.nameJob }}</p>
-                        <div>{{ thisjob.number }}</div>
+                        <p class="jobTitleMem">{{ thisjob.nameJob }}</p>
+                        <div class="number">{{ thisjob.number }}</div>
                     </div>
                 </div>
             </div>
@@ -58,11 +58,16 @@
                 
                 </div>
             </div>
+         
         </div>
     </div>
-     
-    <!-- <imgSvg src="../assets/image/teamMembers/memberSvg/MEDICAL01.svg" alt=""> -->
+    <!-- <div class="footerImg">
+        <img  src="../assets/image/teamMembers/footerImg.svg" alt="">
+
+    </div> -->
+    
     <router-view />
+    
 </template>
 <style  scoped lang="scss">
 @import "~@/assets/sass/page/_teamMembers.scss";

@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkspacev"]=self["webpackChunkspacev"]||[]).push([[41],{63:function(n,e,u){u.r(e),u.d(e,{default:function(){return o}});var r=u(3396);const t=(0,r._)("h3",null,"404 la!.",-1);function c(n,e){const u=(0,r.up)("router-view");return(0,r.wg)(),(0,r.iD)(r.HY,null,[t,(0,r.Wm)(u)],64)}var s=u(89);const a={},l=(0,s.Z)(a,[["render",c]]);var o=l}}]);
+//# sourceMappingURL=error.js.map

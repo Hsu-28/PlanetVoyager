@@ -16,11 +16,7 @@
 
 
 
-        <div class="order-item" v-for="item in titlelist" :key="titleC">
-            <span ></span>
-            <span></span>
-            <span ></span> 
-            <span ></span>
+        <div class="order-item" v-for="(item ,index) in titlelist" :key="titleC">
             
             
             <div class="imgContaint">

@@ -3,25 +3,44 @@
     <h1><span class="h1-ch">星際旅程</span> <span class="h1-en">DESTINATION</span></h1>
 
     <H2Style cTitle="行星介紹" eTitle="INTRODUCTION"></H2Style>
-    <ul class="tab-title">
-      <li v-for="(planet, index) in planetCard" :key="planet.id" class="planet-tab"
-        :class="{ 'active': activeId === planet.id }">
-        <button @click="activeId = planet.id">{{ planet.ch_name}}{{ planet.en_namebig }}</button>
-      </li>
-    </ul>
 
-
-    <article v-for="(planet, index) in planetCard" v-show="activeId === planet.id" :key="planet.id" class="planet-info">
-      <h3>{{ planet.ch_name }} <span>{{ planet.en_namebig }}</span></h3>
-      <article class="card-planet">
-        <div class="planet__atmosphere">
-          <div :class="planet.en_name" class="planet__surface"></div>
-        </div>
-      </article>
-      <p class="info">{{ planet.info }}</p>
+    <article class="planet-container">
+      <div class="planet-group">
+        <article class="col-6 ">
+          <ul class="tab-title">
+            <li v-for="(planet, index) in planetCard" :key="planet.id" class="planet-tab"
+              :class="{ 'active': activeId === planet.id }">
+              <button 
+              @click="activeId = planet.id" 
+              class="planet-button">
+                <span v-show="activeId === planet.id">
+                  <img class="button-icon" src="~@/assets/image/destination/icon-planets.svg" alt="星球icon">
+                </span>
+                {{ planet.ch_name}}{{ planet.en_namebig }}
+              </button>
+            </li>
+          </ul>
+        </article>
+        <article v-for="(planet, index) in planetCard" 
+        v-show="activeId === planet.id" 
+        :key="planet.id"
+          class="planet-info col-6">
+          <h3>{{ planet.ch_name }} <span>{{ planet.en_namebig }}</span></h3>
+          <article class="card-planet">
+            <div class="planet__atmosphere">
+              <div :class="planet.en_name" class="planet__surface"></div>
+            </div>
+          </article>
+          <p class="info">{{ planet.info }}</p>
+        </article>
+      </div>
     </article>
 
-    <article v-for="(travel, index) in travelCard" v-show="activeId === travel.id" :key="travel.en_name" class="planet-info">
+
+    <article v-for="(travel, index) in travelCard" 
+    v-show="activeId === travel.id" 
+    :key="travel.en_name"
+      class="planet-info">
       <H2Style :cTitle="travel.ch_name" :eTitle="travel.en_namebig"></H2Style>
       <article>
         <div>
@@ -74,6 +93,7 @@
 
 
 <style  scoped lang="scss">
+@import "~@/assets/sass/page/rwd.scss";
 @import "~@/assets/sass/page/destination.scss";
 </style>
 
@@ -174,7 +194,7 @@ export default {
     };
   },
   methods: {
-    
+
   },
   mounted() {
 

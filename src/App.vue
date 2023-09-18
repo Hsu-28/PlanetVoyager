@@ -9,7 +9,7 @@
       <img src="~@/assets/image/pvlogo.svg" alt="" class="indexLogo" v-show="headericon" router-link to="/">
     </router-link>
 
-    <div ref="loginButton" class="login-btn" v-show="headericon">
+    <div ref="loginButton" class="login-btn" v-show="headericon" @click="login">
       <router-link to="/login">
         <img src="~@/assets/image/headerfooter/login.svg" alt="login" class="login">
 
@@ -41,7 +41,9 @@
     <section class="menu-content">
       <div class="list">
           <ul >
-            <li  v-for="item in titlelist" :key="index" > <strong><router-link @click="closeMenuF" :to="item.path" style="color:item.color;">{{item.titleC}} &nbsp; {{item.titleE}}</router-link> </strong></li>
+            <li  v-for="(item, index) in titlelist" :key="index" >
+              <strong>
+                <router-link @click="closeMenuF" :to="item.path" :style="{color:item.color}">{{item.titleC}} &nbsp; {{item.titleE}}</router-link> </strong></li>
           </ul>
         </div>
         <div class="mediaLink">

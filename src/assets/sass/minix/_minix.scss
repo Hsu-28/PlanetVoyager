@@ -34,4 +34,33 @@
   margin-bottom: $bottom;
   margin-right: $right;
 }
-
+//========== RWD ================
+// 你從桌機開始切用這個
+@mixin padBS{    
+  @media(max-width:768px){
+    @content;
+  }
+}
+@mixin mobileBS{
+  @media(max-width:375px){
+    @content;
+  }
+}
+// 你從手機開始切用這個
+@mixin padSB{
+  @media(min-width:768px){
+    @content;
+  }
+}
+@mixin mobileSB{
+  @media(min-width:375px){
+    @content;
+  }
+}
+//使用方法
+// .box{
+//   background: black;
+//   @include padBS{
+//     background:blue;
+//   }
+//  }  

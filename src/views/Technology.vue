@@ -37,8 +37,21 @@
 
             <section>
                 <SectionTitle cTitle="太空服" eTitle="SPACE SUIT"></SectionTitle>
-        
                 <div class="space-suit-intro">
+                    <div class="window neon-border">
+                        <div class="neon-border">
+
+                        </div>
+                    </div>
+                    <div>
+                        <img src="~@/assets/image/technology/大太空服.svg" alt="">
+                        <img src="~@/assets/image/technology/底座.svg" alt="">
+                    </div>
+                    <div class="window neon-border">
+                        <div class="neon-border">
+
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
