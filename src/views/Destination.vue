@@ -31,8 +31,8 @@
               <span class="h3-dec4"></span>
             </h3>
             <article class="card-planet">
-              <div class="planet__atmosphere">
-                <div :class="planet.en_name" class="planet__surface"></div>
+              <div class="planet-atmosphere">
+                <div :class="planet.en_name" class="planet-surface"></div>
               </div>
             </article>
           </article>
@@ -47,7 +47,7 @@
             <span class="h3-dec3"></span>
             <span class="h3-dec4"></span>
           </h3>
-          <p class="info planet_info">{{ planet.info }}</p>
+          <p class="info planet-info">{{ planet.info }}</p>
         </article>
       </div>
     </article>
@@ -83,13 +83,13 @@
             <article class="travel-info-rwd-container">
               <div class="travel-info-rwd-group">
                 <article class="col-11 col-md-4">
-                  <h3>{{ travel.title }}</h3>
-                  <p class="note">{{ travel.note }}</p>
+                  <h3 class="travel-h3">{{ travel.title }}</h3>
+                  <p class="travel-note">{{ travel.note }}</p>
                   <ButtonStyle buttonText="訂購" buttonBottomText="-PV-"></ButtonStyle>
                 </article>
                 <article class="col-11 col-md-7">
-                  <p class="info travel_info">{{ travel.info }}</p>
-                  <button>READ&nbspMORE</button>
+                  <p class="info travel-text">{{ travel.info }}</p>
+                  <button class="read-more">READ&nbspMORE <a href=""></a></button>
                 </article>
               </div>
             </article>

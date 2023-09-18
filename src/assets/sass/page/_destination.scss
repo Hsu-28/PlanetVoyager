@@ -46,7 +46,7 @@ h1 {
     font-weight: bolder;
 }
 
-.section-title{
+.section-title {
     margin-bottom: 20%;
 }
 
@@ -225,7 +225,7 @@ h3 {
 
 /* 大氣層的樣式，使用box-shadow來產生特定的陰影效果。
 使用radial-gradient來模擬由中心向外的透明度變化，並且使其呈圓形。*/
-.planet__atmosphere {
+.planet-atmosphere {
     box-shadow:
         -5px 0px 10px -4px #999999,
         /* 白色亮外框 */
@@ -259,7 +259,7 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     background-image: url(/src/assets/image/destination/venus.jpg);
 }
 
-.planet__surface {
+.planet-surface {
     transform: rotate(0.034deg) scale(1.2);
     animation: planetRotate 30s linear infinite;
     position: absolute;
@@ -285,7 +285,8 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     font-size: $p2-s;
     line-height: 1.5;
 }
-.planet_info {
+
+.planet-info {
     margin: 10% 0;
 }
 
@@ -307,9 +308,13 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
 }
 
 .slideshow {
-    background-color: white;
-    }
-.travel-img{
+    // background-color: ;
+}
+.carousel__pagination-button::after {
+    background-color: $blue;
+}
+
+.travel-img {
     width: 100%;
 }
 
@@ -342,6 +347,7 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
 //     margin: 5px;
 // }
 
+
 .travel-info-rwd-container {
     max-width: 1200px;
     box-sizing: border-box;
@@ -356,15 +362,44 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    text-align: center;
     margin-left: calc($gap * -1);
     margin-right: calc($gap * -1);
 }
 
+
 .travel-info {
- margin-top: 20%;
+    margin-top: 20%;
 }
 
+.travel-h3 {
+    margin: 5% 0;
+}
 
+.travel-note {
+    margin: 5% 0;
+}
+
+//訂購按鈕
+.cybr-btn {
+    min-width: 0px;
+    width: 80%;
+}
+
+.travel-text {
+    margin: 5% 0;
+    font-size: $p2-s;
+    text-align: left;
+}
+
+.read-more {
+    background-color: transparent;
+    font-size: $p2-s;
+    color: $white;
+    border: 0;
+    margin-left: auto;
+    display: block;
+}
 
 @media screen and (min-width: 700px) {
     h1 {
@@ -406,6 +441,16 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
         h3 {
             display: none;
         }
+    }
+
+    .travel-text {
+        margin: 0;
+        font-size: $p2-m;
+    }
+
+    .read-more {
+        background-color: transparent;
+        font-size: $p2-m;
     }
 }
 
