@@ -30,11 +30,11 @@
               <span class="h3-dec3"></span>
               <span class="h3-dec4"></span>
             </h3>
-            <article class="card-planet">
+            <!-- <article class="card-planet">
               <div class="planet__atmosphere">
                 <div :class="planet.en_name" class="planet__surface"></div>
               </div>
-            </article>
+            </article> -->
           </article>
         </article>
         <article v-for="(planet, index) in planetCard" v-show="activeId === planet.id" :key="planet.id"
