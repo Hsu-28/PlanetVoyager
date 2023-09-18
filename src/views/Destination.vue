@@ -84,7 +84,7 @@
               <div class="travel-info-rwd-group">
                 <article class="col-11 col-md-4">
                   <h3 class="travel-h3">{{ travel.title }}</h3>
-                  <p class="travel-note">{{ travel.note }}</p>
+                  <p class="travel-note" v-html="travel.note"></p>
                   <ButtonStyle buttonText="訂購" buttonBottomText="-PV-"></ButtonStyle>
                 </article>
                 <article class="col-11 col-md-7">
