@@ -17,7 +17,9 @@
       <div class="menu-p2">Member</div>
     </div>
   </nav>
-
+    <div>
+      <h1 @mouseenter="triggerScramble">{{ displayText }}</h1>
+    </div>
   <router-view />
 
   <section class="menu" v-show="showMenu">
@@ -28,7 +30,6 @@
         <img src="~@/assets/image/pvlogo.svg" alt="" class="indexLogo">
       </router-link>
 
-
       <div class="login-btn-menu">
         <router-link to="/login">
           <img src="~@/assets/image/headerfooter/login.svg" alt="" @click="closeMenuF">
@@ -36,7 +37,9 @@
         </router-link>
         <div class="login-m">Member</div>
       </div>
+      
     </div>
+    
 
     <section class="menu-content">
       <div class="list">
