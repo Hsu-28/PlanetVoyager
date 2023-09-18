@@ -38,7 +38,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 35% 0;
+    margin: 20% 0;
 }
 
 .h1-en {
@@ -282,9 +282,11 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
 }
 
 .info {
-    margin: 10% 0;
     font-size: $p2-s;
     line-height: 1.5;
+}
+.planet_info {
+    margin: 10% 0;
 }
 
 .travel-rwd-container {
@@ -305,33 +307,40 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
 }
 
 .slideshow {
-
-    width: 90%;
-    min-height: 202px;
-    overflow: hidden;
-    position: relative;
+    background-color: white;
+    }
+.travel-img{
+    width: 100%;
 }
 
-.slider-container {
-    list-style: none;
-    padding: 0px;
-    margin: 0px;
-    display: flex;
-    position: absolute;
-    top: 0;
-}
+// .slideshow {
 
-.travel-img-li {
-    list-style: none;
-    padding: 0px;
-    margin: 0px;
-    cursor: pointer;
-}
+//     width: 90%;
+//     min-height: 202px;
+//     overflow: hidden;
+//     position: relative;
+// }
 
-.travel-img {
-    width: 310px;
-    margin: 5px;
-}
+// .custom-carousel {
+//     list-style: none;
+//     padding: 0px;
+//     margin: 0px;
+//     display: flex;
+//     position: absolute;
+//     top: 0;
+// }
+
+// .travel-img-li {
+//     list-style: none;
+//     padding: 0px;
+//     margin: 0px;
+//     cursor: pointer;
+// }
+
+// .travel-img {
+//     width: 310px;
+//     margin: 5px;
+// }
 
 .travel-info-rwd-container {
     max-width: 1200px;
@@ -339,7 +348,7 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     margin: 0 auto;
     padding-left: $gap;
     padding-right: $gap;
-    margin-top: 10%;
+    margin-top: 2%;
 }
 
 .travel-info-rwd-group {
