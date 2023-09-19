@@ -1,6 +1,7 @@
 export default {
   data() {
     return {
+      i: "",
       showMenu: false, 
       headericon: true,
       titlelist: [
@@ -46,7 +47,7 @@ export default {
           path:"faq"
         }       
       ],
-      tips: [
+      tipAll: [
         "金星的表面溫度高達900攝氏度，是太陽系中最熱的行星，其大氣中的壓力也非常高，可以將金屬融化",
         "在太空中火焰出呈現球狀火焰，火焰周圍形成了一個球體。這是因為火焰不再受到重力的約束，而是擴散開成球形。",
         "太陽每秒釋放的能量相當於10億顆核彈爆炸的'龐大能量，而這個過程已經持續了數十億年。",
@@ -74,19 +75,16 @@ export default {
         fetch('https://tibamef2e.com/cgd103/g1/api/getProducts.php?order=prod_name&limit=9&page=1')
         .then(res=>res.json())
         .then(json => console.log(json))
+      },
+      xx() {
+         i  = Math.floor(Math.random() * this.tipAll.length);
+          return i;
       }
+      
   },
-  computed: {
-    knowledge () {
-      let i = Math.floor(Math.random() * tips.length)
-    }
-    // choosecreator() {
-    //   // 使用 Array.filter() 過濾 memid 為 1 的資料
-    //   return this.songlists.filter((item, index, array) => {
-    //     if (this.currentType === 0) return true;
-    //     if (this.currentType === 1) return item.memid == 1;
-    //     return item.memid !== 1;
-    //   });
-    // },
-  },
+  // computed: {
+  //   get() {
+        
+  //     },
+  // },
 };
