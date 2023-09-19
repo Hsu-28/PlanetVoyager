@@ -1,6 +1,6 @@
 <template>
   <nav class="indexNav">
-    <div class="menu-btn" @click="showMenuF" v-show="headericon">
+    <div class="menu-btn" @click="showMenuF" v-show="headericon"  >
       <img src="~@/assets/image/headerfooter/menu.svg" alt="menu">
       <div class="menu-p1">MENU</div>
     </div>
@@ -17,17 +17,18 @@
       <div class="menu-p2">Member</div>
     </div>
   </nav>
-
+    <div>
+      <h1 @mouseenter="triggerScramble">{{ displayText }}</h1>
+    </div>
   <router-view />
 
-  <section class="menu" v-show="showMenu">
+  <section class="menu" v-show="showMenu"   >
     <div class="menu-nav">
       <img src="~@/assets/image/headerfooter/close.svg" alt="" @click="closeMenuF" class="close-btn">
 
       <router-link to="/" @click="closeMenuF">
         <img src="~@/assets/image/pvlogo.svg" alt="" class="indexLogo">
       </router-link>
-
 
       <div class="login-btn-menu">
         <router-link to="/login">
@@ -36,7 +37,9 @@
         </router-link>
         <div class="login-m">Member</div>
       </div>
+      
     </div>
+    
 
     <section class="menu-content">
       <div class="list">
@@ -51,7 +54,7 @@
             <h3> <strong> 太空冷知識 </strong></h3>
             <div class="tips">
               <p>
-                在太空中火焰出呈現"球狀火焰"的現象，火焰周圍形成了一個球體。這是因為火焰不再受到重力的約束，而是擴散開成球形。
+                {{tipAll[i]}}
               </p>
             </div>
           </div>

@@ -51,6 +51,7 @@ export default {
 
         h2 {
             font-size: $h2-m;
+            line-height: 3rem;
         }
     }
 

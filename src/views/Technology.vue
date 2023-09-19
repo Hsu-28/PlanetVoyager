@@ -96,4 +96,5 @@ import SectionTitle from '../components/SectionTitle.vue';
 
 <style scoped lang="scss"> 
     @import "@/assets/sass/page/_technology.scss";
-</style>
+</style> 
+

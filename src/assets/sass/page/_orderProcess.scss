@@ -1,0 +1,104 @@
+.carousel{
+    width: 90%;
+    background-color: gray;
+    margin: 40px auto 0 auto;
+    height: auto;
+}
+
+.firstM{
+  // width: 100%;
+  height: 100px;
+  overflow: hidden;
+  img{
+    width: 100%;
+  }
+}
+
+.title{
+  position: absolute;
+  left: 50%;
+  top: 84px;
+  transform: translateX(-50%);
+  color: $white;
+  width: 100%;
+  text-align: center;
+  h1{
+    font-size: 32px;
+  }
+  h2{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 200;
+  }
+
+}
+
+
+
+
+h1 {
+    font-size: 60px;
+  }
+  .pagination{
+    color: white;
+  }
+
+.cimgs{
+  margin-top: 30px;
+  width: 84%;
+  img{
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 375px) {
+  .firstM{
+    // width: 100%;
+    margin-top: 100px;
+    height: 160px;
+    img{
+      width: 100%;
+    }
+  }
+.title{
+  top: 80px;
+  h2{
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 200;
+  }
+
+}
+}
+
+@media screen and (min-width: 768px) {
+  .firstM{
+    // width: 100%;
+    margin-top: 200px;
+    height: 340px;
+    img{
+      width: 100%;
+    }
+  }
+  .title{
+    left: 50%;
+    top: 200px;
+    h1{
+      font-size: 60px;
+    }
+    h2{
+      margin-top: 20px;
+      font-size: 40px;
+    }
+  
+  }
+  }
