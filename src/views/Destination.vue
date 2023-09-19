@@ -1,8 +1,6 @@
 <template>
   <main>
-    <div class="h1-back" ><img src="~@/assets/image/destination/destination-back.svg" alt="標題背景圖"></div>
-    
-
+    <div class="h1-back"><img src="~@/assets/image/destination/destination-back.svg" alt="標題背景圖"></div>
     <h1><span class="h1-ch">星際旅程</span> <span class="h1-en">DESTINATION</span></h1>
     <H2Style cTitle="行星介紹" eTitle="INTRODUCTION"></H2Style>
 
@@ -32,6 +30,7 @@
               <span class="h3-dec3"></span>
               <span class="h3-dec4"></span>
             </h3>
+            
             <article class="card-planet">
               <img class="dec-planet" src="~@/assets/image/destination/decoration_earth.svg" alt="星球裝飾">
               <div class="planet-atmosphere">
@@ -49,9 +48,12 @@
             <span class="h3-dec2"></span>
             <span class="h3-dec3"></span>
             <span class="h3-dec4"></span>
+            <img class="dec-planet-h3" src="~@/assets/image/destination/decoration_planet_h3.svg" alt="星球箭頭">
           </h3>
           <p class="info planet-info">{{ planet.info }}</p>
         </article>
+        <img class="dec-planet-up" src="~@/assets/image/destination/decoration_planet_up.svg" alt="星球裝飾線">
+        <img class="dec-planet-down" src="~@/assets/image/destination/decoration_planet_down.svg" alt="星球裝飾線">
       </div>
     </article>
 
@@ -284,9 +286,10 @@ export default {
     };
   },
   methods: {
-
+    
   },
   mounted() {
+
     // let oUl = document.querySelector('.slider-container');
     // let oLi = document.querySelectorAll('.slider-container li');
 
