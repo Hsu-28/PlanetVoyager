@@ -57,15 +57,15 @@
         <article v-for="(travel, index) in travelCard" v-show="activeId === travel.id || travel.id === 4"
           :key="travel.title" class="travel-info">
           <H2Style :cTitle="travel.ch_name" :eTitle="travel.en_namebig" v-if="travel.en_namebig"></H2Style>
-          <article class="col-11 slideshow">
-            <carousel :items-to-show="2" :wrapAround="true" class="custom-carousel" :autoplay="3000">
+          <article class="col-11 outside-boder ">
+            <carousel :items-to-show="2" :wrapAround="true" class="inside-boder" :autoplay="3000">
               <slide v-for="(img, index) in travel.imgs" :key="index">
                 <div class="cimgs">
                   <img class="travel-img" :src="img.img_src">
                 </div>
               </slide>
               <template #addons>
-                <navigation/>
+                <navigation />
               </template>
             </carousel>
             <!-- <ul class="slider-container">
@@ -77,20 +77,20 @@
               </li>
             </ul> -->
           </article>
-          <article class="col-12">
-            <article class="travel-info-rwd-container">
-              <div class="travel-info-rwd-group">
-                <article class="col-11 col-md-4">
-                  <h3 class="travel-h3">{{ travel.title }}</h3>
-                  <p class="travel-note" v-html="travel.note"></p>
-                  <ButtonStyle buttonText="訂購" buttonBottomText="-PV-"></ButtonStyle>
-                </article>
-                <article class="col-11 col-md-7">
-                  <p class="info travel-text">{{ travel.info }}</p>
-                  <button class="read-more">READ&nbspMORE<a href=""></a></button>
-                </article>
-              </div>
-            </article>
+          <article class="col-11 outside-boder">
+              <article class="travel-info-rwd-container inside-boder text-inside-boder">
+                <div class="travel-info-rwd-group">
+                  <article class="col-11 col-md-5">
+                    <h3 class="travel-h3">{{ travel.title }}</h3>
+                    <p class="travel-note" v-html="travel.note"></p>
+                    <ButtonStyle buttonText="訂購" buttonBottomText="-PV-"></ButtonStyle>
+                  </article>
+                  <article class="col-11 col-md-7">
+                    <p class="info travel-text">{{ travel.info }}</p>
+                    <button class="read-more">READ&nbspMORE<a href=""></a></button>
+                  </article>
+                </div>
+              </article>
           </article>
         </article>
       </div>
@@ -191,10 +191,10 @@ export default {
           ch_name: '月球',
           imgs: [
             {
-              img_src:require("@/assets/image/destination/moon01.svg"),
+              img_src: require("@/assets/image/destination/moon01.svg"),
             },
             {
-              img_src:require("@/assets/image/destination/moon02.svg"),
+              img_src: require("@/assets/image/destination/moon02.svg"),
             },
           ],
           // img1:require("@/assets/image/destination/moon02.svg") ,
@@ -209,10 +209,10 @@ export default {
           ch_name: '',
           imgs: [
             {
-              img_src:require("@/assets/image/destination/moon03.svg"),
+              img_src: require("@/assets/image/destination/moon03.svg"),
             },
             {
-              img_src:require("@/assets/image/destination/moon04.svg"),
+              img_src: require("@/assets/image/destination/moon04.svg"),
             },
           ],
           // img1: require("@/assets/image/destination/moon03.svg"),
@@ -227,10 +227,10 @@ export default {
           ch_name: '金星',
           imgs: [
             {
-              img_src:require("@/assets/image/destination/venus01.svg"),
+              img_src: require("@/assets/image/destination/venus01.svg"),
             },
             {
-              img_src:require("@/assets/image/destination/venus02.svg"),
+              img_src: require("@/assets/image/destination/venus02.svg"),
             },
           ],
           // img1: require("@/assets/image/destination/venus01.svg"),
@@ -245,10 +245,10 @@ export default {
           ch_name: '',
           imgs: [
             {
-              img_src:require("@/assets/image/destination/venus01.svg"),
+              img_src: require("@/assets/image/destination/venus01.svg"),
             },
             {
-              img_src:require("@/assets/image/destination/venus02.svg"),
+              img_src: require("@/assets/image/destination/venus02.svg"),
             },
           ],
           // img1: require("@/assets/image/destination/venus01.svg"),
@@ -264,10 +264,10 @@ export default {
           ch_name: '套裝行程',
           imgs: [
             {
-              img_src:require("@/assets/image/destination/tour01.svg"),
+              img_src: require("@/assets/image/destination/tour01.svg"),
             },
             {
-              img_src:require("@/assets/image/destination/tour02.svg"),
+              img_src: require("@/assets/image/destination/tour02.svg"),
             },
           ],
           // img1: require("@/assets/image/destination/tour01.svg"),

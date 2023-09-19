@@ -144,6 +144,11 @@ h3 {
     font-size: $h2-s;
 }
 
+.planet-img {
+    padding: 2%;
+    box-sizing: border-box;
+}
+
 .planet-h3 {
     display: flex;
     flex-direction: column;
@@ -218,6 +223,7 @@ h3 {
 
 .card-planet {
     width: 90%;
+    margin: 0 auto;
     padding-top: 90%;
     /* 使容器保持正方形，並使其高度等於其寬度 */
     position: relative;
@@ -308,27 +314,30 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
 }
 
 
-.slideshow {
+.outside-boder {
     margin: 0 auto;
-    padding: 10.73px;
-    border: 3.3px solid $white;
-    border-radius: 10px;
-    box-shadow: 0 0 40px 20px $blue;
+    margin-bottom: 5%;
+    padding: 1.5%; //10.73px
+    border: 0.1rem solid $white; //3.3px
+    border-radius: 0.2rem; //10px
+    box-shadow: 0 0 1rem 0.2rem $blue; //40px 10px
     position: relative;
-    &::before{
+
+    &::before {
         content: "";
-        border:6.6px solid $blue;
-        border-radius: 8px;
+        border: 0.1rem solid $blue; //6.6px
+        border-radius: 0.1rem;
         position: absolute;
-        top:0;
-        left:0;
+        top: 0;
+        left: 0;
         right: 0;
         height: 100%;
     }
-    &::after{
+
+    &::after {
         content: "";
-        border:10.73px solid rgba(91, 19, 236, 20%);
-        border-radius: 6px;
+        border: 0.4rem solid rgba(91, 19, 236, 20%); //10.73px
+        border-radius: 0.3rem; //6px
         position: absolute;
         bottom: 0;
         left: 0;
@@ -336,32 +345,55 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
         height: 100%;
     }
 }
-.custom-carousel{  
-    &::after{
+
+.inside-boder {
+    &::after {
         content: "";
-        border:14.02px solid $blue;
-        border-radius: 8px;
+        border: 0.3rem solid $blue; //12px
+        border-radius: 0.15rem;
         filter: blur($circle/4);
         position: absolute;
-        top:-2%;
-        left:-0.5%;
+        top: -2%;
+        left: -0.5%;
         right: -0.5%;
         height: 104%;
     }
-    &::before{
+
+    &::before {
         content: "";
-        border: 3px solid $blueL;
-        border-radius: 8px;
+        border: 0.2rem solid $blueL;
+        border-radius: 0.25rem;
         position: absolute;
-        top:-3%;
-        left:-0.8%;
+        top: -3%;
+        left: -0.8%;
         right: -0.8%;
         height: 106%;
     }
 }
 
-.carousel__pagination-button::after {
-    background-color: $blue;
+.text-inside-boder {
+    &::after {
+        content: "";
+        border: 0.3rem solid $blue; //12px
+        border-radius: 0.15rem;
+        filter: blur($circle/4);
+        position: absolute;
+        top: 0.4%;
+        left: 0.3%;
+        right: 0.3%;
+        height: 99%;
+    }
+
+    &::before {
+        content: "";
+        border: 0.2rem solid $blueL;
+        border-radius: 0.25rem;
+        position: absolute;
+        top: 0;
+        left: 0.2%;
+        right: 0.2%;
+        height: 100%;
+    }
 }
 
 .travel-img {
@@ -404,7 +436,6 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     margin: 0 auto;
     padding-left: $gap;
     padding-right: $gap;
-    margin-top: 2%;
 }
 
 .travel-info-rwd-group {
@@ -413,6 +444,7 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 3% 0;
     margin-left: calc($gap * -1);
     margin-right: calc($gap * -1);
 }
@@ -449,6 +481,7 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     color: $white;
     border: 0;
     margin-left: auto;
+    margin-bottom: 8%;
     display: block;
 }
 
@@ -493,6 +526,10 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
             display: none;
         }
     }
+    .travel-info-rwd-group{
+        justify-content: space-between;
+        padding: 3%;
+    }
 
     .travel-text {
         margin: 0;
@@ -502,26 +539,70 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     .read-more {
         background-color: transparent;
         font-size: $p2-m;
+        margin-bottom: 0;
+    }
+
+    .outside-boder {
+        padding: 1%; //10.73px
+        border: 0.2rem solid $white; //3.3px
+        border-radius: 0.4rem; //10px
+        box-shadow: 0 0 1.2rem 0.4rem $blue; //40px 10px
+
+        &::before {
+            content: "";
+            border: 0.3rem solid $blue; //6.6px
+            border-radius: 0.3rem;
+        }
+
+        &::after {
+            content: "";
+            border: 0.8rem solid rgba(91, 19, 236, 20%); //10.73px
+            border-radius: 0.4rem; //6px
+        }
     }
 }
 
-@media screen and (min-width: 1024px) {
-    h1 {
-        font-size: $h1-l;
+    .inside-boder {
+        &::after {
+            content: "";
+            border: 0.6rem solid $blue; //12px
+            border-radius: 0.3rem;
+        }
     }
 
-    h3 {
-        font-size: $h2-l;
+    .text-inside-boder {
+        &::after {
+            content: "";
+            border: 0.6rem solid $blue; //12px
+            border-radius: 0.3rem;
+        }
+
+        &::before {
+            top: 0;
+            left: 0.2%;
+            right: 0.2%;
+            height: 100%;
+        }
     }
 
-    .planet-button {
-        font-size: 24px;
+    @media screen and (min-width: 1024px) {
+        h1 {
+            font-size: $h1-l;
+        }
+
+        h3 {
+            font-size: $h2-l;
+        }
+
+        .planet-button {
+            font-size: 24px;
+        }
+
+        .info {
+            font-size: $p2-l;
+        }
+
     }
 
-    .info {
-        font-size: $p2-l;
-    }
 
-}
-
-@media screen and (min-width: 1800px) {}
+    @media screen and (min-width: 1800px) {}

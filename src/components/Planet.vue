@@ -15,6 +15,7 @@ export default {
 <style scoped lang="scss">
 .card-planet {
     width: 90%;
+    margin: 0 auto;
     padding-top: 90%;
     /* 使容器保持正方形，並使其高度等於其寬度 */
     position: relative;
