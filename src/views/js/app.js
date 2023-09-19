@@ -1,5 +1,6 @@
 export default {
   data() {
+  
     return {
       i: "",
       showMenu: false, 
@@ -66,6 +67,8 @@ export default {
       showMenuF() {
           this.showMenu = true;
           this.headericon = false;
+          // this.i  = Math.floor(Math.random() * this.tipAll.length);
+          // return i;這邊不行
       },
       closeMenuF() {
           this.showMenu = false;
@@ -76,15 +79,6 @@ export default {
         .then(res=>res.json())
         .then(json => console.log(json))
       },
-      xx() {
-         i  = Math.floor(Math.random() * this.tipAll.length);
-          return i;
-      }
-      
   },
-  // computed: {
-  //   get() {
-        
-  //     },
-  // },
+
 };

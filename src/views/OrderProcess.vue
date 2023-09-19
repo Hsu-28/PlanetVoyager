@@ -1,6 +1,6 @@
 <template>
   <div class="firstM">
-    <img src="@/assets/image/orderprocess/moon.png" alt="">
+    <img src="@/assets/image/orderProcess/moon.png" alt="">
   </div>
   <div class="title">
     <h1>月球體驗之旅</h1>
@@ -141,23 +141,23 @@ export default {
       
       imgs: [ 
         {
-              slide: require('@/assets/image/orderprocess/moonc1.svg'),
+              slide: require('@/assets/image/orderProcess/moonc1.svg'),
               altp:"在月球等你",
             },    
             {
-              slide: require('@/assets/image/orderprocess/moonc2.svg'),
+              slide: require('@/assets/image/orderProcess/moonc2.svg'),
               altp:"太空儀器",
             },{
-              slide: require('@/assets/image/orderprocess/moonc3.svg'),
+              slide: require('@/assets/image/orderProcess/moonc3.svg'),
               altp:"月球外星人",
             },{
-              slide: require('@/assets/image/orderprocess/moonc4.svg'),
+              slide: require('@/assets/image/orderProcess/moonc4.svg'),
               altp:"太空環境",
             },{
-              slide: require('@/assets/image/orderprocess/moonc5.svg'),
+              slide: require('@/assets/image/orderProcess/moonc5.svg'),
               altp:"月球景色",
             },{
-              slide: require('@/assets/image/orderprocess/moonc6.svg'),
+              slide: require('@/assets/image/orderProcess/moonc6.svg'),
               altp:"太空高爾夫",
             }
           ]

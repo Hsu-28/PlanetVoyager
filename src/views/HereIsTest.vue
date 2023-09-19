@@ -2,7 +2,7 @@
     <div>
       <h1 @mouseover="triggerScramble">{{ displayText }}</h1>
     </div>
-    <img src="@/assets/image/orderprocess/moonc1.svg" alt="">
+    <img src="@/assets/image/orderProcess/moonc1.svg" alt="">
   </template>
   
   <script>
