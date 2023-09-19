@@ -31,7 +31,7 @@
               <span class="h3-dec4"></span>
             </h3>
 
-            <article class="card-planet intro">
+            <article class="card-planet intro2">
               <img class="dec-planet" src="~@/assets/image/destination/decoration_earth.svg" alt="星球裝飾">
               <div class="planet-atmosphere">
                 <div :class="planet.en_name" class="planet-surface"></div>
@@ -50,7 +50,7 @@
             <span class="h3-dec4"></span>
             <img class="dec-planet-h3" src="~@/assets/image/destination/decoration_planet_h3.svg" alt="星球箭頭">
           </h3>
-          <p class="info planet-info intro">{{ planet.info }}</p>
+          <p class="info planet-info intro2">{{ planet.info }}</p>
         </article>
         <img class="dec-planet-up" src="~@/assets/image/destination/decoration_planet_up.svg" alt="星球裝飾線">
         <img class="dec-planet-down" src="~@/assets/image/destination/decoration_planet_down.svg" alt="星球裝飾線">
@@ -90,7 +90,7 @@
                   <p class="travel-note" v-html="travel.note"></p>
                   <ButtonStyle buttonText="訂購" buttonBottomText="-PV-"></ButtonStyle>
                 </article>
-                <article class="col-11 col-md-7">
+                <article class="col-11 col-md-7 intro2">
                   <p class="info travel-text">{{ travel.info }}</p>
                   <button class="read-more">READ&nbspMORE<a href=""></a></button>
                 </article>
@@ -299,6 +299,19 @@ export default {
         }
         //如果當 introPosition 小於 screenPostion頁面視窗的高度時，則讓 introText 添加 css 的效果
       });
+    },
+    scrollAppear2() {
+      let introTexts = document.querySelectorAll('.intro2');
+      let screenPosition = window.innerHeight / 1;
+      //screenPostion 來存取視窗中的innerHeight 
+      introTexts.forEach(introText => {
+        let introPosition = introText.getBoundingClientRect().top;
+        //用 getBoundingClientRect()來計算 introText 區域Top的位置
+        if (introPosition < screenPosition) {
+          introText.classList.add('intro-appear2');
+        }
+        //如果當 introPosition 小於 screenPostion頁面視窗的高度時，則讓 introText 添加 css 的效果
+      });
     }
   },
   mounted() {
@@ -329,9 +342,12 @@ export default {
     // moveSlide();
     window.addEventListener('scroll', this.scrollAppear);
     this.scrollAppear();
+    window.addEventListener('scroll', this.scrollAppear2);
+    this.scrollAppear2();
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.scrollAppear);
+    window.removeEventListener('scroll', this.scrollAppear2);
   }
 }
 

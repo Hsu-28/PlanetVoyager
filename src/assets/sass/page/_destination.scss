@@ -1,9 +1,19 @@
 .intro{
     opacity: 0;
     transform: translateY(20px);
-    transition: 2s all ease-in-out;
+    transition: 1.5s all ease-in-out;
 }
 .intro-appear{
+   opacity: 1;
+   transform: translateY(0px);
+}
+
+.intro2{
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 3s all ease-in-out;
+}
+.intro-appear2{
    opacity: 1;
    transform: translateY(0px);
 }
