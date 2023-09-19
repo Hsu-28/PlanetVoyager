@@ -31,6 +31,25 @@ p {
     color: $white;
 }
 
+.h1-back {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: 
+    linear-gradient(to top, rgba(0,0,0,0.3), transparent),
+    url('~@/assets/image/destination/destination-back.svg');
+    mask-image: linear-gradient(to top, transparent, black);
+    background-size: cover;
+    z-index: -2;
+    
+}
+.h1-back img{
+    width: 99%;
+    z-index: -5;
+    opacity: 0;
+}
+
 h1 {
     font-size: $h1-s;
     color: $white;
@@ -38,9 +57,11 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 20% 0;
+    margin: 15% 0 30%;
 }
-
+.h1-ch{
+    letter-spacing: 0.5rem;
+}
 .h1-en {
     margin-top: 1rem;
     font-weight: bolder;
@@ -49,6 +70,7 @@ h1 {
 .section-title {
     margin-bottom: 20%;
 }
+//h2 
 
 .button-icon {
     width: 1.5rem;
@@ -59,7 +81,7 @@ h1 {
     margin: 0 1.5rem;
 
     &::before {
-        content: ""; //繪製橫線
+        content: ""; //繪製直線
         position: absolute;
         top: 0;
         width: 1px;
@@ -144,7 +166,7 @@ h3 {
     font-size: $h2-s;
 }
 
-.planet-img {
+.planet-img-group {
     padding: 2%;
     box-sizing: border-box;
 }
@@ -214,7 +236,7 @@ h3 {
 }
 
 .planet-text {
-    order: 2;
+    padding: 0 4%;
 
     h3 {
         display: none;
@@ -287,6 +309,10 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     }
 }
 
+.dec-planet {
+    display: none;
+}
+
 .info {
     font-size: $p2-s;
     line-height: 1.5;
@@ -300,6 +326,8 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     max-width: 1200px;
     box-sizing: border-box;
     margin: 0 auto;
+    margin-top: 20%;
+    margin-bottom: 30%;
     padding-left: $gap;
     padding-right: $gap;
 }
@@ -451,7 +479,7 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
 
 
 .travel-info {
-    margin-top: 20%;
+    margin-top: 10%;
 }
 
 
@@ -488,10 +516,12 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
 @media screen and (min-width: 700px) {
     h1 {
         font-size: $h1-m;
+        margin-right: 25% ;
     }
 
     .h1-ch {
         writing-mode: vertical-lr;
+        letter-spacing: 2rem;
     }
 
     h3 {
@@ -500,6 +530,13 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
 
     .planet-button {
         font-size: 22px;
+    }
+
+    .tab-ul {
+        &::before {
+            top: -60%;
+            height: 230%;
+        }
     }
 
     .info {
@@ -519,14 +556,36 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
         }
     }
 
-    .planet-img {
+    .planet-img-group {
         order: 2;
 
         h3 {
             display: none;
         }
     }
-    .travel-info-rwd-group{
+
+    .planet-atmosphere {
+        height: 150%;
+        width: 150%;
+        top: 10%;
+        left: -50%;
+    }
+
+    .planet-surface {
+        height: 150%;
+        width: 150%;
+    }
+
+    .dec-planet {
+        display: block;
+        position: absolute;
+        width: 77%;
+        top: -45%;
+        left: 10%;
+        z-index: -1;
+    }
+
+    .travel-info-rwd-group {
         justify-content: space-between;
         padding: 3%;
     }
@@ -562,47 +621,87 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     }
 }
 
-    .inside-boder {
-        &::after {
-            content: "";
-            border: 0.6rem solid $blue; //12px
-            border-radius: 0.3rem;
-        }
+.inside-boder {
+    &::after {
+        content: "";
+        border: 0.6rem solid $blue; //12px
+        border-radius: 0.3rem;
+    }
+}
+
+.text-inside-boder {
+    &::after {
+        content: "";
+        border: 0.6rem solid $blue; //12px
+        border-radius: 0.3rem;
     }
 
-    .text-inside-boder {
-        &::after {
-            content: "";
-            border: 0.6rem solid $blue; //12px
-            border-radius: 0.3rem;
-        }
+    &::before {
+        top: 0;
+        left: 0.2%;
+        right: 0.2%;
+        height: 100%;
+    }
+}
 
+@media screen and (min-width: 1024px) {
+    h1 {
+        font-size: $h1-l;
+    }
+
+    h3 {
+        font-size: $h2-l;
+    }
+
+    .planet-button {
+        font-size: 24px;
+    }
+
+    .info {
+        font-size: $p2-l;
+    }
+
+    .planet-info {
+        margin-bottom: 30%;
+        font-size: $p1-l;
+    }
+
+    .section-title {
+        margin-bottom: 10%
+    }
+
+}
+
+
+@media screen and (min-width: 1800px) {
+    .plant-rwd-container {
+        max-width: 1800px;
+    }
+
+    .h1-ch {
+        letter-spacing: 3rem;
+    }
+
+    .tab-ul {
         &::before {
-            top: 0;
-            left: 0.2%;
-            right: 0.2%;
-            height: 100%;
+            top: -70%;
+            height: 300%;
         }
     }
 
-    @media screen and (min-width: 1024px) {
-        h1 {
-            font-size: $h1-l;
-        }
-
-        h3 {
-            font-size: $h2-l;
-        }
-
-        .planet-button {
-            font-size: 24px;
-        }
-
-        .info {
-            font-size: $p2-l;
-        }
-
+    .planet-atmosphere {
+        top: 10%;
+        left: -70%;
     }
 
+    // main .section-title:first-child {
+    //     margin-bottom: 0;
+    // }
+    // //h2 
 
-    @media screen and (min-width: 1800px) {}
+    .dec-planet {
+        top: -30%;
+        z-index: -1;
+    }
+
+}

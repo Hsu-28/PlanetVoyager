@@ -1,12 +1,14 @@
 <template>
   <main>
-    <h1><span class="h1-ch">星際旅程</span> <span class="h1-en">DESTINATION</span></h1>
+    <div class="h1-back" ><img src="~@/assets/image/destination/destination-back.svg" alt="標題背景圖"></div>
+    
 
+    <h1><span class="h1-ch">星際旅程</span> <span class="h1-en">DESTINATION</span></h1>
     <H2Style cTitle="行星介紹" eTitle="INTRODUCTION"></H2Style>
 
     <article class="plant-rwd-container">
       <div class="plant-rwd-group">
-        <article class="col-5 col-md-4 planet-list">
+        <article class="col-5 col-md-3 planet-list">
           <ul class="tab-ul">
             <li v-for="(planet, index) in planetCard" :key="planet.id" class="tab-li"
               :class="{ 'active': activeId === planet.id }">
@@ -19,9 +21,9 @@
             </li>
           </ul>
         </article>
-        <article class="col-7 col-md-5 planet-img">
+        <article class="col-7 col-md-5 planet-img-group">
           <article v-for="(planet, index) in planetCard" v-show="activeId === planet.id" :key="planet.id"
-            class="planet-info">
+            class="planet-img">
             <h3 class="planet-h3">
               <span class="h3-ch">{{ planet.ch_name }}</span>
               <span class="h3-en">{{ planet.en_namebig }}</span>
@@ -31,6 +33,7 @@
               <span class="h3-dec4"></span>
             </h3>
             <article class="card-planet">
+              <img class="dec-planet" src="~@/assets/image/destination/decoration_earth.svg" alt="星球裝飾">
               <div class="planet-atmosphere">
                 <div :class="planet.en_name" class="planet-surface"></div>
               </div>
@@ -38,7 +41,7 @@
           </article>
         </article>
         <article v-for="(planet, index) in planetCard" v-show="activeId === planet.id" :key="planet.id"
-          class="col-10 col-md-3 planet-text">
+          class="col-10 col-md-4 planet-text">
           <h3 class="planet-h3">
             <span class="h3-ch">{{ planet.ch_name }}</span>
             <span class="h3-en">{{ planet.en_namebig }}</span>
@@ -78,19 +81,19 @@
             </ul> -->
           </article>
           <article class="col-11 outside-boder">
-              <article class="travel-info-rwd-container inside-boder text-inside-boder">
-                <div class="travel-info-rwd-group">
-                  <article class="col-11 col-md-5">
-                    <h3 class="travel-h3">{{ travel.title }}</h3>
-                    <p class="travel-note" v-html="travel.note"></p>
-                    <ButtonStyle buttonText="訂購" buttonBottomText="-PV-"></ButtonStyle>
-                  </article>
-                  <article class="col-11 col-md-7">
-                    <p class="info travel-text">{{ travel.info }}</p>
-                    <button class="read-more">READ&nbspMORE<a href=""></a></button>
-                  </article>
-                </div>
-              </article>
+            <article class="travel-info-rwd-container inside-boder text-inside-boder">
+              <div class="travel-info-rwd-group">
+                <article class="col-11 col-md-5">
+                  <h3 class="travel-h3">{{ travel.title }}</h3>
+                  <p class="travel-note" v-html="travel.note"></p>
+                  <ButtonStyle buttonText="訂購" buttonBottomText="-PV-"></ButtonStyle>
+                </article>
+                <article class="col-11 col-md-7">
+                  <p class="info travel-text">{{ travel.info }}</p>
+                  <button class="read-more">READ&nbspMORE<a href=""></a></button>
+                </article>
+              </div>
+            </article>
           </article>
         </article>
       </div>
