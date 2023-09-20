@@ -1,12 +1,10 @@
 <template>
   <main>
-    <div class="h1-back" ><img src="~@/assets/image/destination/destination-back.svg" alt="標題背景圖"></div>
-    
-
-    <h1><span class="h1-ch">星際旅程</span> <span class="h1-en">DESTINATION</span></h1>
+    <div class="h1-back"><img src="~@/assets/image/destination/destination-back.svg" alt="標題背景圖"></div>
+    <h1 class="intro"><span class="h1-ch ">星際旅程</span> <span class="h1-en">DESTINATION</span></h1>
     <H2Style cTitle="行星介紹" eTitle="INTRODUCTION"></H2Style>
 
-    <article class="plant-rwd-container">
+    <article class="plant-rwd-container intro ">
       <div class="plant-rwd-group">
         <article class="col-5 col-md-3 planet-list">
           <ul class="tab-ul">
@@ -24,7 +22,7 @@
         <article class="col-7 col-md-5 planet-img-group">
           <article v-for="(planet, index) in planetCard" v-show="activeId === planet.id" :key="planet.id"
             class="planet-img">
-            <h3 class="planet-h3">
+            <h3 class="planet-h3 intro">
               <span class="h3-ch">{{ planet.ch_name }}</span>
               <span class="h3-en">{{ planet.en_namebig }}</span>
               <span class="h3-dec1"></span>
@@ -32,7 +30,8 @@
               <span class="h3-dec3"></span>
               <span class="h3-dec4"></span>
             </h3>
-            <article class="card-planet">
+
+            <article class="card-planet intro2">
               <img class="dec-planet" src="~@/assets/image/destination/decoration_earth.svg" alt="星球裝飾">
               <div class="planet-atmosphere">
                 <div :class="planet.en_name" class="planet-surface"></div>
@@ -42,16 +41,19 @@
         </article>
         <article v-for="(planet, index) in planetCard" v-show="activeId === planet.id" :key="planet.id"
           class="col-10 col-md-4 planet-text">
-          <h3 class="planet-h3">
+          <h3 class="planet-h3 intro">
             <span class="h3-ch">{{ planet.ch_name }}</span>
             <span class="h3-en">{{ planet.en_namebig }}</span>
             <span class="h3-dec1"></span>
             <span class="h3-dec2"></span>
             <span class="h3-dec3"></span>
             <span class="h3-dec4"></span>
+            <img class="dec-planet-h3" src="~@/assets/image/destination/decoration_planet_h3.svg" alt="星球箭頭">
           </h3>
-          <p class="info planet-info">{{ planet.info }}</p>
+          <p class="info planet-info intro2">{{ planet.info }}</p>
         </article>
+        <img class="dec-planet-up" src="~@/assets/image/destination/decoration_planet_up.svg" alt="星球裝飾線">
+        <img class="dec-planet-down" src="~@/assets/image/destination/decoration_planet_down.svg" alt="星球裝飾線">
       </div>
     </article>
 
@@ -60,7 +62,7 @@
         <article v-for="(travel, index) in travelCard" v-show="activeId === travel.id || travel.id === 4"
           :key="travel.title" class="travel-info">
           <H2Style :cTitle="travel.ch_name" :eTitle="travel.en_namebig" v-if="travel.en_namebig"></H2Style>
-          <article class="col-11 outside-boder ">
+          <article class="col-11 outside-boder intro">
             <carousel :items-to-show="2" :wrapAround="true" class="inside-boder" :autoplay="3000">
               <slide v-for="(img, index) in travel.imgs" :key="index">
                 <div class="cimgs">
@@ -80,15 +82,15 @@
               </li>
             </ul> -->
           </article>
-          <article class="col-11 outside-boder">
-            <article class="travel-info-rwd-container inside-boder text-inside-boder">
+          <article class="col-11 outside-boder intro">
+            <article class="travel-info-rwd-container inside-boder text-inside-boder ">
               <div class="travel-info-rwd-group">
                 <article class="col-11 col-md-5">
                   <h3 class="travel-h3">{{ travel.title }}</h3>
                   <p class="travel-note" v-html="travel.note"></p>
                   <ButtonStyle buttonText="訂購" buttonBottomText="-PV-"></ButtonStyle>
                 </article>
-                <article class="col-11 col-md-7">
+                <article class="col-11 col-md-7 intro2">
                   <p class="info travel-text">{{ travel.info }}</p>
                   <button class="read-more">READ&nbspMORE<a href=""></a></button>
                 </article>
@@ -284,9 +286,36 @@ export default {
     };
   },
   methods: {
-
+    //文字漸出
+    scrollAppear() {
+      let introTexts = document.querySelectorAll('.intro');
+      let screenPosition = window.innerHeight / 1;
+      //screenPostion 來存取視窗中的innerHeight 
+      introTexts.forEach(introText => {
+        let introPosition = introText.getBoundingClientRect().top;
+        //用 getBoundingClientRect()來計算 introText 區域Top的位置
+        if (introPosition < screenPosition) {
+          introText.classList.add('intro-appear');
+        }
+        //如果當 introPosition 小於 screenPostion頁面視窗的高度時，則讓 introText 添加 css 的效果
+      });
+    },
+    scrollAppear2() {
+      let introTexts = document.querySelectorAll('.intro2');
+      let screenPosition = window.innerHeight / 1;
+      //screenPostion 來存取視窗中的innerHeight 
+      introTexts.forEach(introText => {
+        let introPosition = introText.getBoundingClientRect().top;
+        //用 getBoundingClientRect()來計算 introText 區域Top的位置
+        if (introPosition < screenPosition) {
+          introText.classList.add('intro-appear2');
+        }
+        //如果當 introPosition 小於 screenPostion頁面視窗的高度時，則讓 introText 添加 css 的效果
+      });
+    }
   },
   mounted() {
+
     // let oUl = document.querySelector('.slider-container');
     // let oLi = document.querySelectorAll('.slider-container li');
 
@@ -311,6 +340,14 @@ export default {
     // }
 
     // moveSlide();
+    window.addEventListener('scroll', this.scrollAppear);
+    this.scrollAppear();
+    window.addEventListener('scroll', this.scrollAppear2);
+    this.scrollAppear2();
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.scrollAppear);
+    window.removeEventListener('scroll', this.scrollAppear2);
   }
 }
 

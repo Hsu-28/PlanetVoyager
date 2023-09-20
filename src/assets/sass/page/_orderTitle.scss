@@ -10,10 +10,10 @@
   }
   .order-item:hover {
     box-shadow: 
-    6px 6px 8px rgba($color: #c1c1c1, $alpha: 0.6), 
-    -6px 6px 8px rgba($color: #c1c1c1, $alpha: 0.6), 
-    6px -6px 8px rgba($color: #c1c1c1, $alpha: 0.6),
-    -6px -6px 8px rgba($color: #c1c1c1, $alpha: 0.6); 
+    6px 6px 8px rgba($color: #acacac, $alpha: 0.6), 
+    -6px 6px 8px rgba($color: #acacac, $alpha: 0.6), 
+    6px -6px 8px rgba($color: #acacac, $alpha: 0.6),
+    -6px -6px 8px rgba($color: #acacac, $alpha: 0.6); 
     transition: all 0.8s;
   }
 
@@ -93,6 +93,9 @@
     .order-container{
         flex-flow: row wrap;
         margin-bottom: 0;
+    }
+    .order-item:hover{
+        cursor: pointer;;
     }
     .order-item{
         width: 40%;

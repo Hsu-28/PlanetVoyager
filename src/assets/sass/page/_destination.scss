@@ -1,6 +1,23 @@
-body {
-    background-color: black;
+.intro{
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 1.5s all ease-in-out;
 }
+.intro-appear{
+   opacity: 1;
+   transform: translateY(0px);
+}
+
+.intro2{
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 3s all ease-in-out;
+}
+.intro-appear2{
+   opacity: 1;
+   transform: translateY(0px);
+}
+
 
 main {
     margin-top: 10%
@@ -25,6 +42,7 @@ $gap: 10px;
     justify-content: center;
     margin-left: calc($gap * -1);
     margin-right: calc($gap * -1);
+    position: relative;
 }
 
 p {
@@ -79,7 +97,7 @@ h1 {
 .tab-ul {
     position: relative;
     margin: 0 1.5rem;
-
+    padding: 30% 0;
     &::before {
         content: ""; //繪製直線
         position: absolute;
@@ -87,6 +105,7 @@ h1 {
         width: 1px;
         height: 100%;
         background-color: $gray;
+        mask-image: linear-gradient(to bottom, transparent, black, black, transparent);
     }
 
 }
@@ -235,6 +254,12 @@ h3 {
     right: -0.15rem;
 }
 
+.dec-planet-up{
+    display: none;
+}
+.dec-planet-down{
+    display: none;
+}
 .planet-text {
     padding: 0 4%;
 
@@ -555,6 +580,24 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
             display: flex;
         }
     }
+    .dec-planet-h3{
+        position: absolute;
+        width: 100%;
+        top:70%;
+        left: -100%;
+    }
+    .dec-planet-up{
+        position: absolute;
+        display: block;
+        width: 100%;
+        top:-10%;
+    }
+    .dec-planet-down{
+        position: absolute;
+        display: block;
+        width: 100%;
+        bottom:-20%;
+    }
 
     .planet-img-group {
         order: 2;
@@ -567,7 +610,7 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     .planet-atmosphere {
         height: 150%;
         width: 150%;
-        top: 10%;
+        top: 0;
         left: -50%;
     }
 
@@ -669,6 +712,13 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     .section-title {
         margin-bottom: 10%
     }
+    .dec-planet-h3{
+        top: 50%;
+    }
+    .planet-atmosphere {
+        top: 10%;
+    }
+
 
 }
 
@@ -688,7 +738,10 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
             height: 300%;
         }
     }
-
+    .dec-planet-h3{
+        top: 30%;
+        left: -100%;
+    }
     .planet-atmosphere {
         top: 10%;
         left: -70%;
