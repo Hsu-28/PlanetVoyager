@@ -1,0 +1,120 @@
+.banner {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url('~@/assets/image/index/banner.svg');
+    background-size: cover;
+    z-index: -2;
+    
+}
+.banner img{
+    width: 99%;
+    z-index: -5;
+    opacity: 0;
+}
+ul.solarsystem li {
+    text-indent: -9999px;
+    display: block;
+    position: absolute;
+    border: 2px solid #394057;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-name: orbit;
+}
+
+.h2-group{
+background-image: url(/src/assets/image/index/h2-background.svg);;
+}
+
+
+ul.solarsystem li.venus,
+ul.solarsystem li.earth,
+ul.solarsystem li.mars {
+    span {
+        display: block;
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+    }
+}
+
+ul.solarsystem li.venus {
+    width: 160px;
+    height: 160px;
+    border-radius: 82px;
+    top: 240px;
+    left: 400px;
+    z-index: 98;
+    animation-duration: 8s;
+}
+
+ul.solarsystem li.venus span {
+    background: #bf8639;
+    top: 118px;
+    left: 5px;
+}
+
+ul.solarsystem li.earth {
+    width: 220px;
+    height: 220px;
+    border-radius: 112px;
+    top: 210px;
+    left: 370px;
+    z-index: 97;
+    animation-duration: 12s;
+}
+
+ul.solarsystem li.earth span {
+    background: #06c;
+    top: 56px;
+    left: 5px;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-name: moon;
+    animation-duration: 2s;
+}
+
+ul.solarsystem li.earth span.moon {
+    width: 4px;
+    height: 4px;
+    border-radius: 2px;
+    background: #ccc;
+    top: 12px;
+    left: 12px;
+}
+
+ul.solarsystem li.mars {
+    width: 280px;
+    height: 280px;
+    border-radius: 142px;
+    top: 180px;
+    left: 340px;
+    z-index: 96;
+    animation-duration: 20s;
+}
+
+ul.solarsystem li.mars span {
+    background: #aa4200;
+    top: 0px;
+    left: 175px;
+}
+
+@keyframes orbit {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes moon {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

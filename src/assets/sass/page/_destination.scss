@@ -1,7 +1,7 @@
 .intro{
     opacity: 0;
     transform: translateY(20px);
-    transition: 1.5s all ease-in-out;
+    transition: 1s all ease-in-out;
 }
 .intro-appear{
    opacity: 1;
@@ -11,7 +11,7 @@
 .intro2{
     opacity: 0;
     transform: translateY(20px);
-    transition: 3s all ease-in-out;
+    transition: 1.5s all ease-in-out;
 }
 .intro-appear2{
    opacity: 1;
@@ -375,7 +375,7 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     border-radius: 0.2rem; //10px
     box-shadow: 0 0 1rem 0.2rem $blue; //40px 10px
     position: relative;
-
+    z-index: -2;
     &::before {
         content: "";
         border: 0.1rem solid $blue; //6.6px
@@ -400,6 +400,7 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
 }
 
 .inside-boder {
+    z-index: -2;
     &::after {
         content: "";
         border: 0.3rem solid $blue; //12px
@@ -492,6 +493,7 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
 }
 
 .travel-info-rwd-group {
+    z-index: 5;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -536,6 +538,7 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     margin-left: auto;
     margin-bottom: 8%;
     display: block;
+    cursor: pointer;    
 }
 
 @media screen and (min-width: 700px) {
