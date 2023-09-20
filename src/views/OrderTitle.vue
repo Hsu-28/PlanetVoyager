@@ -17,7 +17,10 @@
 
 
         <div class="order-item" v-for="(item ,index) in titlelist" :key="titleC">
-            
+            <router-link :to="item.path">
+
+
+           
             
             <div class="imgContaint">
                 <img :src="item.bgsrc" alt="" class="img-bg">
@@ -27,14 +30,13 @@
                 <img class="orderP" :src="item.psrc" :alt=item.titleC>
                 <p>{{ item.titleE }}</p>
                 <h2>{{ item.titleC }} </h2>
-               
             </div>
             
             <div class="choose">
                 CHOOSE
             </div>
            
-       
+        </router-link>
         </div>
 
 
