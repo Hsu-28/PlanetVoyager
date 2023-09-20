@@ -96,7 +96,12 @@ const routes = [
   { path: '/:pathMatch(.*)*', 
   name: 'NotFound', 
   component: () => import(/* webpackChunkName: "error" */ '../views/NotFound.vue') 
-},
+  },
+  {
+    path: '/loginsuccess',
+    name: 'loginsuccess',
+    component: () => import(/* webpackChunkName: "order" */ '../views/LoginSuccess.vue')
+  },
 
 ]
 
