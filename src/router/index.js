@@ -98,8 +98,8 @@ const routes = [
   component: () => import(/* webpackChunkName: "error" */ '../views/NotFound.vue') 
   },
   {
-    path: '/loginsuccess',
-    name: 'loginsuccess',
+    path: '/loginSuccess',
+    name: 'loginSuccess',
     component: () => import(/* webpackChunkName: "order" */ '../views/LoginSuccess.vue')
   },
 
