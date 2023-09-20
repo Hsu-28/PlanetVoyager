@@ -6,5 +6,3 @@ import store from './store'
 import 'view-ui-plus/dist/styles/viewuiplus.css'
 import './my-theme/index.scss';
 createApp(App).use(store).use(router).use(ViewUIPlus).mount('#app')
-
-
