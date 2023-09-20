@@ -17,7 +17,7 @@
         </div>
         <div>
             <div>
-                <h2style h2-ch="星際介紹" h2-en="DESTINATION"></h2style>
+                <h2style h2ch="星際介紹" h2en="DESTINATION"></h2style>
                 <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
             </div>
             <div><img src="" alt=""></div>
@@ -37,7 +37,31 @@
                 <li class="mars"><a href="#mars"><span>Mars</span></a></li>
             </ul>
         </div>
-
+        <div>
+            <h2style h2ch="科技創新" h2en="THE VEHICLES"></h2style>
+            <div>
+                <div>
+                    <h3>
+                        <span class="h3-ch">太空船</span>
+                        <span class="h3-en">SPACESHIP</span>
+                    </h3>
+                    <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
+                </div>
+                <div><img   alt="太空船"></div>
+                <!-- src="~@/assets/image/index/spaceship.svg" -->
+            </div>
+            <div>
+                <h3>
+                    <span class="h3-ch">太空服</span>
+                    <span class="h3-en">SPACESUIT</span>
+                </h3>
+                <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
+            </div>
+            <div><img  alt="太空服"></div>
+        </div>
+        <div>
+            <h2style h2ch="團隊介紹" h2en="TOURIST GUIDE"></h2style>
+        </div>
     </main>
 </template>
 

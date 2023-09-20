@@ -2,15 +2,14 @@
     <div class="h2-group">
         <span class="location">LOCATION</span>
         <h2>
-            <span class="h2-ch">{{h2-ch}}</span>
-            <span class="h2-en">{{h2-en}}</span>
+            <span class="h2-ch">{{h2ch}}</span>
+            <span class="h2-en">{{h2en}}</span>
         </h2>
     </div>
 </template>
 <script>
 export default {
-
-    props: ['h2-ch', 'h2-en']
+    props: ['h2ch', 'h2en']
 }
 </script>
 <style scoped lang="scss">
