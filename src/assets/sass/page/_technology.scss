@@ -33,7 +33,7 @@
         .spaceship-pic img{
            width: 60%;
            transform: translateX(-100%);
-           animation: spaceship 1s 1.5s forwards;
+           animation: spaceship 1s 1.5s ease-in-out forwards;
         } 
     }
     @keyframes fadein {
@@ -118,6 +118,7 @@
                h2{
                 color: $blueL;
                 font-size: $h2-l;
+                margin-top: 20px;
                }
             }
             .thumbnail-list{
