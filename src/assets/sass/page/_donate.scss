@@ -9,7 +9,7 @@ body {
 }
 
 .banner {
-    background-image: url(../assets/image/donate/donate.svg);
+    background-image: url("../assets/image/donate/donate.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top right;
@@ -20,7 +20,7 @@ body {
 }
 
 .tit {
-    color: #fff;
+    color: $white;
     position: absolute;
     top: 30%;
     right: 7%;
@@ -62,7 +62,7 @@ body {
 }
 
 .preface .txt h3 {
-    color: #fff;
+    color: $white;
     line-height: 2;
     font-size: 20px;
 }
@@ -75,7 +75,7 @@ body {
 // .detail {
 //     width: 60%;
 //     background-color: rgba(255, 255, 255, 0.12);
-//     color: #fff;
+//     color: $white;
 //     padding: 30px 0;
 // }
 
@@ -128,7 +128,7 @@ body {
 }
 
 .detail table {
-    // border: 1px solid #fff;
+    // border: 1px solid $white;
     width: 450px;
     margin: auto;
     // border-collapse: separate;
@@ -136,7 +136,7 @@ body {
 }
 
 .detail tr {
-    border: 1px solid #fff;
+    border: 1px solid $white;
     text-align: center;
     height: 40px;
 }
@@ -172,7 +172,7 @@ body {
 
 .money h3 {
     background-color: $blue;
-    color: #fff;
+    color: $white;
     line-height: 2.5;
     border-radius: 6px 6px 0 0;
     padding-left: 20px;
@@ -229,7 +229,7 @@ body {
     width: 25px;
     height: 25px;
     background-color: $blue;
-    color: #fff;
+    color: $white;
     display: block;
     content: " ✔ ";
     position: absolute;
@@ -282,7 +282,7 @@ input {
 .btn-bottom {
     width: 100%;
     background-color: $blue;
-    color: #fff;
+    color: $white;
     font-size: 14px;
     padding: 10px 0;
     cursor: pointer;
@@ -293,7 +293,7 @@ input {
 
 .btn-bottom:hover {
     background-color: #7338eb;
-    color: #fff;
+    color: $white;
 }
 
 .pre-formatted {
@@ -304,7 +304,7 @@ input {
     .detail {
         width: 60%;
         background-color: rgba(255, 255, 255, 0.12);
-        color: #fff;
+        color: $white;
         padding: 30px 0;
     }
 
@@ -318,7 +318,7 @@ input {
     .detail {
         width: 60%;
         background-color: rgba(255, 255, 255, 0.12);
-        color: #fff;
+        color: $white;
         padding: 30px 0;
     }
 
@@ -361,7 +361,7 @@ input {
     .detail {
         width: 100%;
         background-color: rgba(255, 255, 255, 0.12);
-        color: #fff;
+        color: $white;
         padding: 30px 0;
     }
 
