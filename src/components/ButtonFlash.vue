@@ -1,7 +1,10 @@
 
 <template>
     <button class="cybr-btn">
-        {{ buttonText }}<span aria-hidden></span>
+        <div class="proText">
+              {{ buttonText }}
+        </div>
+      <span aria-hidden></span>
         <span aria-hidden class="cybr-btn__glitch">{{ buttonText }}</span>
         <span aria-hidden class="cybr-btn__tag">{{ buttonBottomText }}</span>
     </button>

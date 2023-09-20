@@ -226,7 +226,7 @@
             height: 120vh;
             background-color: rgba(156, 147, 147, 0.2);
             backdrop-filter: blur(5px);
-            z-index: 10;
+            z-index: 300;
 
             .memberDetail {
 
@@ -235,7 +235,6 @@
                 // top: 50%;          
                 // left: 50%;        
                 // transform: translate(-50%, -55%);
-
                 position: relative;
                 margin: 0 auto;
                 margin-top: 20vh;
@@ -335,6 +334,26 @@
     }
 
 }
+
+
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #403f3f; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: $black; 
+  }
 // .footerImg{
 //     img{
 //         width: 100%;
@@ -354,20 +373,3 @@
 
 // }
 
-
-
-// ===================R E D ====================
-// @media screen and (max-width: 768px) {
-//     .individual{
-//         transform: scale(0.8);
-//     }
-
-
-// }
-// @media screen and (max-width: 375px) {
-//     .individual{
-//         transform: scale(0.8);
-//     }
-
-
-// }
