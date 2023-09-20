@@ -1,7 +1,7 @@
 .carousel{
     width: 90%;
-    background-color: gray;
-    margin: 40px auto 0 auto;
+    background-color: transparent;
+    margin: 0px auto 0 auto;
     height: auto;
 }
 
@@ -33,9 +33,229 @@
   }
 
 }
+.introduce-container{
+ width: 36%;
+  margin-left: 10%;
+  margin-top: 50px;
+  
+  .introduce{
+    .button-container{
+      width: 100%;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      button{
+        border: 1px solid rgb(129, 129, 129);
+        background-color: transparent;
+        color: rgb(140, 140, 140);
+        padding: 10px;
+        box-sizing: border-box;
+        
+      }
+      button:hover{
+        cursor: pointer;
+        border: 1px solid $white;
+        background-color: transparent;
+        color: $white;
+        text-shadow: 
+        -1px -1px 15px rgba(255, 255, 255, 0.35), /* 上左方向陰影，白色 */
+        1px -1px 15px rgba(255, 255, 255, 0.35),  /* 上右方向陰影，白色 */
+        -1px 1px 15px rgba(255, 255, 255, 0.35),  /* 下左方向陰影，白色 */
+        1px 1px 15px rgba(255, 255, 255, 0.35);    /* 下右方向陰影，白色 */
+      }
+      button.btn-active{
+        cursor: pointer;
+        border: 1px solid $white;
+        background-color: transparent;
+        color: $white;
+        text-shadow: 
+        -1px -1px 15px rgba(255, 255, 255, 0.35), /* 上左方向陰影，白色 */
+        1px -1px 15px rgba(255, 255, 255, 0.35),  /* 上右方向陰影，白色 */
+        -1px 1px 15px rgba(255, 255, 255, 0.35),  /* 下左方向陰影，白色 */
+        1px 1px 15px rgba(255, 255, 255, 0.35);    /* 下右方向陰影，白色 */
+      }
+    }
+    .introduce-p{
+      h3{
+        font-size: 34px;
+        color: $white;
+        margin: 30px 0 30px 0;
+        text-shadow: 
+    -1px -1px 15px rgba(255, 255, 255, 0.3), /* 上左方向陰影，白色 */
+    1px -1px 15px rgba(255, 255, 255, 0.3),  /* 上右方向陰影，白色 */
+    -1px 1px 15px rgba(255, 255, 255, 0.3),  /* 下左方向陰影，白色 */
+    1px 1px 15px rgba(255, 255, 255, 0.3);    /* 下右方向陰影，白色 */
+      }
+      h4{
+        margin-top: 0px;
+        margin-bottom: 20px;
+        color: $white;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      p{
+        color: $white;
+        line-height: 1.55;
+        font-size: 16px;
+      }
+    }
+  }
+  
+}
 
+.travelInfo-conatiner{
+ 
+  width: 90%;
+  margin: auto;
+  margin-top: 200px;
+  h3,h4{
+    text-align: center;
+    margin-bottom: 20px;
+    color: $white;
+     text-shadow: 
+        -1px -1px 15px rgba(255, 255, 255, 0.35), /* 上左方向陰影，白色 */
+        1px -1px 15px rgba(255, 255, 255, 0.35),  /* 上右方向陰影，白色 */
+        -1px 1px 15px rgba(255, 255, 255, 0.35),  /* 下左方向陰影，白色 */
+        1px 1px 15px rgba(255, 255, 255, 0.35);    /* 下右方向陰影，白色 */
+  }
+  h3{
+    font-size: 36px;
+  }
+  h4{
+    font-size: 30px;
+  }
+  ul{
+    display: flex;
+    flex-flow: row wrap;
+    color: $white;
+    li{
+      
+      width: 49%;
+      display: flex;
+      align-items: center;
+      margin:15px 0;
+      .box{
+        height: 50px;
+        width: 50px;
+        display: grid;
+        place-items: center; 
+        border: 1px solid $white;
+        margin-right: 5%;
+      }
+      .itemp{
+        width: 80%;
+        line-height: 1.5;
+        a{
+          font-weight: normal;
+          color: $white;
+          text-shadow: 
+          -1px -1px 15px rgba(255, 255, 255, 0.35), /* 上左方向陰影，白色 */
+          1px -1px 15px rgba(255, 255, 255, 0.35),  /* 上右方向陰影，白色 */
+          -1px 1px 15px rgba(255, 255, 255, 0.35),  /* 下左方向陰影，白色 */
+          1px 1px 15px rgba(255, 255, 255, 0.35);    /* 下右方向陰影，白色 */
+    
+        }
 
+      }
+    }
+  }
+}
 
+.itinerary-cotainer{
+  height: 130px;
+  width: 80%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin: 50px auto 50px auto;
+  .itinerary-c{
+    background-color: $white;
+    clip-path: polygon(0% 0%, 100% 0, 100% 75%, 90% 100%, 0% 100%);
+    display: grid;
+    place-items: center; 
+    text-align: center;
+    line-height: 1.4;
+    border-radius: 8px;
+    font-size: 24px;
+    width: 30%;
+  }
+  .itinerary-d{
+    display: grid;
+    place-items: center; 
+    text-align: center;
+    line-height: 1.5;
+    border: 1px solid $white;
+    height: 70%;
+    border-radius: 8px;
+    margin-top: auto;
+    font-size: 22px;
+    width: 20%;
+    img{
+      margin-top: 10px;
+    }
+  }
+  .itinerary-d:hover{
+   background-color: $white;
+   color: $black;
+   cursor: pointer;
+  }
+  
+}
+
+.itinerary-cotainer2{
+  display: flex;
+  flex-flow: row nowrap;
+  width: 80%;
+  margin: auto;
+  justify-content: space-between;
+  margin-top: 150px;
+  .inL{
+    background-color: $white;
+    clip-path: polygon(0% 0%, 100% 0, 100% 75%, 90% 100%, 0% 100%);
+    display: grid;
+    place-items: center; 
+    text-align: center;
+    line-height: 1.4;
+    border-radius: 8px;
+    font-size: 24px;
+    width: 30%;
+    height: 150px;
+  }
+  .inR{
+    width: 59%;
+    display: flex;
+    justify-content: start;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    line-height: 1.5;
+    border-radius: 8px;
+    font-size: 22px;
+    .itinerary-d{
+      color: $white;
+      font-size: 16px;
+      line-height: 1.5;
+      border: 1px solid $white;
+      border-radius: 8px;
+      margin:0px 5px 20px 0 ;
+      width: 40%;
+      padding: 5px 10px;
+      
+      .space{
+        margin-top: 20px;
+      }
+      h5{
+        margin-top: 5px;
+      }
+      
+    }
+    .itinerary-d:hover{
+      color: $black;
+      background-color: $white;
+      cursor: pointer;
+    }
+  }
+}
 
 h1 {
     font-size: 60px;
@@ -45,16 +265,143 @@ h1 {
   }
 
 .cimgs{
-  margin-top: 30px;
+  margin-top: 20px;
   width: 84%;
   img{
     width: 100%;
   }
 }
 
+.passengerInfo{
+  position: relative;
+  width: 90%;
+  margin: auto;
+  color: azure;;
+  .order-detail{
+    width: 30%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 300px;
+    margin-bottom: 50px;
 
+    h4{
+      font-size: 24px;
+      border-bottom: 1px solid $blueL;
+      width: 100%;
+      padding: 5%;
+      margin-bottom: 40px;
+    }
+    .order-card{
+      border: 1px solid $blueL;
+      div{
+        text-align: center;
+        width: 80%;
+        margin: 20px auto;
+        border-bottom: 1px solid $blueL;
+        padding: 5px;
+      }
+    }
+    div{
+      text-align: center;
+      width: 80%;
+      margin: 20px auto;
+      padding: 5px;
+    }
+    
+   
+    .exchange-rate{
+      border: 1px solid $blueL;
+    }
+  }
 
+.order-info{
+    height: 500px;
+    margin: 200px 0;
+    
 
+  }
+  .order-i{
+    width: 50%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    border: 1px solid gray;
+    border-radius: 20px;
+    padding-top: 20px;
+    h4{
+      width: 90%;
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+    input{
+      width: 40%;
+      margin: 10px 0;
+    }
+    .c-s{
+      width: 90%;
+        display: flex;
+       justify-content: left;
+        align-items: center;
+        
+      .clothe{
+        margin: 10px auto;
+        display: flex;
+        justify-content:start;
+        align-items: center;
+        border: 1px solid $white;
+        margin-left: 0;
+        border-radius: 5px;
+        letter-spacing: 3px;
+        padding: 2px;
+        
+      }
+      .status{
+        margin-left: 0;
+        border: 1px solid $white;
+        border-radius: 5px;
+        
+      }
+    
+    }
+    .remark{
+      margin: 10px auto;
+      width: 90%;
+      height: 50px;
+      .remark-t{
+        width: 100%;
+        height: 60px;
+        margin-top: 6px;
+      }
+    }
+  }
+  .check{
+    width: 90%; 
+    letter-spacing: 1.5px; 
+    
+    margin: 30px 0;
+    input{
+      width: 30px;
+    }
+  }
+  .upload{
+    width: 40%;
+    height: 40px;
+    margin: auto;
+    border-radius: 5px;
+    margin-bottom: 30px;
+
+  }
+  .order-s{
+    font-size: 32px;
+    text-align: center;
+    width: 90%;
+    .order-c{
+      width: 56%;
+      margin-top: 50px;
+    }
+  }
+}
 
 
 
@@ -102,3 +449,5 @@ h1 {
   
   }
   }
+
+
