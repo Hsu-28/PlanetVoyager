@@ -14,7 +14,7 @@ export default {
 </script>
 <style scoped lang="scss">
 .h2-group{
-background-image: url(/src/assets/image/index/h2-background.svg);;
+background-image: url(/src/assets/image/index/h2_background.svg);;
 }
 
 </style>

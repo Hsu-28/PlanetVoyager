@@ -47,8 +47,9 @@
                     </h3>
                     <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
                 </div>
-                <div><img   alt="太空船"></div>
-                <!-- src="~@/assets/image/index/spaceship.svg" -->
+                <div>
+                  <img src="" alt="太空船">
+                </div>
             </div>
             <div>
                 <h3>
@@ -57,7 +58,9 @@
                 </h3>
                 <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
             </div>
-            <div><img  alt="太空服"></div>
+            <div>
+                <img src="" alt="太空服">
+            </div>
         </div>
         <div>
             <h2style h2ch="團隊介紹" h2en="TOURIST GUIDE"></h2style>
