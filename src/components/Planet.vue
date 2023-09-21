@@ -1,14 +1,14 @@
 <template>
-    <article class="card-planet">
-              <div class="planet-atmosphere">
-                <div :class="planetName" class="planet-surface"></div>
-              </div>
+    <article :class="cardPlanet" class="card-planet">
+        <div  class="planet-atmosphere" >
+            <div :class="planetName" class="planet-surface"></div>
+        </div>
     </article>
 </template>
 <script>
 export default {
 
-    props: ['planetName']
+    props: ['cardPlanet','planetName']
     //mars moon venus earth
 }
 </script>
@@ -30,7 +30,7 @@ export default {
         inset 10px 0px 12px -2px rgba(255, 255, 255, .3),
         /* 白色亮內框 */
         inset -50px 0px 50px 0px rgb(31, 30, 30);
-    /*星球右側陰影*/
+        /*星球右側陰影*/
     height: 100%;
     width: 100%;
     margin: 0 auto;
@@ -50,6 +50,7 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     background-image: url(/src/assets/image/destination/earth.jpg);
     animation: planetRotate 30s linear infinite;
 }
+
 .mars {
     background-image: url(/src/assets/image/destination/mars.jpg);
     animation: planetRotate 30s linear infinite;
