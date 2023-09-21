@@ -1,15 +1,15 @@
 <template>
     <article class="card-planet">
               <div class="planet-atmosphere">
-                <div :class="planet.en_name" class="planet-surface"></div>
+                <div :class="planetName" class="planet-surface"></div>
               </div>
     </article>
 </template>
 <script>
 export default {
 
-    props: ['planet.en_name']
-    //mars moon venus
+    props: ['planetName']
+    //mars moon venus earth
 }
 </script>
 <style scoped lang="scss">
@@ -45,6 +45,9 @@ export default {
 /* 行星地表的樣式。並且有一個旋轉和縮放的效果，模仿行星的自轉。
 planetRotate的動畫，該動畫將背景位置由0%移動到-200%。 
 佔據其父元素（即大氣層）的整個空間，並將其背景圖像大小設置為cover以填充整個元素。*/
+.earth {
+    background-image: url(/src/assets/image/destination/earth.jpg);
+}
 .mars {
     background-image: url(/src/assets/image/destination/mars.jpg);
 }
