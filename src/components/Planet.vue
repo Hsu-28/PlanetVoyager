@@ -45,24 +45,28 @@ export default {
 /* 行星地表的樣式。並且有一個旋轉和縮放的效果，模仿行星的自轉。
 planetRotate的動畫，該動畫將背景位置由0%移動到-200%。 
 佔據其父元素（即大氣層）的整個空間，並將其背景圖像大小設置為cover以填充整個元素。*/
+
 .earth {
     background-image: url(/src/assets/image/destination/earth.jpg);
+    animation: planetRotate 30s linear infinite;
 }
 .mars {
     background-image: url(/src/assets/image/destination/mars.jpg);
+    animation: planetRotate 30s linear infinite;
 }
 
 .moon {
     background-image: url(/src/assets/image/destination/moon.jpg);
+    animation: planetRotate 30s linear infinite;
 }
 
 .venus {
     background-image: url(/src/assets/image/destination/venus.jpg);
+    animation: planetRotate 30s linear infinite;
 }
 
 .planet-surface {
     transform: rotate(0.034deg) scale(1.2);
-    animation: planetRotate 30s linear infinite;
     position: absolute;
     top: 0;
     left: 0;
