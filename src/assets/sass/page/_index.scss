@@ -38,11 +38,18 @@ $gap: 10px;
 }
 
 .planet-group {
+    perspective: 1200px;
     width: 100%;
+    overflow: hidden;
     mask-image: linear-gradient(to bottom, black, transparent);
 }
-
+.outside{
+    transform-style: preserve-3d;
+    transform: rotateY(308deg) rotateX(25deg); 
+}
 .solarsystem {
+    transform-style: preserve-3d;
+    transform: rotateY(25deg) rotateX(10deg); 
     position: relative;
     width: 70%;
     padding-top: 70%;
@@ -61,25 +68,12 @@ $gap: 10px;
     animation-timing-function: linear;
     // 動畫的速度曲線。linear 保持恆定的速度，不會有加速或減速的效果。
     animation-name: orbit;
-}
 
     
-.card-planet {
-    width: 30%;
-    padding-top: 30%;
-    position: absolute;
-    top: 70%;
+}
 
-    &::after {
-        content: 'EARTH';
-        border:$purple;
-        background-color: $purpleO;
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: -50%;
-        transform: translate(-50%, -50%);
-    }
+.card-planet {
+    position: absolute;
 }
 
 :deep(.earth) {
@@ -94,44 +88,76 @@ $gap: 10px;
         /* 白色亮內框 */
         inset -20px 0px 20px 0px rgb(31, 30, 30);
     /*星球右側陰影*/
-    
 }
 
 
-
 .venusring {
+    z-index: 4;
     width: 30%;
     height: 30%;
     top: 35%;
     left: 35%;
     animation-duration: 8s;
 }
-:deep(.venusring-return){
+
+:deep(.venusring-return) {
     animation: orbit 8s linear 0s infinite reverse both;
+    width: 60%;
+    padding-top: 60%;
+    top: 70%;
+
+    &::after {
+        content: 'VENUS';
+        border: $purple;
+        background-color: $purpleO;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: -50%;
+        transform: translate(-50%, -50%);
+    }
 }
 
 .earthring {
+    z-index: 3;
     width: 60%;
     height: 60%;
     top: 20%;
     left: 20%;
     animation-duration: 12s;
 }
-:deep(.earthring-return){
+
+:deep(.earthring-return) {
     animation: orbit 12s linear 0s infinite reverse both;
+    width: 30%;
+    padding-top: 30%;
+    top: 70%;
+
+    &::after {
+        content: 'EARTH';
+        border: $purple;
+        background-color: $purpleO;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: -50%;
+        transform: translate(-50%, -50%);
+    }
 }
 
 :deep(.earth) {
-    animation-duration: 10s;
+    animation-duration: 5s;
 }
 
 .rocketring {
+    z-index: 1;
     width: 70%;
     height: 70%;
     top: 15%;
     left: 15%;
     animation-duration: 8s;
 }
+
 .rocket {
     position: absolute;
     top: 10%;
@@ -145,9 +171,27 @@ $gap: 10px;
     left: 0%;
     animation-duration: 20s;
 }
-:deep(.marsring-return){
-    animation: orbit 20s linear 0s infinite reverse both;
+:deep(.mars) {
+    animation-duration: 20s;
 }
+:deep(.marsring-return) {
+    animation: orbit 20s linear 0s infinite reverse both;
+    width: 13%;
+    padding-top: 13%;
+    top: 70%;
+
+    &::after {
+        content: 'MARS';
+        border: $purple;
+        background-color: $purpleO;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: -50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
 .moonring {
     display: block;
     position: absolute;
@@ -158,8 +202,23 @@ $gap: 10px;
     top: 57.5%;
     left: -12.5%;
 }
-:deep(.moonring-return){
+
+:deep(.moonring-return) {
     animation: orbit 12s linear 0s infinite reverse both;
+    width: 20%;
+    padding-top: 20%;
+    top: 70%;
+
+    &::after {
+        content: 'MOON';
+        border: $purple;
+        background-color: $purpleO;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: -50%;
+        transform: translate(-50%, -50%);
+    }
 }
 
 
@@ -170,5 +229,15 @@ $gap: 10px;
 
     to {
         transform: rotate(360deg);
+    }
+
+}
+@keyframes ooo {
+    from {
+        transform: rotateY(320deg) rotateX(75deg);
+    }
+
+    to {
+        transform:rotateX(-90deg) rotateY(360deg);
     }
 }
