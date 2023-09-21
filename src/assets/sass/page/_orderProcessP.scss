@@ -1,34 +1,4 @@
-<template>
-    <!-- 用我的 -->
-    <article class="card-planet">
-        <div class="location">
-            <div class="planet__atmosphere">
-                <div class="moon planet__surface"></div>
-            </div>
-        </div>
 
-    </article>
-
-    <article class="card-planet2">
-        <div class="location">
-            <div class="planet__atmosphere">
-                <div class="moon planet__surface"></div>
-            </div>
-        </div>
-
-    </article>
-
-    <article class="card-planet3">
-        <div class="location">
-            <div class="planet__atmosphere">
-                <div class="moon planet__surface"></div>
-            </div>
-        </div>
-
-    </article>
-</template>
-
-<style scoped>
 /* 動畫 */
 @keyframes planetRotate {
     0% {
@@ -58,7 +28,7 @@
 
 /* 開始 */
 .card-planet {
-    border: 1px solid red;
+
     height: 600px;
     width: 100%;
     margin-top: 50px;
@@ -66,13 +36,13 @@
 
     .location {
         position: absolute;
-        left: 80%;
+        left: 70%;
         top: 50%;
         transform: translate(-50%, -50%);
     }
 
     /* 大氣層的樣式，使用box-shadow來產生特定的陰影效果。
-使用radial-gradient來模擬由中心向外的透明度變化，並且使其呈圓形。*/
+    使用radial-gradient來模擬由中心向外的透明度變化，並且使其呈圓形。*/
     .planet__atmosphere {
         box-shadow:
 
@@ -97,8 +67,8 @@
         <顏色> */
         /* inset 10px 10px 6px 0px rgb(121, 121, 121);  */
         /*星球右側陰影*/
-        height: 40vw;
-        width: 40vw;
+        height: 36vw;
+        width: 36vw;
         position: relative;
         background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, .3) 0%, rgba(255, 255, 255, 0) 65%);
         border-radius: 100%;
@@ -174,21 +144,18 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
 
 
 /* 分界 */
-.card-planet2 {
-    border: 1px solid red;
-    height: 100vh;
+.card-planet2{
+    .card-planet{
+    height: 600px;
     width: 100%;
-    position: relative;
-.location{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
+    margin-top: 50px;
 }
-    /* 大氣層的樣式，使用box-shadow來產生特定的陰影效果。
+/* 大氣層的樣式，使用box-shadow來產生特定的陰影效果。
 使用radial-gradient來模擬由中心向外的透明度變化，並且使其呈圓形。*/
-    .planet__atmosphere {
-        box-shadow:
+.planet__atmosphere {
+    box-shadow:
+        
+       
         inset 0px 10px 10px -2px rgba(255, 255, 255, 0.527),/*方上光源*/
         inset 1px 10px 50px 2px rgba(160, 160, 160, 0.24),/*光暈圈*/
         inset 0px 0px 200px 140px rgb(0, 0, 0),/*黑色遮罩*/
@@ -196,35 +163,37 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
         0px 2px 10px 1px rgba(252, 252, 251, 0.763),
         0px 2px 10px 10px rgba(252, 252, 251, 0.331),
         0px 2px 40px 40px rgba(252, 252, 251, 0.114);
-
-        /*星球右側陰影*/
-        /* <水平偏移量>
+      
+      /*星球右側陰影*/
+    /* <水平偏移量>
         <垂直偏移量>
         <模糊半徑>
         <擴展半徑>
         <顏色> */
-        /* inset 10px 10px 6px 0px rgb(121, 121, 121);  */
-        /*星球右側陰影*/
-        height: 30vw;
-        width: 30vw;
-        background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, .3) 0%, rgba(255, 255, 255, 0) 65%);
-        border-radius: 100%;
-        overflow: hidden;
+      /* inset 10px 10px 6px 0px rgb(121, 121, 121);  */
+      /*星球右側陰影*/
+    height: 50vw;
+    width: 50vw;
+    margin: 0 auto;
+    position: relative;
+    background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, .3) 0%, rgba(255, 255, 255, 0) 65%);
+    border-radius: 100%;
+    overflow: hidden;
+    
+}
 
-    }
 
+.planet__surface {
+    transform: rotate(0.034deg) scale(1.2);
+    animation: planetRotate 30s linear infinite;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background-size: cover;
+}
 
-    .planet__surface {
-        transform: rotate(0.034deg) scale(1.2);
-        animation: planetRotate 30s linear infinite;
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        z-index: -1;
-        background-size: cover;
-    }
-
-    /* @keyframes planetRotate {
+  /* @keyframes planetRotate {
     0% {
         background-position: -200% center;
     }
@@ -234,53 +203,50 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     } 
 }  */
 
-    .info {
-        margin: 10% 0;
-
-    }
-
-    .slideshow {
-        margin: 5% 0;
-        width: 90%;
-        min-height: 202px;
-        overflow: hidden;
-        position: relative;
-    }
-
-    .slider-container {
-        list-style: none;
-        padding: 0px;
-        margin: 0px;
-        display: flex;
-        position: absolute;
-        top: 0;
-    }
-
-    .travel-img-li {
-        list-style: none;
-        padding: 0px;
-        margin: 0px;
-        cursor: pointer;
-    }
-
-    .travel-img {
-        width: 310px;
-        margin: 5px;
-    }
+.info {
+    margin: 10% 0;
 
 }
 
+.slideshow{
+    margin: 5% 0;
+    width:90%;
+    min-height: 202px;
+    overflow: hidden;
+    position: relative;
+}
+.slider-container {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    position: absolute;
+    top: 0; 
+}
+.travel-img-li{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    cursor: pointer;
+}
+.travel-img{
+    width: 310px;
+    margin: 5px;
+}
+
+}
 
 /* 分界 */
 .card-planet3 {
 
     height: 600px;
     width: 100%;
-    position: absolute;
+    margin-top: 50px;
+    position: relative;
 .location{
     position: absolute;
-    left: 20%;
-    top: 66%;
+    left: 2%;
+    top: 44%;
     transform: translate(-50%,-50%);
 }
 }
@@ -308,8 +274,8 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
         <顏色> */
     /* inset 10px 10px 6px 0px rgb(121, 121, 121);  */
     /*星球右側陰影*/
-    height: 30vw;
-    width: 30vw;
+    height: 40vw;
+    width: 40vw;
     position: relative;
     background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, .3) 0%, rgba(255, 255, 255, 0) 65%);
     border-radius: 100%;
@@ -360,4 +326,4 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
 .travel-img {
     width: 310px;
     margin: 5px;
-}</style>
+}
