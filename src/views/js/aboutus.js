@@ -1,4 +1,14 @@
+import { EffectCards } from 'swiper/modules';
+import 'swiper/css';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css/effect-cards';
+
+
 export default {
+    components: {
+        Swiper,
+        SwiperSlide,
+    },
     data() {
         return {
         };
@@ -23,5 +33,12 @@ export default {
     },
     mounted() {
         this.accordionEvent()
-    }
+    },
+    setup() {
+        return {
+            modules: [EffectCards],
+        };
+    },
+
+
 }

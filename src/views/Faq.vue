@@ -27,7 +27,7 @@
     </div>
 </template>
 
-<style s lang="scss">
+<style scoped lang="scss">
 @import "@/assets/sass/page/_faq.scss";
 </style>
 <script src="./js/faq.js"></script>

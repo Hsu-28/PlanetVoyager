@@ -108,7 +108,7 @@
   <router-view />
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import "@/assets/sass/page/_donate.scss";
 </style>
 <script src="./js/donate.js"></script>
