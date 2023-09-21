@@ -6,37 +6,42 @@
     background-image: url('~@/assets/image/index/banner.svg');
     background-size: cover;
     z-index: -2;
-    
+
 }
-.banner img{
+
+.banner img {
     width: 99%;
     z-index: -5;
     opacity: 0;
 }
-section{
+
+section {
     min-width: 1200px;
 }
-.solarsystem{
+
+.solarsystem {
     position: relative;
     width: 50%;
     padding-top: 50%;
+    transform-style: preserve-3d;
 }
+
 .venusring,
 .earthring,
-.marsring{
+.marsring {
+    transform: translateZ(0);
     display: block;
     position: absolute;
-    border: 2px solid #394057;
+    border: 2px dashed #727171;
     animation-iteration-count: infinite;
     //動畫無限循環
     animation-timing-function: linear;
     // 動畫的速度曲線。linear 保持恆定的速度，不會有加速或減速的效果。
     animation-name: orbit;
-    
-
 }
 
-.card-planet{
+
+.card-planet {
     width: 30%;
     padding-top: 30%;
     position: absolute;
@@ -61,6 +66,7 @@ section{
     left: 20%;
     animation-duration: 12s;
 }
+
 .marsring {
     width: 100%;
     height: 100%;
@@ -69,29 +75,47 @@ section{
     left: 0%;
     animation-duration: 20s;
 }
+
 .moonring {
     display: block;
     position: absolute;
     width: 55%;
     height: 55%;
     border-radius: 50%;
-    background-color: $blueO;
+    // background-color: $blueO;
     top: 57.5%;
     left: -12.5%;
     animation: orbit 7s linear infinite;
 }
-.earth{
-    animation: planetRotate 1s linear infinite;
+.card-planet::after{
+    content: 'earth';
+    display: block;  /* 讓它成為塊級元素 */
+    position: absolute;  /* 使用絕對定位 */
+    top: 50%;  /* 使其垂直居中 */
+    left: 50%;  /* 使其水平居中 */
+    transform: translate(-50%, -50%);  
 }
 
+.earth {
+    animation: planetRotate 0.1s linear infinite;
+}
 
+.planet-atmosphere {
+    box-shadow:
+        -5px 0px 10px -4px red,
+        /* 白色亮外框 */
+        inset 10px 0px 12px -2px rgba(255, 255, 255, .3),
+        /* 白色亮內框 */
+        inset -50px 0px 50px 0px rgb(31, 30, 30);
+    /*星球右側陰影*/
 
-
+}
 
 @keyframes orbit {
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }

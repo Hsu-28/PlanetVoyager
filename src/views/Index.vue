@@ -42,9 +42,7 @@
 
             <ul class="solarsystem">
                 <li class="venusring">
-                    VENUS
-                    <planet planetName="venus"></planet>
-                   
+                    <planet planetName="venus"></planet>   
                 </li>
                 <li class="earthring">
                     EARTH
