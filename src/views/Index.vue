@@ -49,23 +49,25 @@
                 </div>
 
                 <div class="planet-group">
-                    <ul class="solarsystem">
-                        <li class="venusring">
-                            <planet cardPlanet="venusring-return" planetName="venus "></planet>
-                        </li>
-                        <li class="earthring">
-                            <planet cardPlanet="earthring-return" planetName="earth"></planet>
-                            <span class="moonring">
-                                <planet cardPlanet="moonring-return" planetName="moon"></planet>
-                            </span>
-                        </li>
-                        <li class="rocketring">
-                            <img class="rocket" src="~@/assets/image/index/rocket.svg" alt="">
-                        </li>
-                        <li class="marsring">
-                            <planet cardPlanet="marsring-return" planetName="mars"></planet>
-                        </li>
-                    </ul>
+                    <div class="outside">
+                        <ul class="solarsystem">
+                            <li class="venusring">
+                                <planet cardPlanet="venusring-return" planetName="venus "></planet>
+                            </li>
+                            <li class="earthring">
+                                <planet cardPlanet="earthring-return" planetName="earth"></planet>
+                                <span class="moonring">
+                                    <planet cardPlanet="moonring-return" planetName="moon"></planet>
+                                </span>
+                            </li>
+                            <li class="rocketring">
+                                <img class="rocket" src="~@/assets/image/index/rocket.svg" alt="">
+                            </li>
+                            <li class="marsring">
+                                <planet cardPlanet="marsring-return" planetName="mars"></planet>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
