@@ -7,6 +7,137 @@ import HomeView from '../views/HomeView.vue'
 
 const routes = [
   {
+    path: '/backend',
+    name: 'backend',
+    component: LayoutBackendView,
+    // children: [
+    //   {
+    //     // /backend/profile 匹配成功
+    //     // UserProfile 将被渲染到 BackendView 的 <router-view> 内部
+    //     path: 'profile',
+    //     component: UserProfile,
+    //   },
+    //   {
+    //     // /backend/posts 匹配成功
+    //     // UserPosts 将被渲染到 BackendView 的 <router-view> 内部
+    //     path: 'posts',
+    //     component: UserPosts,
+    //   },
+    // ],
+  },
+  {
+    path: '/',
+    name: 'Select',
+    component: LayoutFrontendView,
+    children: [
+      {
+        path: 'home',
+        name: 'home',
+        component: HomeView
+      },
+      {
+        path: 'aboutus',
+        name: 'AboutUs',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "about" */ '../views/AboutUs.vue')
+      },  
+      {
+        path: 't2',
+        name: 'HereIsTest2',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "about" */ '../views/HereIsTest2.vue')
+      }, 
+      {
+        path: 't1',
+        name: 'HereIsTest',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "about" */ '../views/HereIsTest.vue')
+      },
+      {
+        path: 'Login',
+        name: 'Login',
+        component: () => import(/* webpackChunkName: "Login" */ '../views/Login.vue')
+      },
+      {
+        path: 'Index',
+        name: 'Index',
+        component: () => import(/* webpackChunkName: "Index" */ '../views/Index.vue')
+      },
+      {
+        path: 'Destination',
+        name: 'Destination',
+        component: () => import(/* webpackChunkName: "Destination" */ '../views/Destination.vue')
+      },    
+      {
+        path: 'donate',
+        name: 'donate',
+        component: () => import(/* webpackChunkName: "donate" */ '../views/Donate.vue')
+      },
+      {
+        path: 'faq',
+        name: 'faq',
+        component: () => import(/* webpackChunkName: "faq" */ '../views/Faq.vue')
+      },
+      {
+        path: 'training',
+        name: 'training',
+        component: () => import(/* webpackChunkName: "training" */ '../views/Training.vue')
+      },
+      {
+        path: 'teamMembers',
+        name: 'teamMembers',
+        component: () => import(/* webpackChunkName: "teamMembers" */ '../views/TeamMembers.vue')
+      },
+      {
+        path: 'memberCenter',
+        name: 'memberCenter',
+        component: () => import(/* webpackChunkName: "memberCenter" */ '../views/MemberCenter.vue')
+      },
+      {
+        path: 'register',
+        name: 'register',
+        component: () => import(/* webpackChunkName: "Login" */ '../views/Register.vue')
+      }, 
+      { 
+        path: 'order',
+        name: 'order',
+        component: () => import(/* webpackChunkName: "order" */ '../views/OrderTitle.vue')
+      },
+      { 
+        path: 'orderprocess',
+        name: 'orderprocess',
+        component: () => import(/* webpackChunkName: "order" */ '../views/OrderProcess.vue')
+      },
+      {
+        path: 'technology',
+        name: 'technology',
+        component: () => import(/* webpackChunkName: "order" */ '../views/Technology.vue')
+      },
+      { 
+        path: ':pathMatch(.*)*', 
+        name: 'NotFound', 
+        component: () => import(/* webpackChunkName: "error" */ '../views/NotFound.vue') 
+      },
+      {
+        path: 'loginSuccess',
+        name: 'loginSuccess',
+        component: () => import(/* webpackChunkName: "order" */ '../views/LoginSuccess.vue')
+      },
+      {
+        path: 'loginFail',
+        name: 'loginFail',
+        component: () => import(/* webpackChunkName: "order" */ '../views/LoginFail.vue')
+      },
+    
+    ]
+  },
+  {
     path: '/',
     name: 'home',
     component: HomeView

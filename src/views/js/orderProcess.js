@@ -2,17 +2,27 @@
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 // import { ArrayCamera } from 'three'
-
+import ButtonFlashBox from '@/components/ButtonFlash.vue'
 export default {
-  data() {
+  components: {
+    Carousel,
+    Slide,
+    Pagination,
+    Navigation,
+    ButtonFlashBox: ButtonFlashBox,
+  },
+
+data() {
     return {
         show1: true,
         show2: false,
         btn1: "btn-active",
         btn2: "",
+        planetIndex: 0,
+        
 
       imgs: [
-        {
+       {
           slide: require('@/assets/image/orderProcess/moonc1.svg'),
           altp: "在月球等你",
         },
@@ -113,11 +123,12 @@ export default {
   //   this.setFormList(this.currentAmount)
   // },
   name: 'App',
-  components: {
-    Carousel,
-    Slide,
-    Pagination,
-    Navigation,
+  mounted() {
+    console.log(this.$route.query)
+    const sectionId = this.$route.query?.section;
+    if (sectionId) {
+      this.planetIndex = +sectionId
+    }
   },
 }
 
