@@ -110,6 +110,11 @@ const routes = [
     name: 'loginFail',
     component: () => import(/* webpackChunkName: "order" */ '../views/LoginFail.vue')
   },
+  // {
+  //   path: '/itinerary',
+  //   name: 'itinerary',
+  //   component: () => import(/* webpackChunkName: "order" */ '../views/Itinerary.vue')
+  // },
 
 ]
 

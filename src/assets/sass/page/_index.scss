@@ -6,112 +6,330 @@
     background-image: url('~@/assets/image/index/banner.svg');
     background-size: cover;
     z-index: -2;
-    
+
 }
-.banner img{
+
+.banner img {
     width: 99%;
     z-index: -5;
     opacity: 0;
 }
-ul.solarsystem li {
-    text-indent: -9999px;
+
+section {
+    padding-top: 20%;
+}
+
+$gap: 10px;
+
+.rwd-container {
+    max-width: 1200px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding-left: $gap;
+    padding-right: $gap;
+
+}
+
+[class*="rwd-group"] {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: calc($gap * -1);
+    margin-right: calc($gap * -1);
+    position: relative;
+}
+
+
+.marquee{
+overflow: hidden;
+}
+.scroll{
+    display: flex;
+    background: black;
+    height: 40px;
+    .news{
+      white-space: nowrap;
+    text-transform: uppercase;
+    animation: scroll 40s linear infinite;
+    &:nth-child(2){
+      animation: scroll2 40s linear infinite;
+      animation-delay: -20s;
+    }
+    
+    }
+  }
+  
+  @keyframes scroll{
+    from{transform: translateX(100%)}
+    to{transform: translateX(-100%)}
+  }
+  
+  @keyframes scroll2{
+    from{transform: translateX(0%)}
+    to{transform: translateX(-200%)}
+  }
+  
+
+// .news {
+//     font-size: $h1-s;
+//     font-weight: lighter;
+//     color: transparent;
+//     background-image: url('~@/assets/image/index/giphy.gif');
+//     -moz-background-clip: text;
+//     -webkit-background-clip: text;
+// }
+
+.planet-group {
+    perspective: 1200px;
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+.outside {
+    transform-style: preserve-3d;
+    transform: rotateY(308deg) rotateX(25deg);
+}
+
+.solarsystem {
+    transform-style: preserve-3d;
+    transform: rotateY(25deg) rotateX(10deg);
+    position: relative;
+    width: 70%;
+    padding-top: 70%;
+}
+
+.venusring,
+.earthring,
+.rocketring,
+.marsring {
     display: block;
     position: absolute;
-    border: 2px solid #394057;
+    border: 2px dashed #727171;
+    border-radius: 50%;
     animation-iteration-count: infinite;
+    //動畫無限循環
     animation-timing-function: linear;
+    // 動畫的速度曲線。linear 保持恆定的速度，不會有加速或減速的效果。
     animation-name: orbit;
+
+
+}
+
+.card-planet {
+    position: absolute;
+}
+
+:deep(.earth) {
+    animation-duration: 10s;
+}
+
+:deep(.planet-atmosphere) {
+    box-shadow:
+        -5px 0px 10px -4px #ffffff,
+        /* 白色亮外框 */
+        inset 10px 0px 12px -2px rgba(255, 255, 255, .3),
+        /* 白色亮內框 */
+        inset -20px 0px 20px 0px rgb(31, 30, 30);
+    /*星球右側陰影*/
 }
 
 
-
-ul.solarsystem li.venus,
-ul.solarsystem li.earth,
-ul.solarsystem li.mars {
-    span {
-        display: block;
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        border-radius: 5px;
-    }
-}
-
-ul.solarsystem li.venus {
-    width: 160px;
-    height: 160px;
-    border-radius: 82px;
-    top: 240px;
-    left: 400px;
-    z-index: 98;
+.venusring {
+    z-index: 4;
+    width: 30%;
+    height: 30%;
+    top: 35%;
+    left: 35%;
     animation-duration: 8s;
 }
 
-ul.solarsystem li.venus span {
-    background: #bf8639;
-    top: 118px;
-    left: 5px;
+:deep(.venusring-return) {
+    animation: orbit 8s linear 0s infinite reverse both;
+    width: 60%;
+    padding-top: 60%;
+    top: 70%;
+
+    &::after {
+        content: 'VENUS';
+        border: $purple;
+        background-color: $purpleO;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: -50%;
+        transform: translate(-50%, -50%);
+    }
 }
 
-ul.solarsystem li.earth {
-    width: 220px;
-    height: 220px;
-    border-radius: 112px;
-    top: 210px;
-    left: 370px;
-    z-index: 97;
+.earthring {
+    z-index: 3;
+    width: 60%;
+    height: 60%;
+    top: 20%;
+    left: 20%;
     animation-duration: 12s;
 }
 
-ul.solarsystem li.earth span {
-    background: #06c;
-    top: 56px;
-    left: 5px;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    animation-name: moon;
-    animation-duration: 2s;
+:deep(.earthring-return) {
+    animation: orbit 12s linear 0s infinite reverse both;
+    width: 30%;
+    padding-top: 30%;
+    top: 70%;
+
+    &::after {
+        content: 'EARTH';
+        border: $purple;
+        background-color: $purpleO;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: -50%;
+        transform: translate(-50%, -50%);
+    }
 }
 
-ul.solarsystem li.earth span.moon {
-    width: 4px;
-    height: 4px;
-    border-radius: 2px;
-    background: #ccc;
-    top: 12px;
-    left: 12px;
+:deep(.earth) {
+    animation-duration: 5s;
 }
 
-ul.solarsystem li.mars {
-    width: 280px;
-    height: 280px;
-    border-radius: 142px;
-    top: 180px;
-    left: 340px;
-    z-index: 96;
+.rocketring {
+    z-index: 1;
+    width: 70%;
+    height: 70%;
+    top: 15%;
+    left: 15%;
+    animation-duration: 8s;
+}
+
+.rocket {
+    position: absolute;
+    top: 10%;
+    animation: orbit 8s linear 0s infinite reverse both;
+}
+
+.marsring {
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
     animation-duration: 20s;
 }
 
-ul.solarsystem li.mars span {
-    background: #aa4200;
-    top: 0px;
-    left: 175px;
+:deep(.mars) {
+    animation-duration: 20s;
 }
+
+:deep(.marsring-return) {
+    animation: orbit 20s linear 0s infinite reverse both;
+    width: 13%;
+    padding-top: 13%;
+    top: 70%;
+
+    &::after {
+        content: 'MARS';
+        border: $purple;
+        background-color: $purpleO;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: -50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.moonring {
+    display: block;
+    position: absolute;
+    width: 55%;
+    height: 55%;
+    border-radius: 50%;
+    // background-color: $blueO;
+    top: 57.5%;
+    left: -12.5%;
+}
+
+:deep(.moonring-return) {
+    animation: orbit 12s linear 0s infinite reverse both;
+    width: 20%;
+    padding-top: 20%;
+    top: 70%;
+
+    &::after {
+        content: 'MOON';
+        border: $purple;
+        background-color: $purpleO;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: -50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
 
 @keyframes orbit {
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
+    }
+
+}
+
+h3 {
+    color: $white;
+    font-size: $h2-s;
+    letter-spacing: 0.3rem;
+    line-height: 1.5;
+    text-align: center;
+}
+.team-card{
+width: 500px;
+overflow: hidden;
+}
+.swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    max-width: 300px;
+    height: 300px;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+  }
+  
+
+@media screen and (min-width: 700px) {
+    .news {
+        font-size: $h1-m;
+    }
+
+    h3 {
+        font-size: $h2-m;
     }
 }
 
-@keyframes moon {
-    from {
-        transform: rotate(0deg);
+@media screen and (min-width: 1024px) {
+    .news {
+        font-size: $h1-l;
     }
-    to {
-        transform: rotate(360deg);
+
+    h3 {
+        font-size: $h2-l;
+
     }
+
 }
+
+@media screen and (min-width: 1800px) {}
