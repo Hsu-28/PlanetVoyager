@@ -2,7 +2,7 @@
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 // import { ArrayCamera } from 'three'
-
+import ButtonFlashBox from '@/components/ButtonFlash.vue'
 export default {
   data() {
     return {
@@ -10,9 +10,10 @@ export default {
         show2: false,
         btn1: "btn-active",
         btn2: "",
+        
 
       imgs: [
-        {
+       {
           slide: require('@/assets/image/orderProcess/moonc1.svg'),
           altp: "在月球等你",
         },
@@ -118,6 +119,7 @@ export default {
     Slide,
     Pagination,
     Navigation,
+    ButtonFlashBox: ButtonFlashBox
   },
 }
 
