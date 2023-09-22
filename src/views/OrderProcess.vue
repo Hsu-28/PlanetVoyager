@@ -161,17 +161,17 @@
       </div>
     </section>
     <article class="card-planet3">
-        <div class="location">
-            <div class="planet__atmosphere">
-                <div class="moon planet__surface"></div>
-            </div>
+      <div class="location">
+        <div class="planet__atmosphere">
+          <div class="moon planet__surface"></div>
         </div>
+      </div>
 
     </article>
 
   </section>
 
- 
+
 
   <section class="passengerInfo">
 
@@ -239,19 +239,19 @@
         </div>
         <div class="cabin">
           <div class="cabin-all">
-              <div class="cabin-per"></div>
-              <div class="cabin-per"></div>
-              <div class="cabin-per"></div>
-              <div class="cabin-per"></div>
-              <div class="cabin-per"></div>
-              <div class="cabin-per"></div>
-              <div class="cabin-per"></div>
-              <div class="cabin-per"></div>
-              <div class="cabin-per"></div>
-              <div class="cabin-per"></div>
+            <div class="cabin-per"></div>
+            <div class="cabin-per"></div>
+            <div class="cabin-per"></div>
+            <div class="cabin-per"></div>
+            <div class="cabin-per"></div>
+            <div class="cabin-per"></div>
+            <div class="cabin-per"></div>
+            <div class="cabin-per"></div>
+            <div class="cabin-per"></div>
+            <div class="cabin-per"></div>
 
           </div>
-          
+
         </div>
 
 
@@ -307,13 +307,15 @@
   </div> -->
 </template>
   
-<script src="@/views/js/orderP                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            rocess.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+<script src="@/views/js/orderProcess.js"></script>
 
 <style scoped lang="scss">
 @import "~@/assets/sass/page/orderProcess.scss";
 </style>
+
 <style scoped lang="scss">
 @import "~@/assets/sass/page/orderProcessP.scss";
 </style>
-<!-- 加了下面這段scss就不行 -->
+
   

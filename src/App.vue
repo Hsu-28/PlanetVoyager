@@ -3,7 +3,6 @@
     <div class="menu-btn" @click="showMenuF" v-show="headericon">
       <img src="~@/assets/image/headerfooter/menu.svg" alt="menu">
       <div class="menu-p1">MENU</div>
-      <div>{{ tipAll[i] }}</div>
     </div>
 
     <router-link to="/">
