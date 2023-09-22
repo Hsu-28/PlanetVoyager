@@ -1,4 +1,5 @@
 <template>
+    <!-- 用我的 -->
     <router-view />
     <section class="order-container">
 
@@ -17,7 +18,7 @@
 
 
         <div class="order-item" v-for="(item ,index) in titlelist" :key="titleC">
-            <router-link :to="item.path">
+            <router-link :to="`/${item.path}?section=${index}`">
 
 
            

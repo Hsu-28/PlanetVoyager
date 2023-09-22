@@ -18,7 +18,8 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutUs.vue')
-  },  {
+  },  
+  {
     path: '/t2',
     name: 'HereIsTest2',
     // route level code-splitting
@@ -38,6 +39,11 @@ const routes = [
     path: '/Login',
     name: 'Login',
     component: () => import(/* webpackChunkName: "Login" */ '../views/Login.vue')
+  },
+  {
+    path: '/Index',
+    name: 'Index',
+    component: () => import(/* webpackChunkName: "Index" */ '../views/Index.vue')
   },
   {
     path: '/Destination',
@@ -73,11 +79,13 @@ const routes = [
     path: '/register',
     name: 'register',
     component: () => import(/* webpackChunkName: "Login" */ '../views/Register.vue')
-  }, { 
+  }, 
+  { 
     path: '/order',
     name: 'order',
     component: () => import(/* webpackChunkName: "order" */ '../views/OrderTitle.vue')
-  },{ 
+  },
+  { 
     path: '/orderprocess',
     name: 'orderprocess',
     component: () => import(/* webpackChunkName: "order" */ '../views/OrderProcess.vue')
@@ -87,10 +95,26 @@ const routes = [
     name: 'technology',
     component: () => import(/* webpackChunkName: "order" */ '../views/Technology.vue')
   },
-  { path: '/:pathMatch(.*)*', 
-  name: 'NotFound', 
-  component: () => import(/* webpackChunkName: "error" */ '../views/NotFound.vue') 
-},
+  { 
+    path: '/:pathMatch(.*)*', 
+    name: 'NotFound', 
+    component: () => import(/* webpackChunkName: "error" */ '../views/NotFound.vue') 
+  },
+  {
+    path: '/loginSuccess',
+    name: 'loginSuccess',
+    component: () => import(/* webpackChunkName: "order" */ '../views/LoginSuccess.vue')
+  },
+  {
+    path: '/loginFail',
+    name: 'loginFail',
+    component: () => import(/* webpackChunkName: "order" */ '../views/LoginFail.vue')
+  },
+  // {
+  //   path: '/itinerary',
+  //   name: 'itinerary',
+  //   component: () => import(/* webpackChunkName: "order" */ '../views/Itinerary.vue')
+  // },
 
 ]
 
