@@ -4,21 +4,12 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 // import { ArrayCamera } from 'three'
 import ButtonFlashBox from '@/components/ButtonFlash.vue'
 export default {
-  components: {
-    Carousel,
-    Slide,
-    Pagination,
-    Navigation,
-    ButtonFlashBox: ButtonFlashBox,
-  },
-
-data() {
+  data() {
     return {
         show1: true,
         show2: false,
         btn1: "btn-active",
         btn2: "",
-        planetIndex: 0,
         
 
       imgs: [
@@ -123,12 +114,12 @@ data() {
   //   this.setFormList(this.currentAmount)
   // },
   name: 'App',
-  mounted() {
-    console.log(this.$route.query)
-    const sectionId = this.$route.query?.section;
-    if (sectionId) {
-      this.planetIndex = +sectionId
-    }
+  components: {
+    Carousel,
+    Slide,
+    Pagination,
+    Navigation,
+    ButtonFlashBox: ButtonFlashBox
   },
 }
 
