@@ -15,6 +15,10 @@
     opacity: 0;
 }
 
+section {
+    padding-top: 20%;
+}
+
 $gap: 10px;
 
 .rwd-container {
@@ -26,16 +30,55 @@ $gap: 10px;
 
 }
 
-.rwd-group {
+[class*="rwd-group"] {
     display: flex;
-    flex-direction: row-reverse;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     margin-left: calc($gap * -1);
     margin-right: calc($gap * -1);
     position: relative;
 }
+
+
+.marquee{
+overflow: hidden;
+}
+.scroll{
+    display: flex;
+    background: black;
+    height: 40px;
+    .news{
+      white-space: nowrap;
+    text-transform: uppercase;
+    animation: scroll 40s linear infinite;
+    &:nth-child(2){
+      animation: scroll2 40s linear infinite;
+      animation-delay: -20s;
+    }
+    
+    }
+  }
+  
+  @keyframes scroll{
+    from{transform: translateX(100%)}
+    to{transform: translateX(-100%)}
+  }
+  
+  @keyframes scroll2{
+    from{transform: translateX(0%)}
+    to{transform: translateX(-200%)}
+  }
+  
+
+// .news {
+//     font-size: $h1-s;
+//     font-weight: lighter;
+//     color: transparent;
+//     background-image: url('~@/assets/image/index/giphy.gif');
+//     -moz-background-clip: text;
+//     -webkit-background-clip: text;
+// }
 
 .planet-group {
     perspective: 1200px;
@@ -43,13 +86,15 @@ $gap: 10px;
     overflow: hidden;
     mask-image: linear-gradient(to bottom, black, transparent);
 }
-.outside{
+
+.outside {
     transform-style: preserve-3d;
-    transform: rotateY(308deg) rotateX(25deg); 
+    transform: rotateY(308deg) rotateX(25deg);
 }
+
 .solarsystem {
     transform-style: preserve-3d;
-    transform: rotateY(25deg) rotateX(10deg); 
+    transform: rotateY(25deg) rotateX(10deg);
     position: relative;
     width: 70%;
     padding-top: 70%;
@@ -69,7 +114,7 @@ $gap: 10px;
     // 動畫的速度曲線。linear 保持恆定的速度，不會有加速或減速的效果。
     animation-name: orbit;
 
-    
+
 }
 
 .card-planet {
@@ -171,9 +216,11 @@ $gap: 10px;
     left: 0%;
     animation-duration: 20s;
 }
+
 :deep(.mars) {
     animation-duration: 20s;
 }
+
 :deep(.marsring-return) {
     animation: orbit 20s linear 0s infinite reverse both;
     width: 13%;
@@ -232,12 +279,57 @@ $gap: 10px;
     }
 
 }
-@keyframes ooo {
-    from {
-        transform: rotateY(320deg) rotateX(75deg);
+
+h3 {
+    color: $white;
+    font-size: $h2-s;
+    letter-spacing: 0.3rem;
+    line-height: 1.5;
+    text-align: center;
+}
+.team-card{
+width: 500px;
+overflow: hidden;
+}
+.swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    max-width: 300px;
+    height: 300px;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+  }
+  
+
+@media screen and (min-width: 700px) {
+    .news {
+        font-size: $h1-m;
     }
 
-    to {
-        transform:rotateX(-90deg) rotateY(360deg);
+    h3 {
+        font-size: $h2-m;
     }
 }
+
+@media screen and (min-width: 1024px) {
+    .news {
+        font-size: $h1-l;
+    }
+
+    h3 {
+        font-size: $h2-l;
+
+    }
+
+}
+
+@media screen and (min-width: 1800px) {}

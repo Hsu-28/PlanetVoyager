@@ -22,31 +22,33 @@
         </section>
         <section class="rwd-container">
             <div class="rwd-group">
-                <div>
-                    <h2style h2ch="關於我們" h2en="ABOUT&nbspUS"></h2style>
+                <div class="col-11 col-md-4">
+                    <h2style h2ch="關於我們" h2en="ABOUT US"></h2style>
                     <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
                 </div>
-                <div><img src="" alt=""></div>
+                <div class="col-11 col-md-4">
+                    <img src="~@/assets/image/index/aboutus.svg" alt="太空船艙">
+                </div>
             </div>
         </section>
         <section class="rwd-container">
             <div class="rwd-group">
-                <marquee direction="right" height="30" scrollamount="5" behavior="alternate">跑馬燈測試</marquee>
-                <!-- 方向設定：direction="參數值"；可設定 up（向上）、dun（向下）、left（向左）、right（向右）。
-對齊設定：align="參數值"；可設定 top（向上對齊）、midden（垂直至中）、botton（向下對齊）。
-速度設定：scrollamount="參數值" ；可設定為數字，通常設定 1~10 的範圍，數字越大跑得越快。
-長度設定：height="參數值"；數字，自行設定。
-寬度設定：width="參數值"；數字，自行設定。
-行為設定：behavior="參數值"；可設定 alternate（來回跑）、slide（跑入後停止）。
-背景顏色：bgcolor="參數值"；可設定為顏色的色碼，不設定則沒有顏色。 -->
+                <div class="marquee">
+                    <div class="scroll">
+                        <span class="news"> 最新消息 NEWS 最新消息 NEWS 最新消息 NEWS</span>
+                        <span class="news"> 最新消息 NEWS 最新消息 NEWS 最新消息 NEWS</span>
+                    </div>
+                </div>
             </div>
         </section>
         <section class="rwd-container">
             <div class="rwd-group">
-                <div>
+
+                <div class="destination-group">
                     <h2style h2ch="星際介紹" h2en="DESTINATION"></h2style>
                     <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
                 </div>
+
 
                 <div class="planet-group">
                     <div class="outside">
@@ -70,14 +72,16 @@
                     </div>
                 </div>
             </div>
+
         </section>
         <section class="rwd-container">
             <div class="rwd-group">
-                <h2style h2ch="科技創新" h2en="THE&nbspVEHICLES"></h2style>
+                <h2style h2ch="科技創新" h2en="THE VEHICLES"></h2style>
                 <div>
                     <div>
                         <h3>
                             <span class="h3-ch">太空船</span>
+                            <br>
                             <span class="h3-en">SPACESHIP</span>
                         </h3>
                         <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
@@ -89,6 +93,7 @@
                 <div>
                     <h3>
                         <span class="h3-ch">太空服</span>
+                        <br>
                         <span class="h3-en">SPACESUIT</span>
                     </h3>
                     <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
@@ -100,7 +105,28 @@
         </section>
         <section class="rwd-container">
             <div class="rwd-group">
-                <h2style h2ch="團隊介紹" h2en="TOURIST&nbspGUIDE"></h2style>
+                <h2style h2ch="團隊介紹" h2en="TOURIST GUIDE"></h2style>
+                <div class="team-card">
+                    <swiper :effect="'coverflow'" :grabCursor="true" :centeredSlides="true" :slidesPerView="'auto'"
+                        :coverflowEffect="{
+                            rotate: 50,
+                            stretch: 0,
+                            depth: 100,
+                            modifier: 1,
+                            slideShadows: true,
+                        }" :pagination="none" :modules="modules" class="mySwiper">
+                        <swiper-slide><img
+                                src="https://swiperjs.com/demos/images/nature-1.jpg" /></swiper-slide><swiper-slide><img
+                                src="https://swiperjs.com/demos/images/nature-2.jpg" /></swiper-slide><swiper-slide><img
+                                src="https://swiperjs.com/demos/images/nature-3.jpg" /></swiper-slide><swiper-slide><img
+                                src="https://swiperjs.com/demos/images/nature-4.jpg" /></swiper-slide><swiper-slide><img
+                                src="https://swiperjs.com/demos/images/nature-5.jpg" /></swiper-slide><swiper-slide><img
+                                src="https://swiperjs.com/demos/images/nature-6.jpg" /></swiper-slide><swiper-slide><img
+                                src="https://swiperjs.com/demos/images/nature-7.jpg" /></swiper-slide><swiper-slide><img
+                                src="https://swiperjs.com/demos/images/nature-8.jpg" /></swiper-slide><swiper-slide><img
+                                src="https://swiperjs.com/demos/images/nature-9.jpg" /></swiper-slide>
+                    </swiper>
+                </div>
             </div>
         </section>
     </main>
@@ -110,6 +136,14 @@
 @import "~@/assets/sass/page/_index";
 </style>
 <script>
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from 'swiper/vue';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import { EffectCoverflow, Pagination } from 'swiper/modules';
 import ButtonStyle from '../components/ButtonFlash.vue';
 import h2style from '../components/IndexH2.vue';
 import planet from '../components/Planet.vue';
@@ -118,6 +152,19 @@ export default {
         ButtonStyle,
         h2style,
         planet,
+        Swiper,
+        SwiperSlide,
+    },
+    setup() {
+        const onSwiper = (swiper) => {
+            console.log(swiper);
+        };
+        const onSlideChange = () => {
+            console.log('slide change');
+        };
+        return {
+            modules: [EffectCoverflow, Pagination],
+        };
     },
     data() {
         return {
@@ -136,7 +183,15 @@ export default {
                 },
             ]
         }
+    },
+    mounted() {
+
+
     }
 }
+
+
+
+
 
 </script>
