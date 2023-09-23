@@ -6,7 +6,7 @@
         <section class="top">
           <div class="info">
               <div class="upload">
-                <img src="../assets/image/membercenter/頭像.jpg" alt="頭像">
+                <img src="~@/assets/image/membercenter/avatar.png" alt="頭像">
                 <!-- <input type="file" @change="fileSelected">
                     <img v-if="image" :src="image" width="200"/><br>
                 <button @click="upload">上傳</button> -->
