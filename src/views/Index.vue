@@ -15,7 +15,7 @@
                     <div class="rwd-group">
                         <div v-for="(landing, index) in landing" :key="index" class="col-4 landing-group">
                             <div :id="landing.containerid">
-                                <span :id="landing.groupid">{{ landing.people }}</span>
+                                <span :id="landing.groupid">0</span>
                             </div>
                             <span v-html="landing.total" class="landing-text"></span>
                         </div>
