@@ -1,23 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700;900&family=Noto+Serif+TC:wght@300;400;500;600;700;900&family=Oswald:wght@300;400;500;600;700&family=Roboto+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700;900&family=Noto+Serif+TC:wght@300;400;500;600;700;900&family=Oswald:wght@300;400;500;600;700&family=Roboto+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
 #membercenter{
-     body{
+    body{
         font-family: 'Oswald', 'Roboto Mono','Noto Serif JP', 'Noto Serif TC',  serif;
         background-color: #0E0E0E;
-     }
+    }
     
     img{
         display: block;
         max-width: 100%;
         height: auto;
     }
-    p{
-        color: $blueMem;
-    }
+    
+    p{color: $blueMem;}
+
     .top{
         display: flex;
         justify-content: space-between;
         margin-top: 2rem;
     }
+
     .memtitle{
         margin: auto;
         display:block;
@@ -28,500 +29,618 @@
         text-align: center;
         letter-spacing: .3rem;
     }
+
     .top{
         display: flex;
         justify-content: center;
     }
+
     .info{
         display: flex;
         justify-content: center;
         margin-right: 9rem;
     }
-    // .upload >input{
-    //     width: 200px;
-    //     height: 200px;
-    // }
-    .upload{
-      width: 200px;
-    }
-  
+    .upload{width: 200px;}
+
     .greeting{
         display: flex;
         color: $blueMem;
+        font-size: $h2-l;
+        letter-spacing: .3rem;
+        font-weight: $bold;
+        & img{
+            margin-right: 10px;
+        }
     }
-    .greeting >p{
-        font-size:$h2-l;
-        font-weight: 600;
-    }
+
     .mem-box{
-      transform: translateY(10px);
-      margin-left: 10px;
-      line-height: 1.5;
+        transform: translateY(10px);
+        margin-left: 10px;
+        line-height: 1.5;
+        font-size: $p1-l;
+        letter-spacing: .3rem;
     }
+
     .nickname{
         font-size:$h2-l;
         color: $blueMem;
     }
-    .icon{
-        width: 20%;
-    }
+
+    .icon{width: 20%}
+
     .mem-number{
+      font-size: $p2-l;
         margin-top: 1rem;
-        line-height: 1.2;
+        line-height: 1.5;
     }
+
     .sum{
-        font-size:$h2-l;
+        font-size: 24px;
+      //   font-weight: $bold;
         letter-spacing: .3rem;
     }
-    .tab-title{
+
+    .tab-mem-title{
         display: flex;
         align-items: center;
         list-style: none;
         padding: 0;
-        // background-color: transparent;
+    } 
+
+    .tab-mem-title button {
+        background-color: transparent;
+        color:  $blueMem;
+        border: none;
+        margin-right: 10px;
     }
-    .option-tab{
-        margin-right: 10px; 
-        color: $blueMem;
+    
+    .pic.active-pic {
+        background-color: #f0f0f0;
+        border: 2px solid $blueMem;
+        box-shadow: 10px 10px 20px 0px rgba(1, 193, 253, 0.25);
     }
-    .option-tab:last-child {
-        margin-right: 0; 
-      }
-    .content{
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        // background-color: rgb(61, 16, 76);
-        // background-color: #2f2f2f;
-    }
-    .information, .donate{
-        padding: 80px ;
-        margin: 3rem 0;
-        border: 1.8px solid  $blueMem;
+
+    .pic{
+        width: 72px;
+        height:63px;
         border-radius: 10px;
-        background-color: rgba(47, 47, 47, 0.8);
+        position: relative;
+        border: 2px solid  $blueMem;
+        margin-bottom: 10px;
     }
-    .account-first-title, .account-sec-title{
-      font-size:$h2-l ;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 30px;
+
+    .pic img{ 
+        position: absolute;
+        left: 23%;
+        top: 20%;
     }
-    span{
-        font-size:$p2-l ;
-        letter-spacing: .2em;
-    }
-    input{
-        width: 300px;
-        border-radius: 5px;
-        background-color: rgba(91, 19, 236, 0.2);
-        border: 2px solid $blue;
-        margin: 10px 0;
-        padding: 5px;
-        height: 35px;
-        font-size:$p1-s ;
-        &:focus{
-            color: $white;
-        }
-    }
-     input:-internal-autofill-previewed,
-     input:-internal-autofill-selected {
-         -webkit-text-fill-color: $blue;
-         transition: background-color 5000s ease-out 0.5s;
-    }
+
   
-    #name, #mobile, #address{
-      margin-right: 5rem;
+    .option-tab{
+          margin-right: 10px; 
+          color: $blueMem;
     }
+
+    .option-tab:last-child { margin-right: 0; }
+
+    .content{
+          display: flex;
+          justify-content: center;
+          width: 100%;
+    }
+
+    .information, .donate, .mem-benefit{
+          padding: 80px ;
+          margin: 3rem 0;
+          border: 1.8px solid  $blueMem;
+          border-radius: 10px;
+          background-color: rgba(47, 47, 47, 0.8);
+      }
+
+    .account-first-title, .account-sec-title{
+          font-size:$h2-l ;
+          font-weight: 700;
+          text-align: center;
+          margin-bottom: 30px;
+    }
+
+    .information >span{
+          font-size:$p2-l ;
+          letter-spacing: .2em;
+    }
+
+    .information input{
+          width: 300px;
+          border-radius: 5px;
+          background-color: rgba(91, 19, 236, 0.2);
+          border: 2px solid $blue;
+          margin: 10px 0;
+          padding: 5px;
+          height: 35px;
+          color: $white;
+          font-size:$p1-s ;
+            &:focus{
+              color: $white;
+            }
+      }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+          filter: invert(1) hue-rotate(180deg);
+    }
+
+    #sex > option{color: $black;}
+
+    #name, #mobile, #address{margin-right: 5rem;}
+
     .name-nickname-container, .sex-bir-container, 
     .phone-mail-container, .address-passport-container{
-        display: flex; 
-        align-items: center; 
+          display: flex; 
+          align-items: center; 
     }
+
     .top-box{
-        display: flex;
-        align-items: center;
+          display: flex;
+          align-items: center;
     }
-    .top-button{
-        margin-left: 12rem;
-    }
+
+    .top-button{margin-left: 12rem;}
    
     #sex{
-        width: 300px;
-        border-radius: 5px;
-        background-color: rgba(91, 19, 236, 0.2);
-        border: 2px solid $blue;
-        margin: 10px 0;
-        padding: 5px;
-        height: 35px;
-        margin-right: 5rem;
+          width: 300px;
+          border-radius: 5px;
+          background-color: rgba(91, 19, 236, 0.2);
+          border: 2px solid $blue;
+          margin: 10px 0;
+          padding: 5px;
+          height: 35px;
+          margin-right: 5rem;
     }
     .facebook, .google, .line{
-        margin: 1.5rem 0;
+          margin: 1.5rem 0;
     }
+
     .fb, .google_text, .line_text{
-        font-size: $p2-l;
-        font-weight:$normal;
-        letter-spacing: .2em;
-        margin-left: 1rem;
+          font-size: $p2-l;
+          font-weight:$normal;
+          letter-spacing: .2em;
+          margin-left: 1rem;
     }
+
     .account-hr{
-      border-color:$blueMem;
-      margin: 2rem 0;
+          border-color:$blueMem;
+          margin: 2rem 0;
     }
+
     .password-bottom-container{
-        display: flex;
-        flex-direction: column; 
-        align-items: center;
-        justify-content: center; 
+          display: flex;
+          flex-direction: column; 
+          align-items: center;
+          justify-content: center; 
     }
-    .bottom-button{
-        margin-top: 1.5rem;
-    }
+
+    .bottom-button{margin-top: 1.5rem;}
+
+    //查詢訂單
     .check-order{
-      // padding: 80px 150px ;
-      display: grid;
-      grid-template-columns: repeat(1, 5fr);
-      grid-template-rows: repeat(1, 5fr);
-      margin: 3rem 0;
-      border: 1.8px solid  $blueMem;
-      border-radius: 10px;
-      background-color: rgba(47, 47, 47, 0.8);
+          width: 100%;
+          padding: 80px 20px 20px 10px;
+          max-width: 850px; 
+          border: 1.8px solid  $blueMem;
+          border-radius: 10px;
+          background-color: rgba(47, 47, 47, 0.8);
+          margin: 5rem 0;
     }
+
     .odtitle{
-        display: flex;
-        justify-content: space-between;
-        border-bottom: 1px solid $blueMem;
-        font-size:$p1-l ;
-        color: $blueMem;
-        margin-bottom: 30px;
-        padding: 10px;
+          display: flex;
+          justify-content: space-around;
+          text-align: center;
+          color: $blueMem;
+          font-size: $p1-l;
+          font-weight: 700;
+          margin: 20px 0;
     }
-    .odname{
-        display: flex;
-        justify-content: space-between;
-        grid-column-start: 1;
-        gap: 20px;
+
+    .odtitle-name{margin-right: 80px;}
+
+    .odtitle-hr{
+          border-color:$blueMem;
+          margin-bottom: 30px;
     }
-    .p{
-      background-color: aqua;
-      grid-column: span 4;
+
+    .odnames-container {
+          display: grid;
+          grid-template-columns: 1fr; 
+          grid-gap: 20px;
+          padding: 10px; 
     }
-    .od-sec, .oddetail{
-        display: flex;
-         margin-right: 100px;
-         margin-bottom: 20px;
-         .od-sec{
-           margin-left: -120px;
-           line-height: .8;
-         }
-         .od-sec >img{
-           margin-right: 10px;
-         }
+    
+    .odname {
+          display: grid;
+          grid-gap: 20px; 
     }
+    
+    .odname:hover  {
+          transform: translateY(0);
+          opacity: 1;
+          height: auto; 
+          padding: 10px; 
+    }
+   
+    .oddetail{
+          display: flex;
+          justify-content: space-around;
+          font-size: $p1-l;
+          text-align: center;
+          font-size: $p2-l;
+    }
+
+    .od-sec {
+          display: flex;
+          width: 40%;
+          & img{
+            width: 120px;
+            height: 120px
+          } 
+    }
+
+    .trip-content{
+          margin: auto;
+          text-align: left;
+          margin-left: 10px;
+          line-height: 1.5;
+          
+    }
+    
     .dpdate{
-        font-size:$p2-l ;
-        line-height: 1.5;
+          font-size:$p2-l ;
     }
+
+    .client-accordion, .order-amount, .order-date{
+         display: flex;
+         align-items: center;     
+    }
+
+    .order-date{
+         margin-left: 30px;
+     }
+
+
     /* 打開和關閉手風琴面板樣式 */
     .client-accordion {
-        background-color: transparent;
-        color: $black;
-        cursor: pointer;
-        //  padding: 0px 90px 0px 18px;
-        // width: 100%;
-        text-align: left;
-        // border-top: 1px solid #fff;
-        // border-bottom: 1px solid #fff;
-        outline: none;
-        transition: 0.4s;
-        font-size: 18px;
-        display: flex;
-        align-items: center;
-        border: none;
-        height: 100px;
+          background-color: transparent;
+          color: $black;
+          cursor: pointer;
+          text-align: left;
+          outline: none;
+          font-size: 18px;
+          display: flex;
+          align-items: center;
+          border: none;
+          position: relative;
+          left: -40px;
+          text-align: center; 
+          width: fit-content; 
     }
-     /* 設置點擊和鼠標移到選項上面時（懸停）的樣式 */
-    .client-accordion:hover{
-      margin-top: 100px;
-      background-color: #ffffff38;
-      color: #ffffff;
-    }
-    .client-accordion:after{
-      content: '\002B';
-      /*Unicode + 號 */
-      // color: #777;
-      font-weight: bold;
-      /* float: right; */
-      // margin-left: 5px;
-      font-size: 40px;
-      display: block;
-      // margin-left: auto;
-    }
-    /* 為手風琴面板設計樣式。默認隱藏 */
-    .panel {
-      display: flex;
-      color: $blueMem;
-      width: 100%;
-      // max-height: 0;
-      // overflow: hidden;
-      transition: max-height 0.2s ease-out;
-      font-size: 14px;
-      line-height: 2;
-      max-width: 800px;
-      position: relative;
-      max-height: 0; 
-      // margin-bottom: 100px;
-      // overflow: hidden;
-      // margin-left: auto;
-      // padding-right: 70px;
-    }
-     .active:after {
-       content: "\2212";
-       /* Unicode - 號 */
-    }
-    // .panel > p{
-    //   font-size: $p2-l;
-    //   display: flex;
-    // }
-    .journey{
-      display: flex;
-    }
-    .form{
-      display: flex;
-      flex-direction: column;
-    }
-    .donate-top{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-    .account-first-title {
-      flex: 1; 
-      justify-content: ceneter;
-      text-align: center; 
-    }
-    .last-year {
-      // margin-left: 10px;
-      padding: 15px 20px;
-      // color: $blueMem;
-      border: 1px solid $blueMem;
-      border-radius: 30px;
-    }
-    .last-year a{
-      color: $blueMem;
-    }
-    .order-title, .donate-order{
-      display: grid;
-      grid-template-columns: repeat(4, 1fr); /* 平均分散4列標題 */
-      gap: 10px; 
-      font-size: $p1-l;
-      text-align: center;
-    }
-    .order-hr, .donate-order-hr{
-      border-color:$blueMem;
-      margin: 1rem 0 2rem 0;
-    }
-    .donate-order{
-      text-align: center;
-    }
-    .donate-cell{
-      margin-bottom: 1rem;
-    }
-   
-   
-  //button效果
-  @font-face {
-    font-family: 'Noto Serif JP';
-    src: url("https://assets.codepen.io/605876/Blender-Pro-Bold.otf");
-    font-display: swap;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 100vh;
-    font-family: 'Cyber', sans-serif;
-  }
-  
-  body .cybr-btn + .cybr-btn {
-    margin-top: 2rem;
-  }
-  
-  .cybr-btn {
-    --primary: hsl(var(--primary-hue), 85%, calc(var(--primary-lightness, 50) * 1%));
-    --shadow-primary: hsl(var(--shadow-primary-hue), 90%, 50%);
-    --primary-hue: 260;
-    --primary-lightness: 50;
-    --color: hsl(0, 0%, 100%);
-    --font-size: 16px;
-    --shadow-primary-hue: 180;
-    --label-size: 9px;
-    --shadow-secondary-hue: 60;
-    --shadow-secondary: hsl(var(--shadow-secondary-hue), 90%, 60%);
-    --clip: polygon(0 0, 100% 0, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 70%);
-    --border: 4px;
-    --shimmy-distance: 5;
-    --clip-one: polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 8% 95%, 0 70%);
-    --clip-two: polygon(0 78%, 100% 78%, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 78%);
-    --clip-three: polygon(0 44%, 100% 44%, 100% 54%, 95% 54%, 95% 54%, 85% 54%, 85% 54%, 8% 54%, 0 54%);
-    --clip-four: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
-    --clip-five: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
-    --clip-six: polygon(0 40%, 100% 40%, 100% 85%, 95% 85%, 95% 85%, 85% 85%, 85% 85%, 8% 85%, 0 70%);
-    --clip-seven: polygon(0 63%, 100% 63%, 100% 80%, 95% 80%, 95% 80%, 85% 80%, 85% 80%, 8% 80%, 0 70%);
-    font-family: 'Cyber', sans-serif;
-    color: var(--color);
-    cursor: pointer;
-    background: transparent;
-    text-transform: uppercase;
-    font-size: var(--font-size);
-    outline: transparent;
-    letter-spacing: 2px;
-    position: relative;
-    font-weight: 700;
-    border: 0;
-    width: 229px;
-    height: 50px;
-    line-height: 50px;
-    transition: background 0.2s;
-  }
-  
-  .cybr-btn:hover {
-    --primary: hsl(var(--primary-hue), 85%, calc(var(--primary-lightness, 50) * 0.8%));
-  }
-  .cybr-btn:active {
-    --primary: hsl(var(--primary-hue), 85%, calc(var(--primary-lightness, 50) * 0.6%));
-  }
-  
-  .cybr-btn:after,
-  .cybr-btn:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    clip-path: var(--clip);
-    z-index: -1;
-  }
-  
-  .cybr-btn:before {
-    background: var(--shadow-primary);
-    transform: translate(var(--border), 0);
-  }
-  
-  .cybr-btn:after {
-    background: var(--primary);
-  }
-  
-  .cybr-btn__tag {
-    position: absolute;
-    padding: 1px 4px;
-    letter-spacing: 1px;
-    line-height: 1;
-    bottom: -5%;
-    right: 5%;
-    font-weight: normal;
-    color: #fff;
-    font-size: var(--label-size);
-  }
-  
-  .cybr-btn__glitch {
-    position: absolute;
-    top: calc(var(--border) * -1);
-    left: calc(var(--border) * -1);
-    right: calc(var(--border) * -1);
-    bottom: calc(var(--border) * -1);
-    background: var(--shadow-primary);
-    text-shadow: 2px 2px var(--shadow-primary), -2px -2px var(--shadow-secondary);
-    clip-path: var(--clip);
-    animation: glitch 2s infinite;
-    display: none;
-  }
-  
-  .cybr-btn:hover .cybr-btn__glitch {
-    display: block;
-  }
-  
-  .cybr-btn__glitch:before {
-    content: '';
-    position: absolute;
-    top: calc(var(--border) * 1);
-    right: calc(var(--border) * 1);
-    bottom: calc(var(--border) * 1);
-    left: calc(var(--border) * 1);
-    clip-path: var(--clip);
-    background: var(--primary);
-    z-index: -1;
-  }
-  
-  @keyframes glitch {
-    0% {
-      clip-path: var(--clip-one);
-    }
-    2%, 8% {
-      clip-path: var(--clip-two);
-      transform: translate(calc(var(--shimmy-distance) * -1%), 0);
-    }
-    6% {
-      clip-path: var(--clip-two);
-      transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-    }
-    9% {
-      clip-path: var(--clip-two);
-      transform: translate(0, 0);
-    }
-    10% {
-      clip-path: var(--clip-three);
-      transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-    }
-    13% {
-      clip-path: var(--clip-three);
-      transform: translate(0, 0);
-    }
-    14%, 21% {
-      clip-path: var(--clip-four);
-      transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-    }
-    25% {
-      clip-path: var(--clip-five);
-      transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-    }
-    30% {
-      clip-path: var(--clip-five);
-      transform: translate(calc(var(--shimmy-distance) * -1%), 0);
-    }
-    35%, 45% {
-      clip-path: var(--clip-six);
-      transform: translate(calc(var(--shimmy-distance) * -1%));
-    }
-    40% {
-      clip-path: var(--clip-six);
-      transform: translate(calc(var(--shimmy-distance) * 1%));
-    }
-    50% {
-      clip-path: var(--clip-six);
-      transform: translate(0, 0);
-    }
-    55% {
-      clip-path: var(--clip-seven);
-      transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-    }
-    60% {
-      clip-path: var(--clip-seven);
-      transform: translate(0, 0);
-    }
-    31%, 61%, 100% {
-      clip-path: var(--clip-four);
-    }
-  }
 
+    .client-accordion:hover{
+          color: #ffffff;
+    }
+
+    .client-accordion span {
+         font-size: 40px; 
+         font-weight: bold;
+         color: $blueMem;   
+         margin-right: 20px; 
+    }
     
+    .client-accordion.active span {
+        font-size: 40px; 
+        font-weight: bold;
+        color: $blueMem;   
+    }
+
+    .collapse {
+          transition: height 600ms cubic-bezier(0.3, 0, 0.6, 1);
+          width: 100%;         
+    }
+
+    .panel{
+          display: flex;
+          flex-direction: column;
+    }
+    
+    .p-title{
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          margin-bottom: 20px;
+          font-weight: $bold;
+          text-align: center; 
+    }
+
+     .journey-content{ 
+           display: grid;
+           grid-template-columns: 1fr 1fr 1fr 1fr;
+           text-align: center;  
+    }
+    
+     .journey-detail{
+           background-color: $blueMem;
+           padding: 5px 0;
+           border-radius: 10px;   
+           margin-bottom: 20px; 
+     }
+   
+     .journey-detail p{
+           color: $black;
+     }
+
+    .journey-hr{
+          border-color:$blueMem;
+          margin-top: -15px;
+          margin-bottom: 15px;
+    }
+
+   
+    //捐款明細
+
+    .form{
+          display: flex;
+          flex-direction: column;
+    }
+
+    .donate-top{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 20px;
+          position: relative;
+    }
+
+    .account-first-title {
+          flex: 1; 
+          text-align: center; 
+    }
+
+    .last-year {
+          position: absolute;
+          right:0;
+          top: -2%;
+          padding: 10px 15px;
+          border: 2px solid $blueMem;
+          border-radius: 30px;
+          color: $blueMem;
+    }
+
+    .order-title, .donate-order{
+          display: grid;
+          grid-template-columns: repeat(4, 1fr); /* 平均分散4列標題 */
+          gap: 10px; 
+          text-align: center;
+    }
+
+    .order-hr, .donate-order-hr{
+          border-color:$blueMem;
+          margin: 1rem 0 2rem 0;
+    }
+
+    .donate-order{text-align: center;}
+
+    .donate-cell{margin-bottom: 1rem;}
+
+    .donate-title{
+      font-size: $p1-l;
+      font-weight: 700;
+}
+
+    //會員等級
+
+    .button-list{
+          display: flex;
+          justify-content: space-evenly;
+          text-align: center;
+          font-weight: 700;
+          font-size: 26px;
+    }
+
+    .button-list button{
+          background-color: transparent;
+          border: none;
+          font-weight: 700;
+          &:hover, &.active{
+            color: $white;
+          }
+    }
+
+    .rectangle {
+          width: 220px; 
+          height: 5px; 
+          background-color: $white; 
+          margin-top: 10px; 
+    }
+
+    .button-level, .button-explain, .button-benefits{
+          color: $blueMem;
+    }
+
+    .progress-bar{margin-top: 25px;}
+   
+     .progress-bar span{
+          font-weight: $bold;
+          color: $white;
+     }
+
+    .line-box{
+          margin: 20px 0;
+          width: 600px;
+          height: 3px;
+          background-color: $white;
+    }
+
+    .line1{
+          width: 300px;
+          height: 3px;
+          position: relative;
+          background-color: $blueMem;
+    }
+
+    .line1::before,
+    .line1::after {
+          content: "";
+          display: block;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background-color: $blueMem; 
+          position: absolute;
+    }
+
+    .line1::before {
+          position: absolute;
+          top: -.3rem;
+          left: 3rem;
+    }
+    
+    .line1::after {
+          position: absolute;
+          top: -.3rem;
+          right: 2rem;
+    }
+
+    .circle{
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background-color: $white; 
+          position: absolute;
+          left: 23rem;
+          top: -.3rem;
+    }
+
+    .circle p{
+          transform: translate(-1rem,-2rem);
+          font-weight: $bold;
+    }
+   
+    .mem-benefits-form{
+          display: flex;
+          justify-content:space-around;
+          margin-top: 50px;
+          font-size: $p1-l;
+          font-weight: 700;
+    }
+
+    .benefit-cell{margin-bottom: 1rem;}
+    
+    .benefit-order{
+          display: grid;
+          grid-template-columns: repeat(4, 1fr); 
+          gap: 10px; 
+          font-size: $p1-l;
+          text-align: center;
+          padding: 10px;      
+          .benefit-cell{
+            display: flex;
+            margin: auto;
+        }
+    }
+
+    input[type="checkbox"]{
+          width: 20px; 
+          margin-right: 5px;
+    }
+
+    .input-box{display: flex;}
+
+    .benefit-hr,.benefit-order-hr{
+          border-color:$blueMem;
+          margin: 10px 0;
+    }
+
+    .benefit-order{
+      font-size: $p2-l;
+    }
+
+    .gift-redemption{
+          width: 120px;
+          font-size:$p2-l ;
+          font-weight: $bold;
+          color: $blueMem;
+          padding: 10px 15px;
+          border: 2px solid $blueMem;
+          border-radius: 30px;
+          text-align: center;
+          margin-top: 10px;
+          float: right;
+    }
+
+    .explain-level{
+          display: block;
+          text-align: center;
+    }
+
+    .underline{
+          width: 150px;
+          height: 2px;
+          margin-top: 5px;
+          background-color: $blueMem;
+    }
+
+    .explain-order{
+          display: grid;
+          grid-template-columns: repeat(3, 1fr); 
+          gap: 10px; 
+          font-size: $p1-l;
+          text-align: center;
+          padding: 10px;  
+          margin-top: 2rem;
+          .explain-cell{
+            display: flex;
+            margin: auto;
+          }
+    }
+
+    .explain-img{
+          position: relative;
+          left: -2rem;
+    }
+    
+    .mem-benefits-info{margin-top: 2rem;}
+
+    .info-content{
+          color:  $blueMem;
+          font-size: $p1-l;
+          font-weight: $bold;
+          margin-bottom: 2rem;
+    }
+
+    .info-content span{
+          color:  $blueMem;
+          font-weight: $bold;
+          margin-left: 20px;
+          &:hover, &:active{
+            color: $blueL;
+          }
+  }
+   
+}
+
+  
+@media screen and (min-width: 375px){
+
+      // .container{
+      //       max-width: 370px;
+      // }
+      // .top{
+      //       display: block;
+      // }
+      // .info{
+      //       display: flex;
+      // }
+      // .greeting{
+      //       font-size:$h1-m;
+      //       display: flex;
+      // }
+      
+
 }

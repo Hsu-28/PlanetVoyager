@@ -5,4 +5,5 @@ import router from './router'
 import store from './store'
 import 'view-ui-plus/dist/styles/viewuiplus.css'
 import './my-theme/index.scss';
-createApp(App).use(store).use(router).use(ViewUIPlus).mount('#app')
+import { Collapse } from 'vue-collapsed'
+createApp(App).use(store).use(router).use(ViewUIPlus).component('Collapse', Collapse).mount('#app')
