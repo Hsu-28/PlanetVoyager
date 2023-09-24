@@ -11,6 +11,10 @@
          color: $white;
 
         .bigTitle{
+            &>p{
+                font-weight: 500;
+
+            }
             font-size: $h1-l;
             text-align: center;
             font-weight: 700;
@@ -55,6 +59,7 @@
                     width: 30%;
                   
                     .buttonAll{
+                        cursor: pointer;
                         position: relative;
                         border: 1.3px solid $white;
                         border-radius: 9px;
@@ -137,6 +142,9 @@
             }
             
             .PreparationItem{ 
+                line-height: 1.2;
+                letter-spacing:4px;
+             
                 margin: 0;
                 box-sizing: border-box;
                 z-index: 5;
@@ -217,11 +225,11 @@
                         }
                     }
                     div:last-child{
+                        font-weight: 500;
                         padding-top: 19px;
                         font-size: $p2-s;
                         padding-bottom: 15px;
-                        @include mobileBS{
-                        }
+                     
                     }
 
                 }

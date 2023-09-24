@@ -217,6 +217,7 @@
 body {
   background-color: black;
   padding-top: 50px;
+  background-image: url(@/assets/image/headerfooter/bg1.svg);
 }
 
 
@@ -229,7 +230,7 @@ body {
 .menu-nav,
 .indexNav {
   position: fixed;
-  top: 0;
+  top: 0px;
   margin-top: 0px;
   width: 100%;
   font-size: 12px;
@@ -268,7 +269,7 @@ body {
   height: 100vh;
   position: fixed;
   top: 0px;
-  z-index: 10;
+  z-index: 1000;
   background-color: rgba(0, 0, 0, 0.86);
   font-size: 14px;
   width: 100%;
@@ -312,7 +313,8 @@ body {
       margin: 10px auto 0px auto;
 
       li {
-        margin-top: 14px;
+        margin-top: 10px;
+        padding: 2px 0 2px 0;
 
         a {
           color: $white;
@@ -483,6 +485,7 @@ body {
   color: $white;
   font-weight: 200;
 }
+
 @media screen and (min-width: 450px) {
   .footer{
     height: 140px;
@@ -547,9 +550,14 @@ body {
 @media screen and (min-width: 768px) {
   .menu-nav,
   .indexNav{
+    // top: -15px;
+    margin-top: -10px;
     img{
       height: 70px;
       width: 50px;
+    }
+    img.login{
+      margin-top: 16px;
     }
     .indexLogo{
       width: 70px;
@@ -592,7 +600,7 @@ body {
           margin: auto;
           border: 3px solid $blue;
           padding: 4%;
-          background-image: url(~@/assets/image/headerfooter/tipsbg.svg);
+          background-image: url(~@/assets/image/headerfooter/tipsbg1.svg);
           h3{
             text-align: center;
             margin-bottom: 20px;
@@ -692,7 +700,21 @@ body {
   font-weight: 600;
   letter-spacing: 3px;
 }
+.menu-p1
+{
+  margin-top: -15px;
+}
+.menu-p2{
+  margin-top: -8px;
+}
 
+}
+.d-order{
+  bottom: 30px;
+  right: 20px;
+  width: 80x;
+  height: 80px;
+  position: fixed;
 }
 
 

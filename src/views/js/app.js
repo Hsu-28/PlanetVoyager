@@ -1,8 +1,12 @@
+import scramble from '@/components/Scramble.vue'
 export default {
+    components: {
+          scramble: scramble
+      },
   data() {
   
     return {
-      i: "",
+      i: 0,
       showMenu: false, 
       showFooter: true,
       headericon: true,
@@ -68,8 +72,7 @@ export default {
       showMenuF() {
           this.showMenu = true;
           this.headericon = false;
-          // this.i  = Math.floor(Math.random() * this.tipAll.length);
-          // return i;這邊不行
+          this.i  = Math.floor(Math.random() * this.tipAll.length);
       },
       closeMenuF() {
           this.showMenu = false;

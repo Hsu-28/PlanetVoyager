@@ -41,8 +41,8 @@ const routes = [
     component: () => import(/* webpackChunkName: "Login" */ '../views/Login.vue')
   },
   {
-    path: '/Index',
-    name: 'Index',
+    path: '/index',
+    name: 'index',
     component: () => import(/* webpackChunkName: "Index" */ '../views/Index.vue')
   },
   {
@@ -78,16 +78,15 @@ const routes = [
   {
     path: '/register',
     name: 'register',
-    component: () => import(/* webpackChunkName: "Login" */ '../views/Register.vue')
-  }, 
-  { 
+    component: () => import(/* webpackChunkName: "Register" */ '../views/Register.vue')
+  }, { 
     path: '/order',
     name: 'order',
     component: () => import(/* webpackChunkName: "order" */ '../views/OrderTitle.vue')
   },
   { 
-    path: '/orderprocess',
-    name: 'orderprocess',
+    path: '/moon',
+    name: 'moon',
     component: () => import(/* webpackChunkName: "order" */ '../views/OrderProcess.vue')
   },
   {
@@ -95,6 +94,16 @@ const routes = [
     name: 'technology',
     component: () => import(/* webpackChunkName: "order" */ '../views/Technology.vue')
   },
+   {
+    path: '/registerv',
+    name: 'registerv',
+    component: () => import(/* webpackChunkName: "order" */ '../views/RegisterV.vue')
+  },
+  
+  { path: '/:pathMatch(.*)*', 
+  name: 'NotFound', 
+  component: () => import(/* webpackChunkName: "error" */ '../views/NotFound.vue') 
+},
   { 
     path: '/:pathMatch(.*)*', 
     name: 'NotFound', 
@@ -125,14 +134,35 @@ const routes = [
     name: 'itineraryMars',
     component: () => import(/* webpackChunkName: "order" */ '../views/ItineraryMars.vue')
   },
+  // {
+  //   path: '/itinerary',
+  //   name: 'itinerary',
+  //   component: () => import(/* webpackChunkName: "order" */ '../views/Itinerary.vue')
+  // },
+  {
+    path: '/mars',
+    name: 'mars',
+    component: () => import(/* webpackChunkName: "order" */ '../views/OrderProcessMars.vue')
+  },
+
+
+////-----------------後台-------------------------
+// {
+//   path: '/backstagelongin',
+//   name: 'backstagelongin',
+//   component: () => import(/* webpackChunkName: "BackstageLongin" */ '../backend/BackstageLongin.vue')
+// },
+// {
+//   path: '/mangerMGMT',
+//   name: 'mangerMGMT',
+//   component: () => import(/* webpackChunkName: "MangerMGMT" */ '../backend/MangerMGMT.vue')
+// },
 
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
- 
-   
   });
   
 
