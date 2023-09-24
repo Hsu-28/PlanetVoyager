@@ -382,15 +382,86 @@ section > .rwd-container:nth-child(even) > .vehicles-rwd-group{
 .swiper-slide {
     background-position: center;
     background-size: cover;
-    max-width: 300px;
-    height: 300px;
+    max-width: 255px;
+    height: 340px;
+}
+.outside-boder {
+    margin: 0 auto;
+    margin-bottom: 5%;
+    padding: 1.5%; //10.73px
+    border: 0.1rem solid $white; //3.3px
+    border-radius: 0.2rem; //10px
+    box-shadow: 0 0 1rem 0.2rem $blue; //40px 10px
+    position: relative;
+    &::before {
+        content: "";
+        border: 0.1rem solid $blue; //6.6px
+        border-radius: 0.1rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    &::after {
+        content: "";
+        border: 0.4rem solid rgba(91, 19, 236, 20%); //10.73px
+        border-radius: 0.3rem; //6px
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        pointer-events: none;
+    }
+}
+$circle: 1.3rem;
+.inside-boder {
+    &::after {
+        content: "";
+        border: 0.3rem solid $blue; //12px
+        border-radius: 0.15rem;
+        filter: blur($circle/4);
+        position: absolute;
+        top: 0.4%;
+        left: 2%;
+        right: 5%;
+        height: 99%;
+        pointer-events: none;
+    }
+
+    &::before {
+        content: "";
+        border: 0.2rem solid $blueL;
+        border-radius: 0.25rem;
+        position: absolute;
+        top: 0;
+        left: 0%;
+        right: 4%;
+        height: 100%;
+        pointer-events: none;
+    }
 }
 
-.swiper-slide img {
-    display: block;
-    width: 100%;
+.imgContent{
+    width: 255px;
+    height: 340px;
+    position: relative;
+    overflow: hidden;
 }
-
+.member-img{
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: none;
+    max-height: none;
+    left: 42%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -4;
+}
 
 @media screen and (min-width: 700px) {
     .news {
