@@ -44,8 +44,20 @@
             <div class="rwd-group">
                 <div class="marquee">
                     <div class="scroll">
-                        <span class="news"> 最新消息 NEWS 最新消息 NEWS 最新消息 NEWS</span>
-                        <span class="news"> 最新消息 NEWS 最新消息 NEWS 最新消息 NEWS</span>
+                        <span class="news-en">&nbsp; NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS  NEWS NEWS NEWS NEWS</span>
+                        <span class="news-en">NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS  NEWS NEWS NEWS NEWS</span>
+                    </div>
+                </div>
+                <div class="marquee">
+                    <div class="scroll scroll-ch">
+                        <span class="news-ch">&nbsp; 最新消息 最新消息 最新消息 最新消息 最新消息</span>
+                        <span class="news-ch">最新消息 最新消息 最新消息 最新消息 最新消息</span>
+                    </div>
+                </div>
+                <div class="marquee">
+                    <div class="scroll">
+                        <span class="news-en">&nbsp; NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS  NEWS NEWS NEWS NEWS</span>
+                        <span class="news-en">NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS  NEWS NEWS NEWS NEWS</span>
                     </div>
                 </div>
             </div>
