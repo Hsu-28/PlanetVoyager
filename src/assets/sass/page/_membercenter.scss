@@ -15,12 +15,11 @@
 
     .top{
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         margin-top: 2rem;
     }
 
     .memtitle{
-        margin: auto;
         display:block;
         font-size: $h1-l; 
         color: $blueMem;
@@ -30,23 +29,47 @@
         letter-spacing: .3rem;
     }
 
-    .top{
-        display: flex;
-        justify-content: center;
-    }
 
     .info{
         display: flex;
         justify-content: center;
-        margin-right: 9rem;
     }
-    .upload{width: 200px;}
+
+    .upload{
+      transform: translateY(-10px);
+      & label{
+            color: $blueMem;
+      }
+      & .upload-title{
+            font-size: $p1-l;
+            margin-left: 30%;
+            font-weight: $bold;
+      }
+      & .UploadImg{
+            width: 10rem;
+            height: 10rem;
+            position: relative;
+            background-color: #f0f0f04a;
+      }
+     .UploadImg img{
+           width: 10rem;
+           height: 10rem;
+     }
+      & .UploadImg p{
+            position: absolute;
+            left: 4.5rem;
+            top: 4rem;
+            font-size: $p1-l;
+            font-weight: $bold;
+      }
+    }
 
     .greeting{
         display: flex;
         color: $blueMem;
         font-size: $h2-l;
         letter-spacing: .3rem;
+        margin-bottom: 10px;
         font-weight: $bold;
         & img{
             margin-right: 10px;
@@ -54,29 +77,21 @@
     }
 
     .mem-box{
-        transform: translateY(10px);
         margin-left: 10px;
         line-height: 1.5;
         font-size: $p1-l;
         letter-spacing: .3rem;
     }
 
-    .nickname{
-        font-size:$h2-l;
-        color: $blueMem;
-    }
-
     .icon{width: 20%}
 
     .mem-number{
-      font-size: $p2-l;
-        margin-top: 1rem;
+       font-size: $p2-l;
         line-height: 1.5;
     }
 
     .sum{
         font-size: 24px;
-      //   font-weight: $bold;
         letter-spacing: .3rem;
     }
 
@@ -85,26 +100,21 @@
         align-items: center;
         list-style: none;
         padding: 0;
-       
-        img{
-          background-color: red;
-           
-        }
-        
-        // background-color: transparent;
-        button{
-          background-color: transparent;
-          color:  $blueMem;
-         
-        }
+      //   justify-content: flex-end;
+      //  margin-left: 5rem;
+    } 
+
+    .tab-mem-title button {
+        background-color: transparent;
+        color:  $blueMem;
+        border: none;
+        margin-right: 10px;
     }
-    .option-tab{
-        margin-right: 10px; 
-        color: $blueMem;
-        li{
-          border-radius: 50px;
-        }
-        
+    
+    .pic.active-pic {
+        background-color: #f0f0f0;
+        border: 2px solid $blueMem;
+        box-shadow: 10px 10px 20px 0px rgba(1, 193, 253, 0.25);
     }
 
     .pic{
@@ -122,22 +132,35 @@
         top: 20%;
     }
 
-  
     .option-tab{
-          margin-right: 10px; 
-          color: $blueMem;
+        margin-right: 10px; 
+      color: $blueMem;
     }
 
     .option-tab:last-child { margin-right: 0; }
 
     .content{
-          display: flex;
-          justify-content: center;
-          width: 100%;
+          margin: auto;
+          display: flex; 
+          align-items: center; 
+          justify-content: center;   
     }
 
-    .information, .donate, .mem-benefit{
-          padding: 80px ;
+    .information{
+          max-width: 850px;
+          padding: 50px 80px;
+          width: 100%;
+         
+      //     padding: 50px 80px;
+      //     padding: 4rem ;
+          margin: 3rem 0;
+          border: 1.8px solid  $blueMem;
+          border-radius: 10px;
+          background-color: rgba(47, 47, 47, 0.8);
+    }
+
+    .donate{
+          padding: 2rem ;
           margin: 3rem 0;
           border: 1.8px solid  $blueMem;
           border-radius: 10px;
@@ -179,19 +202,26 @@
 
     #name, #mobile, #address{margin-right: 5rem;}
 
-    .name-nickname-container, .sex-bir-container, 
-    .phone-mail-container, .address-passport-container{
-          display: flex; 
-          align-items: center; 
-    }
+    .all-input{
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px; 
+     }
 
+    .control-container{
+         display: flex;
+         justify-content: space-between;
+         width:100%; 
+     }
+  
     .top-box{
           display: flex;
+          justify-content: space-between;
           align-items: center;
     }
-
-    .top-button{margin-left: 12rem;}
-   
+ 
     #sex{
           width: 300px;
           border-radius: 5px;
@@ -200,8 +230,13 @@
           margin: 10px 0;
           padding: 5px;
           height: 35px;
-          margin-right: 5rem;
     }
+
+    #sex p,#bir p {
+          flex: 1; 
+          text-align: center; 
+      }
+
     .facebook, .google, .line{
           margin: 1.5rem 0;
     }
@@ -268,7 +303,6 @@
     }
     
     .odname:hover  {
-          transform: translateY(0);
           opacity: 1;
           height: auto; 
           padding: 10px; 
@@ -286,21 +320,20 @@
           display: flex;
           width: 40%;
           & img{
-            width: 120px;
-            height: 120px
+             width: 8rem;
+             height: 8rem;
+             margin-right: 10px;
+            // width: 120px;
+            // height: 120px;
           } 
     }
 
     .trip-content{
-          margin: auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
           text-align: left;
-          margin-left: 10px;
           line-height: 1.5;
-          
-    }
-    
-    .dpdate{
-          font-size:$p2-l ;
     }
 
     .client-accordion, .order-amount, .order-date{
@@ -311,7 +344,6 @@
     .order-date{
          margin-left: 30px;
      }
-
 
     /* 打開和關閉手風琴面板樣式 */
     .client-accordion {
@@ -406,7 +438,6 @@
 
     .account-first-title {
           flex: 1; 
-          text-align: center; 
     }
 
     .last-year {
@@ -421,26 +452,46 @@
 
     .order-title, .donate-order{
           display: grid;
-          grid-template-columns: repeat(4, 1fr); /* 平均分散4列標題 */
+          grid-template-columns: repeat(4, 1fr); 
           gap: 10px; 
           text-align: center;
+          font-size: $p1-l;
+          .order-title{
+            font-weight: 700;
+          }
+          
     }
-
+   
     .order-hr, .donate-order-hr{
           border-color:$blueMem;
           margin: 1rem 0 2rem 0;
     }
 
-    .donate-order{text-align: center;}
+    .donate-order{
+      text-align: center;
+      font-size: $p1-l;
+}
+
+
 
     .donate-cell{margin-bottom: 1rem;}
 
-    .donate-title{
-      font-size: $p1-l;
-      font-weight: 700;
-}
 
     //會員等級
+
+    .mem-benefit{
+      max-width: 850px;
+      padding: 50px 80px;
+      width: 100%;
+     
+  //     padding: 50px 80px;
+  //     padding: 4rem ;
+      margin: 3rem 0;
+      border: 1.8px solid  $blueMem;
+      border-radius: 10px;
+      background-color: rgba(47, 47, 47, 0.8);
+}
+
 
     .button-list{
           display: flex;
@@ -460,7 +511,7 @@
     }
 
     .rectangle {
-          width: 220px; 
+          width: 230px; 
           height: 5px; 
           background-color: $white; 
           margin-top: 10px; 
@@ -479,7 +530,7 @@
 
     .line-box{
           margin: 20px 0;
-          width: 600px;
+          width: 660px;
           height: 3px;
           background-color: $white;
     }
@@ -553,7 +604,7 @@
     }
 
     input[type="checkbox"]{
-          width: 20px; 
+          width: 1rem; 
           margin-right: 5px;
     }
 
@@ -587,7 +638,7 @@
     }
 
     .underline{
-          width: 150px;
+          width: 4rem;
           height: 2px;
           margin-top: 5px;
           background-color: $blueMem;
@@ -595,7 +646,7 @@
 
     .explain-order{
           display: grid;
-          grid-template-columns: repeat(3, 1fr); 
+          grid-template-columns: repeat(4, 1fr); 
           gap: 10px; 
           font-size: $p1-l;
           text-align: center;
@@ -629,25 +680,140 @@
             color: $blueL;
           }
   }
-   
+
 }
 
+@media screen and (min-width:1200px) {}
+
+@media screen and (max-width:1200px) {}
   
-@media screen and (min-width: 375px){
+@media screen and (max-width:768px) {
+      .memtitle h2{
+            font-size: $h1-m;
+      }
+      .top{
+            flex-direction: column;
+            align-items: center;
+            
+      }
+      .mem-box{
+            width: 100%;
+            line-height: 1.2;
+      }
+      .greeting p{
+             font-size: 28px; 
+             
+      }
+      .nickname{
+                  font-size:22px; 
+             }
+      .tab-mem-title{
+            // margin-right: 4rem;
+            margin-top: 3rem;
+      }
+      .information{
+            display: flex;
+            justify-content: center;
+            
+      }
+      .account-first-title {
+            font-size: $h2-s; 
+      }
+      .control-container{
+           flex-direction: column;
+           width: 100%; 
+           max-width: 300px; 
+           margin: 0 auto; 
+      }
+      .top-box{
+            flex-direction: column;
+      }
 
-      // .container{
-      //       max-width: 370px;
-      // }
-      // .top{
-      //       display: block;
-      // }
-      // .info{
+      //查詢訂單
+      .odtitle, .order-amount, .order-date{
+            display: none !important;
+      }
+      .odname{
+            width: 100%;
+            background-color: #11111180;
+      }
+      .oddetail{
+            // flex-direction: column;
+            align-items: center;
+      }
+      .od-sec{
+            flex-direction: column;
+      }
+      .trip-content{
+            color: $blueMem;
+            font-size: $p2-m;
+            
+           
+      }
+      .rwdAmount, .rwdDate{
+            display: block;
+            color: red;
+            font-size: $p2-m; 
+      }
+      .rwdPassanger{
+            font-size: $p2-m;
+            display: block;
+      }
+
+      //捐款紀錄
+      .order-title  p{
+            font-size: $p2-m;
+      }
+      .donate-order p{
+            font-size: $p2-m;
+      }
+      .form-grop{
+            position: relative;
+      }
+      .rwdLast{
+            position: absolute;
+            left: 65%;
+            bottom: -74%;
+            padding: 5px 10px;
+            border: 2px solid $blueMem;
+            border-radius: 30px;
+            color: $blueMem;
+      }
+
+      //會員等級
+      .button-list button{
+            font-size: 18px; 
+            
+      }
+      .button-level{
+            // margin-right: 4rem;
+      }
+      .level-box{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .nowLevel{
+                  margin-bottom: 1rem;
+            }
+      }
+      .mem-benefits-form p{
+            font-size: $p2-m;
+      }
+      .benefit-order p{
+            font-size: $p2-s;
+      }
+      .explain-order p{
+            font-size: $p2-m;
+      }
+      .explain-order{
+            display: flex;
+      }
+      // .form-grop{
       //       display: flex;
+      //       justify-content: space-around;
       // }
-      // .greeting{
-      //       font-size:$h1-m;
-      //       display: flex;
-      // }
-      
+
 
 }
+
+@media screen and (max-width:375px) {}
