@@ -10,10 +10,10 @@
   }
   .order-item:hover {
     box-shadow: 
-    6px 6px 8px rgba($color: #acacac, $alpha: 0.6), 
-    -6px 6px 8px rgba($color: #acacac, $alpha: 0.6), 
-    6px -6px 8px rgba($color: #acacac, $alpha: 0.6),
-    -6px -6px 8px rgba($color: #acacac, $alpha: 0.6); 
+    6px 6px 8px rgba($color: #acacac, $alpha: 0.5), 
+    -6px 6px 8px rgba($color: #acacac, $alpha: 0.5), 
+    6px -6px 8px rgba($color: #acacac, $alpha: 0.5),
+    -6px -6px 8px rgba($color: #acacac, $alpha: 0.5); 
     transition: all 0.8s;
   }
 
@@ -37,6 +37,7 @@
     height: 460px;
     width: 80%;
     margin-bottom: 100px;
+    
     .imgContaint{
         width: 100%;
         height: 100%;
@@ -44,6 +45,7 @@
         z-index: 0;
         .img-bg{
             height: 100%;
+            transition: all 0.8s;
         }
     }
     
@@ -58,6 +60,7 @@
             display: block;
             margin: auto;
             width: 50%;  
+            transition: all 0.8s;
         }
         p,h2{
             text-align: center;
@@ -75,7 +78,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 25%;
+        width: 34%;
         height: 30px;
         color: $white;
         background-color: $blueO;

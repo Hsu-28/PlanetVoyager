@@ -33,7 +33,7 @@
         .spaceship-pic img{
            width: 60%;
            transform: translateX(-100%);
-           animation: spaceship 1s 1.5s forwards;
+           animation: spaceship 1s 1.5s ease-in-out forwards;
         } 
     }
     @keyframes fadein {
@@ -110,14 +110,15 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                >img{
-                object-fit: cover;
-                width: 600px;
+                img{
+                object-fit: contain;
+                width: 500px;
                 height: 500px;
                }
                h2{
                 color: $blueL;
                 font-size: $h2-l;
+                margin-top: 20px;
                }
             }
             .thumbnail-list{
@@ -129,6 +130,7 @@
             .thumbnail{
                 height: 30%;
                 background-color: $blackBG;
+                cursor: pointer;
             }
             .spaceship-feature{
                 grid-area: 15/-21/19/-13;
@@ -200,8 +202,8 @@
                         width: 40px;
                         height: 2px;
                         position: absolute;
-                        top: 40%;
-                        left: 119%;
+                        top: 42%;
+                        left: 119.5%;
                         transform: rotate(-45deg);
                 }
                 
@@ -213,10 +215,10 @@
                     content: "";
                     display: block;
                     background-color: $blueL;
-                    width: 50px;
+                    width: 40px;
                     height: 2px;
                     position: absolute;
-                    left: -27%;
+                    left: -21%;
                     top:50%;
                 }
                 &::before{
@@ -226,8 +228,8 @@
                         width: 40px;
                         height: 2px;
                         position: absolute;
-                        top: 58.5%;
-                        left: -44%;
+                        top: 57%;
+                        left: -37.5%;
                         transform: rotate(-45deg);
                 }
             }
@@ -237,11 +239,12 @@
 
 @media screen and (max-width:1300px) {
     #technology{
-
-        .spaceship-intro{
-            width: 900px;
-            grid-template-columns: repeat(20, 30px);
-            grid-template-rows: repeat(18, 30px) ;
+        .wrap{
+            .spaceship-intro{
+                width: 900px;
+                grid-template-columns: repeat(20, 40px);
+                grid-template-rows: repeat(18, 40px) ;
+            }
         }
     }
 }

@@ -18,7 +18,8 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutUs.vue')
-  },  {
+  },  
+  {
     path: '/t2',
     name: 'HereIsTest2',
     // route level code-splitting
@@ -38,6 +39,11 @@ const routes = [
     path: '/Login',
     name: 'Login',
     component: () => import(/* webpackChunkName: "Login" */ '../views/Login.vue')
+  },
+  {
+    path: '/index',
+    name: 'index',
+    component: () => import(/* webpackChunkName: "Index" */ '../views/Index.vue')
   },
   {
     path: '/Destination',
@@ -77,9 +83,10 @@ const routes = [
     path: '/order',
     name: 'order',
     component: () => import(/* webpackChunkName: "order" */ '../views/OrderTitle.vue')
-  },{ 
-    path: '/orderprocess',
-    name: 'orderprocess',
+  },
+  { 
+    path: '/moon',
+    name: 'moon',
     component: () => import(/* webpackChunkName: "order" */ '../views/OrderProcess.vue')
   },
   {
@@ -97,6 +104,31 @@ const routes = [
   name: 'NotFound', 
   component: () => import(/* webpackChunkName: "error" */ '../views/NotFound.vue') 
 },
+  { 
+    path: '/:pathMatch(.*)*', 
+    name: 'NotFound', 
+    component: () => import(/* webpackChunkName: "error" */ '../views/NotFound.vue') 
+  },
+  {
+    path: '/loginSuccess',
+    name: 'loginSuccess',
+    component: () => import(/* webpackChunkName: "order" */ '../views/LoginSuccess.vue')
+  },
+  {
+    path: '/loginFail',
+    name: 'loginFail',
+    component: () => import(/* webpackChunkName: "order" */ '../views/LoginFail.vue')
+  },
+  // {
+  //   path: '/itinerary',
+  //   name: 'itinerary',
+  //   component: () => import(/* webpackChunkName: "order" */ '../views/Itinerary.vue')
+  // },
+  {
+    path: '/mars',
+    name: 'mars',
+    component: () => import(/* webpackChunkName: "order" */ '../views/OrderProcessMars.vue')
+  },
 
 
 ////-----------------後台-------------------------
@@ -116,8 +148,6 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
- 
-   
   });
   
 

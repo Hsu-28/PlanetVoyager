@@ -28,8 +28,8 @@
           <h4>{{ detail.title3 }}</h4>
           <p class="pre-formatted">{{ detail.p3 }}</p>
         </div>
-        <div class="but">
-          <ButtonFlashBox :buttonText="'捐款參加抽獎！'" :buttonBottomText="'-pv-'"></ButtonFlashBox>
+        <div class="btn1">
+          <ButtonFlashBox :buttonText="'捐款參加抽獎！'" :buttonBottomText="'-pv-'" class="btn1-ls"></ButtonFlashBox>
         </div>
         <p class="pre-formatted">{{ detail.p4 }}</p>
         <div class="tb-l">
@@ -87,15 +87,16 @@
           <div class="support">
             <h2>{{ money.title2 }}</h2>
             <div class="choose">
-              <button v-for="(item, index) in btn" :key="index" class="amount">{{ item.amount }}<br><span>{{ item.span
-              }}</span></button>
+              <button v-for="(item, index) in btn" :key="index" class="amount" @click="updateInput(index, item.amount)">
+                {{ item.amount }}<br><span>{{ item.span }}</span>
+              </button>
             </div>
             <div class="other">
-              新臺幣<input type="text" placeholder="其他金額">
+              新臺幣<input type="text" v-model="inputText" placeholder="其他金額">
             </div>
             <p>{{ money.p1 }}</p>
             <div class="but2">
-              <ButtonFlashBox :buttonText="'我要捐款'" :buttonBottomText="'-pv-'"></ButtonFlashBox>
+              <ButtonFlashBox :buttonText="'我要捐款'" :buttonBottomText="'-pv-'" class="btn2-ls"></ButtonFlashBox>
             </div>
           </div>
         </div>
@@ -108,7 +109,7 @@
   <router-view />
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import "@/assets/sass/page/_donate.scss";
 </style>
 <script src="./js/donate.js"></script>
