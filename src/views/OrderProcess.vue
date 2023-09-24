@@ -31,7 +31,7 @@
           <button :class="btn1" @click="show1F">月球巡禮</button>
           <button :class="btn2" @click="show2F">太空之心</button>
         </div>
-        <div class="introduce-p" v-show="show1">
+        <div class="introduce-p" v-show="show1"  @click="chose0" :class="{'chosen':Chosen0}">
           <h3>月球巡禮</h3>
           <h4>用你的一小步 見證人類的一大步</h4>
           <p>由地球出發
@@ -75,8 +75,7 @@
           <div class="box"> <img src="@/assets/image/orderProcess/icon.svg" alt=""></div>
 
           <div class="itemp"><strong>行前訓練</strong><br>您須於旅程三個月前參與為期一週的訓練，並於結訓時接受評估，若行前訓練評估未通過則退費70% 。欲了解行前訓練內容，請
-            <router-link to="
-            ">點擊此處 </router-link>。
+            <router-link to="/training">點擊此處 </router-link>。
           </div>
 
 
@@ -109,7 +108,7 @@
           <br>Choose Itinerary
         </h4>
       </div>
-      <div class="itinerary-d">
+      <div class="itinerary-d" @click="chose0" :class="{'chosen':Chosen0}">
         <img src="@/assets/image/orderProcess/z.svg" alt="">
         月球巡禮
       </div>
@@ -126,15 +125,15 @@
         </div>
       </div>
       <div class="inR">
-        <div class="itinerary-d">
+        <div class="itinerary-d" @click="chose" :class="{'chosen':Chosen}">
           <h5>航程日期: </h5>
           <p>2023/ 11/1~11/10</p>
           <h5>訓練日期:</h5>
           <p>2023/ 10/30~10/31</p>
 
-          <p class="space">團位: 10 可售: 2 候補: 0</p>
+          <p class="space">團位: 10 可售: {{amount}} 候補: 0</p>
         </div>
-        <div class="itinerary-d">
+        <div class="itinerary-d" @click="chose1" :class="{'chosen':Chosen1}">
           <h5>航程日期: </h5>
           <p>2023/ 11/1~11/10</p>
           <h5>訓練日期:</h5>
@@ -179,18 +178,9 @@
     <section class="order-info">
       <div class="p-num">
         乘客人數:
-        <select name="" id="">
-          <option value="">1</option>
-          <option value="">2</option>
-          <option value="">3</option>
-          <option value="">4</option>
-          <option value="">5</option>
-          <option value="">6</option>
-          <option value="">7</option>
-          <option value="">8</option>
-          <option value="">9</option>
-          <option value="">10</option>
-        </select>
+        <select name="" id="" v-model="currentAmount">
+            <option v-for="item in options" :value="item.num" > {{ item.num }} </option>
+          </select>
       </div>
 
       <div class="order-i">
@@ -257,6 +247,8 @@
 
       </div>
     </section>
+
+    
     <div class="order-detail">
       <div class="order-card">
         <h4>ORDER DETAIL</h4>
@@ -312,9 +304,6 @@
 
 <style scoped lang="scss">
 @import "~@/assets/sass/page/orderProcess.scss";
-</style>
-
-<style scoped lang="scss">
 @import "~@/assets/sass/page/orderProcessP.scss";
 </style>
 

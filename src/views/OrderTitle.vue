@@ -18,7 +18,8 @@
 
 
         <div class="order-item" v-for="(item ,index) in titlelist" :key="titleC">
-            <router-link :to="`/${item.path}?section=${index}`">
+            <!-- <router-link :to="`/${item.path}?section=${index}`"> -->
+                <router-link :to="item.path">
 
 
            

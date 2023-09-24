@@ -313,7 +313,8 @@ body {
       margin: 10px auto 0px auto;
 
       li {
-        margin-top: 14px;
+        margin-top: 10px;
+        padding: 2px 0 2px 0;
 
         a {
           color: $white;
@@ -599,7 +600,7 @@ body {
           margin: auto;
           border: 3px solid $blue;
           padding: 4%;
-          background-image: url(~@/assets/image/headerfooter/tipsbg.svg);
+          background-image: url(~@/assets/image/headerfooter/tipsbg1.svg);
           h3{
             text-align: center;
             margin-bottom: 20px;
@@ -707,6 +708,13 @@ body {
   margin-top: -8px;
 }
 
+}
+.d-order{
+  bottom: 30px;
+  right: 20px;
+  width: 80x;
+  height: 80px;
+  position: fixed;
 }
 
 

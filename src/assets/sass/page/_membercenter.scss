@@ -85,19 +85,26 @@
         align-items: center;
         list-style: none;
         padding: 0;
-    } 
-
-    .tab-mem-title button {
-        background-color: transparent;
-        color:  $blueMem;
-        border: none;
-        margin-right: 10px;
+       
+        img{
+          background-color: red;
+           
+        }
+        
+        // background-color: transparent;
+        button{
+          background-color: transparent;
+          color:  $blueMem;
+         
+        }
     }
-    
-    .pic.active-pic {
-        background-color: #f0f0f0;
-        border: 2px solid $blueMem;
-        box-shadow: 10px 10px 20px 0px rgba(1, 193, 253, 0.25);
+    .option-tab{
+        margin-right: 10px; 
+        color: $blueMem;
+        li{
+          border-radius: 50px;
+        }
+        
     }
 
     .pic{
