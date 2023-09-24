@@ -17,12 +17,27 @@
       <div class="menu-p2">Member</div>
     </div>
   </nav>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> WanWan
   <div>
     <h1 @mouseover="triggerScramble">{{ displayText }}</h1>
   </div>
   <router-view />
 
   <section class="menu" v-show="showMenu">
+<<<<<<< HEAD
+=======
+=======
+    <div>
+      <h1 @mouseenter="triggerScramble">{{ displayText }}</h1>
+    </div> 
+  <router-view />
+
+  <section class="menu" v-show="showMenu"  >
+>>>>>>> 65a7291606a2deda3914afdafbc8b68aadd1f5a8
+>>>>>>> WanWan
     <div class="menu-nav">
       <img src="~@/assets/image/headerfooter/close.svg" alt="" @click="closeMenuF" class="close-btn">
 

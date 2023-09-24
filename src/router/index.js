@@ -78,8 +78,19 @@ const routes = [
   {
     path: '/register',
     name: 'register',
+<<<<<<< HEAD
     component: () => import(/* webpackChunkName: "Register" */ '../views/Register.vue')
   }, { 
+=======
+<<<<<<< HEAD
+    component: () => import(/* webpackChunkName: "Login" */ '../views/Register.vue')
+  }, 
+  { 
+=======
+    component: () => import(/* webpackChunkName: "Register" */ '../views/Register.vue')
+  }, { 
+>>>>>>> 65a7291606a2deda3914afdafbc8b68aadd1f5a8
+>>>>>>> WanWan
     path: '/order',
     name: 'order',
     component: () => import(/* webpackChunkName: "order" */ '../views/OrderTitle.vue')
@@ -94,6 +105,7 @@ const routes = [
     name: 'technology',
     component: () => import(/* webpackChunkName: "order" */ '../views/Technology.vue')
   },
+<<<<<<< HEAD
    {
     path: '/registerv',
     name: 'registerv',
@@ -104,6 +116,9 @@ const routes = [
   name: 'NotFound', 
   component: () => import(/* webpackChunkName: "error" */ '../views/NotFound.vue') 
 },
+=======
+<<<<<<< HEAD
+>>>>>>> WanWan
   { 
     path: '/:pathMatch(.*)*', 
     name: 'NotFound', 
@@ -129,6 +144,21 @@ const routes = [
     name: 'mars',
     component: () => import(/* webpackChunkName: "order" */ '../views/OrderProcessMars.vue')
   },
+<<<<<<< HEAD
+=======
+=======
+   {
+    path: '/registerv',
+    name: 'registerv',
+    component: () => import(/* webpackChunkName: "order" */ '../views/RegisterV.vue')
+  },
+  
+  { path: '/:pathMatch(.*)*', 
+  name: 'NotFound', 
+  component: () => import(/* webpackChunkName: "error" */ '../views/NotFound.vue') 
+},
+>>>>>>> 65a7291606a2deda3914afdafbc8b68aadd1f5a8
+>>>>>>> WanWan
 
 
 ////-----------------後台-------------------------

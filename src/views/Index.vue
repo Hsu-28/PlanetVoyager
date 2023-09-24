@@ -83,7 +83,7 @@
 
         </section>
         <section>
-            <div class="vehicles-title">
+            <div class="title-group vehicles-title">
                 <h2style h2ch="科技創新" h2en="THE VEHICLES"></h2style>
             </div>
             <div class="rwd-container" v-for="(vehicles, h3en) in vehicles" :key="h3en">
