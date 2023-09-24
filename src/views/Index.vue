@@ -104,9 +104,11 @@
             </div>
         </section>
         <section class="rwd-container">
-            <div class="rwd-group">
-                <h2style h2ch="團隊介紹" h2en="TOURIST GUIDE"></h2style>
-                <div class="team-card">
+            <div class="tourist-rwd-group">
+                <div>
+                    <h2style h2ch="團隊介紹" h2en="TOURIST GUIDE"></h2style>
+                </div>
+                <div class="col-11 col-md-8">
                     <swiper :effect="'coverflow'" :grabCursor="true" :centeredSlides="true" :slidesPerView="'auto'"
                         :coverflowEffect="{
                             rotate: 50,
@@ -115,15 +117,18 @@
                             modifier: 1,
                             slideShadows: true,
                         }" :modules="modules" class="mySwiper">
-                        <swiper-slide v-for="(member, Index) in member" :key="Index">
+                        <swiper-slide v-for="(member, Index) in member" :key="Index" class="swiper-slide">
                             <div class="outside-boder">
-                            <div class="imgContent inside-boder">
-                                <img class="member-img" :src="member.imgSvg" :alt="member.name">
-                            </div>
-                        </div>
-                            <div class="membersSpan">
-                                <p>{{ member.name }}</p>
-                                <p class="jobTitleMem">{{ member.nameJob }}</p>
+                                <div class="memberContent inside-boder">
+                                    <img class="member-img" :src="member.imgSvg" :alt="member.name">
+                                    <div class="members-info">
+                                        <div class="member-text">
+                                            <span class="members-name">{{ member.name }}</span>
+                                            <span class="members-job">{{ member.nameJob }}</span>
+                                        </div>
+                                        <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
+                                    </div>
+                                </div>
                             </div>
                         </swiper-slide>
                     </swiper>
