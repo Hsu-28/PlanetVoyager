@@ -72,7 +72,7 @@ const routes = [
   {
     path: '/register',
     name: 'register',
-    component: () => import(/* webpackChunkName: "Login" */ '../views/Register.vue')
+    component: () => import(/* webpackChunkName: "Register" */ '../views/Register.vue')
   }, { 
     path: '/order',
     name: 'order',
@@ -87,10 +87,29 @@ const routes = [
     name: 'technology',
     component: () => import(/* webpackChunkName: "order" */ '../views/Technology.vue')
   },
+   {
+    path: '/registerv',
+    name: 'registerv',
+    component: () => import(/* webpackChunkName: "order" */ '../views/RegisterV.vue')
+  },
+  
   { path: '/:pathMatch(.*)*', 
   name: 'NotFound', 
   component: () => import(/* webpackChunkName: "error" */ '../views/NotFound.vue') 
 },
+
+
+////-----------------後台-------------------------
+// {
+//   path: '/backstagelongin',
+//   name: 'backstagelongin',
+//   component: () => import(/* webpackChunkName: "BackstageLongin" */ '../backend/BackstageLongin.vue')
+// },
+// {
+//   path: '/mangerMGMT',
+//   name: 'mangerMGMT',
+//   component: () => import(/* webpackChunkName: "MangerMGMT" */ '../backend/MangerMGMT.vue')
+// },
 
 ]
 

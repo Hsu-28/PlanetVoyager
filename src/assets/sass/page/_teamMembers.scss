@@ -30,6 +30,7 @@
 .jobAll {
     line-height: 1.5;
     color: $white;
+    letter-spacing: 4px;
     font-weight: 700;
     // width: 1200px;
     max-width: 1200px;
@@ -43,6 +44,9 @@
 
         line-height: 2rem;
         font-size: 24px;
+        p{
+            font-weight: 500;
+        }
         @include padBS{
             font-size: 20px;
         }
@@ -73,6 +77,7 @@
 
             p:last-child {
                 // width: 600px;
+                font-weight:500;
                 min-width: 600px;
                 width: 50%;
                 font-size: $p1-l;
@@ -218,6 +223,8 @@
 
         // }
         .allDetail {
+            letter-spacing: 4px;
+
             position: fixed;
             top: 50%;
             left: 50%;
@@ -230,7 +237,7 @@
 
             .memberDetail {
 
-
+                z-index: 10;
                 // position:fixed;  
                 // top: 50%;          
                 // left: 50%;        
@@ -287,6 +294,7 @@
 
                 >p {
                     font-size: 24px;
+                    // font-weight:500;
                     @include padBS{
                         font-size: 20px;
                     }
@@ -318,6 +326,8 @@
                     }
 
                     p {
+                        font-weight:500;
+
                         width: 90%;
                         margin: 0 auto;
 
@@ -347,12 +357,18 @@
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #403f3f; 
+    background: $blueL; 
+    // box-shadow: inset -1px  -1px 10px 10px rgba(91, 19, 236, 20%),
+    // inset -1px  -1px 10px 5px rgba(91, 19, 236, 80%), 
+    // inset 2px  2px 10px 2px rgba(91, 19, 236, 90%),
+    // 2px  -4px 10px 2px rgb(91, 19, 236 ), 
+    //  0px 2.525px 8.4825px 0px #06F, 
+    //  -0.42412px 0.84825px 0.42412px 0px rgba(255, 255, 255, 0.50);     
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: $black; 
+    background:$blue ; 
   }
 // .footerImg{
 //     img{

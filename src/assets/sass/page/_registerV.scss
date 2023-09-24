@@ -1,0 +1,103 @@
+.all{
+    position: relative;
+    margin: 50px auto;
+    width: 90%;
+    max-width: 1400px;
+   text-align: center;
+    font-weight: 700;
+    color: $blueL;
+    .imgSvg{
+        margin: 0 auto;
+
+        width: 30%;
+        @include padBS{
+            width: 50%;
+        }
+        @include mobileBS{
+            width: 80%;
+        }
+        img{
+            width: 100%;
+
+        }
+    }
+    .textE{
+        width: 100%;
+        position: absolute;
+        bottom: 45%;
+        color: transparent;
+        -webkit-text-stroke: 2px $blueL;
+        font-size: 72px;
+        letter-spacing: 21.6px;
+        @include padBS{
+            font-size: $h2-l;
+        }
+        @include mobileBS{
+            font-size: 24px;
+        }
+        &::after{
+            position: absolute;
+            left:50%;
+            top: 50%;
+            
+            // transform: translate(-48%,-60%);
+            // content: "SUCCESSFUL";
+            // color: transparent;
+            // -webkit-text-stroke: .5px rgba(255, 255, 255, 0.5);
+            // letter-spacing: 21.6px;
+            // text-shadow:  -10px  0px 0px 10px $blueL;
+
+        }
+        &::before{
+            position: absolute;
+            left:50%;
+            top: 50%;
+            filter: blur(0.5px);
+            transform: translate(-48.4%,-50%);
+            content: "SUCCESSFUL";
+            color: transparent;
+            -webkit-text-stroke: 2px rgba(13, 242, 242, 80%);
+            letter-spacing: 21.6px;            
+
+        }
+    }
+    .contentT{
+            margin: 50px,auto;  
+        position: absolute;
+        bottom: 20%;
+        width: 100%;
+        background: rgba(19,19,19, 0.9);
+            line-height: 2;
+        p:first-child {
+            font-size:  $h2-l;
+            color: transparent;
+            -webkit-text-stroke: 1px $blueL; 
+            letter-spacing: 10.8px;
+            font-weight: 500;
+
+            @include padBS{
+                font-size: 24px;
+               
+            }
+            @include mobileBS{
+                font-size: 20px;
+                
+            }
+        }
+        p:last-child{
+            font-size: 20px;
+
+            letter-spacing: 6px;
+            @include padBS{
+                font-size: 16px;
+            }
+            @include mobileBS{
+                font-size: 14px;
+            }
+                
+        }
+    }
+
+
+
+}

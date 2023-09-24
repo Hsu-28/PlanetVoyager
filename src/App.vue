@@ -19,10 +19,10 @@
   </nav>
     <div>
       <h1 @mouseenter="triggerScramble">{{ displayText }}</h1>
-    </div>
+    </div> 
   <router-view />
 
-  <section class="menu" v-show="showMenu"   >
+  <section class="menu" v-show="showMenu"  >
     <div class="menu-nav">
       <img src="~@/assets/image/headerfooter/close.svg" alt="" @click="closeMenuF" class="close-btn">
 
@@ -93,7 +93,6 @@
           </div>
         </div>
     </section>
-
 
   </section>
 
