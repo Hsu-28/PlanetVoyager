@@ -31,7 +31,7 @@
         </section>
         <section class="rwd-container">
             <div class="rwd-group">
-                <div class="col-9 col-md-4 aboutus-title">
+                <div class="col-9 col-md-4 title-group">
                     <h2style h2ch="關於我們" h2en="ABOUT US"></h2style>
                     <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
                 </div>
@@ -84,10 +84,12 @@
 
         </section>
         <section>
-            <h2style h2ch="科技創新" h2en="THE VEHICLES"></h2style>
+            <div class="vehicles-title">
+                <h2style h2ch="科技創新" h2en="THE VEHICLES"></h2style>
+            </div>
             <div class="rwd-container" v-for="(vehicles, h3en) in vehicles" :key="h3en">
                 <div class="vehicles-rwd-group">
-                    <div class="col-11 col-md-3">
+                    <div class="col-11 col-md-4 title-group">
                         <h3>
                             <span class="h3-ch">{{ vehicles.h3ch }}</span>
                             <br>
