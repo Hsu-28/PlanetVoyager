@@ -1,4 +1,8 @@
+import scramble from '@/components/Scramble.vue'
 export default {
+    components: {
+          scramble: scramble
+      },
   data() {
   
     return {

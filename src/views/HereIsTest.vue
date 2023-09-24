@@ -16,11 +16,11 @@ export default {
   },
   data() {
     return {
-      speed: 12,//有
-      shuffleCount: 6,//有
-      random: "*&%!1234567ABC$/+=XZ?\\|7<>˙",//有
-      LIMIT: 0,//有
-      shuffle: 0,//有
+      speed: 12,
+      shuffleCount: 6,
+      random: "*&%!1234567ABC$/+=XZ?\\|7<>˙",
+      LIMIT: 0,
+      shuffle: 0,
       mojicount: 0,
       displayText: '',
       timer: null,
@@ -57,15 +57,21 @@ export default {
       this.scramble();
     }
   },
-  mounted() {
-    setInterval(() => {
+  // mounted() {
+  //   setInterval(() => {
+  //     this.triggerScramble();
+  //   }, 3000);
+  // }
+    mounted() {
+    
       this.triggerScramble();
-    }, 3000);
+    ;
   }
 };
 </script >
 <style scoped>
 h1 {
+  margin-top: 100px;
   font-size: 60px;
   color: white;
 }

@@ -78,11 +78,26 @@
         align-items: center;
         list-style: none;
         padding: 0;
+       
+        img{
+          background-color: red;
+           
+        }
+        
         // background-color: transparent;
+        button{
+          background-color: transparent;
+          color:  $blueMem;
+         
+        }
     }
     .option-tab{
         margin-right: 10px; 
         color: $blueMem;
+        li{
+          border-radius: 50px;
+        }
+        
     }
     .option-tab:last-child {
         margin-right: 0; 

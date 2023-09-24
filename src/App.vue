@@ -18,7 +18,7 @@
     </div>
   </nav>
   <div>
-    <h1 @mouseenter="triggerScramble">{{ displayText }}</h1>
+    <h1 @mouseover="triggerScramble">{{ displayText }}</h1>
   </div>
   <router-view />
 
@@ -45,13 +45,15 @@
       <div class="list">
         <ul>
           <li v-for="(item, index) in titlelist" :key="index">
-            <strong>
-              <router-link @click="closeMenuF" :to="item.path" :style="{ color: item.color }">{{ item.titleC }} &nbsp;
-                {{ item.titleE }}</router-link> </strong>
-<strong>
-            <router-link @click="closeMenuF" :to="item.path" :style="{ color: item.color }">
-              <hhh :text="`${item.titleC} ${item.titleE}`" />
-            </router-link></strong>
+           <!-- <strong>
+               <router-link @click="closeMenuF" :to="item.path" :style="{ color: item.color }">{{ item.titleC }} &nbsp;
+                {{ item.titleE }}</router-link> </strong> -->
+
+              <strong>
+                <router-link @click="closeMenuF" :to="item.path" :style="{ color: item.color }">
+                  <scramble :text="`${item.titleC} ${item.titleE}`" />
+                </router-link>
+              </strong>
           </li>
         </ul>
       </div>

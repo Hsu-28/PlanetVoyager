@@ -41,8 +41,8 @@ const routes = [
     component: () => import(/* webpackChunkName: "Login" */ '../views/Login.vue')
   },
   {
-    path: '/Index',
-    name: 'Index',
+    path: '/index',
+    name: 'index',
     component: () => import(/* webpackChunkName: "Index" */ '../views/Index.vue')
   },
   {
@@ -86,8 +86,8 @@ const routes = [
     component: () => import(/* webpackChunkName: "order" */ '../views/OrderTitle.vue')
   },
   { 
-    path: '/orderprocess',
-    name: 'orderprocess',
+    path: '/moon',
+    name: 'moon',
     component: () => import(/* webpackChunkName: "order" */ '../views/OrderProcess.vue')
   },
   {
@@ -115,6 +115,11 @@ const routes = [
   //   name: 'itinerary',
   //   component: () => import(/* webpackChunkName: "order" */ '../views/Itinerary.vue')
   // },
+  {
+    path: '/mars',
+    name: 'mars',
+    component: () => import(/* webpackChunkName: "order" */ '../views/OrderProcessMars.vue')
+  },
 
 ]
 
