@@ -104,7 +104,19 @@
 
 
   </section>
+<router-link to="order">
+  <div class="d-order">
+  <div class="c-glitch " >
+    <div class="c-glitch__img" ></div>
+    <div class="c-glitch__img" ></div>
+    <div class="c-glitch__img" ></div>
+    <div class="c-glitch__img" ></div>
+    <div class="c-glitch__img" ></div>
+    </div>
+  </div>
 
+  <!-- <img class="d-order" src="~@/assets/image/headerfooter/dorder.svg" alt=""> -->
+</router-link>
 
 
   <footer class="footer">
@@ -124,4 +136,11 @@
 
 <script src="./views/js/app.js"></script>
 
-<style lang="scss">@import "~@/assets/sass/component/headerFooter.scss";</style>
+<style lang="scss" >
+@import "~@/assets/sass/component/headerFooter.scss";
+@import "~@/assets/sass/component/glitch.scss";
+</style>
+
+<style lang="scss" scoped>
+
+</style>

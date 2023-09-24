@@ -191,16 +191,16 @@
         <h4>ORDER DETAIL</h4>
         <div class="order-title">{{journey}}</div>
         <div class="order-num">
-          <p>旅客人數: {{amount}} 人</p>
+          <p>旅客人數: {{currentAmount}} 人</p>
         </div>
         <div class="order-money">
-          <p>總金額: {{60000000*currentAmount}} 美金 </p>
+          <p>總金額: {{600*currentAmount}} 萬美金 </p>
         </div>
         <div class="order-date">
-          <p>航程日期: {2023/ 11/1~11/10}</p>
+          <p>航程日期: {{date}}</p>
         </div>
         <div class="click">
-          <ButtonFlashBox :buttonText="'捐款參加抽獎！'" :buttonBottomText="'-pv-'" class="kkss"></ButtonFlashBox>
+          <ButtonFlashBox :buttonText="'確認訂購'" :buttonBottomText="'-pv-'" class="kkss"></ButtonFlashBox>
         </div>
 
       </div>

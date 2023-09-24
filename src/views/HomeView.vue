@@ -17,11 +17,12 @@
     <div id="stars3"></div>
     <img src="~@/assets/image/headerfooter/bgtest4.jpg" alt="" class="sky"> 
     <div class="text">
-      PLANT VOYAGER
+      PLANET VOYAGER
     </div>
   </section>
   <div class="front">
-    FrontEnd
+    <router-link to="index" >FrontEnd</router-link>
+    
   </div>
   <div class="back">
     BackEnd
@@ -49,11 +50,28 @@ export default {
   top: 58%;
   
 }
+.front a{
+  // color: rgb(26, 41, 51);
+  color: #515A6E;
+  font-weight: 500;
+  
+}
 .front:hover{
   cursor: pointer;
+  text-shadow: 
+             -1px -1px 20px rgb(255, 255, 255), /* 上左方向陰影，白色 */
+             1px -1px 20px rgb(255, 255, 255),  /* 上右方向陰影，白色 */
+             -1px 1px 20px rgb(255, 255, 255),  /* 下左方向陰影，白色 */
+             1px 1px 20px rgb(255, 255, 255);    /* 下右方向陰影，白色 */
 }
 .back:hover{
   cursor: pointer;
+  text-shadow: 
+             -1px -1px 20px rgb(255, 255, 255), /* 上左方向陰影，白色 */
+             1px -1px 20px rgb(255, 255, 255),  /* 上右方向陰影，白色 */
+             -1px 1px 20px rgb(255, 255, 255),  /* 下左方向陰影，白色 */
+             1px 1px 20px rgb(255, 255, 255);    /* 下右方向陰影，白色 */
+
 }
 
 .front{
@@ -159,11 +177,12 @@ section {
 .text {
   position: absolute;
   top: 38%;
-  left: 52%;
+  left: 51%;
   transform: translate(-50%, -50%);
-  color: deepblack;
-  letter-spacing: 9px;
+  color: rgb(26, 41, 51);
+  letter-spacing: 8px;
   font-size: 60px;
+  font-weight: 500;
   
 }
 

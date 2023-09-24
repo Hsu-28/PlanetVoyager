@@ -14,13 +14,13 @@ export default {
             titleE: "MOON",
             psrc: require("@/assets/image/ordertitle/moon.svg"),
             bgsrc: require("@/assets/image/ordertitle/moonbg.svg"),
-            path: "orderprocess",
+            path: "moon",
           },  {
             titleC: "火星" ,
             titleE: "MARS",
             psrc: require("@/assets/image/ordertitle/mars.svg"),
             bgsrc: require("@/assets/image/ordertitle/marsbg.svg"),
-            path: "orderprocess",
+            path: "mars",
           }, {
             titleC: "金星" ,
             titleE: "VENUS",

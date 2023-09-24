@@ -24,6 +24,7 @@ export default {
       j2:["2023/ 12/1~11/10",2,"2023/ 11/29~1/30"],
       j3:["2024/ 1/1~1/10",7,"2023/ 12/30~12/31"],
       j4:["2024/ 3/1~3/10",4,"2024/ 2/27~2/28"],
+      date: "",
       imgs: [
         {
           slide: require('@/assets/image/orderProcess/marsc2.svg'),
@@ -64,7 +65,7 @@ export default {
           p: "若因天氣因素而無法出發，則啟航日期向後順延14天，最多順延兩次，若依然因為天氣因素無法成團，則退費70%",
         },
       ],
-      currentAmount: "",
+      currentAmount: "1",
 
       // subContent: [
       // ],
@@ -101,26 +102,33 @@ export default {
       this.j2C = false;
       this.j3C = false;
       this.j4C = false;
+      this.amount = this.j1[1]
+      this.date = this.j1[2]
     },
     j2f() {
       this.j2C =!this.j2C;
       this.j1C = false;
       this.j3C = false;
       this.j4C = false;
+      this.amount = this.j2[1]
+      this.date = this.j2[2]
     },
     j3f() {
       this.j3C =!this.j3C;
       this.j1C = false;
       this.j2C = false;
       this.j4C = false;
+      this.amount = this.j3[1]
+      this.date = this.j3[2]
     },
     j4f() {
       this.j4C =!this.j4C;
       this.j1C = false;
       this.j2C = false;
       this.j3C = false;
+      this.amount = this.j4[1]
+      this.date = this.j4[2]
     },
-
   },
   computed: {
     options() {
@@ -130,6 +138,7 @@ export default {
         }
       })
     },
+    
   },
   // watch: {
   //   currentAmount(nVal) {

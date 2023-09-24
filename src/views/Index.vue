@@ -3,13 +3,22 @@
         <h1 class="banner">
             <img src="~@/assets/image/index/banner.svg" alt="banner圖片">
         </h1>
-        <section class="rwd-container">
-            <div class="rwd-group">
-                <div>SO FAR,WE HAVE BEEN COMPLETED</div>
-                <div>
-                    <div v-for="(landing, index) in landing" :key="landing.index">
-                        <span>{{ landing.people }}</span>
-                        <span v-html="landing.total"></span>
+        <section class="arrow">
+            向下箭頭
+        </section>
+        <section>
+            <div class="landing-title">
+                SO FAR,WE HAVE BEEN COMPLETED
+            </div>
+            <div>
+                <div class="rwd-container">
+                    <div class="rwd-group">
+                        <div v-for="(landing, index) in landing" :key="index" class="col-4 landing-group">
+                            <div :id="landing.containerid">
+                                <span :id="landing.groupid">0</span>
+                            </div>
+                            <span v-html="landing.total" class="landing-text"></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -22,31 +31,33 @@
         </section>
         <section class="rwd-container">
             <div class="rwd-group">
-                <div>
-                    <h2style h2ch="關於我們" h2en="ABOUT&nbspUS"></h2style>
+                <div class="col-9 col-md-4 title-group">
+                    <h2style h2ch="關於我們" h2en="ABOUT US"></h2style>
                     <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
                 </div>
-                <div><img src="" alt=""></div>
+                <div class="col-9 col-md-4">
+                    <img class="aboutus-img" src="~@/assets/image/index/aboutus.svg" alt="太空船艙">
+                </div>
             </div>
         </section>
         <section class="rwd-container">
             <div class="rwd-group">
-                <marquee direction="right" height="30" scrollamount="5" behavior="alternate">跑馬燈測試</marquee>
-                <!-- 方向設定：direction="參數值"；可設定 up（向上）、dun（向下）、left（向左）、right（向右）。
-對齊設定：align="參數值"；可設定 top（向上對齊）、midden（垂直至中）、botton（向下對齊）。
-速度設定：scrollamount="參數值" ；可設定為數字，通常設定 1~10 的範圍，數字越大跑得越快。
-長度設定：height="參數值"；數字，自行設定。
-寬度設定：width="參數值"；數字，自行設定。
-行為設定：behavior="參數值"；可設定 alternate（來回跑）、slide（跑入後停止）。
-背景顏色：bgcolor="參數值"；可設定為顏色的色碼，不設定則沒有顏色。 -->
+                <div class="marquee">
+                    <div class="scroll">
+                        <span class="news"> 最新消息 NEWS 最新消息 NEWS 最新消息 NEWS</span>
+                        <span class="news"> 最新消息 NEWS 最新消息 NEWS 最新消息 NEWS</span>
+                    </div>
+                </div>
             </div>
         </section>
         <section class="rwd-container">
             <div class="rwd-group">
-                <div>
+
+                <div class="destination-group">
                     <h2style h2ch="星際介紹" h2en="DESTINATION"></h2style>
                     <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
                 </div>
+
 
                 <div class="planet-group">
                     <div class="outside">
@@ -70,37 +81,52 @@
                     </div>
                 </div>
             </div>
+
         </section>
-        <section class="rwd-container">
-            <div class="rwd-group">
-                <h2style h2ch="科技創新" h2en="THE&nbspVEHICLES"></h2style>
-                <div>
-                    <div>
+        <section>
+            <div class="vehicles-title">
+                <h2style h2ch="科技創新" h2en="THE VEHICLES"></h2style>
+            </div>
+            <div class="rwd-container" v-for="(vehicles, h3en) in vehicles" :key="h3en">
+                <div class="vehicles-rwd-group">
+                    <div class="col-11 col-md-4 title-group">
                         <h3>
-                            <span class="h3-ch">太空船</span>
-                            <span class="h3-en">SPACESHIP</span>
+                            <span class="h3-ch">{{ vehicles.h3ch }}</span>
+                            <br>
+                            <span class="h3-en">{{ vehicles.h3enbig }}</span>
                         </h3>
                         <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
                     </div>
-                    <div>
-                        <img src="~@/assets/image/index/ship.svg" alt="太空船">
+                    <div class="col-11 col-md-7">
+                        <img :class="vehicles.h3en" :src="vehicles.img" alt="太空船">
                     </div>
-                </div>
-                <div>
-                    <h3>
-                        <span class="h3-ch">太空服</span>
-                        <span class="h3-en">SPACESUIT</span>
-                    </h3>
-                    <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
-                </div>
-                <div>
-                    <img src="~@/assets/image/index/suit.svg" alt="太空服">
                 </div>
             </div>
         </section>
         <section class="rwd-container">
             <div class="rwd-group">
-                <h2style h2ch="團隊介紹" h2en="TOURIST&nbspGUIDE"></h2style>
+                <h2style h2ch="團隊介紹" h2en="TOURIST GUIDE"></h2style>
+                <div class="team-card">
+                    <swiper :effect="'coverflow'" :grabCursor="true" :centeredSlides="true" :slidesPerView="'auto'"
+                        :coverflowEffect="{
+                            rotate: 50,
+                            stretch: 0,
+                            depth: 100,
+                            modifier: 1,
+                            slideShadows: true,
+                        }" :modules="modules" class="mySwiper">
+                        <swiper-slide><img
+                                src="https://swiperjs.com/demos/images/nature-1.jpg" /></swiper-slide><swiper-slide><img
+                                src="https://swiperjs.com/demos/images/nature-2.jpg" /></swiper-slide><swiper-slide><img
+                                src="https://swiperjs.com/demos/images/nature-3.jpg" /></swiper-slide><swiper-slide><img
+                                src="https://swiperjs.com/demos/images/nature-4.jpg" /></swiper-slide><swiper-slide><img
+                                src="https://swiperjs.com/demos/images/nature-5.jpg" /></swiper-slide><swiper-slide><img
+                                src="https://swiperjs.com/demos/images/nature-6.jpg" /></swiper-slide><swiper-slide><img
+                                src="https://swiperjs.com/demos/images/nature-7.jpg" /></swiper-slide><swiper-slide><img
+                                src="https://swiperjs.com/demos/images/nature-8.jpg" /></swiper-slide><swiper-slide><img
+                                src="https://swiperjs.com/demos/images/nature-9.jpg" /></swiper-slide>
+                    </swiper>
+                </div>
             </div>
         </section>
     </main>
@@ -108,8 +134,14 @@
 
 <style  scoped lang="scss">
 @import "~@/assets/sass/page/_index";
+@import "~@/assets/sass/page/rwd.scss";
 </style>
 <script>
+import { gsap, Power0 } from "gsap";
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import { EffectCoverflow } from 'swiper/modules';
 import ButtonStyle from '../components/ButtonFlash.vue';
 import h2style from '../components/IndexH2.vue';
 import planet from '../components/Planet.vue';
@@ -118,25 +150,117 @@ export default {
         ButtonStyle,
         h2style,
         planet,
+        Swiper,
+        SwiperSlide,
+    },
+    setup() {
+        const onSwiper = (swiper) => {
+            console.log(swiper);
+        };
+        const onSlideChange = () => {
+            console.log('slide change');
+        };
+        return {
+            modules: [EffectCoverflow],
+        };
     },
     data() {
         return {
             landing: [
                 {
+                    containerid: 'launchesOutside',
+                    groupid: 'launches',
                     people: '255',
                     total: 'TOTAL<br>LAUNCHES'
                 },
                 {
+                    containerid: 'landingOutside',
+                    groupid: 'landing',
                     people: '217',
                     total: 'TOTAL<br>LANDING'
                 },
                 {
+                    containerid: 'reflightsOutside',
+                    groupid: 'reflights',
                     people: '190',
                     total: 'TOTAL<br>REFLIGHTS'
                 },
+            ],
+            vehicles: [
+                {
+                    h3en: 'spaceship',
+                    h3enbig: 'SPACESHIP',
+                    h3ch: '太空船',
+                    img: require("@/assets/image/index/ship.svg"),
+
+                },
+                {
+                    h3en: 'spacesuit',
+                    h3enbig: 'SPACESUIT',
+                    h3ch: '太空服',
+                    img: require("@/assets/image/index/suit.svg"),
+                },
             ]
         }
+    },
+    mounted() {
+        const num = document.getElementById("launchesOutside");
+        const num1 = document.getElementById("landingOutside");
+        const num2 = document.getElementById("reflightsOutside");
+        const obj = { value: 0 };
+
+        gsap.to(obj, 2, {
+            value: 255, ease: Power0.easeIn,
+            roundProps: {
+                value: 1
+            },
+            scrollTrigger: {
+                trigger: "#launches",
+                start: "top 50%",
+                end: "bottom 50%",
+                toggleActions: "restart none none none"
+            },
+            onUpdate: function () {
+                num.innerHTML = obj.value;
+            }
+        })
+
+        gsap.to(obj, 2, {
+            value: 217, ease: Power0.easeIn,
+            roundProps: {
+                value: 1
+            },
+            scrollTrigger: {
+                trigger: "#landing",
+                start: "top 50%",
+                end: "bottom 50%",
+                toggleActions: "restart none none none"
+            },
+            onUpdate: function () {
+                num1.innerHTML = obj.value;
+            }
+        })
+
+        gsap.to(obj, 2, {
+            value: 190, ease: Power0.easeIn,
+            roundProps: {
+                value: 1
+            },
+            scrollTrigger: {
+                trigger: "#reflights",
+                start: "top 50%",
+                end: "bottom 50%",
+                toggleActions: "restart none none none"
+            },
+            onUpdate: function () {
+                num2.innerHTML = obj.value;
+            }
+        })
+
     }
+
 }
+
+
 
 </script>
