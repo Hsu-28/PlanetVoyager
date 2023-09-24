@@ -128,7 +128,7 @@
                 </div>
                 <table class="phone">
                     <tr>
-                        <td><a href="">03 425 1108</a></td>
+                        <td><a href="tel:+886-3-4251108">03 425 1108</a></td>
                     </tr>
                     <tr>
                         <td>客服專線</td>
@@ -136,7 +136,7 @@
                 </table>
                 <table class="addr">
                     <tr>
-                        <td><a href="">W52 桃園市中壢區<br>復興路46號9樓</a></td>
+                        <td><a href="https://maps.app.goo.gl/7UAKNLrP1b2kodCo6">W52 桃園市中壢區<br>復興路46號9樓</a></td>
                     </tr>
                     <tr>
                         <td>地址</td>

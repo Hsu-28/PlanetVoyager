@@ -19,11 +19,26 @@
 
 .tit h1 {
     font-size: $h1-l;
+    padding-bottom: 10px;
+    font-weight: 700;
+    text-shadow:
+        3px 3px 0 #00000075,
+        2px -1px 0 #00000075,
+        2px -1px 0 #00000075,
+        -1px 1px 0 #00000075,
+        3px 1px 0 #00000075
 }
 
 .tit span {
     font-size: $h1-l;
     font-weight: 700;
+    display: block;
+    text-shadow:
+        3px 3px 0 #00000075,
+        2px -1px 0 #00000075,
+        2px -1px 0 #00000075,
+        -1px 1px 0 #00000075,
+        3px 1px 0 #00000075
 }
 
 .down {
@@ -481,6 +496,12 @@ td {
 td a {
     color: $white;
     font-weight: 600;
+    text-decoration: underline;
+}
+
+td a:hover {
+    color: $blueL;
+    text-decoration: none;
 }
 
 .phone {
@@ -764,12 +785,12 @@ td a {
 
     .swiper {
         width: 60%;
-        height: 450px;
+        height: 530px;
     }
 
     .swiper-slide {
         flex-direction: column;
-        padding: 0 15px;
+        padding: 10px 10px;
     }
 
     .txt {
@@ -833,6 +854,11 @@ td a {
 
     .timeline li:nth-child(even)::after {
         display: none;
+    }
+
+    .arrow {
+        max-width: 120px;
+        padding-bottom: 30px;
     }
 
     .data {
