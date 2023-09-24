@@ -6,10 +6,17 @@
         <section class="top">
           <div class="info">
               <div class="upload">
-                <img src="~@/assets/image/membercenter/avatar.png" alt="頭像">
-                <!-- <input type="file" @change="fileSelected">
-                    <img v-if="image" :src="image" width="200"/><br>
-                <button @click="upload">上傳</button> -->
+                <!-- <img src="~@/assets/image/membercenter/avatar.png" alt="頭像"> -->
+                <!-- <label for="title"  class="upload-title">上傳圖片</label> -->
+                  <div class="UploadImg">
+                      <div class="img" v-for="i in 1" :key="i">
+                        <label class="custom-file-upload">
+                          <p  @mousedown="triggerFileInput(i)">＋</p>
+                          <input type="file" accept="image/*" ref="fileInput" style="display: none" @change="handleFileUpload(i, $event)">
+                          <img v-if="imgsData[i]" :src="uploadedImages[i]" alt="">
+                        </label>
+                    </div>
+                </div>
               </div>
               <div class="mem-box">
                 <div class="greeting">
@@ -36,82 +43,82 @@
         </ul>
       </section>
         <div class="content">
-          <div v-if="activeId === 1" class="information"
-          style="display: flex; align-items: center; justify-content: center;">
+          <div v-if="activeId === 1" class="information">
             <form action=""  @submit.prevent="handleSubmit">
               <p class="account-first-title">帳戶資訊</p>
-
-              <div class="name-nickname-container">
-                <p id="name"><span >姓名</span><br>
-                  <input type="text" required v-model="name"></p>
-                <p><span>暱稱</span><br>
-                  <input type="text" required v-model="nickname"></p>
+              <div class="top-input">
+                <div class="all-input">
+                  <div class="control-container">
+                    <p id="name"><span >姓名</span><br>
+                      <input type="text" required v-model="name"></p>
+                    <p><span>暱稱</span><br>
+                      <input type="text" required v-model="nickname"></p>
+                  </div>
+                  <div class="control-container">
+                      <p><span >性別</span><br>
+                          <select  required v-model="sex" id="sex" style="color:#F0F0F0;">
+                              <option value="1" >男性</option>
+                              <option value="2" >女性</option>
+                              <option value="other">其他</option>
+                          </select></p>
+                      <p><span>生日</span><br>
+                          <input type="date"  id="bir" required v-model="birthday"></p>
+                  </div>
+                  <div class="control-container">
+                    <p id="mobile"><span>手機號碼</span><br>
+                      <input type="text" maxlength="10" oninput="value=value.replace(/[^\d]/g,'')"
+                      required v-model="phoneNumber"></p>
+                    <p><span>E-MAIL</span><br>
+                      <input type="email" required v-model="email" ></p>
+                    </div>
+                  <div class="control-container">
+                    <p id="address"><span>收件/聯絡地址</span><br>
+                      <input type="text" required v-model="address"></p>
+                    <p><span>護照號碼</span><br>
+                      <input type="text" maxlength="9" oninput="value=value.replace(/[^\d]/g,'')"
+                              v-model="passportNumber" ></p> 
+                  </div>
               </div>
-              <div class="sex-bir-container">
-                <p><span >性別</span><br>
-                    <select  required v-model="sex" id="sex" style="color:#F0F0F0;">
-                        <option value="1" >男性</option>
-                        <option value="2" >女性</option>
-                        <option value="other">其他</option>
-                    </select></p>
-                <p><span>生日</span><br>
-                    <input type="date"  required v-model="birthday"></p>
-              </div>
-              <div class="phone-mail-container">
-                <p id="mobile"><span>手機號碼</span><br>
-                   <input type="text" maxlength="10" oninput="value=value.replace(/[^\d]/g,'')"
-                   required v-model="phoneNumber"></p>
-                <p><span>E-MAIL</span><br>
-                  <input type="email" required v-model="email" ></p>
-                </div>
-              <div class="address-passport-container">
-                <p id="address"><span>收件/聯絡地址</span><br>
-                  <input type="text" required v-model="address"></p>
-                <p><span>護照號碼</span><br>
-                   <input type="text" maxlength="9" oninput="value=value.replace(/[^\d]/g,'')"
-                          v-model="passportNumber" ></p> 
-              </div>
-              <div class="top-box">
-                <div class="social">
-                  <div class="facebook">
+                <div class="top-box">
+                  <div class="social">
+                    <div class="facebook">
+                      <a href="" style="display: flex; align-items: center;">
+                        <img src="../assets/image/membercenter/facebook.svg" alt="fb">
+                      <p class="fb">FACEBOOK(已綁定) </p></a>
+                    </div>
+                    <div class="google">
                     <a href="" style="display: flex; align-items: center;">
-                      <img src="../assets/image/membercenter/facebook.svg" alt="fb">
-                    <p class="fb">FACEBOOK(已綁定) </p></a>
+                        <img src="../assets/image/membercenter/google.svg" alt="google">
+                      <p class="google_text">GOOGLE(未綁定) </p></a>
+                    </div>
+                    <div class="line">
+                      <a href="" style="display: flex; align-items: center;">
+                        <img src="../assets/image/membercenter/line.svg" alt="line">
+                      <p class="line_text">LINE(未綁定) </p></a>
+                    </div>
                   </div>
-                  <div class="google">
-                   <a href="" style="display: flex; align-items: center;">
-                      <img src="../assets/image/membercenter/google.svg" alt="google">
-                    <p class="google_text">GOOGLE(未綁定) </p></a>
-                  </div>
-                  <div class="line">
-                    <a href="" style="display: flex; align-items: center;">
-                      <img src="../assets/image/membercenter/line.svg" alt="line">
-                    <p class="line_text">LINE(未綁定) </p></a>
-                  </div>
+                  <div class="top-button">
+                    <ButtonStyle buttonText="確認修改" buttonBottomText="-PV-"></ButtonStyle>
                 </div>
-                <div class="top-button">
+                </div>
+              </div>
+                <hr class="account-hr" >
+                <div class="password-bottom-container">
+                  <p class="account-sec-title">修改密碼</p>
+                  <p><span>舊密碼</span><br>
+                    <input type="password" v-model="oldPw"></p>
+                  <p><span>新密碼</span><br>
+                    <input type="password" v-model="newPw"></p>
+                  <p><span>確認新密碼</span><br>
+                    <input type="password" v-model="confirmPw"></p>
+                <div class="bottom-button">
                   <ButtonStyle buttonText="確認修改" buttonBottomText="-PV-"></ButtonStyle>
-              </div>
-              </div>
-              <hr class="account-hr" >
-              <div class="password-bottom-container">
-                <p class="account-sec-title">修改密碼</p>
-                <p><span>舊密碼</span><br>
-                  <input type="password" v-model="oldPw"></p>
-                <p><span>新密碼</span><br>
-                  <input type="password" v-model="newPw"></p>
-                <p><span>確認新密碼</span><br>
-                  <input type="password" v-model="confirmPw"></p>
-              <div class="bottom-button">
-                <ButtonStyle buttonText="確認修改" buttonBottomText="-PV-"></ButtonStyle>
-              </div>
-              </div>
-              </form>
-
-
-
-          </div>
-
+                </div>
+                </div>
+             
+          </form>
+         </div>
+       
           <div v-else-if="activeId === 2" class="check-order" >
             <p class="account-first-title">查詢訂單</p><br>
                 <div class="odtitle">                
@@ -130,14 +137,23 @@
                       <div class="trip-content">
                         <p>行程：{{ order.orderTitle }}</p>
                         <p>人數：{{ order.headcount }}</p>
-                        <p class="dpdate">出團日期：<br>{{ order.departureDate }}</p>
+                        <p>出團日期：<br>{{ order.departureDate }}</p>
+                        <p class="rwdAmount" v-if="isMobile">金額：{{ order.amount }}</p>
+                        <p class="rwdDate" v-if="isMobile">訂購日期：<br>{{ order.orderDate }}</p>
                       </div> 
                   </div>
-                  <button class="client-accordion" @click="toggleUserExpanded(order)" >
+                  <button v-if="!isMobile" class="client-accordion" @click="toggleUserExpanded(order)" >
                     <span> {{ order.isExpanded ? '-' : '+' }}</span>
                   </button>
-                    <p class="order-amount" >{{ order.amount }}</p>
-                    <p class="order-date">{{ order.orderDate }}</p>
+                  <div class="rwdPassanger" v-if="isMobile">
+                   
+                      <button  class="client-accordion" @click="toggleUserExpanded(order)" >
+                      <span> {{ order.isExpanded ? '-' : '+' }}</span>
+                      <p>乘客名單</p><br>
+                    </button>
+                </div>
+                    <p class="order-amount" v-if="!isMobile">{{ order.amount }}</p>
+                    <p class="order-date" v-if="!isMobile">{{ order.orderDate }}</p>
                 </div>
           
                 <Collapse :when="order.isExpanded" :onExpanded="scrollIntoView" class="collapse">
@@ -169,7 +185,7 @@
             <div class="form">
               <div class="donate-top">
                 <p class="account-first-title">捐款紀錄</p>
-                <a href="" class="last-year">去年度明細</a>
+                <a href="" class="last-year" v-if="!isMobile">去年度明細</a>
               </div>
               <div class="form-group">
                 <div class="order-title">
@@ -194,6 +210,7 @@
               </div>
               <hr class="donate-order-hr">
               </div>
+              <a href="" class="rwdLast" v-if="isMobile">去年度明細</a>
             </div>      
           </div>
           </div>
@@ -203,22 +220,24 @@
               <div class="button-list">
                 <div class="button-fir">
                   <button @click="showContent = 'content1'; updateButtonColors('content1')" class="button-level"  >會員等級</button>
-                  <div class="rectangle" :style="{ backgroundColor: buttonColors.content1 }"></div>
+                  <div class="rectangle" v-if="!isMobile" :style="{ backgroundColor: buttonColors.content1 }"></div>
                 </div>
                 <div class="button-sec">
                   <button @click="showContent = 'content2'; updateButtonColors('content2')" class="button-explain">會員說明</button>
-                  <div class="rectangle"  :style="{ backgroundColor: buttonColors.content2 }"></div>
+                  <div class="rectangle" v-if="!isMobile" :style="{ backgroundColor: buttonColors.content2 }"></div>
                 </div>
                 <div class="button-third">
                   <button @click="showContent = 'content3'; updateButtonColors('content3')" class="button-benefits">會員權益</button>
-                  <div class="rectangle" :style="{ backgroundColor: buttonColors.content3 }"></div>
+                  <div class="rectangle" v-if="!isMobile" :style="{ backgroundColor: buttonColors.content3 }"></div>
                 </div>
             </div>
 
               <div v-if="showContent === 'content1'">
                 <div class="progress-bar">
-                  <p>離下個等級只剩：<span>$10,000</span></p>
-                  <div class="line-box">
+                  <div class="level-box">
+                    <p class="nowLevel" v-if= "isMobile">目前已累積：<span>$50,000</span></p>
+                    <p class="nextLevel">離下個等級只剩：<span>$10,000</span></p></div>
+                  <div class="line-box" v-if="!isMobile">
                     <div class="line1">
                       <div class="circle">
                         <p>$60,000</p></div>
@@ -324,6 +343,8 @@
     data() {
       return {
         titles: ['會員中心', 'MEMBER CENTER'],
+        uploadedImages: {}, 
+        imgsData: {},
         activeId: 1,
         fixedIds: [1, 2, 3, 4],
         optionCard: [
@@ -552,26 +573,62 @@
             link: '隱私權政策',
           },
         ],
+        isMobile: false,// 默認不是行動裝置
       };
     },
+
+    mounted() {
+      //檢常窗口是否是行動裝置
+      this.checkMobile();
+      window.addEventListener('resize', this.checkMobile);
+    },
+
+ 
     methods: {
-      getActiveOption(id) {
-      if (this.fixedIds.includes(id)) {
-        return this.optionCard.find(option => option.id === id);
-      } else {
-        return this.optionCard.find(option => option.id === this.activeId);
-      }
+      //上傳圖片
+      triggerFileInput(index) {
+        this.$refs.fileInput[index -1].click();
       },
+      handleFileUpload(index, event) {
+            const fileInput = event.target;
+            const files = fileInput.files;
+            console.log(`Handling files for index ${index}`);
+            console.log(fileInput);
+            console.log(files);
+            // 处理选定的文件
+            for (let j = 0; j < files.length; j++) {
+                const file = files[j];
+
+                this.uploadedImages[index] = URL.createObjectURL(file);
+                this.imgsData[index] = true;
+            }
+        },
+
+      checkMobile() {
+        // 根據窗口寬度判斷是否爲行動裝置
+        this.isMobile = window.innerWidth <= 768;
+      },
+
+      getActiveOption(id) {
+        if (this.fixedIds.includes(id)) {
+          return this.optionCard.find(option => option.id === id);
+        } else {
+          return this.optionCard.find(option => option.id === this.activeId);
+        }
+      },
+
       toggleUserExpanded(order) {
         this.orders.forEach((o) => {
           if (o === order) {
             o.isExpanded = !o.isExpanded; 
-      } else {
-        o.isExpanded = false; 
-        }
-      });
-    },
+        } else {
+          o.isExpanded = false; 
+          }
+        });
+      },
+
       updateButtonColors(content) {
+        //改編輸入後input的底色
         for (const key in this.buttonColors) {
           if (key === content) {
             this.buttonColors[key] = '#01C1FD';
@@ -581,7 +638,9 @@
         }
       },
   },
+
     accordionEvent() {
+      //點擊+號展開
       const acc = document.getElementsByClassName("client-accordion");
           for (let i = 0; i < acc.length; i++) {
             acc[i].addEventListener("click", function () {this.classList.toggle("active");
@@ -596,34 +655,46 @@
         });
       }
     },
+
     toggleAccordion(order) {
-      // 點擊按鈕時切換訂單的isExpanded屬性
       order.isExpanded = !order.isExpanded;
     },
+
     handleSubmit() {
       console.log(this.fromData.name, this.fromData.nickname,this.fromData.email,this.fromData.address,
                    this.fromData.passportNumber, 'Submit button clicked');
     },
-  }
 
+    checkMobile() {
+      // 取得目前窗口寬度
+      const screenWidth = window.innerWidth;
+      // 判斷是否是行動裝置（小於等於 768px）
+      this.isMobile = screenWidth <= 768;
+    },
 
-    const questions = reactive([
-  {
-    title: 'Question one',
-    answer: 'Answer one',
-    isExpanded: false // Initial value
+    beforeUnmount() {
+    // 在元件銷燬前移除窗口大小監聽器
+    window.removeEventListener('resize', this.checkMobile);
   },
-  {
-    title: 'Question two',
-    answer: 'Answer two',
-    isExpanded: false
-  },
-  {
-    title: 'Question three',
-    answer: 'Answer three',
-    isExpanded: false
-  }
-])
+  };
+
+//     const questions = reactive([
+//   {
+//     title: 'Question one',
+//     answer: 'Answer one',
+//     isExpanded: false // Initial value
+//   },
+//   {
+//     title: 'Question two',
+//     answer: 'Answer two',
+//     isExpanded: false
+//   },
+//   {
+//     title: 'Question three',
+//     answer: 'Answer three',
+//     isExpanded: false
+//   }
+// ])
 
 function handleAccordion(selectedIndex) {
   questions.forEach((_, index) => {
