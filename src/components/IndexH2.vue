@@ -19,14 +19,15 @@ export default {
 <style scoped lang="scss">
 .h2-container{
     color: $white;
+    width: 300px;
     letter-spacing:0.3rem;
     position: relative;
 }
 .h2-back{
-    width: 200%;
+    width: 120%;
     position: absolute;
     top: -50%;
-    left:-50%;
+    left: -10%;
     z-index: -2;
 }
 .location {
@@ -36,7 +37,7 @@ export default {
 
 }
 .h2-hr
-{
+{   margin: 3% 0;
     border-bottom: 1px solid $white;
 }
 .h2-group {

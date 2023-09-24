@@ -15,6 +15,10 @@
     opacity: 0;
 }
 
+.arrow {
+    margin-bottom: 30%;
+}
+
 section {
     padding-top: 20%;
 }
@@ -40,36 +44,93 @@ $gap: 10px;
     position: relative;
 }
 
-
-.marquee{
-overflow: hidden;
+.landing-title {
+    color: $white;
+    font-size: $h2-s;
+    text-align: center;
+    letter-spacing: 0.3rem;
+    padding-bottom: 10%;
 }
-.scroll{
+
+.landing-group {
+    color: $white;
+    text-align: center;
+}
+
+#launchesOutside,
+#landingOutside,
+#reflightsOutside {
+    font-size: $h2-l;
+    line-height: 1.5;
+}
+
+.landing-text {
+    font-size: $p1-l;
+    line-height: 1.5;
+}
+
+//本公司第一次出團
+
+//按鈕樣式
+.cybr-btn {
+    min-width: 0px;
+    max-width: 300px;
+    margin-top: 20%;
+}
+
+.title-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aboutus-img {
+    margin-top: 10%;
+    width: 100%;
+}
+
+.marquee {
+    overflow: hidden;
+}
+
+.scroll {
     display: flex;
     background: black;
     height: 40px;
-    .news{
-      white-space: nowrap;
-    text-transform: uppercase;
-    animation: scroll 40s linear infinite;
-    &:nth-child(2){
-      animation: scroll2 40s linear infinite;
-      animation-delay: -20s;
+
+    .news {
+        white-space: nowrap;
+        text-transform: uppercase;
+        animation: scroll 40s linear infinite;
+
+        &:nth-child(2) {
+            animation: scroll2 40s linear infinite;
+            animation-delay: -20s;
+        }
+
     }
-    
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(100%)
     }
-  }
-  
-  @keyframes scroll{
-    from{transform: translateX(100%)}
-    to{transform: translateX(-100%)}
-  }
-  
-  @keyframes scroll2{
-    from{transform: translateX(0%)}
-    to{transform: translateX(-200%)}
-  }
-  
+
+    to {
+        transform: translateX(-100%)
+    }
+}
+
+@keyframes scroll2 {
+    from {
+        transform: translateX(0%)
+    }
+
+    to {
+        transform: translateX(-200%)
+    }
+}
+
 
 // .news {
 //     font-size: $h1-s;
@@ -287,28 +348,49 @@ h3 {
     line-height: 1.5;
     text-align: center;
 }
-.team-card{
-width: 500px;
-overflow: hidden;
+
+section > .rwd-container:nth-child(even) > .vehicles-rwd-group{
+        flex-direction: row-reverse;
+        padding:10% 0; 
+    }
+
+
+.vehicles-title{
+    width: 50%;
+    margin: 0 0 0 auto;
 }
+.vehicles-rwd-group{
+    justify-content: center;
+}
+
+.spaceship,
+.spacesuit{
+    width: 100%;
+}
+
+.team-card {
+    width: 500px;
+    overflow: hidden;
+}
+
 .swiper {
     width: 100%;
     padding-top: 50px;
     padding-bottom: 50px;
-  }
-  
-  .swiper-slide {
+}
+
+.swiper-slide {
     background-position: center;
     background-size: cover;
     max-width: 300px;
     height: 300px;
-  }
-  
-  .swiper-slide img {
+}
+
+.swiper-slide img {
     display: block;
     width: 100%;
-  }
-  
+}
+
 
 @media screen and (min-width: 700px) {
     .news {
@@ -318,6 +400,22 @@ overflow: hidden;
     h3 {
         font-size: $h2-m;
     }
+
+    #launchesOutside,
+    #landingOutside,
+    #reflightsOutside {
+        font-size: $h1-l;
+    }
+
+    .landing-text {
+        font-size: $h2-s;
+    }
+
+    //按鈕樣式
+    .cybr-btn {
+        margin-top: 10%;
+    }
+
 }
 
 @media screen and (min-width: 1024px) {
@@ -327,9 +425,21 @@ overflow: hidden;
 
     h3 {
         font-size: $h2-l;
-
     }
 
+    .landing-title {
+        font-size: $h2-l;
+    }
+
+    #launchesOutside,
+    #landingOutside,
+    #reflightsOutside {
+        font-size: 86px;
+    }
+
+    .landing-text {
+        font-size: 24px;
+    }
 }
 
 @media screen and (min-width: 1800px) {}
