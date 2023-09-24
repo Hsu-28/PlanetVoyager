@@ -51,13 +51,12 @@
             </div>
         </section>
         <section class="rwd-container">
-            <div class="rwd-group">
+            <div class="destination-rwd-group">
 
-                <div class="destination-group">
+                <div class="col-6 title-group">
                     <h2style h2ch="星際介紹" h2en="DESTINATION"></h2style>
-                    <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
+                    <button class="btn2"><a href="">CLICK A PLANET</a></button>
                 </div>
-
 
                 <div class="planet-group">
                     <div class="outside">

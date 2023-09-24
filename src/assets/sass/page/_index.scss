@@ -75,7 +75,7 @@ $gap: 10px;
 .cybr-btn {
     min-width: 0px;
     max-width: 300px;
-    margin-top: 20%;
+    margin-top: 3%;
 }
 
 .title-group {
@@ -140,8 +140,26 @@ $gap: 10px;
 //     -moz-background-clip: text;
 //     -webkit-background-clip: text;
 // }
-
+.destination-rwd-group{
+    justify-content:left;
+padding-top: 10%;
+    padding-bottom: 25%;
+    overflow: hidden;
+}
+.btn2{
+    margin-top: 3%;
+    font-size: 20px;
+    letter-spacing:0.3rem;
+    background-color: transparent;
+    border: 0;
+}
+.btn2 a {
+    color: $white;
+}
 .planet-group {
+    position: absolute;
+    top: 0%;
+    left: 20%;
     perspective: 1200px;
     width: 100%;
     overflow: hidden;
