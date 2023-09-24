@@ -349,28 +349,28 @@ h3 {
     text-align: center;
 }
 
-section > .rwd-container:nth-child(even) > .vehicles-rwd-group{
-        flex-direction: row-reverse;
-        padding:10% 0; 
-    }
+section>.rwd-container:nth-child(even)>.vehicles-rwd-group {
+    flex-direction: row-reverse;
+    padding: 10% 0;
+}
 
 
-.vehicles-title{
+.vehicles-title {
     width: 50%;
     margin: 0 0 0 auto;
 }
-.vehicles-rwd-group{
+
+.vehicles-rwd-group {
     justify-content: center;
 }
 
 .spaceship,
-.spacesuit{
+.spacesuit {
     width: 100%;
 }
 
-.team-card {
-    width: 500px;
-    overflow: hidden;
+.tourist-rwd-group {
+    margin-bottom: 30%;
 }
 
 .swiper {
@@ -382,15 +382,130 @@ section > .rwd-container:nth-child(even) > .vehicles-rwd-group{
 .swiper-slide {
     background-position: center;
     background-size: cover;
-    max-width: 300px;
-    height: 300px;
+    max-width: 255px;
+    height: 340px;
 }
 
-.swiper-slide img {
-    display: block;
+.outside-boder {
+    margin: 0 auto;
+    margin-bottom: 5%;
+    padding: 1.5%; //10.73px
+    border: 0.1rem solid $white; //3.3px
+    border-radius: 0.2rem; //10px
+    box-shadow: 0 0 1rem 0.2rem $blue; //40px 10px
+    position: relative;
+
+    &::before {
+        content: "";
+        border: 0.1rem solid $blue; //6.6px
+        border-radius: 0.1rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    &::after {
+        content: "";
+        border: 0.4rem solid rgba(91, 19, 236, 20%); //10.73px
+        border-radius: 0.3rem; //6px
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        pointer-events: none;
+    }
+}
+
+$circle: 1.3rem;
+
+.inside-boder {
+    &::after {
+        content: "";
+        border: 0.3rem solid $blue; //12px
+        border-radius: 0.15rem;
+        filter: blur($circle/4);
+        position: absolute;
+        top: 0.4%;
+        left: 2%;
+        right: 5%;
+        height: 99%;
+        pointer-events: none;
+    }
+
+    &::before {
+        content: "";
+        border: 0.2rem solid $blueL;
+        border-radius: 0.25rem;
+        position: absolute;
+        top: 0;
+        left: 0%;
+        right: 4%;
+        height: 100%;
+        pointer-events: none;
+    }
+}
+
+.memberContent {
+    width: 255px;
+    height: 340px;
+    position: relative;
+    overflow: hidden;
+}
+
+.member-img {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: none;
+    max-height: none;
+    left: 42%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -4;
+}
+
+.members-info {
+    width: 90%;
+    top: 60%;
+    left: 3%;
+    position: relative;
+    display: none;
+}
+
+.swiper-slide:hover .members-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.member-text {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $white;
+    background-color: rgb(57, 56, 56, 70%);
 }
 
+.members-info .cybr-btn {
+    max-width: 200px;
+    margin-top: 5%;
+}
+
+.members-name {
+    line-height: 1.5;
+    font-size: $p1-s;
+}
+
+.members-job {
+    line-height: 1.5;
+    font-size: $p2-s;
+}
 
 @media screen and (min-width: 700px) {
     .news {
@@ -416,6 +531,14 @@ section > .rwd-container:nth-child(even) > .vehicles-rwd-group{
         margin-top: 10%;
     }
 
+    .members-name {
+        font-size: $p1-m;
+    }
+
+    .members-job {
+        font-size: $p2-m;
+    }
+
 }
 
 @media screen and (min-width: 1024px) {
@@ -439,6 +562,14 @@ section > .rwd-container:nth-child(even) > .vehicles-rwd-group{
 
     .landing-text {
         font-size: 24px;
+    }
+
+    .members-name {
+        font-size: $p1-l;
+    }
+
+    .members-job {
+        font-size: $p2-l;
     }
 }
 

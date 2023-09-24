@@ -39,7 +39,7 @@
   </swiper>
 </template>
 
-<style s lang="scss">
+<style scoped lang="scss">
 @import "@/assets/sass/page/_faq.scss";
 
 body {

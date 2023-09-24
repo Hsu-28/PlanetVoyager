@@ -9,11 +9,11 @@ body {
 }
 
 .banner {
-    background-image: url("../assets/image/donate/donate.svg");
+    background-image: url("../assets/image/donate/donate.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: top right;
-    height: 320px;
+    background-position: top left;
+    height: 400px;
     width: 100%;
     position: relative;
     display: flex;
@@ -29,11 +29,26 @@ body {
 
 .tit h1 {
     font-size: $h1-l;
+    padding-bottom: 10px;
+    font-weight: 700;
+    text-shadow:
+        3px 3px 0 #00000075,
+        2px -1px 0 #00000075,
+        2px -1px 0 #00000075,
+        -1px 1px 0 #00000075,
+        3px 1px 0 #00000075
 }
 
 .tit span {
     font-size: $h1-l;
     font-weight: 700;
+    display: block;
+    text-shadow:
+        3px 3px 0 #00000075,
+        2px -1px 0 #00000075,
+        2px -1px 0 #00000075,
+        -1px 1px 0 #00000075,
+        3px 1px 0 #00000075
 }
 
 .donate {
@@ -45,16 +60,37 @@ body {
 .preface {
     text-align: center;
     padding: 20px 0;
+    position: relative;
 }
 
 .preface .down {
     width: 30px;
     position: absolute;
+    top: -25px;
 }
 
 .preface .down img {
     width: 100%;
     vertical-align: top;
+
+    @keyframes pulse {
+        0% {
+            -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+        }
+
+        50% {
+            -webkit-transform: translate(0, 10px);
+            transform: translate(0, 10px);
+        }
+
+        100% {
+            -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+        }
+    }
+
+    animation: pulse 2s infinite;
 }
 
 .preface .txt {
@@ -64,7 +100,8 @@ body {
 .preface .txt h3 {
     color: $white;
     line-height: 2;
-    font-size: 20px;
+    font-size: $p1-l;
+    font-weight: 700;
 }
 
 .content {
@@ -82,7 +119,8 @@ body {
 .detail h2 {
     text-align: center;
     padding: 30px 0;
-    font-size: 30px;
+    font-size: $h2-m;
+    font-weight: 700;
 }
 
 .detail h3 {
@@ -91,7 +129,8 @@ body {
     line-height: 2;
     max-width: 400px;
     margin: auto;
-    font-size: 20px;
+    font-size: $p1-l;
+    font-weight: 600;
 }
 
 .detail p {
@@ -100,9 +139,8 @@ body {
     max-width: 450px;
     margin: auto;
     font-size: 16px;
+    font-weight: 600;
 }
-
-// .detail-pic {}
 
 .detail-pic img {
     width: 100%;
@@ -117,15 +155,21 @@ body {
 }
 
 .prize h4 {
-    font-size: 18px;
+    font-size: $p1-m;
+    font-weight: 700;
 }
 
-.but {
+.btn1 {
     display: flex;
     justify-content: center;
     padding-top: 40px;
     padding-bottom: 20px;
 }
+
+.btn1-ls {
+    letter-spacing: 4px;
+}
+
 
 .detail table {
     // border: 1px solid $white;
@@ -143,6 +187,7 @@ body {
 
 .detail td {
     line-height: 2;
+    padding: 12px 0;
 }
 
 .member {
@@ -168,6 +213,8 @@ body {
 .sticky {
     position: sticky;
     top: 30px;
+    background-color: rgba(255, 255, 255, 0.73);
+    border-radius: 6px 6px 0 0;
 }
 
 .money h3 {
@@ -176,26 +223,29 @@ body {
     line-height: 2.5;
     border-radius: 6px 6px 0 0;
     padding-left: 20px;
-    font-size: 20px;
+    font-size: $p1-l;
+    font-weight: 700;
 }
 
 .support {
-    background-color: rgba(255, 255, 255, 0.73);
     padding: 30px 20px;
     border-radius: 0 0 6px 6px;
 }
 
 .support h2 {
-    font-size: 24px;
+    font-size: $h2-m;
     color: #000;
     font-weight: 700;
     padding-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
 }
 
 .support p {
     color: #000;
     line-height: 1.5;
     padding: 10px 0;
+    font-weight: 600;
 }
 
 .choose {
@@ -209,7 +259,7 @@ body {
     height: 90px;
     border-radius: 5px;
     border: 1px solid #000;
-    font-size: 20px;
+    font-size: $p1-l;
     text-align: center;
     line-height: 1;
     background-color: transparent;
@@ -228,19 +278,22 @@ body {
 .choose .amount:focus ::after {
     width: 25px;
     height: 25px;
-    background-color: $blue;
-    color: $white;
+    background-color: #5B13EC;
+    color: #F0F0F0;
     display: block;
     content: " ✔ ";
     position: absolute;
     top: -10px;
     right: 45px;
-    font-size: 14px;
+    font-size: $p2-s;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .choose .amount span {
-    font-size: 14px;
+    font-size: $p2-s;
 }
 
 .other {
@@ -249,6 +302,7 @@ body {
     align-items: center;
     color: #000;
     padding: 20px 0;
+    font-weight: 600;
 }
 
 input {
@@ -257,12 +311,18 @@ input {
     width: 330px;
     height: 52px;
     border-radius: 3px;
+    padding-left: 15px;
+    letter-spacing: 3px;
 }
 
 .but2 {
     display: flex;
     justify-content: center;
     padding: 20px 0;
+}
+
+.btn2-ls {
+    letter-spacing: 8px;
 }
 
 .tb-l {
@@ -283,7 +343,7 @@ input {
     width: 100%;
     background-color: $blue;
     color: $white;
-    font-size: 14px;
+    font-size: $p2-s;
     padding: 10px 0;
     cursor: pointer;
     display: flex;
@@ -352,6 +412,7 @@ input {
     .preface .down {
         width: 30px;
         position: static;
+        margin-left: 20px;
     }
 
     .content {
@@ -376,15 +437,12 @@ input {
         line-height: 2;
         max-width: 450px;
         margin: auto;
-        font-size: 16px;
+        font-size: $p1-s;
     }
 
     .detail h3 {
         padding: 20px 10px;
-        line-height: 2;
-        max-width: 400px;
-        margin: auto;
-        font-size: 20px;
+        font-size: $p1-m;
     }
 
     .detail table {
@@ -395,6 +453,34 @@ input {
     .btn-bottom-c {
         display: block;
     }
+
+    input {
+        background-color: transparent;
+        border: 1px solid #000;
+        width: 280px;
+        height: 52px;
+        border-radius: 3px;
+        padding-left: 15px;
+        letter-spacing: 3px;
+    }
+
+    .preface .txt h3 {
+        font-size: $p1-m;
+    }
+
+
+    .support h2 {
+        font-size: $h2-s;
+    }
+
+    .detail h2 {
+        font-size: $h2-s;
+    }
+
+    .prize h4 {
+        font-size: $p1-s;
+        font-weight: 700;
+    }
 }
 
 @media screen and (max-width:375px) {
@@ -404,5 +490,15 @@ input {
 
     .tb-c {
         display: block;
+    }
+
+    .preface .txt h3 {
+        font-size: $p1-s;
+    }
+
+
+    .detail h3 {
+        padding: 20px 10px;
+        font-size: $p1-s;
     }
 }

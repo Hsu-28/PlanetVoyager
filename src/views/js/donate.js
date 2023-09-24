@@ -13,6 +13,7 @@ export default {
             phoneNum: "",
             message: "3000",
             Preface: '太空，是我們人類永遠的夢想，\n我們正站在一個令人振奮的時刻，一個能夠改變世界的時代。\n\n然而，這樣的夢想需要您的支持。\n\n我們將利用這些資源推動太空科技的發展，\n確保星際旅遊變得更加安全、可持續和普及。',
+            inputText: '',
             tableL1: [
                 {
                     imgSrc: ' ',
@@ -168,11 +169,13 @@ export default {
                     span: '新臺幣'
                 },
             ]
-
         };
     },
-    // methods: {
-    // },
+    methods: {
+        updateInput: function (index, buttonText) {
+            this.inputText = buttonText;
+        }
+    },
     // mounted() {
     //     this.accordionEvent()
     // }

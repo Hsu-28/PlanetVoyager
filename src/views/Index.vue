@@ -104,9 +104,11 @@
             </div>
         </section>
         <section class="rwd-container">
-            <div class="rwd-group">
-                <h2style h2ch="團隊介紹" h2en="TOURIST GUIDE"></h2style>
-                <div class="team-card">
+            <div class="tourist-rwd-group">
+                <div>
+                    <h2style h2ch="團隊介紹" h2en="TOURIST GUIDE"></h2style>
+                </div>
+                <div class="col-11 col-md-8">
                     <swiper :effect="'coverflow'" :grabCursor="true" :centeredSlides="true" :slidesPerView="'auto'"
                         :coverflowEffect="{
                             rotate: 50,
@@ -115,16 +117,20 @@
                             modifier: 1,
                             slideShadows: true,
                         }" :modules="modules" class="mySwiper">
-                        <swiper-slide><img
-                                src="https://swiperjs.com/demos/images/nature-1.jpg" /></swiper-slide><swiper-slide><img
-                                src="https://swiperjs.com/demos/images/nature-2.jpg" /></swiper-slide><swiper-slide><img
-                                src="https://swiperjs.com/demos/images/nature-3.jpg" /></swiper-slide><swiper-slide><img
-                                src="https://swiperjs.com/demos/images/nature-4.jpg" /></swiper-slide><swiper-slide><img
-                                src="https://swiperjs.com/demos/images/nature-5.jpg" /></swiper-slide><swiper-slide><img
-                                src="https://swiperjs.com/demos/images/nature-6.jpg" /></swiper-slide><swiper-slide><img
-                                src="https://swiperjs.com/demos/images/nature-7.jpg" /></swiper-slide><swiper-slide><img
-                                src="https://swiperjs.com/demos/images/nature-8.jpg" /></swiper-slide><swiper-slide><img
-                                src="https://swiperjs.com/demos/images/nature-9.jpg" /></swiper-slide>
+                        <swiper-slide v-for="(member, Index) in member" :key="Index" class="swiper-slide">
+                            <div class="outside-boder">
+                                <div class="memberContent inside-boder">
+                                    <img class="member-img" :src="member.imgSvg" :alt="member.name">
+                                    <div class="members-info">
+                                        <div class="member-text">
+                                            <span class="members-name">{{ member.name }}</span>
+                                            <span class="members-job">{{ member.nameJob }}</span>
+                                        </div>
+                                        <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
+                                    </div>
+                                </div>
+                            </div>
+                        </swiper-slide>
                     </swiper>
                 </div>
             </div>
@@ -199,6 +205,70 @@ export default {
                     h3enbig: 'SPACESUIT',
                     h3ch: '太空服',
                     img: require("@/assets/image/index/suit.svg"),
+                },
+            ],
+            member: [
+                {
+                    name: "DAMON HINES",
+                    nameJob: "首席系統工程師",
+                    imgSvg: require("@/assets/image/teamMembers/memberSvg/ENGINEER01.svg"),
+                },
+                {
+                    name: "VICTOR MCKENZIE	",
+                    nameJob: "電子、電力計算系統工程師",
+                    imgSvg: require("@/assets/image/teamMembers/memberSvg/ENGINEER02.svg"),
+                },
+                {
+                    name: "ROSE YATES",//女
+                    nameJob: "飛行系統設計與分析",
+                    imgSvg: require("@/assets/image/teamMembers/memberSvg/ENGINEER03.svg"),
+                },
+                {
+                    name: "ISABELLE LUNA",//女
+                    nameJob: "首席醫官",
+                    imgSvg: require("@/assets/image/teamMembers/memberSvg/MEDICAL01.svg"),
+                },
+                {
+                    name: "PAISLEE COX",//女
+                    nameJob: "太空醫療照護",
+                    imgSvg: require("@/assets/image/teamMembers/memberSvg/MEDICAL02.svg"),
+                },
+                {
+                    name: "JOEL BECK",
+                    nameJob: "健康監控與評估",
+                    imgSvg: require("@/assets/image/teamMembers/memberSvg/MEDICAL03.svg"),
+
+                },
+                {
+                    name: "JOURNEY HARVEY", //女
+                    nameJob: "指揮長",
+                    imgSvg: require("@/assets/image/teamMembers/memberSvg/ASTRONAUT01.svg"),
+                },
+                {
+                    name: "ETHAN LAMBERT",
+                    nameJob: "外部維修",
+                    imgSvg: require("@/assets/image/teamMembers/memberSvg/ASTRONAUT02.svg"),
+                },
+                {
+                    name: "TRISTAN MCKINNEY",
+                    nameJob: "航天器操作與導航",
+                    imgSvg: require("@/assets/image/teamMembers/memberSvg/ASTRONAUT03.svg"),
+                },
+                {
+                    name: "JAIDEN HARRISON",
+                    nameJob: "月球導遊",
+                    imgSvg: require("@/assets/image/teamMembers/memberSvg/TourGuide01.svg"),
+                },
+                {
+                    name: "	ADELAIDE SANTOS",//女
+                    nameJob: "火星導遊",
+                    imgSvg: require("@/assets/image/teamMembers/memberSvg/TourGuide02.svg"),
+
+                },
+                {
+                    name: "BEAU JOSEPH",
+                    nameJob: "金星導遊",
+                    imgSvg: require("@/assets/image/teamMembers/memberSvg/TourGuide03.svg"),
                 },
             ]
         }
