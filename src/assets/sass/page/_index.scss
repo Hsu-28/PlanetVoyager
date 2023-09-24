@@ -74,11 +74,12 @@ $gap: 10px;
 }
 
 :deep(.el-carousel__container) {
-    height: 90vh;
+    height: 30vh;
 }
 
 .imgcarousel-img {
     position: relative;
+
     &::after {
         content: "";
         display: block;
@@ -94,7 +95,7 @@ $gap: 10px;
 
 .imgcarousel img {
     width: 100%;
-   
+
 }
 
 .imgcarousel-note {
@@ -114,7 +115,7 @@ $gap: 10px;
 //按鈕樣式
 .cybr-btn {
     min-width: 0px;
-    max-width: 300px;
+    max-width: 250px;
     margin-top: 3%;
     margin-bottom: 10%;
 }
@@ -199,18 +200,20 @@ $gap: 10px;
 
 .destination-rwd-group {
     padding-top: 10%;
-    padding-bottom: 70%;
+    padding-bottom: 90%;
     overflow: hidden;
 }
 
 .planet-group {
     position: absolute;
-    top: 45%;
+    top: 40%;
     left: 6%;
     perspective: 1200px;
     width: 100%;
     overflow: hidden;
-    mask-image: linear-gradient(to bottom, black, transparent);
+    mask-image: linear-gradient(to bottom, black 0%, black 40%, transparent 100%);
+
+
 }
 
 .outside {
@@ -279,12 +282,15 @@ $gap: 10px;
 
     &::after {
         content: 'VENUS';
-        border: $purple;
+        padding: 2%;
+        font-size: $p2-s;
+        color: $white;
+        border: 1px solid $purple;
         background-color: $purpleO;
         display: block;
         position: absolute;
         top: 50%;
-        left: -50%;
+        left: -40%;
         transform: translate(-50%, -50%);
     }
 }
@@ -306,12 +312,15 @@ $gap: 10px;
 
     &::after {
         content: 'EARTH';
-        border: $purple;
+        padding: 2%;
+        font-size: $p2-s;
+        color: $white;
+        border: 1px solid $purple;
         background-color: $purpleO;
         display: block;
         position: absolute;
         top: 50%;
-        left: -50%;
+        left: -40%;
         transform: translate(-50%, -50%);
     }
 }
@@ -330,6 +339,7 @@ $gap: 10px;
 }
 
 .rocket {
+    width: 30%;
     position: absolute;
     top: 10%;
     animation: orbit 8s linear 0s infinite reverse both;
@@ -355,7 +365,10 @@ $gap: 10px;
 
     &::after {
         content: 'MARS';
-        border: $purple;
+        padding: 2%;
+        font-size:$p2-s;
+        color: $white;
+        border: 1px solid $purple;
         background-color: $purpleO;
         display: block;
         position: absolute;
@@ -384,12 +397,15 @@ $gap: 10px;
 
     &::after {
         content: 'MOON';
-        border: $purple;
+        padding: 2%;
+        font-size: $p2-s;
+        color: $white;
+        border: 1px solid $purple;
         background-color: $purpleO;
         display: block;
         position: absolute;
         top: 50%;
-        left: -50%;
+        left: -80%;
         transform: translate(-50%, -50%);
     }
 }
@@ -590,40 +606,45 @@ $circle: 1.3rem;
     .landing-text {
         font-size: $h2-s;
     }
-
-
-    .destination-rwd-group {
-        justify-content: left;
+    :deep(.el-carousel__container) {
+        height: 30vh;
     }
-
-    .vehicles-title {
-        width: 50%;
-        margin: 0 0 0 auto;
-    }
-
-    .destination-rwd-group {
-        padding-top: 10%;
-        padding-bottom: 40%;
-        overflow: hidden;
-    }
-
+    
     .planet-group {
-        top: 0%;
-        left: 20%;
+        top: 25%;
     }
 
-    .solarsystem {
-        width: 70%;
-        padding-top: 70%;
+    :deep(.venusring-return) {
+        &::after {
+            font-size: $h2-s;
+        }
     }
 
-    .btn2 a {
-        font-size: 20px;
+    :deep(.earthring-return) {
+        &::after {
+            font-size: $h2-s;
+        }
     }
+
+    :deep(.marsring-return) {
+        &::after {
+            font-size: $h2-s;
+        }
+    }
+
+    :deep(.moonsring-return) {
+        &::after {
+            font-size: $h2-s;
+        }
+    }
+    .rocket {
+        width: 20%;
+        }
 
     .vehicles-rwd-group {
         padding-top: 0%;
     }
+
 
     section>.rwd-container:nth-child(even)>.vehicles-rwd-group {
         flex-direction: row-reverse;
@@ -653,6 +674,9 @@ $circle: 1.3rem;
         font-size: $h2-l;
     }
 
+    :deep(.el-carousel__container) {
+        height: 90vh;
+    }
     .landing-title {
         font-size: $h2-l;
     }
@@ -666,6 +690,57 @@ $circle: 1.3rem;
     .landing-text {
         font-size: 24px;
     }
+
+
+    .destination-rwd-group {
+        justify-content: left;
+    }
+
+
+    .destination-rwd-group {
+        padding-top: 10%;
+        padding-bottom: 50%;
+        overflow: hidden;
+    }
+
+    .planet-group {
+        top: 0%;
+        left: 20%;
+    }
+
+    .solarsystem {
+        width: 70%;
+        padding-top: 70%;
+    }
+
+    :deep(.venusring-return) {
+        &::after {
+            font-size: $h2-m;
+        }
+    }
+
+    :deep(.earthring-return) {
+        &::after {
+            font-size: $h2-m;
+        }
+    }
+
+    :deep(.marsring-return) {
+        &::after {
+            font-size: $h2-m;
+        }
+    }
+
+    :deep(.moonring-return) {
+        &::after {
+            font-size: $h2-m;
+        }
+    }
+    .vehicles-title {
+        width: 50%;
+        margin: 0 0 0 auto;
+    }
+
 
     .members-name {
         font-size: $p1-l;
