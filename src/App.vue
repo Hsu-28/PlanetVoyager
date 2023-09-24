@@ -102,7 +102,6 @@
       </div>
     </section>
 
-
   </section>
 <router-link to="order">
   <div class="d-order">

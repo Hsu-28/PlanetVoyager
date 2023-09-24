@@ -43,8 +43,8 @@
                 </div>
             </div>
 
-            <div v-if="showDetail" class="allDetail">
-                <div class="memberDetail"> 
+            <div v-if="showDetail" class="allDetail"  @click="detailClose">
+                <div class="memberDetail" @click.stop > 
                     <div class="blur"></div>
                     <button @click="detailClose">CLOSE</button>
                     <p class="clickName">{{ detailContent.name }}</p>

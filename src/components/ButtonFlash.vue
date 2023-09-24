@@ -1,4 +1,3 @@
-
 <template>
     <button class="cybr-btn">
         <div class="proText">
