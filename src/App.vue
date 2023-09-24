@@ -17,12 +17,21 @@
       <div class="menu-p2">Member</div>
     </div>
   </nav>
+<<<<<<< HEAD
   <div>
     <h1 @mouseover="triggerScramble">{{ displayText }}</h1>
   </div>
   <router-view />
 
   <section class="menu" v-show="showMenu">
+=======
+    <div>
+      <h1 @mouseenter="triggerScramble">{{ displayText }}</h1>
+    </div> 
+  <router-view />
+
+  <section class="menu" v-show="showMenu"  >
+>>>>>>> 65a7291606a2deda3914afdafbc8b68aadd1f5a8
     <div class="menu-nav">
       <img src="~@/assets/image/headerfooter/close.svg" alt="" @click="closeMenuF" class="close-btn">
 
@@ -101,7 +110,6 @@
         </div>
       </div>
     </section>
-
 
   </section>
 <router-link to="order">
