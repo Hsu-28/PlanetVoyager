@@ -4,6 +4,7 @@ export default {
     return {
       i: "",
       showMenu: false, 
+      showFooter: true,
       headericon: true,
       titlelist: [
         {
@@ -80,5 +81,4 @@ export default {
         .then(json => console.log(json))
       },
   },
-
 };

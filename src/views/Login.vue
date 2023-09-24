@@ -26,7 +26,7 @@
           <input type="email" :value="value" @input="updateValue" placeholder="信箱"/><br>
           <input type="password" :value="value" @input="updateValue" placeholder="密碼"/>
           <button class="cybr-btn" @click="login">登入<span aria-hidden class="cybr-btn__glitch">登入</span><span aria-hidden class="cybr-btn__tag">&emsp;&emsp;-PV-</span></button>
-          <p class="go-register">還沒有帳戶嗎？<span>註冊一個吧！</span></p>
+          <p class="go-register">還沒有帳戶嗎？<router-link to="/register"><span>註冊一個吧！</span></router-link></p>
           <p>忘記密碼</p>
         </form>
       </div>

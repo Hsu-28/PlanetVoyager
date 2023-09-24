@@ -110,6 +110,21 @@ const routes = [
     name: 'loginFail',
     component: () => import(/* webpackChunkName: "order" */ '../views/LoginFail.vue')
   },
+  {
+    path: '/itineraryMoon',
+    name: 'itineraryMoon',
+    component: () => import(/* webpackChunkName: "order" */ '../views/ItineraryMoon.vue')
+  },
+  {
+    path: '/three',
+    name: 'three',
+    component: () => import(/* webpackChunkName: "order" */ '../views/Three.vue')
+  },
+  {
+    path: '/itineraryMars',
+    name: 'itineraryMars',
+    component: () => import(/* webpackChunkName: "order" */ '../views/ItineraryMars.vue')
+  },
 
 ]
 

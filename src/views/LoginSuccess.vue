@@ -44,6 +44,7 @@
         &::before{
             content: "SUCCESSFUL";
             position: absolute;
+            filter: blur(0.7px);
             left: 2%;
             top: 0;
             color: transparent;
