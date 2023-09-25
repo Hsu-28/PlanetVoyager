@@ -25,7 +25,7 @@
     
   </div>
   <div class="back">
-    BackEnd
+    <a href="">BackEnd</a>
   </div>
 </template>
 
@@ -50,12 +50,14 @@ export default {
   top: 58%;
   
 }
-.front a{
+.front a,
+.back a{
   // color: rgb(26, 41, 51);
   color: #515A6E;
-  font-weight: 500;
-  
+  font-weight: 400;
 }
+
+
 .front:hover{
   cursor: pointer;
   text-shadow: 
@@ -183,7 +185,7 @@ section {
   letter-spacing: 8px;
   font-size: 60px;
   font-weight: 500;
-  
+
 }
 
 @keyframes star_anti {

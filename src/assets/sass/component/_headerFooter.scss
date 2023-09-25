@@ -322,8 +322,7 @@ body {
       }
 
       li:nth-child(2) a,
-      li:nth-child(3) a,
-      li:nth-child(4) a {
+      li:nth-child(3) a{
         color: $blueL;
       }
     }
@@ -444,7 +443,7 @@ body {
   justify-content: center;
   flex-flow: column nowrap;
   align-items: center;
-  z-index: 1;
+  z-index: -1;
 }
 
 .footer-content{
@@ -679,7 +678,7 @@ body {
   justify-content: center;
   flex-flow: column wrap;
   align-items: center;
-  z-index: 1;
+  z-index: -1;
 }
 
 .footer-content {

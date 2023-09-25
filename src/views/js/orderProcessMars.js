@@ -78,56 +78,56 @@ export default {
       this.show1 = true;
       this.show2 = false;
       this.btn1 = "btn-active"
-      this.btn2 = ""
+      this.btn2 = "";
     },
     show2F() {
       this.show2 = true;
       this.show1 = false
       this.btn2 = "btn-active"
-      this.btn1 = ""
+      this.btn1 = "";
 
     },
     af() {
       this.B = false;
       this.A = !this.Chosen00;
-      this.journey = "奧帕之行"
+      this.journey = "奧帕之行";
     },
     bf() {
       this.A = false;
       this.B = !this.Chosen01;
-      this.journey = "火星生命"
+      this.journey = "火星生命";
     }, 
     j1f() {
       this.j1C =!this.j1C;
       this.j2C = false;
       this.j3C = false;
       this.j4C = false;
-      this.amount = this.j1[1]
-      this.date = this.j1[2]
+      this.amount = this.j1[1];
+      this.date = this.j1[2];
     },
     j2f() {
       this.j2C =!this.j2C;
       this.j1C = false;
       this.j3C = false;
       this.j4C = false;
-      this.amount = this.j2[1]
-      this.date = this.j2[2]
+      this.amount = this.j2[1];
+      this.date = this.j2[2];
     },
     j3f() {
       this.j3C =!this.j3C;
       this.j1C = false;
       this.j2C = false;
       this.j4C = false;
-      this.amount = this.j3[1]
-      this.date = this.j3[2]
+      this.amount = this.j3[1];
+      this.date = this.j3[2];
     },
     j4f() {
       this.j4C =!this.j4C;
       this.j1C = false;
       this.j2C = false;
       this.j3C = false;
-      this.amount = this.j4[1]
-      this.date = this.j4[2]
+      this.amount = this.j4[1];
+      this.date = this.j4[2];
     },
   },
   computed: {
