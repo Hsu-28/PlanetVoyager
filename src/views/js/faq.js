@@ -1,26 +1,4 @@
-import { EffectCards } from 'swiper/modules';
- import 'swiper/css';
-import { Swiper, SwiperSlide } from 'swiper/vue';
-  import 'swiper/css/effect-cards';
-
 export default {
-    components: {
-        Swiper,
-        SwiperSlide,
-      },
-      setup() {
-        const onSwiper = (swiper) => {
-          console.log(swiper);
-        };
-        const onSlideChange = () => {
-          console.log('slide change');
-        };
-        return {
-          onSwiper,
-          onSlideChange,
-          modules: [EffectCards],
-        };
-      },
     data() {
         return {
             openedIndex: null,  // 初始化时没有打开的答案
