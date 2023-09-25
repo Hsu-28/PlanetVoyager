@@ -159,6 +159,18 @@ const routes = [
     name: 'NotFound', 
     component: () => import(/* webpackChunkName: "error" */ '../views/NotFound.vue') 
   },
+  {
+    path: '/venus',
+    name: 'venus',
+    component: () => import(/* webpackChunkName: "order" */ '../views/OrderProcessVenus.vue')
+  },
+  {
+    path: '/orbit',
+    name: 'orbit',
+    component: () => import(/* webpackChunkName: "order" */ '../views/OrderProcessOrbit.vue')
+  },
+
+
 ////-----------------後台-------------------------
 // {
 //   path: '/backstagelongin',
