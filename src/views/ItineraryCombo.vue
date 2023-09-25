@@ -1,13 +1,10 @@
 <template>
     <div id="itinerary">
-        <div class="planet-bg">
-            <img src="#" alt="">
-        </div>
         <div class="main-container" data-scroll-container>
             <div class="scrollsection" data-scroll-section>
                 <!-- 旅程名稱 -->
                 <div class="title" style="writing-mode: vertical-lr" data-scroll data-scroll-speed="1">
-                    <h1>奧 林 帕 斯 山 脈 之 旅</h1>
+                    <h1>銀 河 漫 遊 之 旅</h1>
                     <p></p>
                     <p></p>
                 </div>
@@ -16,8 +13,7 @@
                     <div class="schedule schedule1">
                         <div class="schedule-text">
                             <h3>Day1 旅程啟航！</h3>
-                            <p>從地球啟程後可飽覽星際風光， 飛行十四個小時後，
-                                我們會抵達偉諭航空站，稍作休息後再前往火星。</p>
+                            <p>從地球啟程後可飽覽星際風光，隔日中午抵達月球，在銀河中體驗太空中漂浮。</p>
                         </div>
                         <div class="schedule-pic">
                             <img class="image" src='https://picsum.photos/100/100'>
@@ -35,8 +31,8 @@
                 <div class="schedule-section schedule-section2">
                     <div class="schedule schedule2" data-scroll data-scroll-speed="2">
                         <div class="schedule-text">
-                            <h3>Day 2 抵達火星</h3>
-                            <p>抵達火星後現場觀察火星的地質歷史，學習探測器載具的使用探勘，適應火星的氣候</p>
+                            <h3>Day2 月球美景饗宴</h3>
+                            <p>在月球周圍繞行，除了神奇的月亮景色，也能於月球的空中觀測未知的生物和奇異的地貌，滿足您的探索精神。</p>
                         </div>
                         <div class="schedule-pic">
                             <img class="image" src='https://picsum.photos/100/100'>
@@ -54,8 +50,8 @@
                 <div class="schedule-section schedule-section3" data-scroll data-scroll-speed="2">
                     <div class="schedule schedule3">
                         <div class="schedule-text">
-                            <h3>Day 3 穿越火星沙漠</h3>
-                            <p>火星沙漠越野：使用特製的載具，觀賞風景在火星穿越的沙漠抵達奧林帕斯山脈山腳</p>
+                            <h3>Day3 金星秘景探索</h3>
+                            <p>藉由蟲洞跳躍，我們前往金星，探索這個炎熱的星球。在金星空中的飛航期間，您將發現更多奇異的景色和未知生物，使我們的探索更加驚喜。</p>
                         </div>
                         <div class="schedule-pic">
                             <img class="image" src='https://picsum.photos/100/100'>
@@ -73,9 +69,8 @@
                 <div class="schedule-section schedule-section4" data-scroll data-scroll-speed="2">
                     <div class="schedule schedule4">
                         <div class="schedule-text">
-                            <h3>Day 4、5 月球大縱走--橫斷月海與月谷</h3>
-                            <p>這兩天我們將駕駛Planet Voyager的頂規太空車，Lunar
-                                Voyager橫越橫斷月海與月谷到達台日共構月球基地--蒂芬妮丘。除了欣賞美景以外，如果遇到外星物種也請不用擔心，他們是很友善的族群。</p>
+                            <h3>Day4、5 火星遺跡巡航</h3>
+                            <p>再次飛入蟲洞，前往火星。在這顆紅色星球上，於空中觀看遠古遺跡、麥田圈等等，尋訪生命的起源和消殞，為您的旅程添上色彩。</p>
                         </div>
                         <div class="schedule-pic">
                             <img class="image" src='https://picsum.photos/100/100'>
@@ -224,13 +219,6 @@ export default {
             top: 25vh;
         }
     }
-
-    .planet-bg {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-    }
-
     .main-container {
         display: flex;
         height: 100vh;
@@ -276,7 +264,7 @@ export default {
                 position: relative;
                 bottom: 10%;
                 right: 5%;
-                width: 45%;
+                width: 30%;
             }
 
             .schedule-big-pic {
@@ -375,7 +363,7 @@ export default {
                 justify-content: space-around;
                 position: relative;
                 right: 5%;
-                width: 80%;
+                width: 40%;
             }
         }
 
