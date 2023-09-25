@@ -1,13 +1,13 @@
 <template>
     <div id="itinerary">
         <div class="planet-bg">
-            <img src="@/assets/image/itinerary_mars/mars_bg.png" alt="mars">
+            <img src="@/assets/image/itinerary_venus/venus_bg.png" alt="venus">
         </div>
         <div class="main-container" data-scroll-container>
             <div class="scrollsection" data-scroll-section>
                 <!-- 旅程名稱 -->
                 <div class="title" style="writing-mode: vertical-lr" data-scroll data-scroll-speed="1">
-                    <h1>奧 林 帕 斯 山 脈 之 旅</h1>
+                    <h1>金 星 冒 險 尋 奇 之 旅</h1>
                     <p></p>
                     <p></p>
                 </div>
@@ -16,8 +16,8 @@
                     <div class="schedule schedule1">
                         <div class="schedule-text">
                             <h3>Day1 旅程啟航！</h3>
-                            <p>從地球啟程後可飽覽星際風光， 飛行十四個小時後，
-                                我們會抵達偉諭航空站，稍作休息後再前往火星。</p>
+                            <p>從地球啟程後可飽覽星際風光， 飛行二十小時後，
+                                我們會抵達偉諭航空站，稍作休息後再前往金星。</p>
                         </div>
                         <div class="schedule-pic">
                             <img class="image" src='https://picsum.photos/100/100'>
@@ -35,8 +35,8 @@
                 <div class="schedule-section schedule-section2">
                     <div class="schedule schedule2" data-scroll data-scroll-speed="2">
                         <div class="schedule-text">
-                            <h3>Day 2 抵達火星</h3>
-                            <p>抵達火星後現場觀察火星的地質歷史，學習探測器載具的使用探勘，適應火星的氣候</p>
+                            <h3>Day2 迎接金星的挑戰</h3>
+                            <p>我們將探險麥田圈迷宮，沉浸在神秘的符號和圖案中，解開謎題，體驗智力的挑戰。</p>
                         </div>
                         <div class="schedule-pic">
                             <img class="image" src='https://picsum.photos/100/100'>
@@ -54,8 +54,8 @@
                 <div class="schedule-section schedule-section3" data-scroll data-scroll-speed="2">
                     <div class="schedule schedule3">
                         <div class="schedule-text">
-                            <h3>Day 3 穿越火星沙漠</h3>
-                            <p>火星沙漠越野：使用特製的載具，觀賞風景在火星穿越的沙漠抵達奧林帕斯山脈山腳</p>
+                            <h3>Day3 探訪蜥蜴人族</h3>
+                            <p>我們深入蜥蜴人民族的社區，學習他們的語言、傳統和文化，與他們共進美味的蜥蜴美食，建立友誼的紐帶。</p>
                         </div>
                         <div class="schedule-pic">
                             <img class="image" src='https://picsum.photos/100/100'>
@@ -73,9 +73,8 @@
                 <div class="schedule-section schedule-section4" data-scroll data-scroll-speed="2">
                     <div class="schedule schedule4">
                         <div class="schedule-text">
-                            <h3>Day 4、5 月球大縱走--橫斷月海與月谷</h3>
-                            <p>這兩天我們將駕駛Planet Voyager的頂規太空車，Lunar
-                                Voyager橫越橫斷月海與月谷到達台日共構月球基地--蒂芬妮丘。除了欣賞美景以外，如果遇到外星物種也請不用擔心，他們是很友善的族群。</p>
+                            <h3>Day 4 城市遺址探險</h3>
+                            <p>追隨遺跡機器人導覽，穿越古老城市的廢墟，發現神秘的寶藏和失落的技術，了解過去文明的輝煌。</p>
                         </div>
                         <div class="schedule-pic">
                             <img class="image" src='https://picsum.photos/100/100'>
@@ -93,8 +92,8 @@
             <div class="schedule-section schedule-section5" data-scroll data-scroll-speed="2">
                 <div class="schedule schedule5">
                     <div class="schedule-text">
-                        <h3>Day 6 台日共構月球基地--蒂芬妮丘</h3>
-                        <p>蒂芬妮丘是深太空探索的跳板，有助於實現我們登陸更遠的星系。月球基地的太陽能發電站將為未來太空任務提供可再生能源，強化星際探索空持續性。旅客在此休息養足精神，隔日再行返家。
+                        <h3>Day5 宇宙懸崖驚心縱走</h3>
+                        <p>勇敢地走上銀河砂流，挑戰自己的平衡和冒險精神，沿著宇宙懸崖行走，感受星際的刺激。
                         </p>
                     </div>
                     <div class="schedule-pic">
@@ -248,7 +247,7 @@ export default {
     .planet-bg {
         position: absolute;
         left: 0;
-        bottom: 0;
+        top: 0;
     }
 
     .main-container {

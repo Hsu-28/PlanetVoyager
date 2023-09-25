@@ -4,10 +4,10 @@
             <img src="@/assets/image/itinerary_mars/mars_bg.png" alt="mars">
         </div>
         <div class="main-container" data-scroll-container>
-            <div class="scrollsection" data-scroll-section>
+            <div class="scrollsection scrollsection1" data-scroll-section>
                 <!-- 旅程名稱 -->
                 <div class="title" style="writing-mode: vertical-lr" data-scroll data-scroll-speed="1">
-                    <h1>奧 林 帕 斯 山 脈 之 旅</h1>
+                    <h1>火 星 生 命 解 密 之 旅</h1>
                     <p></p>
                     <p></p>
                 </div>
@@ -35,8 +35,8 @@
                 <div class="schedule-section schedule-section2">
                     <div class="schedule schedule2" data-scroll data-scroll-speed="2">
                         <div class="schedule-text">
-                            <h3>Day 2 抵達火星</h3>
-                            <p>抵達火星後現場觀察火星的地質歷史，學習探測器載具的使用探勘，適應火星的氣候</p>
+                            <h3>Day2 艾里隕石坑</h3>
+                            <p>前往艾里隕石坑 了解火星的地層變化，這些地層提供了一本連續章節的歷史書，記錄了每個地層沉積時的環境條件。</p>
                         </div>
                         <div class="schedule-pic">
                             <img class="image" src='https://picsum.photos/100/100'>
@@ -54,8 +54,8 @@
                 <div class="schedule-section schedule-section3" data-scroll data-scroll-speed="2">
                     <div class="schedule schedule3">
                         <div class="schedule-text">
-                            <h3>Day 3 穿越火星沙漠</h3>
-                            <p>火星沙漠越野：使用特製的載具，觀賞風景在火星穿越的沙漠抵達奧林帕斯山脈山腳</p>
+                            <h3>Day3 太陽系最大的峽谷--水手號峽谷</h3>
+                            <p>前往水手號峽谷觀看壯麗美景，水手號峽谷長約3000公里，是美國大峽谷的近四倍長，高溫熔岩在地殼其他區域形成裂縫，隨著時間推移，逐漸演變成現有的水手號峽谷。</p>
                         </div>
                         <div class="schedule-pic">
                             <img class="image" src='https://picsum.photos/100/100'>
@@ -73,9 +73,8 @@
                 <div class="schedule-section schedule-section4" data-scroll data-scroll-speed="2">
                     <div class="schedule schedule4">
                         <div class="schedule-text">
-                            <h3>Day 4、5 月球大縱走--橫斷月海與月谷</h3>
-                            <p>這兩天我們將駕駛Planet Voyager的頂規太空車，Lunar
-                                Voyager橫越橫斷月海與月谷到達台日共構月球基地--蒂芬妮丘。除了欣賞美景以外，如果遇到外星物種也請不用擔心，他們是很友善的族群。</p>
+                            <h3>Day4 蓋爾撞擊坑（Gale Crater）和夏普山（Mount Sharp）</h3>
+                            <p>2012年火星探測車好奇號在蓋爾撞擊坑這塊區域發現了河床，沿著河床的軌跡、一直到火山口底部，更發現了許多「 火星上曾經有水」的證據。在附近一座名為夏普山的火山，發現了「有機分子」，被認為是宇宙中生命的起源，我們將前往此地，探索其中奧妙。</p>
                         </div>
                         <div class="schedule-pic">
                             <img class="image" src='https://picsum.photos/100/100'>
@@ -93,8 +92,8 @@
             <div class="schedule-section schedule-section5" data-scroll data-scroll-speed="2">
                 <div class="schedule schedule5">
                     <div class="schedule-text">
-                        <h3>Day 6 台日共構月球基地--蒂芬妮丘</h3>
-                        <p>蒂芬妮丘是深太空探索的跳板，有助於實現我們登陸更遠的星系。月球基地的太陽能發電站將為未來太空任務提供可再生能源，強化星際探索空持續性。旅客在此休息養足精神，隔日再行返家。
+                        <h3>Day5、6 地下冒險</h3>
+                        <p>火星在40億年前具有溫暖潮濕的環境，但隨著磁場消失、大氣層變薄及環境溫度下降等影響，液態水僅能在較深的地下層中才穩定存在。若火星上有機會出現生命，其所在的位置可能會跟隨融化後的液態水進入更深的地層。
                         </p>
                     </div>
                     <div class="schedule-pic">
@@ -206,7 +205,9 @@ export default {
 //     }ackground
 
 #itinerary {
-
+    .scrollsection1{
+        padding-left: 10vmax;
+    }
     .schedule-big-pic {
         opacity: 0;
     }

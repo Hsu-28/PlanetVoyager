@@ -1,7 +1,7 @@
 <template>
     <div id="itinerary">
         <div class="planet-bg">
-            <img src="@/assets/image/itinerary_mars/mars_bg.png" alt="mars">
+            <img src="#" alt="">
         </div>
         <div class="main-container" data-scroll-container>
             <div class="scrollsection" data-scroll-section>
@@ -142,7 +142,6 @@ export default {
     data() {
         return {
             scrollInstance: null,
-            showFooter: true
         }
     },
     // methods:{
@@ -154,7 +153,6 @@ export default {
     // },
 
     mounted() {
-        // document.querySelector('footer').style.display = 'none';
         const scroll1 = new LocomotiveScroll({
             el: document.querySelector('.main-container'),
             direction: 'horizontal',
@@ -168,20 +166,7 @@ export default {
                 smooth: true
             }
         });
-        // const scroll2 = new LocomotiveScroll({
-        //     el: document.querySelector('.scrollsection2'),
-        //     direction: 'horizontal',
-        //     smooth: true,
-        //     lerp: 0.05,
-        //     getSpeed: true,
-        //     tablet: {
-        //         smooth: true
-        //     },
-        //     smartphone: {
-        //         smooth: true
-        //     }
-        // });
-        // this.showFooter = false;
+       
         // document.body.style.height = document.querySelector(".scrollsection").getBoundingClientRect().width + "px";
 
     },
@@ -200,11 +185,6 @@ export default {
 
 
 <style scoped lang="scss">
-//   body{
-//         overflow: hidden;
-
-//     }ackground
-
 #itinerary {
 
     .schedule-big-pic {
@@ -260,7 +240,7 @@ export default {
         height: 100vh;
         display: flex;
         // margin-left: 10vh;
-        padding: 5vh 5vh 0vh 0vh;
+        padding: 10vh 5vh 0vh 0vh;
         overflow: visible;
         &:first-child{
             padding-left: 40vh;

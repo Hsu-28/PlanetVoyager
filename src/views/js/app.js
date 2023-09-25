@@ -7,8 +7,9 @@ export default {
   
     return {
       i: 0,
+      displayText: '',
       showMenu: false, 
-      showFooter: true,
+      // showFooter: true,
       headericon: true,
       titlelist: [
         {
@@ -83,5 +84,14 @@ export default {
         .then(res=>res.json())
         .then(json => console.log(json))
       },
+  },
+  computed: {
+    showFooter(){
+    if(this.$route.name !== "itineraryMoon"  && this.$route.name !== "itineraryVenus"  && this.$route.name !== "itineraryMoon2" && this.$route.name !== "itineraryMars" && this.$route.name !== "itineraryMars2" && this.$route.name !== "itineraryVenus2" && this.$route.name !== "itineraryCombo"){
+      return true
+    }else{
+      return false;
+    }
+  }
   },
 };

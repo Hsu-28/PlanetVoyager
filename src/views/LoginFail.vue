@@ -71,7 +71,7 @@
         align-items: center;
         max-width: 100%;
         height: 100vh;
-        background:  no-repeat center/28% url(~@/assets/image/loginfail/登入失敗.svg);
+        background:  no-repeat 50% 80%/25% url(~@/assets/image/loginfail/登入失敗.svg);
     }
     
     .black-bg{

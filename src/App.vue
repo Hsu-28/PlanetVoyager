@@ -118,7 +118,7 @@
 </router-link>
 
 
-  <footer v-if='this.$route.name !== "itineraryMoon" && this.$route.name !== "itineraryMars"' class="footer">
+  <footer v-if='showFooter' class="footer">
     <div class="footer-content">
       <div class="Social-Media"> Social Media </div>
       <div><a href="https://www.facebook.com/?ref=tn_tnmn" target="_blank"> FACEBOOK </a></div>

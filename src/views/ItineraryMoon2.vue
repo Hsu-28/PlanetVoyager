@@ -1,14 +1,14 @@
 <template>
     <div id="itinerary">
         <div class="planet-bg">
-            <img src="@/assets/image/itinerary_mars/mars_bg.png" alt="mars">
+            <img src="@/assets/image/itinerary_moon/moon-bg.png" alt="moon">
         </div>
         <div class="main-container" data-scroll-container>
             <div class="scrollsection" data-scroll-section>
                 <!-- 旅程名稱 -->
                 <div class="title" style="writing-mode: vertical-lr" data-scroll data-scroll-speed="1">
-                    <h1>奧 林 帕 斯 山 脈 之 旅</h1>
-                    <p></p>
+                    <h1>太 空 之 心</h1>
+                    <p>月 球 七 天 六 夜 奇 幻 之 旅</p>
                     <p></p>
                 </div>
                 <!-- 第一塊 -->
@@ -16,8 +16,7 @@
                     <div class="schedule schedule1">
                         <div class="schedule-text">
                             <h3>Day1 旅程啟航！</h3>
-                            <p>從地球啟程後可飽覽星際風光， 飛行十四個小時後，
-                                我們會抵達偉諭航空站，稍作休息後再前往火星。</p>
+                            <p>帶著輕鬆的心情於本公司飛航站集合，搭乘太空船直接飛往月球，此航程為15小時。</p>
                         </div>
                         <div class="schedule-pic">
                             <img class="image" src='https://picsum.photos/100/100'>
@@ -35,8 +34,10 @@
                 <div class="schedule-section schedule-section2">
                     <div class="schedule schedule2" data-scroll data-scroll-speed="2">
                         <div class="schedule-text">
-                            <h3>Day 2 抵達火星</h3>
-                            <p>抵達火星後現場觀察火星的地質歷史，學習探測器載具的使用探勘，適應火星的氣候</p>
+                            <h3>Day2、3 月球表面遊覽&探索</h3>
+                            <p>約早上8點降落在月球基地，位於近月點或月海附近。
+                                首先進行環境適應訓練，熟悉基地並參加安全簡報和旅程概述，接著穿上太空服，搭乘觀光月球車前往著名的月球撞擊坑。
+                                晚間則在舒適的基地內欣賞地球升起的美景。</p>
                         </div>
                         <div class="schedule-pic">
                             <img class="image" src='https://picsum.photos/100/100'>
@@ -54,8 +55,10 @@
                 <div class="schedule-section schedule-section3" data-scroll data-scroll-speed="2">
                     <div class="schedule schedule3">
                         <div class="schedule-text">
-                            <h3>Day 3 穿越火星沙漠</h3>
-                            <p>火星沙漠越野：使用特製的載具，觀賞風景在火星穿越的沙漠抵達奧林帕斯山脈山腳</p>
+                            <h3>Day4 科學實驗與分析</h3>
+                            <p>早上：參與月球地質講座，了解月球形成的歷史。
+                                下午：使用地質工具採集岩石和月壤樣本。
+                                晚上：在基地內進行月壤和岩石樣本分析，並分享研究結果。</p>
                         </div>
                         <div class="schedule-pic">
                             <img class="image" src='https://picsum.photos/100/100'>
@@ -68,14 +71,15 @@
                     </div>
                 </div>
             </div>
+            <!-- 第四塊 -->
             <div class="scrollsection" data-scroll-section>
-                <!-- 第四塊 -->
                 <div class="schedule-section schedule-section4" data-scroll data-scroll-speed="2">
                     <div class="schedule schedule4">
                         <div class="schedule-text">
-                            <h3>Day 4、5 月球大縱走--橫斷月海與月谷</h3>
-                            <p>這兩天我們將駕駛Planet Voyager的頂規太空車，Lunar
-                                Voyager橫越橫斷月海與月谷到達台日共構月球基地--蒂芬妮丘。除了欣賞美景以外，如果遇到外星物種也請不用擔心，他們是很友善的族群。</p>
+                            <h3>Day5 天文觀測</h3>
+                            <p>早上 : 專業天文學家引導的望遠鏡觀測。
+                                下午：月球表面上的自由觀測，利用望遠鏡尋找星座。
+                                晚上：觀賞月球夜空，無光污染的絕佳視角。</p>
                         </div>
                         <div class="schedule-pic">
                             <img class="image" src='https://picsum.photos/100/100'>
@@ -89,51 +93,54 @@
                 </div>
             </div>
 
-        <div class="scrollsection" data-scroll-section>
-            <div class="schedule-section schedule-section5" data-scroll data-scroll-speed="2">
-                <div class="schedule schedule5">
-                    <div class="schedule-text">
-                        <h3>Day 6 台日共構月球基地--蒂芬妮丘</h3>
-                        <p>蒂芬妮丘是深太空探索的跳板，有助於實現我們登陸更遠的星系。月球基地的太陽能發電站將為未來太空任務提供可再生能源，強化星際探索空持續性。旅客在此休息養足精神，隔日再行返家。
-                        </p>
+            <div class="scrollsection" data-scroll-section>
+                <div class="schedule-section schedule-section5" data-scroll data-scroll-speed="2">
+                    <div class="schedule schedule5">
+                        <div class="schedule-text">
+                            <h3>Day6 自由活動</h3>
+                            <p>早上 : 可選擇月球高爾夫、月面摩托車等。
+                                下午：月球低重力舞會
+                                晚上：登上返回地球的太空船，進行最後的安全檢查，然後開始返程。
+                            </p>
+                        </div>
+                        <div class="schedule-pic">
+                            <img class="image" src='https://picsum.photos/100/100'>
+                            <img class="image" src='https://picsum.photos/100/100'>
+                            <img class="image" src='https://picsum.photos/100/100'>
+                        </div>
                     </div>
-                    <div class="schedule-pic">
-                        <img class="image" src='https://picsum.photos/100/100'>
-                        <img class="image" src='https://picsum.photos/100/100'>
-                        <img class="image" src='https://picsum.photos/100/100'>
+                    <div class="schedule-big-pic">
+                        <img class="image" src='https://picsum.photos/300/200'>
                     </div>
-                </div>
-                <div class="schedule-big-pic">
-                    <img class="image" src='https://picsum.photos/300/200'>
                 </div>
             </div>
-        </div>
-        <div class="scrollsection" data-scroll-section>
-            <!-- 第六塊 -->
-            <div class="schedule-section schedule-section6" data-scroll data-scroll-speed="2">
-                <div class="schedule schedule6">
-                    <div class="schedule-text">
-                        <h3>Day 7 返回家鄉--地球</h3>
-                        <p>星際旅遊的壯闊冒險完美收尾！在無重力中飄浮的日子即將結束，我們即將返回地球。帶著難以置信的回憶和深刻的體驗，我們準備迎接重力的擁抱。也請各位珍惜回程最後飽覽太空的絕美景觀的機會。如果捨不得，我們期待著下次再與您共度星際旅遊的美好時光，感謝您的參與！
-                        </p>
+             <!-- 第六塊 -->
+            <div class="scrollsection" data-scroll-section>
+                <div class="schedule-section schedule-section6" data-scroll data-scroll-speed="2">
+                    <div class="schedule schedule6">
+                        <div class="schedule-text">
+                            <h3>Day 7 返回家鄉--地球</h3>
+                            <p>星際旅遊的壯闊冒險完美收尾！在無重力中飄浮的日子即將結束，我們即將返回地球。帶著難以置信的回憶和深刻的體驗，我們準備迎接重力的擁抱。也請各位珍惜回程最後飽覽太空的絕美景觀的機會。如果捨不得，我們期待著下次再與您共度星際旅遊的美好時光，感謝您的參與！
+                            </p>
+                        </div>
+                        <div class="schedule-pic">
+                            <img class="image" src='https://picsum.photos/100/100'>
+                            <img class="image" src='https://picsum.photos/100/100'>
+                            <img class="image" src='https://picsum.photos/100/100'>
+                        </div>
                     </div>
-                    <div class="schedule-pic">
-                        <img class="image" src='https://picsum.photos/100/100'>
-                        <img class="image" src='https://picsum.photos/100/100'>
-                        <img class="image" src='https://picsum.photos/100/100'>
+                    <div class="schedule-big-pic">
+                        <img class="image" src='https://picsum.photos/300/200'>
                     </div>
-                </div>
-                <div class="schedule-big-pic">
-                    <img class="image" src='https://picsum.photos/300/200'>
                 </div>
             </div>
-        </div>
-        <!-- 空白 -->
-        <div class="scrollsection" data-scroll-section>
-            <div class="blank-space"></div>
+            <!-- 空白 -->
+            <div class="scrollsection" data-scroll-section>
+                <div class="blank-space"></div>
+            </div>
         </div>
     </div>
-</div></template>
+</template>
 
 <script>
 import LocomotiveScroll from 'locomotive-scroll';
@@ -242,6 +249,7 @@ export default {
         p {
             position: relative;
             top: 25vh;
+            font-size: 24px;
         }
     }
 
@@ -262,15 +270,18 @@ export default {
         // margin-left: 10vh;
         padding: 5vh 5vh 0vh 0vh;
         overflow: visible;
-        &:first-child{
+
+        &:first-child {
             padding-left: 40vh;
         }
-        &:last-child{
+
+        &:last-child {
             padding-right: 10vh;
-        // &:first-child{
-        //     padding-left: 10vh;
-        // }
+            // &:first-child{
+            //     padding-left: 10vh;
+            // }
         }
+
         .schedule-section {
             height: 100%;
             display: flex;
@@ -451,8 +462,9 @@ export default {
 
                 }
             }
+
             // 空白
-            .blank-space{
+            .blank-space {
                 width: 20%;
             }
         }
