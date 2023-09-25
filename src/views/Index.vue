@@ -27,8 +27,8 @@
             <el-carousel indicator-position="outside">
                 <el-carousel-item v-for="(item, index) in imgcarousel" :key="index">
                     <div class="imgcarousel-img">
-                    <img :src="item.img" :alt="item.note">
-                </div>
+                        <img :src="item.img" :alt="item.note">
+                    </div>
                     <div class="imgcarousel-note">{{ item.note }}</div>
                 </el-carousel-item>
             </el-carousel>
@@ -37,7 +37,9 @@
             <div class="rwd-group">
                 <div class="col-9 col-md-4 title-group">
                     <h2style h2ch="關於我們" h2en="ABOUT US"></h2style>
-                    <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
+                    <router-link to="aboutus">
+                        <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
+                    </router-link>
                 </div>
                 <div class="col-9 col-md-4">
                     <img class="aboutus-img" src="~@/assets/image/index/aboutus.svg" alt="太空船艙">
@@ -68,8 +70,20 @@
                             NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS</span>
                     </div>
                 </div>
-
-
+                <div>
+                    <table>
+                        <tbody>
+                            <tr v-for="(news, index) in news" :key="index" class="newslist" @click="showMore(index)">
+                                <td>Row 1, Cell 1</td>
+                                <td>Row 1, Cell 2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div v-for="(news, index) in news" :key="index" v-show="news.show" class="nwesmore">
+                        {{ news.info }}
+                        <button class="close" @click="hideMore(index)">Close</button>
+                    </div>
+                </div>
             </div>
         </section>
         <section class="rwd-container">
@@ -123,6 +137,28 @@
                     </div>
                 </div>
             </div>
+            <article class="first-article" id="article">
+        <div class="container-fluid">
+            <div class="mainTitle">
+                <div class="title">
+                    <h1>Statistical Data</h1>
+                </div>
+            </div>
+            <div class="articleSection">
+                <div class="articleText" id="yearSec">
+                    <p>全台灣至少仍有</p>
+                    <h4><span class="dataProp" id="yearSum">0</span><span class="ton">萬隻</span></h4>
+                    <p>流浪狗未妥當安置</p>
+                </div>
+                <div class="articleText" id="workSec">
+                    <p>104年共累計</p>
+                    <h4><span class="dataProp" id="workSum">0</span><span class="ton">件</span>
+                        <p>動物侵害他人案件</p>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </article>
         </section>
         <section class="rwd-container">
             <div class="tourist-rwd-group">
@@ -166,6 +202,8 @@
 <script>
 
 import { gsap, Power0 } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
@@ -236,6 +274,12 @@ export default {
                     total: 'TOTAL<br>REFLIGHTS'
                 },
             ],
+            // news:[
+            //     {
+
+            //     },
+
+            // ]
             vehicles: [
                 {
                     h3en: 'spaceship',
@@ -318,6 +362,7 @@ export default {
         }
     },
     mounted() {
+    
         const num = document.getElementById("launchesOutside");
         const num1 = document.getElementById("landingOutside");
         const num2 = document.getElementById("reflightsOutside");
@@ -370,9 +415,8 @@ export default {
                 num2.innerHTML = obj.value;
             }
         })
-
+    
     }
-
 }
 
 
