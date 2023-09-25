@@ -70,6 +70,7 @@ $transition-fast: .2s cubic-bezier(.77, 0, .175, 1);
 	background-position: 50% 50%;
 	background-size: cover;
   background-image: url(~@/assets/image/headerfooter/dorder.svg);
+  ;
 }
 
 .c-glitch {
@@ -78,6 +79,7 @@ $transition-fast: .2s cubic-bezier(.77, 0, .175, 1);
   overflow: hidden;
 	position: relative;
   width: 100px;
+  z-index: 999;
 }
 
 .c-glitch__img {

@@ -1,3 +1,4 @@
+
 .banner {
     width: 100%;
     position: absolute;
@@ -19,8 +20,91 @@
     margin-bottom: 30%;
 }
 
+.clickdown {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+
+    50% {
+        -webkit-transform: translate(0, 10px);
+        transform: translate(0, 10px);
+    }
+
+    100% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
 section {
     padding-top: 20%;
+}
+.outside-border {
+    margin: 0 auto;
+    margin-bottom: 5%;
+    padding: 1.5%; //10.73px
+    border: 0.1rem solid $white; //3.3px
+    border-radius: 0.2rem; //10px
+    box-shadow: 0 0 1rem 0.2rem $blue; //40px 10px
+    position: relative;
+
+    &::before {
+        content: "";
+        border: 0.1rem solid $blue; //6.6px
+        border-radius: 0.1rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    &::after {
+        content: "";
+        border: 0.4rem solid rgba(91, 19, 236, 20%); //10.73px
+        border-radius: 0.3rem; //6px
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        pointer-events: none;
+    }
+}
+
+$circle: 1.3rem;
+
+.inside-border {
+    &::after {
+        content: "";
+        border: 0.3rem solid $blue; //12px
+        border-radius: 0.15rem;
+        filter: blur($circle/4);
+        position: absolute;
+        top: 0.4%;
+        left: 2%;
+        right: 5%;
+        height: 99%;
+        pointer-events: none;
+    }
+
+    &::before {
+        content: "";
+        border: 0.2rem solid $blueL;
+        border-radius: 0.25rem;
+        position: absolute;
+        top: 0;
+        left: 0%;
+        right: 4%;
+        height: 100%;
+        pointer-events: none;
+    }
 }
 
 $gap: 10px;
@@ -69,13 +153,55 @@ $gap: 10px;
     line-height: 1.5;
 }
 
-//本公司第一次出團
+.imgcarousel {
+    width: 100%;
+}
+
+:deep(.el-carousel__container) {
+    height: 30vh;
+}
+
+.imgcarousel-img {
+    position: relative;
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.2);
+        pointer-events: none;
+    }
+}
+
+.imgcarousel img {
+    width: 100%;
+
+}
+
+.imgcarousel-note {
+    color: $white;
+    font-size: $h2-l;
+    letter-spacing: 1rem;
+    width: 100%;
+    height: 75%;
+    display: flex;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+}
 
 //按鈕樣式
 .cybr-btn {
     min-width: 0px;
-    max-width: 300px;
+    max-width: 250px;
     margin-top: 3%;
+    margin-bottom: 10%;
 }
 
 .title-group {
@@ -96,9 +222,9 @@ $gap: 10px;
 .scroll {
     display: flex;
     background: black;
-    height: 40px;
+    height: 30%;
 
-    .news {
+    [class*="marquee"] {
         white-space: nowrap;
         text-transform: uppercase;
         animation: scroll 40s linear infinite;
@@ -109,6 +235,27 @@ $gap: 10px;
         }
 
     }
+}
+
+.scroll-ch {
+    padding: 1% 0;
+}
+
+[class*="marquee"] {
+    color: transparent;
+    background-image: url('~@/assets/image/index/giphy.gif');
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.marquee-en {
+    font-size: $p1-s;
+    font-weight: 900;
+}
+
+.marquee-ch {
+    font-size: $h2-s;
+    font-weight: 900;
 }
 
 @keyframes scroll {
@@ -130,40 +277,120 @@ $gap: 10px;
         transform: translateX(-200%)
     }
 }
+.news-container{
+    width: 70%;
+    margin: 10% auto;
+    padding: 0 5%;
+    background-color: #1F084E;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+table.inside-bodrer.news-group {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 4rem;
+}
+
+.news-container td {
+   
+    padding: 3%;
+    font-size: $p1-l;
+    color: $white;
+    border: 1px solid $blue;
+}
+
+.news-date{
+    text-align: center;
+}
+
+.more {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, .6);
+    left: 0;
+    top: 0;
+    z-index: 999;
+    overflow: auto;
+}
+
+.more-base {
+    width: 50%;
+    margin: 3% auto;
+    background-color: $black;
+    box-shadow: 5px 5px 0px 2px $blueO;
+    border-radius: 10px;
+    padding: 5%;
+    position: relative;
+    // overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+
+  ::-webkit-scrollbar-thumb {
+    background: $blueL;      
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background:$blue ; 
+  }
 
 
-// .news {
-//     font-size: $h1-s;
-//     font-weight: lighter;
-//     color: transparent;
-//     background-image: url('~@/assets/image/index/giphy.gif');
-//     -moz-background-clip: text;
-//     -webkit-background-clip: text;
-// }
-.destination-rwd-group{
-    justify-content:left;
-padding-top: 10%;
-    padding-bottom: 25%;
+.more-img {
+    width: 200px;
+    margin: 0 3% 3% 0;
+    float: left;
+    /* clear:left; */
+}
+
+.more-text {
+    color: $white;
+    padding: 10px;
+    display: block;
+}
+
+.close {
+    color: gray;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+.destination-rwd-group {
+    padding-top: 10%;
+    padding-bottom: 90%;
     overflow: hidden;
 }
-.btn2{
-    margin-top: 3%;
-    font-size: 20px;
-    letter-spacing:0.3rem;
-    background-color: transparent;
-    border: 0;
-}
-.btn2 a {
-    color: $white;
-}
+
 .planet-group {
     position: absolute;
-    top: 0%;
-    left: 20%;
+    top: 40%;
+    left: 6%;
     perspective: 1200px;
     width: 100%;
     overflow: hidden;
-    mask-image: linear-gradient(to bottom, black, transparent);
+    mask-image: linear-gradient(to bottom, black 0%, black 40%, transparent 100%);
+
+
 }
 
 .outside {
@@ -175,8 +402,8 @@ padding-top: 10%;
     transform-style: preserve-3d;
     transform: rotateY(25deg) rotateX(10deg);
     position: relative;
-    width: 70%;
-    padding-top: 70%;
+    width: 80%;
+    padding-top: 80%;
 }
 
 .venusring,
@@ -232,12 +459,15 @@ padding-top: 10%;
 
     &::after {
         content: 'VENUS';
-        border: $purple;
+        padding: 2%;
+        font-size: $p2-s;
+        color: $white;
+        border: 1px solid $purple;
         background-color: $purpleO;
         display: block;
         position: absolute;
         top: 50%;
-        left: -50%;
+        left: -40%;
         transform: translate(-50%, -50%);
     }
 }
@@ -259,12 +489,15 @@ padding-top: 10%;
 
     &::after {
         content: 'EARTH';
-        border: $purple;
+        padding: 2%;
+        font-size: $p2-s;
+        color: $white;
+        border: 1px solid $purple;
         background-color: $purpleO;
         display: block;
         position: absolute;
         top: 50%;
-        left: -50%;
+        left: -40%;
         transform: translate(-50%, -50%);
     }
 }
@@ -283,6 +516,7 @@ padding-top: 10%;
 }
 
 .rocket {
+    width: 30%;
     position: absolute;
     top: 10%;
     animation: orbit 8s linear 0s infinite reverse both;
@@ -308,7 +542,10 @@ padding-top: 10%;
 
     &::after {
         content: 'MARS';
-        border: $purple;
+        padding: 2%;
+        font-size: $p2-s;
+        color: $white;
+        border: 1px solid $purple;
         background-color: $purpleO;
         display: block;
         position: absolute;
@@ -337,12 +574,15 @@ padding-top: 10%;
 
     &::after {
         content: 'MOON';
-        border: $purple;
+        padding: 2%;
+        font-size: $p2-s;
+        color: $white;
+        border: 1px solid $purple;
         background-color: $purpleO;
         display: block;
         position: absolute;
         top: 50%;
-        left: -50%;
+        left: -80%;
         transform: translate(-50%, -50%);
     }
 }
@@ -367,20 +607,12 @@ h3 {
     text-align: center;
 }
 
-section>.rwd-container:nth-child(even)>.vehicles-rwd-group {
-    flex-direction: row-reverse;
-    padding: 10% 0;
-}
-
-
-.vehicles-title {
-    width: 50%;
-    margin: 0 0 0 auto;
-}
 
 .vehicles-rwd-group {
     justify-content: center;
+    padding-top: 20%;
 }
+
 
 .spaceship,
 .spacesuit {
@@ -404,68 +636,6 @@ section>.rwd-container:nth-child(even)>.vehicles-rwd-group {
     height: 340px;
 }
 
-.outside-boder {
-    margin: 0 auto;
-    margin-bottom: 5%;
-    padding: 1.5%; //10.73px
-    border: 0.1rem solid $white; //3.3px
-    border-radius: 0.2rem; //10px
-    box-shadow: 0 0 1rem 0.2rem $blue; //40px 10px
-    position: relative;
-
-    &::before {
-        content: "";
-        border: 0.1rem solid $blue; //6.6px
-        border-radius: 0.1rem;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 100%;
-        pointer-events: none;
-    }
-
-    &::after {
-        content: "";
-        border: 0.4rem solid rgba(91, 19, 236, 20%); //10.73px
-        border-radius: 0.3rem; //6px
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 100%;
-        pointer-events: none;
-    }
-}
-
-$circle: 1.3rem;
-
-.inside-boder {
-    &::after {
-        content: "";
-        border: 0.3rem solid $blue; //12px
-        border-radius: 0.15rem;
-        filter: blur($circle/4);
-        position: absolute;
-        top: 0.4%;
-        left: 2%;
-        right: 5%;
-        height: 99%;
-        pointer-events: none;
-    }
-
-    &::before {
-        content: "";
-        border: 0.2rem solid $blueL;
-        border-radius: 0.25rem;
-        position: absolute;
-        top: 0;
-        left: 0%;
-        right: 4%;
-        height: 100%;
-        pointer-events: none;
-    }
-}
 
 .memberContent {
     width: 255px;
@@ -500,6 +670,7 @@ $circle: 1.3rem;
     justify-content: center;
     align-items: center;
 }
+
 .member-text {
     width: 100%;
     display: flex;
@@ -526,8 +697,13 @@ $circle: 1.3rem;
 }
 
 @media screen and (min-width: 700px) {
-    .news {
-        font-size: $h1-m;
+
+    .news-en {
+        font-size: $p1-m;
+    }
+
+    .news-ch {
+        font-size: $h2-m;
     }
 
     h3 {
@@ -544,9 +720,50 @@ $circle: 1.3rem;
         font-size: $h2-s;
     }
 
-    //按鈕樣式
-    .cybr-btn {
-        margin-top: 10%;
+    :deep(.el-carousel__container) {
+        height: 30vh;
+    }
+
+    .planet-group {
+        top: 25%;
+    }
+
+    :deep(.venusring-return) {
+        &::after {
+            font-size: $h2-s;
+        }
+    }
+
+    :deep(.earthring-return) {
+        &::after {
+            font-size: $h2-s;
+        }
+    }
+
+    :deep(.marsring-return) {
+        &::after {
+            font-size: $h2-s;
+        }
+    }
+
+    :deep(.moonsring-return) {
+        &::after {
+            font-size: $h2-s;
+        }
+    }
+
+    .rocket {
+        width: 20%;
+    }
+
+    .vehicles-rwd-group {
+        padding-top: 0%;
+    }
+
+
+    section>.rwd-container:nth-child(even)>.vehicles-rwd-group {
+        flex-direction: row-reverse;
+        padding: 10% 0;
     }
 
     .members-name {
@@ -560,12 +777,20 @@ $circle: 1.3rem;
 }
 
 @media screen and (min-width: 1024px) {
-    .news {
-        font-size: $h1-l;
+    .news-en {
+        font-size: $p2-l;
+    }
+
+    .news-ch {
+        font-size: $h2-l;
     }
 
     h3 {
         font-size: $h2-l;
+    }
+
+    :deep(.el-carousel__container) {
+        height: 90vh;
     }
 
     .landing-title {
@@ -581,6 +806,58 @@ $circle: 1.3rem;
     .landing-text {
         font-size: 24px;
     }
+
+
+    .destination-rwd-group {
+        justify-content: left;
+    }
+
+
+    .destination-rwd-group {
+        padding-top: 10%;
+        padding-bottom: 50%;
+        overflow: hidden;
+    }
+
+    .planet-group {
+        top: 0%;
+        left: 20%;
+    }
+
+    .solarsystem {
+        width: 70%;
+        padding-top: 70%;
+    }
+
+    :deep(.venusring-return) {
+        &::after {
+            font-size: $h2-m;
+        }
+    }
+
+    :deep(.earthring-return) {
+        &::after {
+            font-size: $h2-m;
+        }
+    }
+
+    :deep(.marsring-return) {
+        &::after {
+            font-size: $h2-m;
+        }
+    }
+
+    :deep(.moonring-return) {
+        &::after {
+            font-size: $h2-m;
+        }
+    }
+
+    .vehicles-title {
+        width: 50%;
+        margin: 0 0 0 auto;
+    }
+
 
     .members-name {
         font-size: $p1-l;
