@@ -10,8 +10,7 @@
         max-width: 100%;
         width: 100vw;
     }
-
-    .introduceTitle {
+    .introduceTitle {  
         font-size: $h1-l ;
         color: $white;
         position: absolute;
@@ -19,13 +18,10 @@
         right: 19.8%;
         text-align: center;
         line-height: 1.2;
-        font-weight: 700;
-
-        @include padBS {
+        @include padBS{
             font-size: 24px;
         }
-
-        @include mobileBS {
+        @include mobileBS{
             font-size: 20px;
         }
     }
@@ -41,7 +37,6 @@
     width: 90%;
     margin: 0 auto;
     margin-bottom: 200px;
-
     .introduceTeam {
         // width: 83vw;
         margin: 0 auto;
@@ -49,18 +44,13 @@
 
         line-height: 2rem;
         font-size: 24px;
-
-        p {
-            font-weight: 700;
-            text-align: center;
-            line-height: 2;
+        p{
+            font-weight: 500;
         }
-
-        @include padBS {
+        @include padBS{
             font-size: 20px;
         }
-
-        @include mobileBS {
+        @include mobileBS{
             font-size: 16px;
         }
 
@@ -71,65 +61,44 @@
             // text-align: center;
             margin-top: 120px;
             width: 100%;
-
-            @include padBS {
+            @include padBS{
                 margin-top: 80px;
             }
-
             p:first-child {
-                // text-align: center;
+                text-align: center;
                 font-size: $h2-l;
-
-                @include padBS {
+                @include padBS{
                     font-size: $h2-m;
                 }
-
-                @include mobileBS {
+                @include mobileBS{
                     font-size: $h2-s;
-                    padding-left: 30px;
                 }
             }
 
             p:last-child {
                 // width: 600px;
-                font-weight: 500;
-                max-width: 500px;
+                font-weight:500;
+                min-width: 600px;
                 width: 50%;
                 font-size: $p1-l;
-                // margin: 50px auto;
-                padding: 20px 0;
-
-                @include padBS {
+                margin: 50px auto;
+                @include padBS{
                     font-size: $p1-m;
                     width: 70%;
-                    min-width: 350px;
+                    min-width:350px;
                     margin: 50px auto;
                     margin-bottom: 20px;
                 }
-
-                @include mobileBS {
+                @include mobileBS{
                     width: 80%;
                     font-size: $p1-s;
-                    min-width: 100px;
-                    margin: 0 auto;
+                    min-width:100px;
+                    margin: 30px auto;
 
                     margin-bottom: 10px;
 
                 }
-
                 // margin: 55px 0 50px 0;
-            }
-
-            span {
-                font-size: $h2-l;
-
-                @include padBS {
-                    font-size: $h2-m;
-                }
-
-                @include mobileBS {
-                    font-size: $p2-s;
-                }
             }
 
         }
@@ -138,8 +107,7 @@
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
-
-            @include mobileBS {
+            @include mobileBS{
                 flex-direction: column;
                 align-items: center;
             }
@@ -151,24 +119,22 @@
                 border-radius: 10px 10px 50px 10px;
                 border: 3px solid $white;
                 background: rgba(43, 42, 42, 0.80);
-                width: 27.75%; //333PX
-
+                width: 27.75%;//333PX
                 // width: 333px;
-                @include padBS {
+                @include padBS{
                     border-radius: 10px 10px 30px 10px;
                     border: 2px solid $white;
 
                 }
-
-                @include mobileBS {
+                @include mobileBS{
                     margin-top: 30px;
-                    width: 90%;
+                    width: 80%;
                     border-radius: 10px 10px 20px 10px;
                     border: 1px solid $white;
                 }
-
+               
                 .imgContent {
-
+                   
                     width: 100%;
                     // min-width: 200px;
                     //  @include wh(270px,332px); 
@@ -177,9 +143,9 @@
                     img {
 
                         width: 100%;
-
+                        
                         // padding: 26px 29px 0 29px;
-                        padding: 26px 8.7% 0 8.7%;
+                         padding:26px  8.7% 0 8.7%; 
 
                         object-fit: cover;
                     }
@@ -189,29 +155,24 @@
 
                     // margin: 40px 31px 25px 31px;
                     margin: 30px 8.7% 20px 8.7%;
-                    width: 81%; //270PX
+                    width: 81%;//270PX
                     // width: 270px;
                     border-bottom: $blueL;
                     position: relative;
-
-                    @include padBS {
+                    @include padBS{
                         margin: 20px 8.7% 10px 8.7%;
                     }
-
                     // @include mobileBS{
                     //     margin: 10px 8.7% 6px 8.7%;
                     // }
                     p:first-child {
                         font-size: 24px;
-
-                        @include padBS {
-                            font-size: $p2-m;
+                        @include padBS{
+                            font-size:16px ;
                         }
-
-                        @include mobileBS {
-                            font-size: $p2-s;
+                        @include mobileBS{
+                            font-size: $h2-s;
                         }
-
                         display: block;
                     }
 
@@ -220,12 +181,10 @@
                         line-height: 1.5;
                         margin-top: 8px;
                         width: 70%;
-
-                        @include padBS {
-                            font-size: $rc2;
+                        @include padBS{
+                            font-size:$rc2;
                         }
-
-                        @include mobileBS {
+                        @include mobileBS{
                             font: size $rc1;
                         }
                     }
@@ -235,25 +194,23 @@
                         right: 0;
                         top: 40px;
                         background: $blueL;
-                        line-height: 1.2;
+                        line-height: 1.2 ;  
                         // float: right;
                         // @include wh(70px, 25px);
-                        @include wh(25.92%, 25px);
+                        @include wh(25.92% ,25px);
                         font-size: $p1-l;
                         text-align: center;
                         color: $black;
-
-                        @include padBS {
+                        @include padBS{
                             top: 25px;
                             font-size: 14px;
                             height: 20px;
                         }
-
-                        @include mobileBS {
-                            top: 25px;
-                            font-size: 12px;
+                        @include mobileBS{
+                            top: 35px;
+                            font-size:12px;
                             height: 25px;
-                            line-height: 2;
+                            line-height: 2 ;  
 
                         }
                     }
@@ -287,30 +244,28 @@
                 // transform: translate(-50%, -55%);
                 position: relative;
                 margin: 0 auto;
-                margin-top: 16vh;
+                margin-top: 20vh;
                 //  overflow-y: auto;
                 overflow: auto; // position: absolute;
                 // left: 50%;
                 // transform: translateX(-50%);
 
                 line-height: 1.5;
-                max-width: 600px;
-                padding: 16px;
+                width: 505px;
+                padding: 20px;
                 height: 90vh;
                 background-color: $blackBG ;
                 border: 1px solid #ddd;
                 // box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 
                 z-index: 10;
-
-                @include padBS {
-                    max-width: 90%;
-                }
-
-                @include mobileBS {
-                    width: 95%;
+                @include padBS{
+                    width: 333px;
+                 }
+                 @include mobileBS{
+                    width: 80%;
                     padding: 10px;
-                }
+                 }
 
                 button {
                     background: $white;
@@ -323,48 +278,41 @@
                     font-size: $p1-l ;
                     cursor: pointer;
                     vertical-align: middle;
-
-                    @include padBS {
-                        transform: scale(.7);
-                        top: 5px;
-                        right: 0px;
+                    @include padBS{
+                       transform:  scale(.7);
+                       top: 5px;
+                       right: 0px;
                     }
-
-                    @include mobileBS {
+                    @include mobileBS{
                         top: 3px;
-                        right: -2px;
-                        padding: 2px 10px;
-                        transform: scale(.5);
+                         right: -2px;
+                         padding: 2px 10px;
+                        transform:  scale(.5);
                     }
 
                 }
 
                 >p {
                     font-size: 24px;
-
                     // font-weight:500;
-                    @include padBS {
+                    @include padBS{
                         font-size: 20px;
                     }
-
-                    @include mobileBS {
+                    @include mobileBS{
                         font-size: 20px;
                     }
-
                     // margin-bottom: 6px
                 }
 
                 .memberContent {
                     .detailImg {
-                        max-width: 330px;
+                       width: 405px;
                         margin: 30px auto;
                         overflow: hidden;
-
-                        @include padBS {
+                        @include padBS{
                             width: 270px;
                         }
-
-                        @include mobileBS {
+                        @include mobileBS{
                             width: 80%;
                         }
 
@@ -378,18 +326,11 @@
                     }
 
                     p {
-                        font-weight: 500;
-                        font-size: $p1-l;
+                        font-weight:500;
+
                         width: 90%;
                         margin: 0 auto;
 
-                        @include padBS {
-                            font-size: $p1-m;
-                        }
-
-                        @include mobileBS {
-                            font-size: $p1-s;
-                        }
                     }
 
                 }
@@ -404,35 +345,31 @@
 
 }
 
-.br {
-    white-space: pre-line;
-}
 
 ::-webkit-scrollbar {
     width: 5px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: $blueL;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $blueL; 
     // box-shadow: inset -1px  -1px 10px 10px rgba(91, 19, 236, 20%),
     // inset -1px  -1px 10px 5px rgba(91, 19, 236, 80%), 
     // inset 2px  2px 10px 2px rgba(91, 19, 236, 90%),
     // 2px  -4px 10px 2px rgb(91, 19, 236 ), 
     //  0px 2.525px 8.4825px 0px #06F, 
     //  -0.42412px 0.84825px 0.42412px 0px rgba(255, 255, 255, 0.50);     
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: $blue ;
-}
-
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background:$blue ; 
+  }
 // .footerImg{
 //     img{
 //         width: 100%;
@@ -447,7 +384,8 @@
 // @media(max-width:1000px) {
 //     .individual {
 //         // @include wh(233px  233.8px);
-
+         
 //     }
 
 // }
+
