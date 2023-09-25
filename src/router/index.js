@@ -129,6 +129,16 @@ const routes = [
     name: 'mars',
     component: () => import(/* webpackChunkName: "order" */ '../views/OrderProcessMars.vue')
   },
+  {
+    path: '/venus',
+    name: 'venus',
+    component: () => import(/* webpackChunkName: "order" */ '../views/OrderProcessVenus.vue')
+  },
+  {
+    path: '/orbit',
+    name: 'orbit',
+    component: () => import(/* webpackChunkName: "order" */ '../views/OrderProcessOrbit.vue')
+  },
 
 
 ////-----------------後台-------------------------

@@ -7,7 +7,7 @@ export default {
             titleE: "PLANETARY ORBIT",
             psrc: require("@/assets/image/ordertitle/Maskgroup.svg"),
             bgsrc: require("@/assets/image/ordertitle/PLANETARYORBITBg.svg"),
-            path: "orderprocess",
+            path: "orbit",
           }, 
           {
             titleC: "月球" ,
@@ -26,7 +26,7 @@ export default {
             titleE: "VENUS",
             psrc: require("@/assets/image/ordertitle/venus.svg"),
             bgsrc: require("@/assets/image/ordertitle/venusbg.svg"),
-            path: "orderprocess",
+            path: "venus",
           }
         ],
       };
