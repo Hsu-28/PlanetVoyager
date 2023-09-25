@@ -23,11 +23,15 @@
                 </div>
             </div>
         </section>
-        <section class="rwd-container">
-            <div class="rwd-group">
-                <div>本公司第一次出團</div>
-                <div><img src="" alt=""></div>
-            </div>
+        <section class="imgcarousel">
+            <el-carousel indicator-position="outside">
+                <el-carousel-item v-for="(item, index) in imgcarousel" :key="index">
+                    <div class="imgcarousel-img">
+                    <img :src="item.img" :alt="item.note">
+                </div>
+                    <div class="imgcarousel-note">{{ item.note }}</div>
+                </el-carousel-item>
+            </el-carousel>
         </section>
         <section class="rwd-container">
             <div class="rwd-group">
@@ -44,30 +48,36 @@
             <div class="rwd-group">
                 <div class="marquee">
                     <div class="scroll">
-                        <span class="news-en">&nbsp; NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS  NEWS NEWS NEWS NEWS</span>
-                        <span class="news-en">NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS  NEWS NEWS NEWS NEWS</span>
+                        <span class="news-en">&nbsp; NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS
+                            NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS</span>
+                        <span class="news-en">&nbsp; NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS
+                            NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS</span>
                     </div>
                 </div>
                 <div class="marquee">
                     <div class="scroll scroll-ch">
-                        <span class="news-ch">&nbsp; 最新消息 最新消息 最新消息 最新消息 最新消息</span>
-                        <span class="news-ch">最新消息 最新消息 最新消息 最新消息 最新消息</span>
+                        <span class="news-ch">&nbsp; 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息</span>
+                        <span class="news-ch">最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息</span>
                     </div>
                 </div>
                 <div class="marquee">
                     <div class="scroll">
-                        <span class="news-en">&nbsp; NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS  NEWS NEWS NEWS NEWS</span>
-                        <span class="news-en">NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS  NEWS NEWS NEWS NEWS</span>
+                        <span class="news-en">&nbsp; NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS
+                            NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS</span>
+                        <span class="news-en">&nbsp; NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS
+                            NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS</span>
                     </div>
                 </div>
+
+
             </div>
         </section>
         <section class="rwd-container">
             <div class="destination-rwd-group">
 
-                <div class="col-6 title-group">
+                <div class="col-5 title-group">
                     <h2style h2ch="星際介紹" h2en="DESTINATION"></h2style>
-                    <button class="btn2"><a href="">CLICK A PLANET</a></button>
+                    <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
                 </div>
 
                 <div class="planet-group">
@@ -154,6 +164,7 @@
 @import "~@/assets/sass/page/rwd.scss";
 </style>
 <script>
+
 import { gsap, Power0 } from "gsap";
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
@@ -183,6 +194,28 @@ export default {
     },
     data() {
         return {
+            imgcarousel: [
+                {
+                    note: '航空基地',
+                    img: require("@/assets/image/index/carouselbase.jpg"),
+                },
+                {
+                    note: '第一次出航',
+                    img: require("@/assets/image/index/carouselman.jpg"),
+                },
+                {
+                    note: '第一次探勘月球',
+                    img: require("@/assets/image/index/carouselmoon.jpg"),
+                },
+                {
+                    note: '火箭發射',
+                    img: require("@/assets/image/index/carouselrocket.jpg"),
+                },
+                {
+                    note: '太空漫步',
+                    img: require("@/assets/image/index/carouselspace.jpg"),
+                }
+            ],
             landing: [
                 {
                     containerid: 'launchesOutside',
