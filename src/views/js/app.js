@@ -18,19 +18,19 @@ export default {
           color: "$white",
           path:"aboutus",
         }, {
-          titleC: "星際旅程" ,
-          titleE: "DESTINATION",
+          titleC: "-星際旅程" ,
+          titleE: "DESTINATION-",
           color: "$blueL",
           path:"destination",
         }, {
-          titleC: "訂購旅程" ,
-          titleE: "BOOKING",
+          titleC: "-訂購旅程" ,
+          titleE: "BOOKING-",
           color: "$blueL",
           path:"order",
         }, {
           titleC: "行前訓練" ,
           titleE: "TRAINING",
-          color: "$blueL",
+          color: "$white",
           path:"training",
         }, {
           titleC: "科技創新" ,

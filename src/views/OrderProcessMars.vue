@@ -129,7 +129,7 @@
           <h5>訓練日期:</h5>
           <p>{{j1[2]}}</p>
 
-          <p class="space">團位: 10 可售: {{ amount }} 候補: 0</p>
+          <p class="space">團位: 10 可售: {{ j1[1] }} 候補: 0</p>
         </div>
         <div class="itinerary-d" @click="j2f" :class="{ 'chosen': j2C }">
           <h5>航程日期: </h5>

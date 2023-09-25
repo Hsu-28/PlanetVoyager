@@ -44,6 +44,68 @@
 section {
     padding-top: 20%;
 }
+.outside-border {
+    margin: 0 auto;
+    margin-bottom: 5%;
+    padding: 1.5%; //10.73px
+    border: 0.1rem solid $white; //3.3px
+    border-radius: 0.2rem; //10px
+    box-shadow: 0 0 1rem 0.2rem $blue; //40px 10px
+    position: relative;
+
+    &::before {
+        content: "";
+        border: 0.1rem solid $blue; //6.6px
+        border-radius: 0.1rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    &::after {
+        content: "";
+        border: 0.4rem solid rgba(91, 19, 236, 20%); //10.73px
+        border-radius: 0.3rem; //6px
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        pointer-events: none;
+    }
+}
+
+$circle: 1.3rem;
+
+.inside-border {
+    &::after {
+        content: "";
+        border: 0.3rem solid $blue; //12px
+        border-radius: 0.15rem;
+        filter: blur($circle/4);
+        position: absolute;
+        top: 0.4%;
+        left: 2%;
+        right: 5%;
+        height: 99%;
+        pointer-events: none;
+    }
+
+    &::before {
+        content: "";
+        border: 0.2rem solid $blueL;
+        border-radius: 0.25rem;
+        position: absolute;
+        top: 0;
+        left: 0%;
+        right: 4%;
+        height: 100%;
+        pointer-events: none;
+    }
+}
 
 $gap: 10px;
 
@@ -162,7 +224,7 @@ $gap: 10px;
     background: black;
     height: 30%;
 
-    [class*="news"] {
+    [class*="marquee"] {
         white-space: nowrap;
         text-transform: uppercase;
         animation: scroll 40s linear infinite;
@@ -179,19 +241,19 @@ $gap: 10px;
     padding: 1% 0;
 }
 
-[class*="news"] {
+[class*="marquee"] {
     color: transparent;
     background-image: url('~@/assets/image/index/giphy.gif');
     -moz-background-clip: text;
     -webkit-background-clip: text;
 }
 
-.news-en {
+.marquee-en {
     font-size: $p1-s;
     font-weight: 900;
 }
 
-.news-ch {
+.marquee-ch {
     font-size: $h2-s;
     font-weight: 900;
 }
@@ -215,7 +277,32 @@ $gap: 10px;
         transform: translateX(-200%)
     }
 }
+.news-container{
+    width: 70%;
+    margin: 10% auto;
+    padding: 0 5%;
+    background-color: #1F084E;
+    max-height: 400px;
+    overflow-y: scroll;
+}
 
+table.inside-bodrer.news-group {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 4rem;
+}
+
+.news-container td {
+   
+    padding: 3%;
+    font-size: $p1-l;
+    color: $white;
+    border: 1px solid $blue;
+}
+
+.news-date{
+    text-align: center;
+}
 
 .more {
     width: 100%;
@@ -521,8 +608,6 @@ h3 {
 }
 
 
-
-
 .vehicles-rwd-group {
     justify-content: center;
     padding-top: 20%;
@@ -551,68 +636,6 @@ h3 {
     height: 340px;
 }
 
-.outside-boder {
-    margin: 0 auto;
-    margin-bottom: 5%;
-    padding: 1.5%; //10.73px
-    border: 0.1rem solid $white; //3.3px
-    border-radius: 0.2rem; //10px
-    box-shadow: 0 0 1rem 0.2rem $blue; //40px 10px
-    position: relative;
-
-    &::before {
-        content: "";
-        border: 0.1rem solid $blue; //6.6px
-        border-radius: 0.1rem;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 100%;
-        pointer-events: none;
-    }
-
-    &::after {
-        content: "";
-        border: 0.4rem solid rgba(91, 19, 236, 20%); //10.73px
-        border-radius: 0.3rem; //6px
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 100%;
-        pointer-events: none;
-    }
-}
-
-$circle: 1.3rem;
-
-.inside-boder {
-    &::after {
-        content: "";
-        border: 0.3rem solid $blue; //12px
-        border-radius: 0.15rem;
-        filter: blur($circle/4);
-        position: absolute;
-        top: 0.4%;
-        left: 2%;
-        right: 5%;
-        height: 99%;
-        pointer-events: none;
-    }
-
-    &::before {
-        content: "";
-        border: 0.2rem solid $blueL;
-        border-radius: 0.25rem;
-        position: absolute;
-        top: 0;
-        left: 0%;
-        right: 4%;
-        height: 100%;
-        pointer-events: none;
-    }
-}
 
 .memberContent {
     width: 255px;

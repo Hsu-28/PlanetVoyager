@@ -5,7 +5,7 @@
       <div class="menu-p1">MENU</div>
     </div>
 
-    <router-link to="/">
+    <router-link to="/index">
       <img src="~@/assets/image/pvlogo.svg" alt="" class="indexLogo" v-show="headericon" router-link to="/">
     </router-link>
 
@@ -26,7 +26,7 @@
     <div class="menu-nav">
       <img src="~@/assets/image/headerfooter/close.svg" alt="" @click="closeMenuF" class="close-btn">
 
-      <router-link to="/" @click="closeMenuF">
+      <router-link to="/index" @click="closeMenuF">
         <img src="~@/assets/image/pvlogo.svg" alt="" class="indexLogo">
       </router-link>
 
