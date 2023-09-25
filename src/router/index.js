@@ -99,16 +99,6 @@ const routes = [
     name: 'registerv',
     component: () => import(/* webpackChunkName: "order" */ '../views/RegisterV.vue')
   },
-  
-  { path: '/:pathMatch(.*)*', 
-  name: 'NotFound', 
-  component: () => import(/* webpackChunkName: "error" */ '../views/NotFound.vue') 
-},
-  { 
-    path: '/:pathMatch(.*)*', 
-    name: 'NotFound', 
-    component: () => import(/* webpackChunkName: "error" */ '../views/NotFound.vue') 
-  },
   {
     path: '/loginSuccess',
     name: 'loginSuccess',
@@ -125,6 +115,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "order" */ '../views/ItineraryMoon.vue')
   },
   {
+    path: '/itineraryMoon2',
+    name: 'itineraryMoon2',
+    component: () => import(/* webpackChunkName: "order" */ '../views/ItineraryMoon2.vue')
+  },
+  {
     path: '/three',
     name: 'three',
     component: () => import(/* webpackChunkName: "order" */ '../views/Three.vue')
@@ -134,18 +129,36 @@ const routes = [
     name: 'itineraryMars',
     component: () => import(/* webpackChunkName: "order" */ '../views/ItineraryMars.vue')
   },
-  // {
-  //   path: '/itinerary',
-  //   name: 'itinerary',
-  //   component: () => import(/* webpackChunkName: "order" */ '../views/Itinerary.vue')
-  // },
+  {
+    path: '/itineraryMars2',
+    name: 'itineraryMars2',
+    component: () => import(/* webpackChunkName: "order" */ '../views/ItineraryMars2.vue')
+  },
+  {
+    path: '/itineraryVenus',
+    name: 'itineraryVenus',
+    component: () => import(/* webpackChunkName: "order" */ '../views/ItineraryVenus.vue')
+  },
+  {
+    path: '/itineraryVenus2',
+    name: 'itineraryVenus2',
+    component: () => import(/* webpackChunkName: "order" */ '../views/ItineraryVenus2.vue')
+  },
+  {
+    path: '/itineraryCombo',
+    name: 'itineraryCombo',
+    component: () => import(/* webpackChunkName: "order" */ '../views/ItineraryCombo.vue')
+  },
   {
     path: '/mars',
     name: 'mars',
     component: () => import(/* webpackChunkName: "order" */ '../views/OrderProcessMars.vue')
   },
-
-
+  { 
+    path: '/:pathMatch(.*)*', 
+    name: 'NotFound', 
+    component: () => import(/* webpackChunkName: "error" */ '../views/NotFound.vue') 
+  },
 ////-----------------後台-------------------------
 // {
 //   path: '/backstagelongin',
@@ -163,10 +176,25 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    // 始终滚動到顶部
+    return { top: 0 }
+  },
   });
-  
 
-
+  router.beforeEach((to, from) => {
+    // 檢查用户是否已登录 並 ❗️避免無限重定向
+    if(to.meta.requiresAuth && to.name !== 'login'){
+      const isAuth = localStorage.getItem('token')
+      console.log('檢查用户'+ isAuth);
+      if(isAuth){
+        // return '/about'
+        return true
+      }else{
+        return '/login'
+      }
+    }
+  })
 
 
 export default router
