@@ -5,7 +5,7 @@
       <div class="menu-p1">MENU</div>
     </div>
 
-    <router-link to="/index">
+    <router-link to="/">
       <img src="~@/assets/image/pvlogo.svg" alt="" class="indexLogo" v-show="headericon" router-link to="/">
     </router-link>
 
@@ -26,7 +26,7 @@
     <div class="menu-nav">
       <img src="~@/assets/image/headerfooter/close.svg" alt="" @click="closeMenuF" class="close-btn">
 
-      <router-link to="/index" @click="closeMenuF">
+      <router-link to="/" @click="closeMenuF">
         <img src="~@/assets/image/pvlogo.svg" alt="" class="indexLogo">
       </router-link>
 
@@ -138,8 +138,4 @@
 <style lang="scss" >
 @import "~@/assets/sass/component/headerFooter.scss";
 @import "~@/assets/sass/component/glitch.scss";
-</style>
-
-<style lang="scss" scoped>
-
 </style>

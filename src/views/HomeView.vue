@@ -97,9 +97,7 @@ export default {
   background-position: 50px 50%;
 }
 
-.allll {
-  z-index: 10000;
-}
+
 
 .bg img {
   position: absolute;

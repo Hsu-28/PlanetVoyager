@@ -6,11 +6,11 @@ import HomeView from '../views/HomeView.vue'
 
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },
+  // {
+  //   path: '/',
+  //   name: 'home',
+  //   component: HomeView
+  // },
   {
     path: '/aboutus',
     name: 'AboutUs',
@@ -41,7 +41,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "Login" */ '../views/Login.vue')
   },
   {
-    path: '/index',
+    path: '/',
     name: 'index',
     component: () => import(/* webpackChunkName: "Index" */ '../views/Index.vue')
   },
@@ -109,46 +109,46 @@ const routes = [
     name: 'loginFail',
     component: () => import(/* webpackChunkName: "order" */ '../views/LoginFail.vue')
   },
-  {
-    path: '/itineraryMoon',
-    name: 'itineraryMoon',
-    component: () => import(/* webpackChunkName: "order" */ '../views/ItineraryMoon.vue')
-  },
-  {
-    path: '/itineraryMoon2',
-    name: 'itineraryMoon2',
-    component: () => import(/* webpackChunkName: "order" */ '../views/ItineraryMoon2.vue')
-  },
+  // {
+  //   path: '/itineraryMoon',
+  //   name: 'itineraryMoon',
+  //   component: () => import(/* webpackChunkName: "order" */ '../views/ItineraryMoon.vue')
+  // },
+  // {
+  //   path: '/itineraryMoon2',
+  //   name: 'itineraryMoon2',
+  //   component: () => import(/* webpackChunkName: "order" */ '../views/ItineraryMoon2.vue')
+  // },
   {
     path: '/three',
     name: 'three',
     component: () => import(/* webpackChunkName: "order" */ '../views/Three.vue')
   },
-  {
-    path: '/itineraryMars',
-    name: 'itineraryMars',
-    component: () => import(/* webpackChunkName: "order" */ '../views/ItineraryMars.vue')
-  },
-  {
-    path: '/itineraryMars2',
-    name: 'itineraryMars2',
-    component: () => import(/* webpackChunkName: "order" */ '../views/ItineraryMars2.vue')
-  },
-  {
-    path: '/itineraryVenus',
-    name: 'itineraryVenus',
-    component: () => import(/* webpackChunkName: "order" */ '../views/ItineraryVenus.vue')
-  },
-  {
-    path: '/itineraryVenus2',
-    name: 'itineraryVenus2',
-    component: () => import(/* webpackChunkName: "order" */ '../views/ItineraryVenus2.vue')
-  },
-  {
-    path: '/itineraryCombo',
-    name: 'itineraryCombo',
-    component: () => import(/* webpackChunkName: "order" */ '../views/ItineraryCombo.vue')
-  },
+  // {
+  //   path: '/itineraryMars',
+  //   name: 'itineraryMars',
+  //   component: () => import(/* webpackChunkName: "order" */ '../views/ItineraryMars.vue')
+  // },
+  // {
+  //   path: '/itineraryMars2',
+  //   name: 'itineraryMars2',
+  //   component: () => import(/* webpackChunkName: "order" */ '../views/ItineraryMars2.vue')
+  // },
+  // {
+  //   path: '/itineraryVenus',
+  //   name: 'itineraryVenus',
+  //   component: () => import(/* webpackChunkName: "order" */ '../views/ItineraryVenus.vue')
+  // },
+  // {
+  //   path: '/itineraryVenus2',
+  //   name: 'itineraryVenus2',
+  //   component: () => import(/* webpackChunkName: "order" */ '../views/ItineraryVenus2.vue')
+  // },
+  // {
+  //   path: '/itineraryCombo',
+  //   name: 'itineraryCombo',
+  //   component: () => import(/* webpackChunkName: "order" */ '../views/ItineraryCombo.vue')
+  // },
   {
     path: '/mars',
     name: 'mars',

@@ -79,7 +79,7 @@ $transition-fast: .2s cubic-bezier(.77, 0, .175, 1);
   overflow: hidden;
 	position: relative;
   width: 100px;
-  z-index: 999;
+  z-index: 5;
 }
 
 .c-glitch__img {
@@ -338,3 +338,55 @@ $transition-fast: .2s cubic-bezier(.77, 0, .175, 1);
 	}
 }
 
+
+@media screen and (max-width: 580px)  {
+.c-glitch{
+	display: none;
+}
+}
+
+// 加了這下面之後  就不能閃爍 奇怪
+
+
+
+// .c-glitch{
+//     height: 100px;
+//     margin: 0 auto;
+//     overflow: hidden;
+//     position: relative;
+//     width: 100px;
+//     z-index: 5;	
+// 	display: none;
+// }
+
+// @media screen and (min-width: 580px)  {
+
+// .c-glitch,
+// .c-glitch__img{
+	
+//     height: 80px;
+//     margin: 0 auto;
+//     overflow: hidden;
+//     position: relative;
+//     width: 80px;
+//     z-index: 5;	
+// 	display: block;
+// }
+
+// }
+
+// @media screen and (min-width: 768px)  {
+
+// 	.c-glitch,
+// 	.c-glitch__img{
+// 		height: 100px;
+// 		margin: 0 auto;
+// 		overflow: hidden;
+// 		position: relative;
+// 		width: 100px;
+// 		z-index: 5;	
+// 		display: block;
+// 	}
+	
+// 	}
+	
