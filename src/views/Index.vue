@@ -50,30 +50,37 @@
             <div class="marquee">
                 <div class="scroll">
                     <span class="marquee-en">&nbsp; NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS
-                        NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS</span>
+                        NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS
+                        NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS</span>
                     <span class="marquee-en">&nbsp; NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS
-                        NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS</span>
+                        NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS
+                        NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS</span>
                 </div>
             </div>
             <div class="marquee">
                 <div class="scroll scroll-ch">
-                    <span class="marquee-ch">&nbsp; 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息</span>
-                    <span class="marquee-ch">最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息</span>
+                    <span class="marquee-ch">&nbsp; 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息
+                        最新消息 最新消息 最新消息 最新消息 最新消息 最新消息</span>
+                    <span class="marquee-ch">最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息 最新消息
+                        最新消息 最新消息 最新消息 最新消息</span>
                 </div>
             </div>
             <div class="marquee">
                 <div class="scroll">
                     <span class="marquee-en">&nbsp; NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS
-                        NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS</span>
+                        NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS
+                        NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS</span>
                     <span class="marquee-en">&nbsp; NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS
-                        NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS</span>
+                        NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS
+                        NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS</span>
                 </div>
             </div>
             <div>
                 <div class="outside-border news-container">
                     <table class="inside-bodrer news-group">
                         <tbody>
-                            <tr v-for="(news, number) in news" :key="number" :class="{ 'active': activeId === news.id }">
+                            <tr v-for="(news, number) in news" :key="number" :class="{ 'active': activeId === news.id }"
+                                class="news-tr">
                                 <td class="news-title" @click="activeId = news.id">{{ news.title }}</td>
                                 <td class="news-date" @click="activeId = news.id">{{ news.date }}</td>
                             </tr>
@@ -83,12 +90,14 @@
                 <div v-for="(news, number) in news" :key="number" v-show="activeId === news.id" class="more">
                     <div class="more-inf">
                         <div class="more-base">
-                            <span class="close" @click="hideMore">&times</span>
-                            <img class="more-img" :src="news.img" :alt="news.title">
-                            <p class="more-text">
-                                <span>{{ news.title }}</span>
-                            <p v-html="news.info"></p>
-                            </p>
+                            <div class="more-base-scroll">
+                                <span class="close" @click="hideMore">&times</span>
+                                <img class="more-img" :src="news.img" :alt="news.title">
+                                <p class="more-text">
+                                    <span>{{ news.title }}</span>
+                                <p v-html="news.info"></p>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
