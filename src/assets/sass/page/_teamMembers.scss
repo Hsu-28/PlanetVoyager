@@ -1,3 +1,10 @@
+
+@mixin mobileBSb{
+    @media(max-width:450px){
+      @content;
+    }
+  }
+
 .bigImg {
     margin-top: 20px;
     position: relative;
@@ -25,7 +32,7 @@
             font-size: 24px;
         }
 
-        @include mobileBS {
+        @include mobileBSb {
             font-size: 20px;
         }
     }
@@ -60,7 +67,7 @@
             font-size: 20px;
         }
 
-        @include mobileBS {
+        @include mobileBSb {
             font-size: 16px;
         }
 
@@ -84,7 +91,7 @@
                     font-size: $h2-m;
                 }
 
-                @include mobileBS {
+                @include mobileBSb {
                     font-size: $h2-s;
                     padding-left: 30px;
                 }
@@ -107,7 +114,7 @@
                     margin-bottom: 20px;
                 }
 
-                @include mobileBS {
+                @include mobileBSb {
                     width: 80%;
                     font-size: $p1-s;
                     min-width: 100px;
@@ -127,7 +134,7 @@
                     font-size: $h2-m;
                 }
 
-                @include mobileBS {
+                @include mobileBSb {
                     font-size: $p2-s;
                 }
             }
@@ -138,7 +145,7 @@
             display: flex;
             justify-content: space-between;
 
-            @include mobileBS {
+            @include mobileBSb {
                 flex-direction: column;
                 align-items: center;
             }
@@ -159,7 +166,7 @@
 
                 }
 
-                @include mobileBS {
+                @include mobileBSb {
                     margin-top: 30px;
                     width: 90%;
                     border-radius: 10px 10px 20px 10px;
@@ -197,7 +204,7 @@
                         margin: 20px 8.7% 10px 8.7%;
                     }
 
-                    // @include mobileBS{
+                    // @include mobileBSb{
                     //     margin: 10px 8.7% 6px 8.7%;
                     // }
                     p:first-child {
@@ -207,7 +214,7 @@
                             font-size: $p2-m;
                         }
 
-                        @include mobileBS {
+                        @include mobileBSb {
                             font-size: $h2-s;
                         }
 
@@ -224,7 +231,7 @@
                             font-size: $rc2;
                         }
 
-                        @include mobileBS {
+                        @include mobileBSb {
                             font: size $rc1;
                         }
                     }
@@ -248,7 +255,7 @@
                             height: 20px;
                         }
 
-                        @include mobileBS {
+                        @include mobileBSb {
                             top: 25px;
                             font-size: 12px;
                             height: 25px;
@@ -306,7 +313,7 @@
                     max-width: 90%;
                 }
 
-                @include mobileBS {
+                @include mobileBSb {
                     width: 95%;
                     padding: 10px;
                 }
@@ -329,7 +336,7 @@
                         right: 0px;
                     }
 
-                    @include mobileBS {
+                    @include mobileBSb {
                         top: 3px;
                         right: -2px;
                         padding: 2px 10px;
@@ -346,7 +353,7 @@
                         font-size: 20px;
                     }
 
-                    @include mobileBS {
+                    @include mobileBSb {
                         font-size: 20px;
                     }
 
@@ -363,7 +370,7 @@
                             width: 270px;
                         }
 
-                        @include mobileBS {
+                        @include mobileBSb {
                             width: 80%;
                         }
 
@@ -386,7 +393,7 @@
                             font-size: $p1-m;
                         }
 
-                        @include mobileBS {
+                        @include mobileBSb {
                             font-size: $p1-s;
                         }
                     }

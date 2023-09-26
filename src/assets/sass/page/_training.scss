@@ -1,3 +1,10 @@
+
+  @mixin mobileBSb{
+    @media(max-width:450px){
+      @content;
+    }
+  }
+
 #all {
     width: 90%;
     max-width: 1200px;
@@ -36,7 +43,7 @@
                 font-size: 24px;
             }
 
-            @include mobileBS {
+            @include mobileBSb {
                 font-size: 20px;
             }
         }
@@ -55,7 +62,7 @@
                 font-size: 20px;
             }
 
-            @include mobileBS {
+            @include mobileBSb {
                 font-size: 16px;
             }
 
@@ -71,7 +78,7 @@
             width: 80%;
         }
 
-        @include mobileBS {
+        @include mobileBSb {
             width: 100%;
         }
 
@@ -106,7 +113,7 @@
                         font-size: $p2-s;
                     }
 
-                    @include mobileBS {
+                    @include mobileBSb {
                         font-size: 12px;
                     }
 
@@ -157,7 +164,7 @@
 
             }
 
-            @include mobileBS {
+            @include mobileBSb {
                 margin-top: 30px;
                 margin-bottom: 40px;
             }
@@ -167,7 +174,7 @@
             display: flex;
             justify-content: space-between;
 
-            @include mobileBS {
+            @include mobileBSb {
                 flex-direction: column;
                 align-items: center;
             }
@@ -183,7 +190,7 @@
 
                 @include padBS {}
 
-                @include mobileBS {
+                @include mobileBSb {
 
                     margin-bottom: 30px;
                 }
@@ -255,7 +262,7 @@
 
                         }
 
-                        @include mobileBS {
+                        @include mobileBSb {
                             font-size: $p1-l;
                             width: 100%;
                         }
