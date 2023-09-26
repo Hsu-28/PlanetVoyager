@@ -16,7 +16,7 @@
                     <div class="schedule schedule1">
                         <div class="schedule-text">
                             <h3>Day1 旅程啟航！</h3>
-                            <p>從地球啟程後可飽覽星際風光， 飛行二十小時後，
+                            <p>從地球啟程後可飽覽星際風光，飛行二十小時後，
                                 我們會抵達偉諭航空站，稍作休息後再前往金星。</p>
                         </div>
                         <div class="schedule-pic">
@@ -205,7 +205,12 @@ export default {
 //     }ackground
 
 #itinerary {
-
+    .img{
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        max-width: 100%;
+    }
     .schedule-big-pic {
         opacity: 0;
     }
@@ -259,7 +264,7 @@ export default {
         height: 100vh;
         display: flex;
         // margin-left: 10vh;
-        padding: 5vh 5vh 0vh 0vh;
+        padding: 15vh 5vh 0vh 0vh;
         overflow: visible;
         &:first-child{
             padding-left: 40vh;
@@ -277,8 +282,25 @@ export default {
             margin-left: 5vh;
 
             .schedule-text {
+            border: 1px solid $blueL;
+            border-radius: 10px;
+            padding: 40px;
+
+            h3 {
+                    color: $blueL;
+                }
+
                 position: relative;
-            }
+
+                &:after {
+                    position: absolute;
+                }
+
+                p {
+                    word-break: break-all;
+                    white-space: initial;
+                }
+        }
 
             .schedule-text::after {
                 position: absolute;
