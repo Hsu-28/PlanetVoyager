@@ -70,8 +70,8 @@
                 </div>
             </div>
             <div>
-                <div class="outside-border news-container ">
-                    <table class="inside-bodrer news-group ">
+                <div class="outside-border news-container">
+                    <table class="inside-bodrer news-group">
                         <tbody>
                             <tr v-for="(news, number) in news" :key="number" :class="{ 'active': activeId === news.id }">
                                 <td class="news-title" @click="activeId = news.id">{{ news.title }}</td>
