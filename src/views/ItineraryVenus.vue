@@ -466,8 +466,19 @@ body {
             padding: 40px;
 
             h3 {
-                color: $blueL;
-            }
+                    color: $blueL;
+                }
+
+                position: relative;
+
+                &:after {
+                    position: absolute;
+                }
+
+                p {
+                    word-break: break-all;
+                    white-space: initial;
+                }
         }
 
         .schedule-pic {

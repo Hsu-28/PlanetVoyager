@@ -23,8 +23,8 @@
         </div>
         <form action="">
           <P>請輸入信箱與密碼</P>
-          <input type="email" v-model="userid" @input="updateValue" placeholder="信箱"/><br>
-          <input type="password" v-model="userpswvv" @input="updateValue" placeholder="密碼"/>
+          <input type="email" v-model="username" placeholder="信箱"/><br>
+          <input type="password" v-model="pswdddv" placeholder="密碼"/>
           <button class="cybr-btn" @click="signin">登入<span aria-hidden class="cybr-btn__glitch">登入</span><span aria-hidden class="cybr-btn__tag">&emsp;&emsp;-PV-</span></button>
           <p class="go-register">還沒有帳戶嗎？<router-link to="/register"><span>註冊一個吧！</span></router-link></p>
           <p>忘記密碼</p>
@@ -34,16 +34,15 @@
   </div>  
   </template>
   <script>
-  import Cookies from 'js-cookie';
     export default {
       data() {
     return {
-      userid: '',
-      userpswvv: '',
-      token: '',
-      useridtrue: 'test@gmail.com',
-      userpswtrue: '1111',
-      headericon: false,
+      // userid: '',
+      // userpswvv: '',
+      // token: '',
+      // useridtrue: 'test@gmail.com',
+      // userpswtrue: '1111',
+      // headericon: false,
 
       //test
       username:'mor_2314',
@@ -84,24 +83,9 @@
             .catch(error=>{
 				console.error(json)
 				//....
+        this.$router.push('/loginFail')
 			})
-    //   fetch('https://fakestoreapi.com/auth/login',{
-    //         method:'POST',
-    //         body:JSON.stringify({
-    //             username: "mor_2314",
-    //             password: "83r5^_"
-    //         })
-    //     })
-    //         .then(res=>res.json())
-    //         .then(json=>{
-    //           if(json.token){
-    //             localStorage.setItem('token', json.token)
-    //             this.$router.push('loginSuccess')
-    //           }
-    //         })
-    //       }
-
-    // },
+   
   },
 //   {
 //   handleLogin() {

@@ -20,19 +20,19 @@
                                 我們會抵達偉諭航空站，稍作休息後再前往火星。</p>
                         </div>
                         <div class="schedule-pic">
-                            <div class="image-box" @click="showPic1">
+                            <div class="image-box" @click="showPic1($event)">
                                 <img src='https://picsum.photos/100/100'>
                             </div>
-                            <div class="image-box"  @click="showPic1">
+                            <div class="image-box"  @click="showPic1($event)">
                                 <img src='https://picsum.photos/100/100'>
                             </div>
-                            <div class="image-box"  @click="showPic1">
+                            <div class="image-box" @click="showPic1($event)">
                                 <img src='https://picsum.photos/100/100'>
                             </div>
                         </div>
                     </div>
                     <div class="schedule-big-pic">
-                        <img src='' id="bigpic1" >
+                        <img :src='bigpic1'>
                     </div>
                 </div>
             </div>
@@ -178,12 +178,13 @@ export default {
     data() {
         return {
             scrollInstance: null,
-            showFooter: true
+            showFooter: true,
+            bigpic1:''
         }
     },
     methods: {
         showPic1(e) {
-            document.getElementById("bigpic1").src = e.target.src;
+            this.bigpic11 = e.target.src;
         },
     },
     // methods:{
@@ -227,11 +228,6 @@ export default {
 
 
 <style scoped lang="scss">
-//   body{
-//         overflow: hidden;
-
-//     }ackground
-
 #itinerary {
 
     .schedule-big-pic {
@@ -316,6 +312,20 @@ export default {
 
             .schedule-text {
                 position: relative;
+                h3 {
+                    color: $blueL;
+                }
+
+                position: relative;
+
+                &:after {
+                    position: absolute;
+                }
+
+                p {
+                    word-break: break-all;
+                    white-space: initial;
+                }
             }
 
             .schedule-text::after {
