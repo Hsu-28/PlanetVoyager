@@ -51,6 +51,7 @@
     position: absolute;
     width: 30px;
     bottom: -23px;
+    z-index: 1;
 
     @keyframes pulse-1 {
         0% {
@@ -588,6 +589,14 @@ td a:hover {
     top: -57px;
 }
 
+.video {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    align-items: center;
+}
 
 #myVideo {
     // position: fixed;
@@ -596,6 +605,22 @@ td a:hover {
     width: 100%;
     min-height: 100%;
     cursor: url("../assets/image/aboutUs/circle.ico"), auto;
+}
+
+.video-txt {
+    text-align: center;
+    position: absolute;
+}
+
+.video-txt p {
+    color: #fff;
+    font-size: $h2-m;
+    line-height: 2;
+    font-weight: 700;
+}
+
+.video-txt {
+    margin: auto;
 }
 
 // -------------公司介紹輪播-------------
@@ -759,6 +784,10 @@ td a:hover {
     }
 
     #myVideo {
+        display: none;
+    }
+
+    .video-txt {
         display: none;
     }
 
@@ -930,6 +959,10 @@ td a:hover {
     }
 
     #myVideo {
+        display: none;
+    }
+
+    .video-txt {
         display: none;
     }
 
