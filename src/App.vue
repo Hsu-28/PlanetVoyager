@@ -137,8 +137,5 @@
 
 <style lang="scss" >
 @import "~@/assets/sass/component/headerFooter.scss";
-</style>
-
-<style scoped lang="scss">
 @import "~@/assets/sass/component/glitch.scss";
 </style>
