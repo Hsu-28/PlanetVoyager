@@ -8,9 +8,18 @@
     <div class="down">
         <img src="../assets/image/aboutUs/about-down.svg" alt="">
     </div>
-    <video autoplay muted loop id="myVideo">
-        <source src="../assets/image/aboutUs/universe.mp4" type="video/mp4">
-    </video>
+    <div class="video">
+        <video autoplay muted loop id="myVideo">
+            <source src="../assets/image/aboutUs/universe.mp4" type="video/mp4">
+        </video>
+        <div class="video-txt">
+            <p>
+                我們相信太空是無限的冒險，<br>
+                是無盡的奧秘，<br>
+                PlanetVoyager為您打開太空的大門。
+            </p>
+        </div>
+    </div>
     <div class="about">
         <section class="founder">
             <div class="title">
