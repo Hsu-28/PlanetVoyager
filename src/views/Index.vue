@@ -4,7 +4,7 @@
             <img src="~@/assets/image/index/banner.svg" alt="banner圖片">
         </h1>
         <section class="arrow">
-            <button><img class="clickdown" src="~@/assets/image/index/clickdown.svg" alt="向下引導箭頭"></button>
+            <img class="clickdown" src="~@/assets/image/index/clickdown.svg" alt="向下引導箭頭">
         </section>
         <section>
             <div class="landing-title">
