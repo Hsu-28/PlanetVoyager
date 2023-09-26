@@ -37,9 +37,13 @@
 
         p {
             font-size: 22px;
-            line-height: 2;
-            text-align: center;
-            background-color: #ffffff5c;
+            line-height: 1.5;
+            // text-align: center;
+            background-color: #ffffff30;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px 40px;
+            border-radius: 10px;
 
             @include padBS {
                 font-size: 20px;
@@ -163,8 +167,8 @@
             }
 
             .PreparationItem {
-                line-height: 1.2;
-                letter-spacing: 4px;
+                line-height: 1.5;
+                // letter-spacing: 4px;
 
                 margin: 0;
                 box-sizing: border-box;
@@ -263,6 +267,6 @@
     }
 }
 
-.pre-formatted {
+.br {
     white-space: pre-line;
 }
