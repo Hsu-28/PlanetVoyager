@@ -108,11 +108,11 @@
           <br>Choose Itinerary
         </h4>
       </div>
-      <div class="itinerary-d" @click="chose0" :class="{'chosen':Chosen0}">
+      <div class="itinerary-d" @click="af" :class="{ 'chosen': A }">
         <img src="@/assets/image/orderProcess/z.svg" alt="">
         月球巡禮
       </div>
-      <div class="itinerary-d">
+      <div class="itinerary-d" @click="bf" :class="{ 'chosen': B }">
         <img src="@/assets/image/orderProcess/z.svg" alt="">
         太空之心
       </div>
@@ -125,37 +125,37 @@
         </div>
       </div>
       <div class="inR">
-        <div class="itinerary-d" @click="chose" :class="{'chosen':Chosen}">
+        <div class="itinerary-d" @click="j1f" :class="{ 'chosen': j1C }">
           <h5>航程日期: </h5>
-          <p>2023/ 11/1~11/10</p>
+          <p>{{j1[0]}}</p>
           <h5>訓練日期:</h5>
-          <p>2023/ 10/30~10/31</p>
+          <p>{{j1[2]}}</p>
 
-          <p class="space">團位: 10 可售: {{amount}} 候補: 0</p>
+          <p class="space">團位: 10 可售: {{ j1[1] }} 候補: 0</p>
         </div>
-        <div class="itinerary-d" @click="chose1" :class="{'chosen':Chosen1}">
+        <div class="itinerary-d" @click="j2f" :class="{ 'chosen': j2C }">
           <h5>航程日期: </h5>
-          <p>2023/ 11/1~11/10</p>
+          <p>{{j2[0]}}</p>
           <h5>訓練日期:</h5>
-          <p>2023/ 10/30~10/31</p>
+          <p>{{j2[2]}}</p>
 
-          <p class="space">團位: 10 可售: 2 候補: 0</p>
+          <p class="space">團位: 10 可售: {{j2[1]}} 候補: 0</p>
         </div>
-        <div class="itinerary-d">
+        <div class="itinerary-d" @click="j3f" :class="{ 'chosen': j3C }">
           <h5>航程日期: </h5>
-          <p>2023/ 11/1~11/10</p>
+          <p>{{j3[0]}}</p>
           <h5>訓練日期:</h5>
-          <p>2023/ 10/30~10/31</p>
+          <p>{{j3[2]}}</p>
 
-          <p class="space">團位: 10 可售: 2 候補: 0</p>
+          <p class="space">團位: 10 可售: {{j3[1]}}候補: 0</p>
         </div>
-        <div class="itinerary-d">
+        <div class="itinerary-d" @click="j4f" :class="{ 'chosen': j4C }">
           <h5>航程日期: </h5>
-          <p>2023/ 11/1~11/10</p>
+          <p>{{j4[0]}}</p>
           <h5>訓練日期:</h5>
-          <p>2023/ 10/30~10/31</p>
+          <p>{{j4[2]}}</p>
 
-          <p class="space">團位: 10 可售: 2 候補: 0</p>
+          <p class="space">團位: 10 可售: {{j4[1]}} 候補: 0</p>
         </div>
       </div>
     </section>
@@ -171,111 +171,49 @@
   </section>
 
 
-
   <section class="passengerInfo">
 
 
-    <section class="order-info">
-      <div class="p-num">
-        乘客人數:
-        <select name="" id="" v-model="currentAmount">
-            <option v-for="item in options" :value="item.num" > {{ item.num }} </option>
-          </select>
-      </div>
-
-      <div class="order-i">
-
-        <h4>旅客1</h4>
-        <input type="text" placeholder="姓氏(請以英文輸入)">
-        <input type="text" placeholder="名字">
-        <input type="text" placeholder="性別">
-        <input type="text" placeholder="出生日期">
-        <input type="text" placeholder="國籍">
-        <input type="text" placeholder="護照號碼">
-        <div class="c-s">
-          <div class="clothe">訓練服尺寸:
-            <div class="chose-size">
-              <select name="" id="" placeholder="訓練服尺寸">
-                <option value="">S</option>
-                <option value="">M</option>
-                <option value="">L</option>
-                <option value="">XL</option>
-              </select>
-            </div>
-          </div>
-          <div class="status">
-            旅位狀態
-          </div>
-        </div>
-
-
-        <div class="remark">
-          餐食備註:<br>
-          <textarea name="" id="" cols="50" rows="10" class="remark-t">
-
-        </textarea>
-        </div>
-
-        <div class="check">
-          <input type="checkbox">我已經詳閱健康規定與訂購注意事項。
-        </div>
-        <button class="upload"> 上傳體檢報告</button>
-      </div>
-
-      <div class="order-s">
-        <div class="order-c">
-          <h4>選擇艙位</h4>
-          <p>Choose Cabin Seat</p>
-        </div>
-        <div class="cabin">
-          <div class="cabin-all">
-            <div class="cabin-per"></div>
-            <div class="cabin-per"></div>
-            <div class="cabin-per"></div>
-            <div class="cabin-per"></div>
-            <div class="cabin-per"></div>
-            <div class="cabin-per"></div>
-            <div class="cabin-per"></div>
-            <div class="cabin-per"></div>
-            <div class="cabin-per"></div>
-            <div class="cabin-per"></div>
-
-          </div>
-
-        </div>
-
-
-      </div>
-    </section>
-
-    
-    <div class="order-detail">
-      <div class="order-card">
-        <h4>ORDER DETAIL</h4>
-        <div class="order-title">{月球登入}</div>
-        <div class="order-num">
-          <p>旅客人數: {2}</p>
-        </div>
-        <div class="order-money">
-          <p>總金額: {7,000,000台幣}</p>
-        </div>
-        <div class="order-date">
-          <p>航程日期: {2023/ 11/1~11/10}</p>
-        </div>
-        <div class="click">
-          <ButtonFlashBox :buttonText="'捐款參加抽獎！'" :buttonBottomText="'-pv-'" class="kkss"></ButtonFlashBox>
-        </div>
-
-      </div>
-      <div class="exchange-rate">
-        <div>快速換算:<input type="text" placeholder="7000,000">台幣 </div>
-        <div>日幣:{7000,000} </div>
-        <div>歐元:{7000,000} </div>
-        <div>美金:{7000,000} </div>
-
-      </div>
-    </div>
+<section class="order-info">
+  <div class="p-num">
+    乘客人數:
+    <select name="" id="" v-model="currentAmount">
+      <option v-for="item in options" :value="item.num"> {{ item.num }} </option>
+    </select>
+  </div>
+  <section >
+    <orderList v-for="n in currentAmount" :key="n" :numOrder="n" :status="'正取'"></orderList>
   </section>
+
+</section>
+
+<div class="order-detail">
+  <div class="order-card">
+    <h4>ORDER DETAIL</h4>
+    <div class="order-title">{{journey}}</div>
+    <div class="order-num">
+      <p>旅客人數: {{currentAmount}} 人</p>
+    </div>
+    <div class="order-money">
+      <p>總金額: {{600*currentAmount}} 萬美金 </p>
+    </div>
+    <div class="order-date">
+      <p>航程日期: {{date}}</p>
+    </div>
+    <div class="click">
+      <ButtonFlashBox :buttonText="'確認訂購'" :buttonBottomText="'-pv-'" class="kkss"></ButtonFlashBox>
+    </div>
+
+  </div>
+  <div class="exchange-rate">
+    <div>快速換算:<input type="number" placeholder="7000,000">台幣 </div>
+    <div>日幣:{7000,000} </div>
+    <div>台幣:{7000,000} </div>
+
+  </div>
+</div>
+</section>
+
 
   <!-- <h1>{{ one }}</h1>
   <hr>

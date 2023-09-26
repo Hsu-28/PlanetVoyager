@@ -1,4 +1,4 @@
-#all{
+#all {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
@@ -11,240 +11,268 @@
        
          color: $white;
 
-        .bigTitle{
-            &>p{
+    .Preparation {
+        margin: 0 auto;
+        margin-top: 120px;
+
+        color: $white;
+
+        .bigTitle {
+            &>span {
                 font-weight: 500;
 
             }
+
             font-size: $h1-l;
             text-align: center;
             font-weight: 700;
-              margin-bottom: 60px;
-            p{
+            margin-bottom: 60px;
+
+            span {
                 font-size: $h1-l;
             }
-            @include padBS{
+
+            @include padBS {
                 font-size: 24px;
             }
-            @include mobileBS{
+
+            @include mobileBS {
                 font-size: 20px;
             }
         }
-        p{
-            font-size: 24px;
-            @include padBS{
+
+        p {
+            font-size: 22px;
+            line-height: 1.5;
+            // text-align: center;
+            background-color: #ffffff30;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px 40px;
+            border-radius: 10px;
+
+            @include padBS {
                 font-size: 20px;
             }
-            @include mobileBS{
+
+            @include mobileBS {
                 font-size: 16px;
             }
 
         }
     }
-   
-    .buttonContainer{
+
+    .buttonContainer {
         margin: 120px auto;
         max-width: 770px;
-        width: 64.1%;  
-        @include padBS{
-            width: 80%; 
-                    }
-        @include mobileBS{
-            width: 100%; 
+        width: 64.1%;
+
+        @include padBS {
+            width: 80%;
         }
-        ul{
+
+        @include mobileBS {
+            width: 100%;
+        }
+
+        ul {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-                li{
-                    width: 30%;
-                  
-                    .buttonAll{
-                        cursor: pointer;
-                        position: relative;
-                        border: 1.3px solid $white;
-                        border-radius: 9px;
-                        box-shadow: inset -1px  -1px 10px 10px rgba(91, 19, 236, 20%),
-                                    inset -1px  -1px 10px 5px rgba(91, 19, 236, 80%), 
-                                    inset 2px  2px 10px 2px rgba(91, 19, 236, 90%),
-                                    2px  -4px 10px 2px rgb(91, 19, 236 ), 
-                                     0px 2.525px 8.4825px 0px #06F, 
-                                     -0.42412px 0.84825px 0.42412px 0px rgba(255, 255, 255, 0.50);                                                         
-                        background: rgba(62, 62, 62, 0.50);
-                        max-width: 237.6px;
-                        width: 100%;
-                        height: 75.6px;
-                        color: $white;
-                        text-align: center;
-                        align-items: center;
-                        @include padBS{
-                            font-size: $p2-s;
-                        }
-                        @include mobileBS{
-                            font-size: 12px;
-                        }
-                    
-                                
-                        } 
 
-                                        
-                        .buttonAll::after{
-                        content: "";
-                        position: absolute;
-                        z-index: -1;
-                        box-sizing: border-box;
-                        top: -4px;    
-                        left: -4px;   
-                        right: -4px;  
-                        bottom: -4px;
-                        border-radius: 9px;
-                        border: 6px solid #5B13EC;
-                        filter: blur(0.32625001668930054px);
+            li {
+                width: 30%;
 
-
-                        }  
-
-                    .buttonAll:hover{
-                            // background:   rgba(91, 19, 236, 50%),
-                            background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, 
-                                        rgba(0, 0, 0, 0.20) 100%),
-                                        rgba(91, 19, 236, 0.50);
-                    }
-                }
-          
-
-        }
-        
-    }
-    .PreparationAll{
-     width: 100%;
-
-        .H2Style{
-            margin-top: 100px;
-            margin-bottom: 70px;
-            @include padBS{
-                            
-                margin-top: 80px;
-                margin-bottom: 60px;
-
-            }
-            @include mobileBS{
-                margin-top: 30px;
-                margin-bottom: 40px;
-            }
-        }
-        
-        .item-flex{
-            display: flex;
-            justify-content: space-between;
-            @include mobileBS{
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .PreparationItem{ 
-                line-height: 1.2;
-                letter-spacing:4px;
-             
-                margin: 0;
-                box-sizing: border-box;
-                z-index: 5;
-                width: 280px;
-                @include padBS{
-                            
-                      
-                }
-                @include mobileBS{
-             
-                    margin-bottom: 30px;
-                }
-
-               
-                  
-                .imgSvg{
+                .buttonAll {
+                    cursor: pointer;
                     position: relative;
-                    display: flex;
-                    justify-content: center; 
-                    align-items: center; 
-                    width:90% ;
-                    max-width: 280px;
-                    // height:calc(100% + 15px);
                     border: 1.3px solid $white;
-                    border-radius: 5px;
-                    box-shadow: inset -1px  -1px 10px 10px rgba(91, 19, 236, 20%),
-                        inset -1px  -1px 10px 5px rgba(91, 19, 236, 40%), 
-                        inset 2px  -4px 10px 2px rgba(91, 19, 236, 90%),
-                        2px  -4px 15px 5px rgb(91, 19, 236 ), 
-                         0px 2.525px 8.4825px 0px #06F, 
-                         -0.42412px 0.84825px 0.42412px 0px rgba(255, 255, 255, 0.50);         
-                      
-                        img{
-                            width: 90%;
-                            margin:  5% auto;
-                            max-width: 250px;
-                        }         
-                      
+                    border-radius: 9px;
+                    box-shadow: inset -1px -1px 10px 10px rgba(91, 19, 236, 20%),
+                        inset -1px -1px 10px 5px rgba(91, 19, 236, 80%),
+                        inset 2px 2px 10px 2px rgba(91, 19, 236, 90%),
+                        2px -4px 10px 2px rgb(91, 19, 236),
+                        0px 2.525px 8.4825px 0px #06F,
+                        -0.42412px 0.84825px 0.42412px 0px rgba(255, 255, 255, 0.50);
+                    background: rgba(62, 62, 62, 0.50);
+                    max-width: 237.6px;
+                    width: 100%;
+                    height: 75.6px;
+                    color: $white;
+                    text-align: center;
+                    align-items: center;
+
+                    @include padBS {
+                        font-size: $p2-s;
+                    }
+
+                    @include mobileBS {
+                        font-size: 12px;
+                    }
+
+
                 }
 
-                .imgSvg::after{
+
+                .buttonAll::after {
                     content: "";
                     position: absolute;
                     z-index: -1;
                     box-sizing: border-box;
-                    top: -4px;    /* 根據您的需求調整 */
-                    left: -4px;   /* 根據您的需求調整 */
-                    right: -4px;  /* 根據您的需求調整 */
+                    top: -4px;
+                    left: -4px;
+                    right: -4px;
                     bottom: -4px;
                     border-radius: 9px;
                     border: 6px solid #5B13EC;
-                    // filter: blur(0.32625001668930054px);
-                
-                }  
-                
-                  
+                    filter: blur(0.32625001668930054px);
 
-                .PreparationText{
-                    max-width: 270px;
+
+                }
+
+                .buttonAll:hover {
+                    // background:   rgba(91, 19, 236, 50%),
+                    background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%,
+                            rgba(0, 0, 0, 0.20) 100%),
+                        rgba(91, 19, 236, 0.50);
+                }
+            }
+
+
+        }
+
+    }
+
+    .PreparationAll {
+        width: 100%;
+
+        .H2Style {
+            margin-top: 100px;
+            margin-bottom: 70px;
+
+            @include padBS {
+
+                margin-top: 80px;
+                margin-bottom: 60px;
+
+            }
+
+            @include mobileBS {
+                margin-top: 30px;
+                margin-bottom: 40px;
+            }
+        }
+
+        .item-flex {
+            display: flex;
+            justify-content: space-between;
+
+            @include mobileBS {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .PreparationItem {
+                line-height: 1.5;
+                // letter-spacing: 4px;
+
+                margin: 0;
+                box-sizing: border-box;
+                z-index: 5;
+                width: 280px;
+
+                @include padBS {}
+
+                @include mobileBS {
+
+                    margin-bottom: 30px;
+                }
+
+
+
+                .imgSvg {
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     width: 90%;
-                    padding:0 10px;
-                    color: $white;
-                    line-height: 1.5;
-                    div:first-child{
-                        padding: 15px 0 6px 0;
-                        width: 80%;
-                        font-size: $p1-l;
-                        border-bottom: 1px solid $blueL;
-                        @include padBS{
-                            
-                        font-size: $p1-m;
-                        width: 90%;
+                    max-width: 280px;
+                    // height:calc(100% + 15px);
+                    border: 1.3px solid $white;
+                    border-radius: 5px;
+                    box-shadow: inset -1px -1px 10px 10px rgba(91, 19, 236, 20%),
+                        inset -1px -1px 10px 5px rgba(91, 19, 236, 40%),
+                        inset 2px -4px 10px 2px rgba(91, 19, 236, 90%),
+                        2px -4px 15px 5px rgb(91, 19, 236),
+                        0px 2.525px 8.4825px 0px #06F,
+                        -0.42412px 0.84825px 0.42412px 0px rgba(255, 255, 255, 0.50);
 
-                        }
-                        @include mobileBS{
-                            font-size: $p1-l;
-                            width: 100%;
-                        }
-                    }
-                    div:last-child{
-                        font-weight: 500;
-                        padding-top: 19px;
-                        font-size: $p2-s;
-                        padding-bottom: 15px;
-                     
+                    img {
+                        width: 90%;
+                        margin: 5% auto;
+                        max-width: 250px;
                     }
 
                 }
 
-               
+                .imgSvg::after {
+                    content: "";
+                    position: absolute;
+                    z-index: -1;
+                    box-sizing: border-box;
+                    top: -4px;
+                    /* 根據您的需求調整 */
+                    left: -4px;
+                    /* 根據您的需求調整 */
+                    right: -4px;
+                    /* 根據您的需求調整 */
+                    bottom: -4px;
+                    border-radius: 9px;
+                    border: 6px solid #5B13EC;
+                    // filter: blur(0.32625001668930054px);
+
+                }
+
+
+
+                .PreparationText {
+                    max-width: 270px;
+                    width: 90%;
+                    padding: 0 10px;
+                    color: $white;
+                    line-height: 1.5;
+
+                    div:first-child {
+                        padding: 15px 0 6px 0;
+                        width: 80%;
+                        font-size: $p1-l;
+                        border-bottom: 1px solid $blueL;
+
+                        @include padBS {
+
+                            font-size: $p1-m;
+                            width: 90%;
+
+                        }
+
+                        @include mobileBS {
+                            font-size: $p1-l;
+                            width: 100%;
+                        }
+                    }
+
+                    div:last-child {
+                        font-weight: 500;
+                        padding-top: 19px;
+                        font-size: $p2-s;
+                        padding-bottom: 15px;
+                    }
+                }
             }
-
-
-
         }
-       
     }
-
-
-
 }
-
+}
+.br {
+    white-space: pre-line;
+}

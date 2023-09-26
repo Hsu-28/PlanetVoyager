@@ -1,7 +1,7 @@
 <template>
     <!-- 要用我的 -->
 
-      <h1 @mouseover="triggerScramble">{{ displayText }}</h1>
+    <h1 @mouseover="triggerScramble" @mouseout="cancelScramble">{{ displayText }}</h1>
 
   </template>
     
@@ -49,18 +49,31 @@
           this.displayText = this.$props.text;
         }
       },
-      triggerScramble() {
-        this.shuffle = 0;
-        this.mojicount = 0;
-        this.displayText = '';
-        this.scramble();
-      }
+            // triggerScramble() {
+      //   setTimeout(() => {
+      //     this.shuffle = 0;
+      //   this.mojicount = 0;
+      //   this.displayText = '';
+      //   this.scramble();
+      //   }, 2000);  
+      // },
+
+  triggerScramble() {
+    this.cancelTimeout = setTimeout(() => {
+      this.shuffle = 0;
+      this.mojicount = 0;
+      this.displayText = '';
+      this.scramble();
+    }, 800);
+  },
+  cancelScramble() {
+    if (this.cancelTimeout) {
+      clearTimeout(this.cancelTimeout);
+      this.cancelTimeout = null;
+    }
+  },
     },
-    // mounted() {
-    //   setInterval(() => {
-    //     this.triggerScramble();
-    //   }, 3000);
-    // }
+
       mounted() {
       
         this.triggerScramble();

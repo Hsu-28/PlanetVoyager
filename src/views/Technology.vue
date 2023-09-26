@@ -141,9 +141,7 @@ import SectionTitle from '../components/SectionTitle.vue';
                 selectedShip: 'this.spaceships[0]',
             };
         },
-        // directives: {
-        //     insertLinebreak,
-        // },
+      
         methods:{
         showSpaceshipInfo(ship){
             this.selectedShip = ship;
