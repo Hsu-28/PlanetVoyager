@@ -185,8 +185,51 @@
             <div class="form">
               <div class="donate-top">
                 <p class="account-first-title">捐款紀錄</p>
-                <a href="" class="last-year" v-if="!isMobile">去年度明細</a>
-              </div>
+                <span  class="last-year" v-if="!isMobile"  @click="isPopupVisible = !isPopupVisible">去年度明細</span>
+                <span  class="rwdLast" v-if="isMobile"  @click="isPopupVisible = !isPopupVisible">去年度明細</span>
+
+                <!-- 遮罩 -->
+                <div class="overlay" v-if="isPopupVisible"></div>
+                <!-- 彈窗 -->
+                 <div class="popup" v-if="isPopupVisible" >
+                  <p class="last-year-according">2022年捐款紀錄</p>
+                    <div class="receipt">
+                      <div class="form-group">
+                        <div class="receipt-title">
+                          <p class="donate-title">收據編號</p>
+                          <p class="donate-title">金額</p>
+                          <p class="donate-title">捐款日期</p>
+                          <p class="donate-title">會員狀態</p>
+                        </div>
+            
+                        <div class="black-box"></div>
+                        <hr class="receipt-hr">
+                      </div>
+                      <div class="form-group">
+                        <div v-for="(receipt, index) in receipts" :key="index" class="receiptInfo">
+                          <div class="receipt-order">
+                            <div class="receipt-cell">  
+                              <p>{{ receipt.receiptNumber }}</p>
+                            </div>
+                            <div class="receipt-cell"> 
+                              <p>{{ receipt.summary }}</p>
+                            </div>
+                            <div class="receipt-cell"> 
+                              <p>{{ receipt.donateDate }}</p>
+                            </div>
+                            <div class="receipt-cell"> 
+                              <p>{{ receipt.memberStatus }}</p>
+                            </div>
+                          </div>
+                          <hr class="receipt-order-hr">
+                        </div>
+                      </div>
+                      <button  @click="isPopupVisible = !isPopupVisible">CLOSE</button>
+                    </div>
+                  </div> 
+                  
+          </div>
+
               <div class="form-group">
                 <div class="order-title">
                     <p class="donate-title">收據編號</p>
@@ -210,7 +253,6 @@
               </div>
               <hr class="donate-order-hr">
               </div>
-              <a href="" class="rwdLast" v-if="isMobile">去年度明細</a>
             </div>      
           </div>
           </div>
@@ -235,15 +277,17 @@
               <div v-if="showContent === 'content1'">
                 <div class="progress-bar">
                   <div class="level-box">
-                    <p class="nowLevel" v-if= "isMobile">目前已累積：<span>$50,000</span></p>
+                    <p class="nowLevel" v-if= "isMobile">目前已累積：<span>$10,000</span></p>
                     <p class="nextLevel">離下個等級只剩：<span>$10,000</span></p></div>
                   <div class="line-box" v-if="!isMobile">
                     <div class="line1">
+                      <div class="circle3"><p>銀</p></div>
+                      <div class="circle2"></div>
                       <div class="circle">
-                        <p>$60,000</p></div>
+                        <p>$20,000</p></div> 
                     </div>
-                    
                   </div>
+              
                 </div>
                 <div class="mem-benefits-form">
                   <p class="mem-benfit-title">會員等級</p>
@@ -263,15 +307,45 @@
                         <p>{{ benefit.date }}</p></div>
                       <div class="benefit-cell"> 
                         <div class="input-box">
-                          <input type="checkbox" id="gift"  name="gift" v-if="benefit.gift !== '帽子(已兌換)'">
+                          <input type="checkbox" :id="'gift-' + benefits.id"   name="gift" 
+                          v-if="benefit.gift !== '棒球帽(已兌換)'"  :disabled="benefit.id === 'b'" >
                           <p>{{ benefit.gift }}</p></div>
-                        </div>
+                      </div>
                     </div>
                   <hr class="benefit-order-hr">
                 </div>
-                  <a href=""><p class="gift-redemption">贈品兌換</p></a>
+                <span class="gift-redemption" v-if="!isMobile" @click="isPopupVisible = !isPopupVisible">贈品兌換</span>
+                <span class="gift-redemption-rwd" v-if="isMobile" @click="isPopupVisible = !isPopupVisible">贈品兌換</span>
               </div>
             </div>
+            
+            <!-- 贈品兌換彈窗 -->
+             <!-- 遮罩 -->
+             <div class="overlay" v-if="isPopupVisible"></div>
+            <!-- 彈窗 -->
+                <div class="popupGift" v-if="isPopupVisible" >
+                    <p class="successful" v-if="!isMobile" >兌換成功</p>
+                    <spa class="successfulRwd" v-if="isMobile" >兌換成功</spa>
+                <div class="tick">
+                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        width="180" height="180"  viewBox="0 0 80 80">
+                      <title>tick-mark</title>
+                      <path class="path-circle" stroke="#111111" stroke-width="3"
+                        fill="none" stroke-linecap="butt" stroke-linejoin="butt"
+                        d="M 75,40 A 35,35   0 0 1 40,75  M40,75 A 35,35   0 0 1 5,40  M5,40 A 35,35   0 0 1 40,5  M40,5 A 35,35   0 0 1 75,40"/>
+                      <path class="path-tick" stroke="#111111" stroke-width="3"
+                        fill="none" stroke-linecap="butt" stroke-linejoin="butt"
+                        d="M 25,45 35,55 60,30"/></svg>
+                </div>
+                  <div class="exchangeText">
+                      <p class="exchangeProduct">您兌換的商品為<span>鑰匙圈</span>1個</p>
+                      <p class="exchangeDate">兌換日期為<span>{{ currentDate }} {{ currentTime }}</span></p>
+                      <p class="exchangeInfo">我們將於一星期內將商品寄出，<br>
+                        若希望寄送至其他地址，<br>請與客服聯繫，謝謝。</p>
+                  </div>   
+                  <button  @click="isPopupVisible = !isPopupVisible">CLOSE</button>
+                  </div>
+
               <div v-if="showContent === 'content2'">
                 <div class="mem-benefits-form">
                   <div class="explain-level">
@@ -291,7 +365,7 @@
                   <div class="form-group">
                     <div v-for="(explain, index) in explains" :key="index">
                       <div class="explain-order">
-                    <div class="explain-cell" >  
+                        <div class="explain-cell" >  
                           <div class="explain-img">
                           <img :src="explain.img" alt="memberlevel"  width="30" ></div>
                           <p>{{ explain.memLevel }}</p></div> 
@@ -304,14 +378,28 @@
                   </div>
               </div>
 
-              <div v-if="showContent === 'content3'">
-                <div class="mem-benefits-info">
+              
+
+              <div v-if="showContent === 'content3'" >
+                <div class="mem-benefits-info" v-if="!isMobile">
                   <div v-for="(info, index) in infos" :key="index" class="info-content">
                     <p>{{ info.content }}</p> 
                     <a href=""><span>{{ info.link }}</span></a>
                   </div>
                 </div>
+                <div class="mem-benefits-info-rwd" v-if="isMobile">
+                 <div class="rwdBenefitsInfo">
+                    <p>‧會員金額累計時間以申辦日開始一年起算。</p>
+                    <p>‧贈品兌換需於一年內於會員頁面申請領取。</p>
+                    <p>‧本公司保留隨時變更使用規則之權利，<br>最新使用規則請網站公告為準。</p>
+                    <p>‧其他相關規範：</p>
+                    <a href=""><span>‧個人資料保護法</span></a><br>
+                    <a href=""><span>‧隱私權政策</span></a>
+                 </div>
               </div>
+              </div>
+
+             
 
 
             </div>
@@ -511,20 +599,24 @@
         benefits:[
           {
             memberLevel: '銅',
-            amount: '$20,000',
-            date: '2023-08-09',
+            amount: '$3,000',
+            date: '2022-08-09',
             gift: '鑰匙圈',
+            selected: false,
           },
           {
             memberLevel: '銀',
-            amount: '$30,000',
-            date: '2023-08-09',
-            gift: '帽子(已兌換)',
+            amount: '$6,000',
+            date: '2023-08-10',
+            gift: '棒球帽(已兌換)',
+            selected: false,
           },
           {
+            id: 'b',
             memberLevel: '金',
-            amount: '$50,000',
-            gift: 'T恤',
+            amount: '$20,000',
+            gift: '帽T',
+            selected: false,
           },
         ],
         explains:[
@@ -574,21 +666,48 @@
           },
         ],
         isMobile: false,// 默認不是行動裝置
+        isPopupVisible:false,
+        receipts:[
+          {
+            receiptNumber: '#2022-1234',
+            summary: '$600',
+            donateDate:'2022-08-09 14:30',
+            memberStatus: '銅',
+          },
+          {
+            receiptNumber: '#2022-1989',
+            summary: '$600',
+            donateDate:'2022-10-09 19:30',
+            memberStatus: '銅',
+          },
+          {
+            receiptNumber: '#2022-2222',
+            summary: '$600',
+            donateDate:'2022-11-09 19:30',
+            memberStatus: '銅',
+          },
+        ],
+        currentTime: '' ,
       };
     },
 
     mounted() {
-      //檢常窗口是否是行動裝置
-      this.checkMobile();
-      window.addEventListener('resize', this.checkMobile);
-    },
+        //檢常窗口是否是行動裝置
+        this.checkMobile();
+        window.addEventListener('resize', this.checkMobile);
+        //抓取時間
+        this.updateDateTime();
 
- 
+
+    },
+    
+
     methods: {
       //上傳圖片
       triggerFileInput(index) {
-        this.$refs.fileInput[index -1].click();
+            this.$refs.fileInput[index -1].click();
       },
+  
       handleFileUpload(index, event) {
             const fileInput = event.target;
             const files = fileInput.files;
@@ -605,107 +724,117 @@
         },
 
       checkMobile() {
-        // 根據窗口寬度判斷是否爲行動裝置
-        this.isMobile = window.innerWidth <= 768;
+            // 根據窗口寬度判斷是否爲行動裝置
+            this.isMobile = window.innerWidth <= 768;
       },
 
       getActiveOption(id) {
-        if (this.fixedIds.includes(id)) {
-          return this.optionCard.find(option => option.id === id);
-        } else {
-          return this.optionCard.find(option => option.id === this.activeId);
-        }
+            if (this.fixedIds.includes(id)) {
+              return this.optionCard.find(option => option.id === id);
+            } else {
+              return this.optionCard.find(option => option.id === this.activeId);
+            }
       },
 
       toggleUserExpanded(order) {
-        this.orders.forEach((o) => {
-          if (o === order) {
-            o.isExpanded = !o.isExpanded; 
-        } else {
-          o.isExpanded = false; 
-          }
-        });
+            this.orders.forEach((o) => {
+              if (o === order) {
+                o.isExpanded = !o.isExpanded; 
+            } else {
+              o.isExpanded = false; 
+              }
+            });
       },
 
       updateButtonColors(content) {
-        //改編輸入後input的底色
-        for (const key in this.buttonColors) {
-          if (key === content) {
-            this.buttonColors[key] = '#01C1FD';
-          } else {
-            this.buttonColors[key] = '#F0F0F0';
+            //改編輸入後input的底色
+            for (const key in this.buttonColors) {
+              if (key === content) {
+                this.buttonColors[key] = '#01C1FD';
+              } else {
+                this.buttonColors[key] = '#F0F0F0';
+              }
+            }
+      },
+      //獲取電腦時間
+      updateDateTime(){
+      const now = new Date();
+      
+       // 格式化日期爲字串（例如：YYYY-MM-DD）
+      const year = now.getFullYear();
+      const month = (now.getMonth() + 1).toString().padStart(2, '0');
+      const day = now.getDate().toString().padStart(2, '0');
+      this.currentDate = `${year}-${month}-${day}`;
+      
+      // 格式化時間爲字串（例如：HH:MM:SS）
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      this.currentTime = `${hours}:${minutes}`;
+
+      // 每隔一秒鐘更新一次日期和時間
+      const _this = this; // Reference to the component
+      setTimeout(function () {
+        _this.updateDateTime();
+      }, 1000);
+    },
+
+      getTotalAmountForId(id) {
+        // 計算給定id的總金額
+        let totalAmount = 0;
+        for (const benefit of this.benefits) {
+          if (benefit.memberLevel === id) {
+            totalAmount += parseInt(benefit.amount.replace(/\$|,/g, ''), 10);
           }
         }
+        return totalAmount;
       },
   },
 
-    accordionEvent() {
-      //點擊+號展開
-      const acc = document.getElementsByClassName("client-accordion");
-          for (let i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function () {this.classList.toggle("active");
-              const panel = this.nextElementSibling;
-                if (panel.style.maxHeight) { 
-                    panel.style.maxHeight = null;
-                    this.$data.showPanelContent = false;
-            } else {
-                panel.style.maxHeight = panel.scrollHeight + "px";
-                this.$data.showPanelContent = true;
-            }
-        });
-      }
+      accordionEvent() {
+        //點擊+號展開
+        const acc = document.getElementsByClassName("client-accordion");
+            for (let i = 0; i < acc.length; i++) {
+              acc[i].addEventListener("click", function () {this.classList.toggle("active");
+                const panel = this.nextElementSibling;
+                  if (panel.style.maxHeight) { 
+                      panel.style.maxHeight = null;
+                      this.$data.showPanelContent = false;
+              } else {
+                  panel.style.maxHeight = panel.scrollHeight + "px";
+                  this.$data.showPanelContent = true;
+              }
+          });
+        }
+      },
+
+      toggleAccordion(order) {
+        order.isExpanded = !order.isExpanded;
     },
 
-    toggleAccordion(order) {
-      order.isExpanded = !order.isExpanded;
-    },
+      handleSubmit() {
+          console.log(this.fromData.name, this.fromData.nickname,this.fromData.email,this.fromData.address,
+                    this.fromData.passportNumber, 'Submit button clicked');
+      },
 
-    handleSubmit() {
-      console.log(this.fromData.name, this.fromData.nickname,this.fromData.email,this.fromData.address,
-                   this.fromData.passportNumber, 'Submit button clicked');
-    },
+  
+      checkMobile() {
+          // 判斷是否是行動裝置（小於等於 768px）
+            const screenWidth = window.innerWidth;
+            this.isMobile = screenWidth <= 768;
+      },
 
-    checkMobile() {
-      // 取得目前窗口寬度
-      const screenWidth = window.innerWidth;
-      // 判斷是否是行動裝置（小於等於 768px）
-      this.isMobile = screenWidth <= 768;
+      beforeUnmount() {
+            // 在元件銷燬前移除窗口大小監聽器
+            window.removeEventListener('resize', this.checkMobile);
     },
-
-    beforeUnmount() {
-    // 在元件銷燬前移除窗口大小監聽器
-    window.removeEventListener('resize', this.checkMobile);
-  },
   };
 
-//     const questions = reactive([
-//   {
-//     title: 'Question one',
-//     answer: 'Answer one',
-//     isExpanded: false // Initial value
-//   },
-//   {
-//     title: 'Question two',
-//     answer: 'Answer two',
-//     isExpanded: false
-//   },
-//   {
-//     title: 'Question three',
-//     answer: 'Answer three',
-//     isExpanded: false
-//   }
-// ])
 
-function handleAccordion(selectedIndex) {
-  questions.forEach((_, index) => {
-    questions[index].isExpanded = index === selectedIndex ? !questions[index].isExpanded : false
-  })
-}
-
-
-
-
-
+  // function handleAccordion(selectedIndex) {
+  //   questions.forEach((_, index) => {
+  //     questions[index].isExpanded = index === selectedIndex ? !questions[index].isExpanded : false
+  //   })
+  // }
 
 
   </script>
