@@ -528,7 +528,14 @@ body {
     font-weight: 200;
   }
 }
-
+// .d-order{
+//   bottom: 100px;
+//   right: 20px;
+//   width: 30x;
+//   height: 30px;
+//   position: fixed;
+//   z-index: 25;
+// }
 
 @media screen and (min-width: 580px) {
   .menu {
@@ -542,7 +549,16 @@ body {
         }
       }
     }
-  } 
+  }
+  .d-order{
+    bottom: 30px;
+    right: 20px;
+    width: 80x;
+    height: 80px;
+    position: fixed;
+    z-index: 25;
+  }
+   
 }
 
 
@@ -707,13 +723,8 @@ body {
   margin-top: -8px;
 }
 
-}
-.d-order{
-  bottom: 30px;
-  right: 20px;
-  width: 80x;
-  height: 80px;
-  position: fixed;
+
+
 }
 
 

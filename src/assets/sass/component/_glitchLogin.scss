@@ -67,14 +67,14 @@ $transition-fast: .2s cubic-bezier(.77, 0, .175, 1);
 .c-glitch,
 .c-glitch__img {
   background-repeat: no-repeat;
-	background-position: 50% 50%;
-	background-size: cover;
-  background-image: url(~@/assets/image/headerfooter/dorder.svg);
+	// background-position: 50% 50%;
+	// background-size: cover;
+  background-image: url(~~@/assets/image/login/loginastronaut.svg);
   ;
 }
 
 .c-glitch {
-  height: 100px;
+//   height: 100px;
   margin: 0 auto;
   overflow: hidden;
 	position: relative;
@@ -85,13 +85,13 @@ $transition-fast: .2s cubic-bezier(.77, 0, .175, 1);
 .c-glitch__img {
   background-blend-mode: none;
   background-color: transparent;
-  height: 100px;
+//   height: 100px;
   left: 0;
   pointer-events: none;
   position: absolute;
   top: 0;
   transform: translate3d(0, 0, 0);
-  width: 100px;
+//   width: 100px;
   
   .c-glitch:hover &:nth-child(n+2) {
     animation-duration: 1s;
