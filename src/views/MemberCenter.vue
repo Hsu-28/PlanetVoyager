@@ -412,7 +412,6 @@
   </template>
 
    <style scoped lang="scss">
-   @import "~@/assets/sass/page/_rwd.scss";
    @import "~@/assets/sass/page/_membercenter.scss";
    </style>
  
