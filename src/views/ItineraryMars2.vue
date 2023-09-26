@@ -4,10 +4,10 @@
             <img src="@/assets/image/itinerary_mars/mars_bg.png" alt="mars">
         </div>
         <div class="main-container" data-scroll-container>
-            <div class="scrollsection" data-scroll-section>
+            <div class="scrollsection scrollsection1" data-scroll-section>
                 <!-- 旅程名稱 -->
                 <div class="title" style="writing-mode: vertical-lr" data-scroll data-scroll-speed="1">
-                    <h1>奧 林 帕 斯 山 脈 之 旅</h1>
+                    <h1>火 星 生 命 解 密 之 旅</h1>
                     <p></p>
                     <p></p>
                 </div>
@@ -16,23 +16,17 @@
                     <div class="schedule schedule1">
                         <div class="schedule-text">
                             <h3>Day1 旅程啟航！</h3>
-                            <p>從地球啟程後可飽覽星際風光，飛行十四個小時後，
+                            <p>從地球啟程後可飽覽星際風光， 飛行十四個小時後，
                                 我們會抵達偉諭航空站，稍作休息後再前往火星。</p>
                         </div>
                         <div class="schedule-pic">
-                            <div class="image-box" @click="showPic1">
-                                <img src='https://picsum.photos/100/100'>
-                            </div>
-                            <div class="image-box"  @click="showPic1">
-                                <img src='https://picsum.photos/100/100'>
-                            </div>
-                            <div class="image-box"  @click="showPic1">
-                                <img src='https://picsum.photos/100/100'>
-                            </div>
+                            <img class="image" src='https://picsum.photos/100/100'>
+                            <img class="image" src='https://picsum.photos/100/100'>
+                            <img class="image" src='https://picsum.photos/100/100'>
                         </div>
                     </div>
                     <div class="schedule-big-pic">
-                        <img src='' id="bigpic1" >
+                        <img class="image" src='https://picsum.photos/300/200'>
                     </div>
                 </div>
             </div>
@@ -41,23 +35,17 @@
                 <div class="schedule-section schedule-section2">
                     <div class="schedule schedule2" data-scroll data-scroll-speed="2">
                         <div class="schedule-text">
-                            <h3>Day2 抵達火星</h3>
-                            <p>抵達火星後現場觀察火星的地質歷史，學習探測器載具的使用探勘，適應火星的氣候</p>
+                            <h3>Day2 艾里隕石坑</h3>
+                            <p>前往艾里隕石坑 了解火星的地層變化，這些地層提供了一本連續章節的歷史書，記錄了每個地層沉積時的環境條件。</p>
                         </div>
                         <div class="schedule-pic">
-                            <div class="image-box"  @click="showPic">
-                                <img src='https://picsum.photos/100/100'>
-                            </div>
-                            <div class="image-box"  @click="showPic">
-                                <img src='https://picsum.photos/100/100'>
-                            </div>
-                            <div class="image-box"  @click="showPic">
-                                <img src='https://picsum.photos/100/100'>
-                            </div>
+                            <img class="image" src='https://picsum.photos/100/100'>
+                            <img class="image" src='https://picsum.photos/100/100'>
+                            <img class="image" src='https://picsum.photos/100/100'>
                         </div>
                     </div>
                     <div class="schedule-big-pic">
-                        <img src=''>
+                        <img class="image" src='https://picsum.photos/300/200'>
                     </div>
                 </div>
             </div>
@@ -66,23 +54,17 @@
                 <div class="schedule-section schedule-section3" data-scroll data-scroll-speed="2">
                     <div class="schedule schedule3">
                         <div class="schedule-text">
-                            <h3>Day3 穿越火星沙漠</h3>
-                            <p>火星沙漠越野：搭乘特製的載具，觀賞風景在火星穿越的沙漠抵達奧林帕斯山脈山腳</p>
+                            <h3>Day3 太陽系最大的峽谷--水手號峽谷</h3>
+                            <p>前往水手號峽谷觀看壯麗美景，水手號峽谷長約3000公里，是美國大峽谷的近四倍長，高溫熔岩在地殼其他區域形成裂縫，隨著時間推移，逐漸演變成現有的水手號峽谷。</p>
                         </div>
                         <div class="schedule-pic">
-                            <div class="image-box"  @click="showPic">
-                                <img src='https://picsum.photos/100/100'>
-                            </div>
-                            <div class="image-box"  @click="showPic">
-                                <img src='https://picsum.photos/100/100'>
-                            </div>
-                            <div class="image-box"  @click="showPic">
-                                <img src='https://picsum.photos/100/100'>
-                            </div>
+                            <img class="image" src='https://picsum.photos/100/100'>
+                            <img class="image" src='https://picsum.photos/100/100'>
+                            <img class="image" src='https://picsum.photos/100/100'>
                         </div>
                     </div>
                     <div class="schedule-big-pic">
-                        <img src=''>
+                        <img class="image" src='https://picsum.photos/300/200'>
                     </div>
                 </div>
             </div>
@@ -91,85 +73,66 @@
                 <div class="schedule-section schedule-section4" data-scroll data-scroll-speed="2">
                     <div class="schedule schedule4">
                         <div class="schedule-text">
-                            <h3>Day 4、5 奧林帕斯山</h3>
-                            <p>前往奧林帕斯山高處，進入火山隧道，讓遊客體驗火山的內部結構。</p>
+                            <h3>Day4 蓋爾撞擊坑（Gale Crater）和夏普山（Mount Sharp）</h3>
+                            <p>2012年火星探測車好奇號在蓋爾撞擊坑這塊區域發現了河床，沿著河床的軌跡、一直到火山口底部，更發現了許多「 火星上曾經有水」的證據。在附近一座名為夏普山的火山，發現了「有機分子」，被認為是宇宙中生命的起源，我們將前往此地，探索其中奧妙。</p>
                         </div>
                         <div class="schedule-pic">
-                            <div class="image-box"  @click="showPic">
-                                <img src='https://picsum.photos/100/100'>
-                            </div>
-                            <div class="image-box"  @click="showPic">
-                                <img src='https://picsum.photos/100/100'>
-                            </div>
-                            <div class="image-box"  @click="showPic">
-                                <img src='https://picsum.photos/100/100'>
-                            </div>
+                            <img class="image" src='https://picsum.photos/100/100'>
+                            <img class="image" src='https://picsum.photos/100/100'>
+                            <img class="image" src='https://picsum.photos/100/100'>
                         </div>
                     </div>
                     <div class="schedule-big-pic">
-                        <img src=''>
+                        <img class="image" src='https://picsum.photos/300/200'>
                     </div>
                 </div>
             </div>
 
-            <div class="scrollsection" data-scroll-section>
-                <div class="schedule-section schedule-section5" data-scroll data-scroll-speed="2">
-                    <div class="schedule schedule5">
-                        <div class="schedule-text">
-                            <h3>Day 6 登頂</h3>
-                            <p>登頂奧林帕斯山，途中可能會遇到壯觀的峽谷、熔岩流和古老的火山口，回程順道參觀火星基地。
-                            </p>
-                        </div>
-                        <div class="schedule-pic">
-                            <div class="image-box"  @click="showPic">
-                                <img src='https://picsum.photos/100/100'>
-                            </div>
-                            <div class="image-box"  @click="showPic">
-                                <img src='https://picsum.photos/100/100'>
-                            </div>
-                            <div class="image-box"  @click="showPic">
-                                <img src='https://picsum.photos/100/100'>
-                            </div>
-                        </div>
+        <div class="scrollsection" data-scroll-section>
+            <div class="schedule-section schedule-section5" data-scroll data-scroll-speed="2">
+                <div class="schedule schedule5">
+                    <div class="schedule-text">
+                        <h3>Day5、6 地下冒險</h3>
+                        <p>火星在40億年前具有溫暖潮濕的環境，但隨著磁場消失、大氣層變薄及環境溫度下降等影響，液態水僅能在較深的地下層中才穩定存在。若火星上有機會出現生命，其所在的位置可能會跟隨融化後的液態水進入更深的地層。
+                        </p>
                     </div>
-                    <div class="schedule-big-pic">
-                        <img src=''>
+                    <div class="schedule-pic">
+                        <img class="image" src='https://picsum.photos/100/100'>
+                        <img class="image" src='https://picsum.photos/100/100'>
+                        <img class="image" src='https://picsum.photos/100/100'>
                     </div>
                 </div>
-            </div>
-            <div class="scrollsection" data-scroll-section>
-                <!-- 第六塊 -->
-                <div class="schedule-section schedule-section6" data-scroll data-scroll-speed="2">
-                    <div class="schedule schedule6">
-                        <div class="schedule-text">
-                            <h3>Day 7 返回家鄉--地球</h3>
-                            <p>星際旅遊的壯闊冒險完美收尾！在無重力中飄浮的日子即將結束，我們即將返回地球。帶著難以置信的回憶和深刻的體驗，我們準備迎接重力的擁抱。也請各位珍惜回程最後飽覽太空的絕美景觀的機會。如果捨不得，我們期待著下次再與您共度星際旅遊的美好時光，感謝您的參與！
-                            </p>
-                        </div>
-                        <div class="schedule-pic">
-                            <div class="image-box"  @click="showPic">
-                                <img src='https://picsum.photos/100/100'>
-                            </div>
-                            <div class="image-box"  @click="showPic">
-                                <img src='https://picsum.photos/100/100'>
-                            </div>
-                            <div class="image-box"  @click="showPic">
-                                <img src='https://picsum.photos/100/100'>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="schedule-big-pic">
-                        <img src=''>
-                    </div>
+                <div class="schedule-big-pic">
+                    <img class="image" src='https://picsum.photos/300/200'>
                 </div>
-            </div>
-            <!-- 空白 -->
-            <div class="scrollsection" data-scroll-section>
-                <div class="blank-space"></div>
             </div>
         </div>
+        <div class="scrollsection" data-scroll-section>
+            <!-- 第六塊 -->
+            <div class="schedule-section schedule-section6" data-scroll data-scroll-speed="2">
+                <div class="schedule schedule6">
+                    <div class="schedule-text">
+                        <h3>Day 7 返回家鄉--地球</h3>
+                        <p>星際旅遊的壯闊冒險完美收尾！在無重力中飄浮的日子即將結束，我們即將返回地球。帶著難以置信的回憶和深刻的體驗，我們準備迎接重力的擁抱。也請各位珍惜回程最後飽覽太空的絕美景觀的機會。如果捨不得，我們期待著下次再與您共度星際旅遊的美好時光，感謝您的參與！
+                        </p>
+                    </div>
+                    <div class="schedule-pic">
+                        <img class="image" src='https://picsum.photos/100/100'>
+                        <img class="image" src='https://picsum.photos/100/100'>
+                        <img class="image" src='https://picsum.photos/100/100'>
+                    </div>
+                </div>
+                <div class="schedule-big-pic">
+                    <img class="image" src='https://picsum.photos/300/200'>
+                </div>
+            </div>
+        </div>
+        <!-- 空白 -->
+        <div class="scrollsection" data-scroll-section>
+            <div class="blank-space"></div>
+        </div>
     </div>
-</template>
+</div></template>
 
 <script>
 import LocomotiveScroll from 'locomotive-scroll';
@@ -180,11 +143,6 @@ export default {
             scrollInstance: null,
             showFooter: true
         }
-    },
-    methods: {
-        showPic1(e) {
-            document.getElementById("bigpic1").src = e.target.src;
-        },
     },
     // methods:{
     //     scroll(){
@@ -209,6 +167,20 @@ export default {
                 smooth: true
             }
         });
+        // const scroll2 = new LocomotiveScroll({
+        //     el: document.querySelector('.scrollsection2'),
+        //     direction: 'horizontal',
+        //     smooth: true,
+        //     lerp: 0.05,
+        //     getSpeed: true,
+        //     tablet: {
+        //         smooth: true
+        //     },
+        //     smartphone: {
+        //         smooth: true
+        //     }
+        // });
+        // this.showFooter = false;
         // document.body.style.height = document.querySelector(".scrollsection").getBoundingClientRect().width + "px";
 
     },
@@ -233,9 +205,11 @@ export default {
 //     }ackground
 
 #itinerary {
-
+    .scrollsection1{
+        padding-left: 10vmax;
+    }
     .schedule-big-pic {
-        opacity: 1;
+        opacity: 0;
     }
 
     box-sizing: border-box;
@@ -289,25 +263,15 @@ export default {
         // margin-left: 10vh;
         padding: 5vh 5vh 0vh 0vh;
         overflow: visible;
-
-        &:first-child {
+        &:first-child{
             padding-left: 40vh;
         }
-
-        &:last-child {
+        &:last-child{
             padding-right: 10vh;
-
-            .image-box {
-                width: 100px;
-                height: 100px;
-
-                img {
-                    width: 100%;
-                    object-fit: cover;
-                }
-            }
+        // &:first-child{
+        //     padding-left: 10vh;
+        // }
         }
-
         .schedule-section {
             height: 100%;
             display: flex;
@@ -488,9 +452,8 @@ export default {
 
                 }
             }
-
             // 空白
-            .blank-space {
+            .blank-space{
                 width: 20%;
             }
         }

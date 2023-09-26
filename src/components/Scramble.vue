@@ -1,7 +1,7 @@
 <template>
     <!-- 要用我的 -->
 
-      <h1 @mouseover="triggerScramble" @mouseout="cancelScramble">{{ displayText }}</h1>
+    <h1 @mouseover="triggerScramble" @mouseout="cancelScramble">{{ displayText }}</h1>
 
   </template>
     
@@ -49,7 +49,7 @@
           this.displayText = this.$props.text;
         }
       },
-      // triggerScramble() {
+            // triggerScramble() {
       //   setTimeout(() => {
       //     this.shuffle = 0;
       //   this.mojicount = 0;

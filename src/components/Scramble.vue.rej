@@ -1,0 +1,9 @@
+diff a/src/components/Scramble.vue b/src/components/Scramble.vue	(rejected hunks)
+@@ -57,6 +57,7 @@
+       //   }, 2000);  
+       // },
+ 
++  triggerScramble() {
+     this.cancelTimeout = setTimeout(() => {
+       this.shuffle = 0;
+       this.mojicount = 0;
