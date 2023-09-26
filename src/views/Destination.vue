@@ -62,7 +62,7 @@
           <article v-for="(travel, index) in travelCard" v-show="activeId === travel.id || travel.id === 4"
             :key="travel.title" class="travel-info">
             <H2Style :cTitle="travel.ch_name" :eTitle="travel.en_namebig" v-if="travel.en_namebig"></H2Style>
-            <article class="col-11 outside-boder intro">
+            <article class="col-11 outside-boder ">
               <carousel :items-to-show="2" :wrapAround="true" class="inside-boder" :autoplay="3000">
                 <slide v-for="(img, index) in travel.imgs" :key="index">
                   <div class="cimgs">
@@ -82,7 +82,7 @@
                 </li>
               </ul> -->
             </article>
-            <article class="col-11 outside-boder intro">
+            <article class="col-11 outside-boder ">
               <article class="travel-info-rwd-container inside-boder text-inside-boder ">
                 <div class="travel-info-rwd-group">
                   <article class="col-11 col-md-5">
@@ -90,7 +90,7 @@
                     <p class="travel-note" v-html="travel.note"></p>
                     <ButtonStyle buttonText="訂購" buttonBottomText="-PV-"></ButtonStyle>
                   </article>
-                  <article class="col-11 col-md-7 intro2">
+                  <article class="col-11 col-md-7 ">
                     <p class="info travel-text">{{ travel.info }}</p>
                     <button class="read-more">READ&nbspMORE<a href=""></a></button>
                   </article>
