@@ -6,7 +6,9 @@ import orderList from "@/components/PerOrder.vue";
 export default {
   data() {
     return {
-      
+      USD: 0,
+      YEN: 0,
+      NT: 0,
       A: false,
       B: false,
       j1C: false,
@@ -137,6 +139,11 @@ export default {
         }
       })
     },
+    exchange () {
+      this.YEN = Math.floor(this.USD*148.91);
+      this.NT = Math.floor(this.USD*32.23);
+
+    }
     
   },
   // watch: {

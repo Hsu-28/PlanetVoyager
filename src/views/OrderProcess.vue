@@ -206,9 +206,9 @@
 
   </div>
   <div class="exchange-rate">
-    <div>快速換算:<input type="number" placeholder="7000,000">台幣 </div>
-    <div>日幣:{7000,000} </div>
-    <div>台幣:{7000,000} </div>
+    <div>快速換算:<input  placeholder="0" v-on:input="exchange" v-model="USD" min="0">萬美元 </div>
+    <div>日幣: &nbsp;{{YEN}} &nbsp; 萬元 </div>
+    <div>台幣: &nbsp;{{NT}} &nbsp; 萬元 </div>
 
   </div>
 </div>
