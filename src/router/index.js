@@ -6,11 +6,11 @@ import HomeView from '../views/HomeView.vue'
 
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },
+  // {
+  //   path: '/t',
+  //   name: 'home',
+  //   component: HomeView
+  // },
   {
     path: '/aboutus',
     name: 'AboutUs',
@@ -41,7 +41,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "Login" */ '../views/Login.vue')
   },
   {
-    path: '/index',
+    path: '/',
     name: 'index',
     component: () => import(/* webpackChunkName: "Index" */ '../views/Index.vue')
   },

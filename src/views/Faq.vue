@@ -24,10 +24,7 @@
         </div>
       </div>
     </div>
-<<<<<<< HEAD
-=======
   </div>
->>>>>>> UT
 </template>
 
 <style scoped lang="scss">
