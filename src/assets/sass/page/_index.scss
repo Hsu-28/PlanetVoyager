@@ -504,10 +504,14 @@ tr {
 
     &::after {
         content: 'VENUS';
+<<<<<<< HEAD
         padding: 2%;
         font-size: $p2-s;
         color: $white;
         border: 1px solid $purple;
+=======
+        border:1px solid $purple;
+>>>>>>> WanWan
         background-color: $purpleO;
         display: block;
         position: absolute;
