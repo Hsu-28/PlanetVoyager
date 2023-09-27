@@ -105,14 +105,15 @@
                 <hr class="account-hr" >
                 <div class="password-bottom-container">
                   <p class="account-sec-title">修改密碼</p>
-                  <p><span>舊密碼</span><br>
-                    <input type="password" v-model="oldPw"></p>
-                  <p><span>新密碼</span><br>
-                    <input type="password" v-model="newPw"></p>
-                  <p><span>確認新密碼</span><br>
-                    <input type="password" v-model="confirmPw"></p>
+                  <span>舊密碼<br>
+                    <input type="password" v-model="oldPw"></span>
+                  <span>新密碼<br>
+                    <input type="password" v-model="newPw"></span>
+                  <span>確認新密碼<br>
+                    <input type="password" v-model="confirmPw"></span>
                 <div class="bottom-button">
-                  <ButtonStyle buttonText="確認修改" buttonBottomText="-PV-"></ButtonStyle>
+                  <!--<button class="cybr-btn" @click="signin">確認修改<span aria-hidden class="cybr-btn__glitch"></span><span aria-hidden class="cybr-btn__tag">&emsp;&emsp;-PV-</span></button> -->
+                  <ButtonStyle buttonText="確認修改" buttonBottomText="-PV-"></ButtonStyle> 
                 </div>
                 </div>
              
@@ -169,25 +170,103 @@
                         <p>{{ user.id }}</p>
                         <p >{{ user.name }}</p>
                         <p >{{ user.status }}</p>
-                        <div class="journey-detail">
-                        <a href=""><p>{{ user.details }}</p></a></div>
+                        <div class="journey-detail" @click="isPopupVisible = !isPopupVisible"  v-if="!isMobile">
+                          <p>{{ user.details }}</p></div>
+                        <div class="journey-detail-rwd" @click="isPopupVisible = !isPopupVisible"  v-if="isMobile">
+                          <span>{{ user.details }}</span></div>
                       </div>
                         <hr class="journey-hr">
                     </div>
                   </div>
-                  </Collapse >
+
+                <!-- 遮罩 -->
+                <div class="overlay" v-if="isPopupVisible"></div>
+                <!-- 明細查看彈窗 -->
+                <div class="popupBooking" v-if="isPopupVisible">
+                    <div v-for="(booking, index)  in bookings" :key="index" class="bookingInfo">
+                      <button  @click="isPopupVisible = !isPopupVisible">CLOSE</button>
+                      <p class="bookingTitle">旅程訂購資訊</p>
+                        <div class="bookingInfoBox">
+                          
+                        <div class="bookingForm">
+                          <p class="bookingTotalPassanger"> 旅客人數:<span>4</span>人</p>
+                            <p class="bookingId">乘客{{ booking.id }}</p>
+                            <div class="container-control">
+                              <div class="booking-container">
+                                  <div class="bookingLastName">
+                                      <span class="bookingSecondTitle">姓氏</span>
+                                      <p>{{ booking.lastName }}</p></div>
+                                      <div class="bookingFirstName">
+                                      <span class="bookingSecondTitle">名字</span>
+                                      <p>{{ booking.firstName }}</p>
+                                    </div>
+                              </div>
+                              <div class="booking-container">
+                                  <div class="bookingSex">
+                                      <span class="bookingSecondTitle">性別</span>
+                                      <p>{{ booking.sex }}</p></div>
+                                  <div class="bookingBirthday">
+                                      <span class="bookingSecondTitle">出生日期</span>
+                                      <p>{{booking.birthday }}</p></div>
+                              </div>
+                              <div class="booking-container">
+                                <div class="bookingCountry">
+                                      <span class="bookingSecondTitle">國籍</span>
+                                      <p>{{ booking.country }}</p></div>
+                                  <div class="bookingPassport">
+                                      <span class="bookingSecondTitle">身分證或護照號碼</span>
+                                      <p>{{ booking.passport }}</p></div>
+                                </div>
+                                <div class="booking-container">
+                                  <div class="bookingSize">
+                                      <span class="bookingSecondTitle">訓練服尺寸</span>
+                                      <p>{{ booking.size }}</p></div>
+                                  <div class="bookingDiet">
+                                      <span class="bookingSecondTitle">飲食習慣</span>
+                                      <p>{{ booking.diet }}</p></div>
+                                </div>
+                              <div class="booking-container">
+                                  <div class="bookingCheck">
+                                    <input type="checkbox" id="myCheckbox" class="myCheckbox" v-model="isChecked" :disabled="isDisabled" @click="preventCheckboxChange">
+                                    <p>我已經詳閱<span>健康規定</span></p></div>
+                                    <div class="bookingTravelStatus">
+                                        <span class="bookingSecondTitle">旅位狀態</span>
+                                        <p>{{ booking.status}}</p></div>
+                             </div>
+                              <div class="bookingLineBox">
+                                  <div class="bookingLine">
+                                    <div class="bookingLine2"></div>
+                                    <div class="circleContent">
+                                      <div class="bookingCircle"> </div>
+                                      <p class="paymentStatus">付款狀態:<br><span>已付款</span></p>
+                                    </div>
+                                    <div class="circleContent">
+                                      <div class="bookingCircle2"> </div>
+                                      <p class="paymentStatus2">健康審核:<br><span>已通過</span></p>
+                                    </div>
+                                    <div class="circleContent">
+                                      <div class="bookingCircle3"> </div>
+                                      <p class="paymentStatus3">行前訓練</p>
+                                    </div>         
+                                  </div>
+                              </div> 
+                            </div>
+                        <p class="notice">*若您需要取消訂單，請致電03-466-8490</p>
+                    </div>
+                </div>
               </div>
             </div>
-             
-          </div>
+          </Collapse >
+        </div>
+      </div>
+    </div>
 
           <div v-else-if="activeId === 3" class="donate">
             <div class="form">
               <div class="donate-top">
                 <p class="account-first-title">捐款紀錄</p>
                 <span  class="last-year" v-if="!isMobile"  @click="isPopupVisible = !isPopupVisible">去年度明細</span>
-                <span  class="rwdLast" v-if="isMobile"  @click="isPopupVisible = !isPopupVisible">去年度明細</span>
-
+                
                 <!-- 遮罩 -->
                 <div class="overlay" v-if="isPopupVisible"></div>
                 <!-- 彈窗 -->
@@ -253,6 +332,8 @@
               </div>
               <hr class="donate-order-hr">
               </div>
+              <span  class="rwdLast" v-if="isMobile"  @click="isPopupVisible = !isPopupVisible">去年度明細</span>
+              ..
             </div>      
           </div>
           </div>
@@ -283,8 +364,7 @@
                     <div class="line1">
                       <div class="circle3"><p>銀</p></div>
                       <div class="circle2"></div>
-                      <div class="circle">
-                        <p>$20,000</p></div> 
+                      <div class="circle"><p>$20,000</p></div> 
                     </div>
                   </div>
               
@@ -687,6 +767,21 @@
           },
         ],
         currentTime: '' ,
+        isChecked: true ,
+        bookings:[
+          {
+            id: '1',
+            lastName: 'Potter',
+            firstName: 'Harry',
+            sex: '男',
+            birthday: '1980-07-30',
+            country: '英國',
+            passport: 'AUJ-1234',
+            size: 'L',
+            diet: '葷',
+            status: '正取',
+          }
+        ]
       };
     },
 
@@ -696,8 +791,6 @@
         window.addEventListener('resize', this.checkMobile);
         //抓取時間
         this.updateDateTime();
-
-
     },
     
 
@@ -757,24 +850,24 @@
       },
       //獲取電腦時間
       updateDateTime(){
-      const now = new Date();
-      
-       // 格式化日期爲字串（例如：YYYY-MM-DD）
-      const year = now.getFullYear();
-      const month = (now.getMonth() + 1).toString().padStart(2, '0');
-      const day = now.getDate().toString().padStart(2, '0');
-      this.currentDate = `${year}-${month}-${day}`;
-      
-      // 格式化時間爲字串（例如：HH:MM:SS）
-      const hours = now.getHours().toString().padStart(2, '0');
-      const minutes = now.getMinutes().toString().padStart(2, '0');
-      this.currentTime = `${hours}:${minutes}`;
+            const now = new Date();
+            
+            // 格式化日期爲字串（例如：YYYY-MM-DD）
+            const year = now.getFullYear();
+            const month = (now.getMonth() + 1).toString().padStart(2, '0');
+            const day = now.getDate().toString().padStart(2, '0');
+            this.currentDate = `${year}-${month}-${day}`;
+            
+            // 格式化時間爲字串（例如：HH:MM:SS）
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            this.currentTime = `${hours}:${minutes}`;
 
-      // 每隔一秒鐘更新一次日期和時間
-      const _this = this; // Reference to the component
-      setTimeout(function () {
-        _this.updateDateTime();
-      }, 1000);
+            // 每隔一秒鐘更新一次日期和時間
+            const _this = this; // Reference to the component
+            setTimeout(function () {
+              _this.updateDateTime();
+            }, 1000);
     },
 
       getTotalAmountForId(id) {
@@ -787,6 +880,11 @@
         }
         return totalAmount;
       },
+
+      // 阻止默认点击事件
+      preventCheckboxChange() {
+      event.preventDefault();
+  },
   },
 
       accordionEvent() {
