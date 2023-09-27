@@ -53,9 +53,9 @@ export default {
                     num: "Day1 旅程啟航！",
                     schedule: "從地球啟程後可飽覽星際風光，飛行十四個小時後，我們會抵達偉諭航空站，稍作休息後再前往火星。",
                     imgUrls: [
-                        require('@/assets/image/itinerary_mars2/d11.jpg'),
-                        require('@/assets/image/itinerary_mars2/d12.jpg'),
-                        require('@/assets/image/itinerary_mars2/d13.jpg'),
+                        require('@/assets/image/itinerary_mars2/m11.jpg'),
+                        require('@/assets/image/itinerary_mars2/m12.jpg'),
+                        require('@/assets/image/itinerary_mars2/m13.jpg'),
                     ],
                 },
                 {
@@ -63,9 +63,9 @@ export default {
                     num: "Day2 艾里隕石坑",
                     schedule: "前往艾里隕石坑 了解火星的地層變化，這些地層提供了一本連續章節的歷史書，記錄了每個地層沉積時的環境條件。",
                     imgUrls: [
-                        require('@/assets/image/itinerary_mars2/d21.jpg'),
-                        require('@/assets/image/itinerary_mars2/d22.jpg'),
-                        require('@/assets/image/itinerary_mars2/d23.jpg'),
+                        require('@/assets/image/itinerary_mars2/m21.jpg'),
+                        require('@/assets/image/itinerary_mars2/m22.jpg'),
+                        require('@/assets/image/itinerary_mars2/m23.jpg'),
                     ],
 
                 },
@@ -74,9 +74,9 @@ export default {
                     num: "Day3 太陽系最大的峽谷--水手號峽谷",
                     schedule: "前往水手號峽谷觀看壯麗美景，水手號峽谷長約3000公里，是美國大峽谷的近四倍長，高溫熔岩在地殼其他區域形成裂縫，隨著時間推移，逐漸演變成現有的水手號峽谷。",
                     imgUrls: [
-                        require('@/assets/image/itinerary_mars2/d31.jpg'),
-                        require('@/assets/image/itinerary_mars2/d32.jpg'),
-                        require('@/assets/image/itinerary_mars2/d33.jpg'),
+                        require('@/assets/image/itinerary_mars2/m31.jpg'),
+                        require('@/assets/image/itinerary_mars2/m32.jpg'),
+                        require('@/assets/image/itinerary_mars2/m33.jpg'),
                     ],
 
                 },
@@ -85,9 +85,9 @@ export default {
                     num: "Day4 蓋爾撞擊坑（Gale Crater）和夏普山（Mount Sharp）",
                     schedule: "2012年火星探測車好奇號在蓋爾撞擊坑這塊區域發現了河床，沿著河床的軌跡、一直到火山口底部，更發現了許多「 火星上曾經有水」的證據。在附近一座名為夏普山的火山，發現了「有機分子」，被認為是宇宙中生命的起源，我們將前往此地，探索其中奧妙。",
                     imgUrls: [
-                        require('@/assets/image/itinerary_mars2/d41.jpg'),
-                        require('@/assets/image/itinerary_mars2/d42.jpg'),
-                        require('@/assets/image/itinerary_mars2/d43.jpg'),
+                        require('@/assets/image/itinerary_mars2/m41.jpg'),
+                        require('@/assets/image/itinerary_mars2/m42.jpg'),
+                        require('@/assets/image/itinerary_mars2/m43.jpg'),
                     ],
 
                 },
@@ -96,9 +96,9 @@ export default {
                     num: "Day5、6 地下冒險",
                     schedule: "火星在40億年前具有溫暖潮濕的環境，但隨著磁場消失、大氣層變薄及環境溫度下降等影響，液態水僅能在較深的地下層中才穩定存在。若火星上有機會出現生命，其所在的位置可能會跟隨融化後的液態水進入更深的地層。",
                     imgUrls: [
-                        require('@/assets/image/itinerary_mars2/d51.jpg'),
-                        require('@/assets/image/itinerary_mars2/d52.jpg'),
-                        require('@/assets/image/itinerary_mars2/d53.jpg'),
+                        require('@/assets/image/itinerary_mars2/m51.jpg'),
+                        require('@/assets/image/itinerary_mars2/m52.jpg'),
+                        require('@/assets/image/itinerary_mars2/m53.jpg'),
                     ],
 
                 },
@@ -107,9 +107,9 @@ export default {
                     num: "Day 7 返回家鄉--地球",
                     schedule: "星際旅遊的壯闊冒險完美收尾！在無重力中飄浮的日子即將結束，我們即將返回地球。帶著難以置信的回憶和深刻的體驗，我們準備迎接重力的擁抱。也請各位珍惜回程最後飽覽太空的絕美景觀的機會。如果捨不得，我們期待著下次再與您共度星際旅遊的美好時光，感謝您的參與！",
                     imgUrls: [
-                        require('@/assets/image/itinerary_mars2/d61.jpg'),
-                        require('@/assets/image/itinerary_mars2/d62.jpg'),
-                        require('@/assets/image/itinerary_mars2/d63.jpg'),
+                        require('@/assets/image/itinerary_mars2/m61.jpg'),
+                        require('@/assets/image/itinerary_mars2/m62.jpg'),
+                        require('@/assets/image/itinerary_mars2/m63.jpg'),
                     ],
 
                 },
