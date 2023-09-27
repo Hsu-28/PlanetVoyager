@@ -113,24 +113,32 @@ h1 {
         width: 1px;
         height: 100%;
         background-color: $gray;
-        mask-image: linear-gradient(to bottom, transparent, black, black, transparent);
+        mask-image: linear-gradient(to bottom, transparent, black, black, transparent),
     }
-
+    &::after {
+        content: "";
+        position: absolute;
+        top:-25%;
+        left: 0;
+        width: 120%;
+        height: 150%;
+        background-color: $black;
+        z-index: -2;
+        mask-image: 
+        linear-gradient(to bottom, transparent, black, black, transparent); 
+    }
 }
 
 .tab-li {
-
     padding-top: 2rem;
     padding-bottom: 2rem;
-
-    // width: 50%;
     &:first-child {
         padding-top: 4rem;
     }
-
     &:last-child {
         padding-bottom: 4rem;
     }
+
 }
 
 $buttonLeft: 2rem;
@@ -144,6 +152,7 @@ $circleborder: 1.8rem;
     border: 0;
     color: $gray;
     font-size: 16px;
+    line-height: 1.5;
     display: flex;
     align-items: center;
     position: relative;
@@ -565,6 +574,7 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     font-size: $p2-s;
     color: $white;
     border: 0;
+    padding-top:3%;
     margin-left: auto;
     margin-bottom: 8%;
     display: block;
