@@ -108,7 +108,7 @@ $gap: 10px;
 
     &::after {
         content: 'VENUS';
-        border: $purple;
+        border:1px solid $purple;
         background-color: $purpleO;
         display: block;
         position: absolute;
