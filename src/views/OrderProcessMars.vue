@@ -173,46 +173,45 @@
   <section class="passengerInfo">
 
 
-    <section class="order-info">
-      <div class="p-num">
-        乘客人數:
-        <select name="" id="" v-model="currentAmount">
-          <option v-for="item in options" :value="item.num"> {{ item.num }} </option>
-        </select>
-      </div>
-      <section >
-        <orderList v-for="n in currentAmount" :key="n" :numOrder="n" :status="'正取'"></orderList>
-      </section>
-
-    </section>
-
-    <div class="order-detail">
-      <div class="order-card">
-        <h4>ORDER DETAIL</h4>
-        <div class="order-title">{{journey}}</div>
-        <div class="order-num">
-          <p>旅客人數: {{currentAmount}} 人</p>
-        </div>
-        <div class="order-money">
-          <p>總金額: {{600*currentAmount}} 萬美金 </p>
-        </div>
-        <div class="order-date">
-          <p>航程日期: {{date}}</p>
-        </div>
-        <div class="click">
-          <ButtonFlashBox :buttonText="'確認訂購'" :buttonBottomText="'-pv-'" class="kkss"></ButtonFlashBox>
-        </div>
-
-      </div>
-      <div class="exchange-rate">
-        <div>快速換算:<input type="number" placeholder="7000,000">台幣 </div>
-        <div>日幣:{7000,000} </div>
-        <div>台幣:{7000,000} </div>
-
-      </div>
-    </div>
+<section class="order-info">
+  <div class="p-num">
+    乘客人數:
+    <select name="" id="" v-model="currentAmount">
+      <option v-for="item in options" :value="item.num"> {{ item.num }} </option>
+    </select>
+  </div>
+  <section >
+    <orderList v-for="n in currentAmount" :key="n" :numOrder="n" :status="'正取'" :list="formList" @update-data="udpateForm($event, n-1)"></orderList>
   </section>
 
+</section>
+
+<div class="order-detail">
+  <div class="order-card">
+    <h4>ORDER DETAIL</h4>
+    <div class="order-title">{{journey}}</div>
+    <div class="order-num">
+      <p>旅客人數: {{currentAmount}} 人</p>
+    </div>
+    <div class="order-money">
+      <p>總金額: {{600*currentAmount}} 萬美金 </p>
+    </div>
+    <div class="order-date">
+      <p>航程日期: {{date}}</p>
+    </div>
+    <div class="click">
+      <ButtonFlashBox :buttonText="'確認訂購'" :buttonBottomText="'-pv-'" class="kkss"></ButtonFlashBox>
+    </div>
+
+  </div>
+  <div class="exchange-rate">
+    <div>快速換算:<input  placeholder="0" v-on:input="exchange" v-model="USD" min="0">萬美元 </div>
+    <div>日幣: &nbsp;{{YEN}} &nbsp; 萬元 </div>
+    <div>台幣: &nbsp;{{NT}} &nbsp; 萬元 </div>
+
+  </div>
+</div>
+</section>
 
   <!--   
     <div>

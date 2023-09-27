@@ -20,9 +20,183 @@
   overflow: hidden;
   img{
     width: 100%;
+    opacity: 80%;
   }
 }
+.passengerInfo{
+  .cabin{
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  background-image: url(@/assets/image/orderProcess/cabinBg1.svg);
+  background-position: 80% 50%;
+  background-size: 106%;
+  background-repeat: no-repeat;
+ 
+  .cabin-all{
+    margin: 20%;
+    margin-left: 25%;
+    display: flex;
+    flex-flow: row wrap;
+    width: 70%;
+    justify-content: space-around;
+    position: relative;
+    
+    
+    .cabin-per{
+      width:16%;
+      padding-top: 20%;
+      background-color: #bfbfbf; 
+      background-image: url(@/assets/image/orderProcess/cabin1.svg);
+      background-size: cover;
+      margin: 4% 2%;
+      border: 2px solid $blueL;
+      position: relative;
+    }
+    .class1::after{
+      content: "1";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      color: $white;
+      transform: translate(-50%,-50%);
+      font-size: 16px;
+    }
+    .class2::after{
+      content: "2";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      color: $white;
+      transform: translate(-50%,-50%);
+    font-size: 16px;
+    }
+    .class3::after{
+      content: "3";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      color: $white;
+      transform: translate(-50%,-50%);
+    font-size: 16px;
+    }
+    .class4::after{
+      content: "4";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      color: $white;
+      transform: translate(-50%,-50%);
+    font-size: 16px;
+    }
+    .class5::after{
+      content: "5";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      color: $white;
+      transform: translate(-50%,-50%);
+    font-size: 16px;
+    }
+    .class6::after{
+      content: "6";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      color: $white;
+      transform: translate(-50%,-50%);
+    font-size: 16px;
+    }
+    .class7::after{
+      content: "7";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      color: $white;
+      transform: translate(-50%,-50%);
+    font-size: 16px;
+    }
+    .class8::after{
+      content: "8";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      color: $white;
+      transform: translate(-50%,-50%);
+    font-size: 16px;
+    }
+    .class9::after{
+      content: "9";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      color: $white;
+      transform: translate(-50%,-50%);
+    font-size: 16px;
+    }
+    .class10::after{
+      content: "10";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      color: $white;
+      transform: translate(-50%,-50%);
+      font-size: 16px;
+    }
+    div:hover{
+      cursor: pointer;
+      background-color: $blue; 
+      box-shadow: 0px 0px 2px white;
+    }
+    div:hover::after{
+      
+        color:$white;
+      
+    }
+    div.disable{
+      opacity: 50%;
+      cursor: default;
+    }
+    div.disable:hover{
+      color: $blue;
+      background-color: #bfbfbf;
+    }
+    div.disable:hover ::after {
+        
+          color: black !important;
+        
+      }
+    
+    .cabin-chose{
+      position: absolute;
+      top: 50%;
+      right: -20%;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $blue;
+      span{
+        width: 80%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: antiquewhite;
+        font-size: 20px;
+      }
+      
 
+    }
+  }
+ 
+}
+}
+
+div.fororbitbg{
+  margin-top:0;
+  height: 700px
+}
 .title{
   max-width: 1200px;
   margin: 0 auto 0 auto;
@@ -427,10 +601,24 @@ h1 {
     border: 1px solid gray;
     border-radius: 20px;
     padding-top: 20px;
-    
+    .gender{
+      font-size: 12px; 
+      color: #ffffffbd; 
+      width: 40%;
+      margin: 6px 0;
+      background-color: rgba(217, 217, 217, 0.6);
+      border: none;
+      border-radius: 3px;
+      height: 28px;
+    }
+    .gender > option{
+      color: $black; 
+    }
+
     input::placeholder {
       font-size: 12px; 
       color: #ffffffbd;
+      padding-left: 10px;
     }
     h4{
       width: 90%;
@@ -443,6 +631,7 @@ h1 {
       background-color: rgba(217, 217, 217, 0.6);
       border: none;
       border-radius: 3px;
+      height: 28px;
     }
     .c-s{
       width: 90%;
@@ -493,7 +682,7 @@ h1 {
     margin: 30px 0;
     font-size: 12px;
     input{
-      width: 30px;
+      width: 20px;
     }
   }
   .upload{
@@ -504,16 +693,14 @@ h1 {
     margin-bottom: 30px;
     font-size: 14px;
     cursor: pointer;
-    button{
-      border: none;
-      
-    }
+    background-color: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
 
   }
-  .upload:hover{
-    background-color: $black;
-    color: $white;
-  }
+
   .order-s{
     font-size: 28px;
     text-align: center;
@@ -1032,6 +1219,7 @@ h1 {
       input::placeholder {
         font-size: 14px; 
         color: #ffffffbd;
+        width: 100%;
       }
       h4{
         width: 90%;
@@ -1089,8 +1277,13 @@ h1 {
       width: 90%; 
       letter-spacing: 1.5px; 
       margin: 30px 0;
+      padding: auto 0;
+      display: flex;
+      align-items: center;
       input{
-        width: 30px;
+        width: 16px;
+        margin-right: 5px;
+     
       }
     }
     .upload{
@@ -1100,6 +1293,10 @@ h1 {
       border-radius: 5px;
       margin-bottom: 30px;
   
+    }
+    .birthday{
+      color: $white;
+    
     }
     .order-s{
       font-size: 32px;
@@ -1133,21 +1330,148 @@ h1 {
         flex-flow: row wrap;
         width: 70%;
         justify-content: space-around;
+        position: relative;
         
         
-        div{
+        .cabin-per{
           width:16%;
           padding-top: 20%;
-          background-color: #ffffffba; 
+          background-color: #bfbfbf; 
           background-image: url(@/assets/image/orderProcess/cabin1.svg);
           background-size: cover;
           margin: 4% 2%;
           border: 2px solid $blueL;
+          position: relative;
+        }
+        .class1::after{
+          content: "1";
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          color: $white;
+          transform: translate(-50%,-50%);
+          font-size: 20px;
+        }
+        .class2::after{
+          content: "2";
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          color: $white;
+          transform: translate(-50%,-50%);
+        font-size: 20px;
+        }
+        .class3::after{
+          content: "3";
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          color: $white;
+          transform: translate(-50%,-50%);
+        font-size: 20px;
+        }
+        .class4::after{
+          content: "4";
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          color: $white;
+          transform: translate(-50%,-50%);
+        font-size: 20px;
+        }
+        .class5::after{
+          content: "5";
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          color: $white;
+          transform: translate(-50%,-50%);
+        font-size: 20px;
+        }
+        .class6::after{
+          content: "6";
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          color: $white;
+          transform: translate(-50%,-50%);
+        font-size: 20px;
+        }
+        .class7::after{
+          content: "7";
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          color: $white;
+          transform: translate(-50%,-50%);
+        font-size: 20px;
+        }
+        .class8::after{
+          content: "8";
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          color: $white;
+          transform: translate(-50%,-50%);
+        font-size: 20px;
+        }
+        .class9::after{
+          content: "9";
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          color: $white;
+          transform: translate(-50%,-50%);
+        font-size: 20px;
+        }
+        .class10::after{
+          content: "10";
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          color: $white;
+          transform: translate(-50%,-50%);
+          font-size: 20px;
         }
         div:hover{
           cursor: pointer;
           background-color: $blue; 
           box-shadow: 0px 0px 2px white;
+        }
+        div:hover::after{
+          
+            color:$white;
+          
+        }
+        div.disable{
+          opacity: 50%;
+          cursor: default;
+        }
+        div.disable:hover{
+          color: $blue;
+          background-color: #bfbfbf !important;
+        }
+        
+        .cabin-chose{
+          position: absolute;
+          top: 50%;
+          right: -20%;
+          transform: translateY(-50%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: $blue;
+          span{
+            width: 80%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: antiquewhite;
+            font-size: 32px;
+          }
+          
+
         }
       }
      
