@@ -7,6 +7,7 @@ import orderList from "@/components/PerOrder.vue";
 export default {
   data() {
     return {
+      orderCheck: false,
       USD: 0,
       YEN: 0,
       NT: 0,
@@ -135,6 +136,12 @@ export default {
       console.log(form, index)
       this.formList[index] = form;
     },
+    disOrder(){
+      this.orderCheck = !this.orderCheck
+    },
+    checkOrder(){
+      this.orderCheck = true
+    }
   },
   computed: {
     options() {

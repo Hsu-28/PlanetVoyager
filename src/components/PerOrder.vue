@@ -1,4 +1,4 @@
-<!-- <template>
+ <template>
   <section class="per-order">
     <div class="order-i">
 
@@ -53,9 +53,6 @@
         <p>Choose Cabin Seat</p>
       </div>
       <div class="cabin">
-        <!-- <div class="cabin-all">
-          <div class="cabin-per" v-for="i in 10" :class="{'disable': alreadySelectSeatIndex.includes(i)}" @click="form.seatIndex = i"></div>
-        </div> -->
         <div class="cabin-all">
 
             <div v-for="i in 10" :key="i" :class="['cabin-per', `class${i}`, { 'disable': alreadySelectSeatIndex.includes(i) }]" @click="form.seatIndex = i"></div>
@@ -104,6 +101,6 @@ export default {
 
 <style scoped lang="scss">
 @import "~@/assets/sass/page/orderProcess.scss";
-</style> -->
-<template></template>
+</style> 
+
 
