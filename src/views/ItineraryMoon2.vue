@@ -160,12 +160,12 @@ export default {
             }
         });
     },
-    // beforeUnmount() {
-    //     document.body.style.height = `auto`;
-    //     if (this.scrollInstance) {
-    //         this.scrollInstance.destroy();
-    //     }
-    // }
+    beforeUnmount() {
+        document.body.style.height = `auto`;
+        if (this.scrollInstance) {
+            this.scrollInstance.destroy();
+        }
+    }
 };
 
 </script>
