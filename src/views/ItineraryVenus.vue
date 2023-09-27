@@ -43,7 +43,6 @@ import LocomotiveScroll from 'locomotive-scroll';
 export default {
     data() {
         return {
-            scrollInstance: null,
             bigpic: '',
             showBtn: true,
             scroll: null,
@@ -133,6 +132,7 @@ export default {
     },
     mounted() {
         const el = document.querySelector('#main-container')
+        console.log(el);
         if (!el) return;
         console.log(el)
         this.scroll = new LocomotiveScroll({
@@ -148,13 +148,18 @@ export default {
                 smooth: true
             }
         });
+        setTimeout(() => {
+            this.scroll.update()
+        }, 1000);
+        console.log(this.scroll);
     },
     beforeUnmount() {
-        document.body.style.height = `auto`;
-        if (this.scrollInstance) {
-            this.scrollInstance.destroy();
-        }
+        console.log(this.scroll);
+    if (this.scroll) {
+      this.scroll.destroy();
     }
+    console.log(this.scroll);
+  },
 };
 
 </script>

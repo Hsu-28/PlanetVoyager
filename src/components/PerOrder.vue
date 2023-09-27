@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <section class="per-order">
     <div class="order-i">
 
@@ -83,6 +83,6 @@ export default {
 
 <style scoped lang="scss">
 @import "~@/assets/sass/page/orderProcess.scss";
-</style>
-
+</style> -->
+<template></template>
 

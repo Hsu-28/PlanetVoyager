@@ -45,7 +45,6 @@ import LocomotiveScroll from 'locomotive-scroll';
 export default {
     data() {
         return {
-            scrollInstance: null,
             bigpic: '',
             showBtn: true,
             scroll: null,
@@ -161,11 +160,12 @@ export default {
         });
     },
     beforeUnmount() {
-        document.body.style.height = `auto`;
-        if (this.scrollInstance) {
-            this.scrollInstance.destroy();
-        }
+        console.log(this.scroll);
+    if (this.scroll) {
+      this.scroll.destroy();
     }
+    console.log(this.scroll);
+  }                                                                                                                            
 };
 
 </script>
