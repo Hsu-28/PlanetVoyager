@@ -14,7 +14,7 @@
             <div class="scrollsection" data-scroll-section>
                 <div class="title" style="writing-mode: vertical-lr" data-scroll data-scroll-speed="1">
                     <div>
-                        <h1>火 星 生 命 解 密 之 旅</h1>
+                        <h1>奧 林 帕 斯 山 脈 之 旅</h1>
                     </div>
 
 
@@ -55,26 +55,26 @@ export default {
                 },
                 {
                     schedulenum: "schedule2",
-                    num: "Day2 艾里隕石坑",
-                    schedule: "前往艾里隕石坑 了解火星的地層變化，這些地層提供了一本連續章節的歷史書，記錄了每個地層沉積時的環境條件。"
+                    num: "Day2 抵達火星",
+                    schedule: "抵達火星後現場觀察火星的地質歷史，學習探測器載具的使用探勘，適應火星的氣候。"
 
                 },
                 {
                     schedulenum: "schedule3",
-                    num: "Day3 太陽系最大的峽谷--水手號峽谷",
-                    schedule: "前往水手號峽谷觀看壯麗美景，水手號峽谷長約3000公里，是美國大峽谷的近四倍長，高溫熔岩在地殼其他區域形成裂縫，隨著時間推移，逐漸演變成現有的水手號峽谷。"
+                    num: "Day3 穿越火星沙漠",
+                    schedule: "火星沙漠越野：搭乘特製的載具觀賞風景，穿越沙漠抵達奧林帕斯山脈山腳。"
 
                 },
                 {
                     schedulenum: "schedule4",
-                    num: "Day4 蓋爾撞擊坑（Gale Crater）和夏普山（Mount Sharp）",
-                    schedule: "2012年火星探測車好奇號在蓋爾撞擊坑這塊區域發現了河床，沿著河床的軌跡、一直到火山口底部，更發現了許多「 火星上曾經有水」的證據。在附近一座名為夏普山的火山，發現了「有機分子」，被認為是宇宙中生命的起源，我們將前往此地，探索其中奧妙。"
+                    num: "Day 4、5 奧林帕斯山",
+                    schedule: "前往奧林帕斯山高處，進入火山隧道，體驗火山的內部結構。"
 
                 },
                 {
                     schedulenum: "schedule5",
-                    num: "Day5、6 地下冒險",
-                    schedule: "火星在40億年前具有溫暖潮濕的環境，但隨著磁場消失、大氣層變薄及環境溫度下降等影響，液態水僅能在較深的地下層中才穩定存在。若火星上有機會出現生命，其所在的位置可能會跟隨融化後的液態水進入更深的地層。"
+                    num: "Day 6 登頂",
+                    schedule: "登頂奧林帕斯山，途中可能會遇到壯觀的峽谷、熔岩流和古老的火山口，回程順道參觀火星基地。"
 
                 },
                 {

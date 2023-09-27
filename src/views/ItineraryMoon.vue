@@ -231,7 +231,7 @@ export default {
     .image-box {
         width: 60px;
         height: 60px;
-
+        
         img {
             max-width: 100%;
             width: 100%;
