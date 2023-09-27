@@ -355,8 +355,8 @@ export default {
                 width: 45%;
             }
             .schedule-text::after {
-                top: 0%;
-                left: 130%;
+                top: 80%;
+                left: 140%;
             }
 
         }

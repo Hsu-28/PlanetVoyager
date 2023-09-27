@@ -1,134 +1,41 @@
 <template>
     <div id="itinerary">
-        <div class="main-container" data-scroll-container>
+        <div class="planet-bg">
+            <img src="@/assets/image/itinerary_combo/galaxy_bg.png" alt="galaxy">
+        </div>
+        <!-- 遮罩 -->
+        <div v-if="coverbg" class="cover"></div>
+        <div v-if="showBtn" class="schedule-big-pic">
+            <img :src="bigpic">
+            <button v-if="showBtn" class="close-btn" @click="close">&times;</button>
+        </div>
+        <!-- 旅程名稱 -->
+        <div id="main-container" data-scroll-container>
             <div class="scrollsection" data-scroll-section>
-                <!-- 旅程名稱 -->
                 <div class="title" style="writing-mode: vertical-lr" data-scroll data-scroll-speed="1">
-                    <h1>銀 河 漫 遊 之 旅</h1>
-                    <p></p>
-                    <p></p>
-                </div>
-                <!-- 第一塊 -->
-                <div class="schedule-section schedule-section1" data-scroll data-scroll-speed="2">
-                    <div class="schedule schedule1">
-                        <div class="schedule-text">
-                            <h3>Day1 旅程啟航！</h3>
-                            <p>從地球啟程後可飽覽星際風光，隔日中午抵達月球，在銀河中體驗太空中漂浮。</p>
-                        </div>
-                        <div class="schedule-pic">
-                            <img class="image" src='https://picsum.photos/100/100'>
-                            <img class="image" src='https://picsum.photos/100/100'>
-                            <img class="image" src='https://picsum.photos/100/100'>
-                        </div>
+                    <div>
+                        <h1>銀 河 漫 遊 之 旅</h1>
                     </div>
-                    <div class="schedule-big-pic">
-                        <img class="image" src='https://picsum.photos/300/200'>
-                    </div>
-                </div>
-            </div>
-            <!-- 第二塊 -->
-            <div class="scrollsection" data-scroll-section>
-                <div class="schedule-section schedule-section2">
-                    <div class="schedule schedule2" data-scroll data-scroll-speed="2">
-                        <div class="schedule-text">
-                            <h3>Day2 月球美景饗宴</h3>
-                            <p>在月球周圍繞行，除了神奇的月亮景色，也能於月球的空中觀測未知的生物和奇異的地貌，滿足您的探索精神。</p>
-                        </div>
-                        <div class="schedule-pic">
-                            <img class="image" src='https://picsum.photos/100/100'>
-                            <img class="image" src='https://picsum.photos/100/100'>
-                            <img class="image" src='https://picsum.photos/100/100'>
-                        </div>
-                    </div>
-                    <div class="schedule-big-pic">
-                        <img class="image" src='https://picsum.photos/300/200'>
-                    </div>
-                </div>
-            </div>
-            <div class="scrollsection" data-scroll-section>
-                <!-- 第三塊 -->
-                <div class="schedule-section schedule-section3" data-scroll data-scroll-speed="2">
-                    <div class="schedule schedule3">
-                        <div class="schedule-text">
-                            <h3>Day3 金星秘景探索</h3>
-                            <p>藉由蟲洞跳躍，我們前往金星，探索這個炎熱的星球。在金星空中的飛航期間，您將發現更多奇異的景色和未知生物，使我們的探索更加驚喜。</p>
-                        </div>
-                        <div class="schedule-pic">
-                            <img class="image" src='https://picsum.photos/100/100'>
-                            <img class="image" src='https://picsum.photos/100/100'>
-                            <img class="image" src='https://picsum.photos/100/100'>
-                        </div>
-                    </div>
-                    <div class="schedule-big-pic">
-                        <img class="image" src='https://picsum.photos/300/200'>
-                    </div>
-                </div>
-            </div>
-            <div class="scrollsection" data-scroll-section>
-                <!-- 第四塊 -->
-                <div class="schedule-section schedule-section4" data-scroll data-scroll-speed="2">
-                    <div class="schedule schedule4">
-                        <div class="schedule-text">
-                            <h3>Day4、5 火星遺跡巡航</h3>
-                            <p>再次飛入蟲洞，前往火星。在這顆紅色星球上，於空中觀看遠古遺跡、麥田圈等等，尋訪生命的起源和消殞，為您的旅程添上色彩。</p>
-                        </div>
-                        <div class="schedule-pic">
-                            <img class="image" src='https://picsum.photos/100/100'>
-                            <img class="image" src='https://picsum.photos/100/100'>
-                            <img class="image" src='https://picsum.photos/100/100'>
-                        </div>
-                    </div>
-                    <div class="schedule-big-pic">
-                        <img class="image" src='https://picsum.photos/300/200'>
-                    </div>
-                </div>
-            </div>
 
-        <div class="scrollsection" data-scroll-section>
-            <div class="schedule-section schedule-section5" data-scroll data-scroll-speed="2">
-                <div class="schedule schedule5">
-                    <div class="schedule-text">
-                        <h3>Day 6 台日共構月球基地--蒂芬妮丘</h3>
-                        <p>蒂芬妮丘是深太空探索的跳板，有助於實現我們登陸更遠的星系。月球基地的太陽能發電站將為未來太空任務提供可再生能源，強化星際探索空持續性。旅客在此休息養足精神，隔日再行返家。
-                        </p>
-                    </div>
-                    <div class="schedule-pic">
-                        <img class="image" src='https://picsum.photos/100/100'>
-                        <img class="image" src='https://picsum.photos/100/100'>
-                        <img class="image" src='https://picsum.photos/100/100'>
-                    </div>
-                </div>
-                <div class="schedule-big-pic">
-                    <img class="image" src='https://picsum.photos/300/200'>
+
                 </div>
             </div>
-        </div>
-        <div class="scrollsection" data-scroll-section>
-            <!-- 第六塊 -->
-            <div class="schedule-section schedule-section6" data-scroll data-scroll-speed="2">
-                <div class="schedule schedule6">
+            <div v-for="(day, index) in schedules" :key="index" class="scrollsection" data-scroll-section>
+                <div class="schedule" :class="day.schedulenum" data-scroll data-scroll-speed="2">
                     <div class="schedule-text">
-                        <h3>Day 7 返回家鄉--地球</h3>
-                        <p>星際旅遊的壯闊冒險完美收尾！在無重力中飄浮的日子即將結束，我們即將返回地球。帶著難以置信的回憶和深刻的體驗，我們準備迎接重力的擁抱。也請各位珍惜回程最後飽覽太空的絕美景觀的機會。如果捨不得，我們期待著下次再與您共度星際旅遊的美好時光，感謝您的參與！
-                        </p>
+                        <h3>{{ day.num }}</h3>
+                        <p>{{ day.schedule }}</p>
                     </div>
                     <div class="schedule-pic">
-                        <img class="image" src='https://picsum.photos/100/100'>
-                        <img class="image" src='https://picsum.photos/100/100'>
-                        <img class="image" src='https://picsum.photos/100/100'>
+                        <div v-for="(URL, picIndex) in day.imgUrls" :key="picIndex" class="image-box" @click="showPic($event)">
+                            <img :src="URL">
+                        </div>
                     </div>
                 </div>
-                <div class="schedule-big-pic">
-                    <img class="image" src='https://picsum.photos/300/200'>
-                </div>
             </div>
-        </div>
-        <!-- 空白 -->
-        <div class="scrollsection" data-scroll-section>
-            <div class="blank-space"></div>
         </div>
     </div>
-</div></template>
+</template>
 
 <script>
 import LocomotiveScroll from 'locomotive-scroll';
@@ -137,19 +44,99 @@ export default {
     data() {
         return {
             scrollInstance: null,
+            bigpic: '',
+            showBtn: true,
+            scroll: null,
+            schedules: [
+                {
+                    schedulenum: "schedule1",
+                    num: "Day1 旅程啟航！",
+                    schedule: "從地球啟程後可飽覽星際風光，隔日中午抵達月球，在銀河中體驗太空中漂浮。",
+                    imgUrls: [
+                        require('@/assets/image/itinerary_combo/c11.svg'),
+                        require('@/assets/image/itinerary_combo/c12.svg'),
+                        require('@/assets/image/itinerary_combo/c13.svg'),
+                    ],
+                },
+                {
+                    schedulenum: "schedule2",
+                    num: "Day2 月球美景饗宴",
+                    schedule: "在月球周圍繞行，除了神奇的月亮景色，也能於月球的空中觀測未知的生物和奇異的地貌，滿足您的探索精神。",
+                    imgUrls: [
+                        require('@/assets/image/itinerary_combo/c21.svg'),
+                        require('@/assets/image/itinerary_combo/c22.svg'),
+                        require('@/assets/image/itinerary_combo/c23.svg'),
+                    ],
+                },
+                {
+                    schedulenum: "schedule3",
+                    num: "Day3 金星秘景探索",
+                    schedule: "藉由蟲洞跳躍，我們前往金星，探索這個炎熱的星球。在金星空中的飛航期間，您將發現更多奇異的景色和未知生物，使我們的旅程更加驚喜。",
+                    imgUrls: [
+                        require('@/assets/image/itinerary_combo/c31.svg'),
+                        require('@/assets/image/itinerary_combo/c32.svg'),
+                        require('@/assets/image/itinerary_combo/c33.svg'),
+                    ],
+                },
+                {
+                    schedulenum: "schedule4",
+                    num: "Day4、5 火星遺跡巡航",
+                    schedule: "再次飛入蟲洞，前往火星。在這顆紅色星球上，於空中觀看遠古遺跡、麥田圈等等，尋訪生命的起源和消殞，為您的旅程添上色彩。",
+                    imgUrls: [
+                        require('@/assets/image/itinerary_combo/c41.svg'),
+                        require('@/assets/image/itinerary_combo/c42.svg'),
+                        require('@/assets/image/itinerary_combo/c43.svg'),
+                    ],
+                },
+                {
+                    schedulenum: "schedule5",
+                    num: "Day 6 台日共構月球基地--蒂芬妮丘",
+                    schedule: "蒂芬妮丘是深太空探索的跳板，有助於實現我們登陸更遠的星系。月球基地的太陽能發電站將為未來太空任務提供可再生能源，強化星際探索空持續性。旅客在此休息養足精神，隔日再行返家。",
+                    imgUrls: [
+                        require('@/assets/image/itinerary_combo/c51.svg'),
+                        require('@/assets/image/itinerary_combo/c52.svg'),
+                        require('@/assets/image/itinerary_combo/c53.svg'),
+                    ],
+                },
+                {
+                    schedulenum: "schedule6",
+                    num: "Day 7 返回家鄉--地球",
+                    schedule: "星際旅遊的壯闊冒險完美收尾！在無重力中飄浮的日子即將結束，我們即將返回地球。帶著難以置信的回憶和深刻的體驗，我們準備迎接重力的擁抱。也請各位珍惜回程最後飽覽太空的絕美景觀的機會。如果捨不得，我們期待著下次再與您共度星際旅遊的美好時光，感謝您的參與！",
+                    imgUrls: [
+                        require('@/assets/image/itinerary_combo/c11.svg'),
+                        require('@/assets/image/itinerary_combo/c12.svg'),
+                        require('@/assets/image/itinerary_combo/c13.svg'),
+                    ],
+                },
+            ],
+
+        };
+    },
+    methods: {
+        showPic(e) {
+            this.bigpic = e.target.src;
+        },
+        close() {
+            if (this.bigpic != '') {
+                this.bigpic = '';
+            }
         }
     },
-    // methods:{
-    //     scroll(){
-    //         let scrollsection = document.querySelector(".scrollsection");
-    //         let scrollsectionwidth = scrollsection.getBoundingClientRect().width;
-    //         document.body.style.height = scrollsectionwidth + 'px';
-    //     }
-    // },
-
+    computed: {
+        showBtn() {
+            console.log('click');
+            return this.bigpic !== ''
+        },
+        coverbg() {
+            return this.bigpic !== ''
+        }
+    },
     mounted() {
-        const scroll1 = new LocomotiveScroll({
-            el: document.querySelector('.main-container'),
+        const el = document.querySelector('#main-container')
+        if (!el) return;
+        console.log(el)
+        this.scroll = new LocomotiveScroll({
+            el,
             direction: 'horizontal',
             smooth: true,
             lerp: 0.05,
@@ -161,39 +148,91 @@ export default {
                 smooth: true
             }
         });
-       
-        // document.body.style.height = document.querySelector(".scrollsection").getBoundingClientRect().width + "px";
-
     },
-    beforeUnmount() {
-        document.body.style.height = `auto`;
-        if (this.scrollInstance) {
-            this.scrollInstance.destroy();
-        }
-    }
+    // beforeUnmount() {
+    //     document.body.style.height = `auto`;
+    //     if (this.scrollInstance) {
+    //         this.scrollInstance.destroy();
+    //     }
+    // }
 };
-
-
-
 
 </script>
 
-
 <style scoped lang="scss">
 #itinerary {
+    display: flex;
+    position: relative;
+
+    .cover {
+        z-index: 1;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        // 透明度 0.6 的黑色半透明遮罩
+        background: rgba(0, 0, 0, 0.6);
+        // 設置背景混和模式為相乘模式
+        background-blend-mode: multiply;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .close-btn {
+        width: 65px;
+        cursor: pointer;
+        position: absolute;
+        z-index: 10;
+        background-color: transparent;
+        border: none;
+        color: $blueL;
+        font-weight: 200;
+        font-size: 60px;
+        text-shadow: 3px 1px 5px $blueL;
+        top: -10%;
+        right: -1%;
+    }
 
     .schedule-big-pic {
-        opacity: 0;
+        z-index: 5;
+        // border: 3px solid #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: 500px;
+        height: 300px;
+        // align-self: flex-end;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+            overflow: hidden;
+        }
+    }
+
+    .image-box {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        z-index: 10;
+
+        img {
+            z-index: 2;
+            max-width: 100%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            cursor: pointer;
+        }
     }
 
     box-sizing: border-box;
     color: $white;
     line-height: 1.5;
     position: relative;
-
-    // .c-scrollbar {
-    //     display: none;
-    // }
 
     img {
         max-width: 100%;
@@ -209,6 +248,13 @@ export default {
     }
 
     .title {
+        display: flex;
+        flex-direction: column;
+        z-index: 10;
+        margin-left: 10%;
+        margin-top: 5%;
+        margin-bottom: 1%;
+
         h1 {
             font-size: $h2-l;
 
@@ -219,6 +265,13 @@ export default {
             top: 25vh;
         }
     }
+
+    .planet-bg {
+        position: absolute;
+        width: 90%;
+        left: -20%;
+    }
+
     .main-container {
         display: flex;
         height: 100vh;
@@ -226,27 +279,46 @@ export default {
 
     .scrollsection {
         height: 100vh;
-        display: flex;
-        // margin-left: 10vh;
-        padding: 10vh 5vh 0vh 0vh;
-        overflow: visible;
-        &:first-child{
+        padding-top: 20vh;
+
+        &:first-child {
             padding-left: 40vh;
         }
-        &:last-child{
-            padding-right: 10vh;
-        // &:first-child{
-        //     padding-left: 10vh;
-        // }
+
+        &:nth-child(2) {
+            padding-left: 10vh;
         }
-        .schedule-section {
-            height: 100%;
+
+        &:last-child {
+            padding-right: 20vh;
+
+        }
+
+        .schedule {
+
             display: flex;
-            flex-direction: column;
-            margin-left: 5vh;
 
             .schedule-text {
+                width: 410px;
                 position: relative;
+                border: 1px solid $blueL;
+                border-radius: 10px;
+                padding: 25px;
+
+
+                h3 {
+                    color: $blueL;
+                    font-weight: 700;
+                }
+
+                &:after {
+                    position: absolute;
+                }
+
+                p {
+                    word-break: break-all;
+                    white-space: initial;
+                }
             }
 
             .schedule-text::after {
@@ -256,105 +328,78 @@ export default {
                 content: url(@/assets/image/donate/down.svg);
                 transform: rotate(-45deg);
             }
+
+            .schedule-pic {
+                img {
+                    border-radius: 50%;
+                    box-shadow: 5px 0 $blueL;
+                }
+
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+            }
         }
 
         // 第一塊
-        .schedule-section1 {
+        .schedule1 {
             .schedule-pic {
                 position: relative;
                 bottom: 10%;
-                right: 5%;
-                width: 30%;
-            }
-
-            .schedule-big-pic {
-                margin-top: 5vh;
+                right: 2%;
+                width: 45%;
             }
         }
 
         // 第二塊
-        .schedule-section2 {
-            .schedule {
-                order: 2;
-            }
-
-            .schedule-big-pic {
-                order: 1;
-                width: 300px;
-                height: 200px;
-            }
-        }
-
-        div.schedule2 {
+        .schedule2 {
+            flex-direction: column;
             position: relative;
-            display: block;
+            top: 50%;
 
             .schedule-pic {
+                transform: translateY(-10%);
                 position: relative;
-                top: -5%;
-                left: 50%;
-                width: 50%;
+                right: -50%;
+                width: 45%;
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
-
-                img {
-                    width: 30%;
-                }
             }
 
-            .schedule-text {
-                position: relative;
-            }
 
             .schedule-text::after {
                 top: -45%;
-                left: 110%;
+                left: 120%;
                 content: url(@/assets/image/donate/down.svg);
                 transform: rotate(-135deg);
             }
         }
 
         // 第三塊
-        .schedule-section3 {
-            position: relative;
-            top: -20%;
+        .schedule3 {
+            margin-left: 10vh;
 
-            .schedule-big-pic {
-                margin-top: 10vh;
-            }
-
-            .schedule3 {
+            .schedule-pic {
+                transform: translateY(-25%);
+                position: relative;
+                right: 40%;
                 display: flex;
-                flex-direction: column-reverse;
-
-                .schedule-pic {
-                    position: relative;
-                    left: 50%;
-                    bottom: -5%;
-                    display: flex;
-                    flex-direction: row;
-                    width: 50%;
-
-                    img {
-                        width: 30%;
-                    }
-                }
+                flex-direction: row;
+                width: 40%;
             }
         }
 
-        // 第四塊
-        .schedule-section4 {
-            margin-top: -8vh;
-            flex-direction: column-reverse;
 
-            .schedule-text {
-                position: relative;
-            }
+        // 第四塊
+        .schedule4 {
+            margin-top: 40vh;
+            margin-left: -10vh;
 
             .schedule-text::after {
                 top: -45%;
-                left: 110%;
+                left: 150%;
                 content: url(@/assets/image/donate/down.svg);
                 transform: rotate(-135deg);
             }
@@ -362,96 +407,47 @@ export default {
             .schedule-pic {
                 justify-content: space-around;
                 position: relative;
-                right: 5%;
-                width: 40%;
+                right: 2%;
+                width: 45%;
             }
         }
 
         // 第五塊
-        .schedule-section5 {
-            margin-top: -10vh;
+        .schedule5 {
+            flex-direction: column;
 
-            .schedule5 {
+            .schedule-pic {
+                position: relative;
+                transform: translateY(-30%);
                 display: flex;
-                flex-direction: column-reverse;
-
-                .schedule-pic {
-                    position: relative;
-                    left: 50%;
-                    bottom: -5%;
-                    display: flex;
-                    flex-direction: row;
-                    width: 50%;
-
-                    img {
-                        width: 30%;
-                    }
-                }
+                flex-direction: row;
+                width: 50%;
             }
         }
 
         // 第六塊
-        .schedule-section6 {
-            margin-top: -5vh;
+        .schedule6 {
             flex-direction: column-reverse;
+            margin-top: 20vh;
+            margin-left: 20vh;
 
             .schedule-text::after {
                 display: none;
             }
 
-            .schedule6 {
-                margin-top: -12vh;
+            .schedule-pic {
+                transform: translateY(15%);
                 display: flex;
-                flex-direction: column-reverse;
-
-                .schedule-pic {
-                    position: relative;
-                    left: 0%;
-                    bottom: -5%;
-                    display: flex;
-                    flex-direction: row;
-                    width: 50%;
-
-                    img {
-                        width: 30%;
-
-                    }
-
-                }
-            }
-            // 空白
-            .blank-space{
-                width: 20%;
+                flex-direction: row;
+                width: 45%;
             }
         }
 
-        .schedule {
-            width: 410px;
-            // height: 170px;
-            display: flex;
-
-            .schedule-text {
-                border: 1px solid $blueL;
-                border-radius: 10px;
-                padding: 40px;
-
-                h3 {
-                    color: $blueL;
-                }
-            }
-
-            .schedule-pic {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-
-                img {
-                    border-radius: 50%;
-                    box-shadow: 5px 0 $blueL;
-                }
-            }
-
+        // 空白
+        .blank-space {
+            width: 20%;
         }
     }
 
-}</style>
+}
+</style>

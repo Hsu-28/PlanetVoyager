@@ -25,10 +25,11 @@
                 <div class="schedule" :class="day.schedulenum" data-scroll data-scroll-speed="2">
                     <div class="schedule-text">
                         <h3>{{ day.num }}</h3>
-                        <p>{{ day.schedule }}</p>
+                        <p style="white-space: pre-line">{{ day.schedule }}</p>
                     </div>
                     <div class="schedule-pic">
-                        <div v-for="(URL, picIndex) in day.imgUrls" :key="picIndex" class="image-box" @click="showPic($event)">
+                        <div v-for="(URL, picIndex) in day.imgUrls" :key="picIndex" class="image-box"
+                            @click="showPic($event)">
                             <img :src="URL">
                         </div>
                     </div>
@@ -54,9 +55,9 @@ export default {
                     num: "Day1 旅程啟航！",
                     schedule: "帶著輕鬆的心情於本公司飛航站集合，搭乘太空船直接飛往月球，此航程為15小時。",
                     imgUrls: [
-                        require('@/assets/image/itinerary_mars1/d11.jpg'),
-                        require('@/assets/image/itinerary_mars1/d12.jpg'),
-                        require('@/assets/image/itinerary_mars1/d13.jpg'),
+                        require('@/assets/image/itinerary_moon2/mo211.jpg'),
+                        require('@/assets/image/itinerary_moon2/mo212.jpg'),
+                        require('@/assets/image/itinerary_moon2/mo213.jpg'),
                     ],
                 },
                 {
@@ -64,34 +65,59 @@ export default {
                     num: "Day2、3 月球表面遊覽&探索",
                     schedule: "約早上8點降落在月球基地，位於近月點或月海附近。首先進行環境適應訓練，熟悉基地並參加安全簡報和旅程概述，接著穿上太空服，搭乘觀光月球車前往著名的月球撞擊坑。晚間則在舒適的基地內欣賞地球升起的美景。",
                     imgUrls: [
-                        require('@/assets/image/itinerary_mars1/d21.jpg'),
-                        require('@/assets/image/itinerary_mars1/d22.jpg'),
-                        require('@/assets/image/itinerary_mars1/d23.jpg'),
+                        require('@/assets/image/itinerary_moon2/mo221.jpg'),
+                        require('@/assets/image/itinerary_moon2/mo222.jpg'),
+                        require('@/assets/image/itinerary_moon2/mo223.jpg'),
                     ],
                 },
                 {
                     schedulenum: "schedule3",
-                    num: "Day3 穿越火星沙漠",
-                    schedule: "火星沙漠越野：搭乘特製的載具觀賞風景，穿越沙漠抵達奧林帕斯山脈山腳。"
+                    num: "Day4 科學實驗與分析",
+                    schedule: `早上：參與月球地質講座，了解月球形成的歷史。
+                                下午：使用地質工具採集岩石和月壤樣本。
+                                晚上：在基地內進行月壤和岩石樣本分析，並分享研究結果。`,
+                    imgUrls: [
+                        require('@/assets/image/itinerary_moon2/mo231.jpg'),
+                        require('@/assets/image/itinerary_moon2/mo232.jpg'),
+                        require('@/assets/image/itinerary_moon2/mo233.jpg'),
+                    ],
 
                 },
                 {
                     schedulenum: "schedule4",
-                    num: "Day 4、5 奧林帕斯山",
-                    schedule: "前往奧林帕斯山高處，進入火山隧道，體驗火山的內部結構。"
+                    num: "Day5 天文觀測",
+                    schedule: `早上 : 專業天文學家引導的望遠鏡觀測。
+                                下午：月球表面上的自由觀測，利用望遠鏡尋找星座。
+                                晚上：觀賞月球夜空，無光污染的絕佳視角。`,
+                    imgUrls: [
+                        require('@/assets/image/itinerary_moon2/mo241.jpg'),
+                        require('@/assets/image/itinerary_moon2/mo242.jpg'),
+                        require('@/assets/image/itinerary_moon2/mo243.jpg'),
+                    ],
 
                 },
                 {
                     schedulenum: "schedule5",
-                    num: "Day 6 登頂",
-                    schedule: "登頂奧林帕斯山，途中可能會遇到壯觀的峽谷、熔岩流和古老的火山口，回程順道參觀火星基地。"
+                    num: "Day6 自由活動",
+                    schedule: `早上 : 可選擇月球高爾夫、月面摩托車等。
+                                下午：月球低重力舞會
+                                晚上：登上返回地球的太空船，進行最後的安全檢查，然後開始返程。`,
+                    imgUrls: [
+                        require('@/assets/image/itinerary_moon2/mo251.jpg'),
+                        require('@/assets/image/itinerary_moon2/mo252.jpg'),
+                        require('@/assets/image/itinerary_moon2/mo253.jpg'),
+                    ],
 
                 },
                 {
                     schedulenum: "schedule6",
                     num: "Day 7 返回家鄉--地球",
-                    schedule: "星際旅遊的壯闊冒險完美收尾！在無重力中飄浮的日子即將結束，我們即將返回地球。帶著難以置信的回憶和深刻的體驗，我們準備迎接重力的擁抱。也請各位珍惜回程最後飽覽太空的絕美景觀的機會。如果捨不得，我們期待著下次再與您共度星際旅遊的美好時光，感謝您的參與！"
-
+                    schedule: "星際旅遊的壯闊冒險完美收尾！在無重力中飄浮的日子即將結束，我們即將返回地球。帶著難以置信的回憶和深刻的體驗，我們準備迎接重力的擁抱。也請各位珍惜回程最後飽覽太空的絕美景觀的機會。如果捨不得，我們期待著下次再與您共度星際旅遊的美好時光，感謝您的參與！",
+                    imgUrls: [
+                        require('@/assets/image/itinerary_moon2/mo261.jpg'),
+                        require('@/assets/image/itinerary_moon2/mo262.jpg'),
+                        require('@/assets/image/itinerary_moon2/mo263.jpg'),
+                    ],
                 },
             ],
 
@@ -341,7 +367,7 @@ export default {
         .schedule2 {
             flex-direction: column;
             position: relative;
-            top: 50%;
+            top: 40%;
 
             .schedule-pic {
                 transform: translateY(-10%);
@@ -367,7 +393,7 @@ export default {
             margin-left: 10vh;
 
             .schedule-pic {
-                transform: translateY(-40%);
+                transform: translateY(-20%);
                 position: relative;
                 right: 40%;
                 display: flex;
