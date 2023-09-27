@@ -62,13 +62,13 @@
         <article v-for="(travel, index) in travelCard" v-show="activeId === travel.id || travel.id === 4"
           :key="travel.title" class="travel-info">
           <H2Style :cTitle="travel.ch_name" :eTitle="travel.en_namebig" v-if="travel.en_namebig"></H2Style>
-          <article class="col-11 outside-boder ">
-            <el-carousel class="inside-boder">
+          <article class="col-11 outside-border ">
+            <el-carousel class="inside-border">
               <el-carousel-item v-for="(img, index) in travel.imgs" :key="index">
-                <div class="travel-img-group">
+                
                   <img class="travel-img" :src="img.img_src">
                   <img class="travel-img" :src="img.img_src2">
-                </div>
+               
               </el-carousel-item>
             </el-carousel>
             <!-- <carousel :items-to-show="2" :wrapAround="true"  :autoplay="3000">
@@ -90,8 +90,8 @@
                 </li>
               </ul> -->
           </article>
-          <article class="col-11 outside-boder ">
-            <article class="travel-info-rwd-container inside-boder text-inside-boder ">
+          <article class="col-11 outside-border outside-border-img">
+            <article class="travel-info-rwd-container inside-border text-inside-border ">
               <div class="travel-info-rwd-group">
                 <article class="col-11 col-md-5">
                   <h3 class="travel-h3">{{ travel.title }}</h3>
@@ -189,10 +189,7 @@ export default {
               img_src: require("@/assets/image/itinerary_mars1/d42.jpg"),
               img_src2: require("@/assets/image/itinerary_mars1/d43.jpg"),
             },
-            {
-              img_src: require("@/assets/image/itinerary_mars1/d52.jpg"),
-              img_src2: require("@/assets/image/itinerary_mars1/d53.jpg"),
-            },
+
 
           ],
 
@@ -209,10 +206,7 @@ export default {
           en_namebig: '',
           ch_name: '',
           imgs: [
-            {
-              img_src: require("@/assets/image/itinerary_mars2/m62.jpg"),
-              img_src2: require("@/assets/image/itinerary_mars2/m63.jpg"),
-            },
+
             {
               img_src: require("@/assets/image/itinerary_mars2/m21.jpg"),
               img_src2: require("@/assets/image/itinerary_mars2/m23.jpg"),
@@ -245,10 +239,7 @@ export default {
           en_namebig: 'MOON',
           ch_name: '月球',
           imgs: [
-            {
-              img_src: require("@/assets/image/itinerary_moon/mo12.svg"),
-              img_src2: require("@/assets/image/itinerary_moon/mo13.svg"),
-            },
+
             {
               img_src: require("@/assets/image/itinerary_moon/mo21.svg"),
               img_src2: require("@/assets/image/itinerary_moon/mo23.svg"),
@@ -281,10 +272,7 @@ export default {
           en_namebig: '',
           ch_name: '',
           imgs: [
-            {
-              img_src: require("@/assets/image/itinerary_moon2/mo212.jpg"),
-              img_src2: require("@/assets/image/itinerary_moon2/mo213.jpg"),
-            },
+
             {
               img_src: require("@/assets/image/itinerary_moon2/mo221.jpg"),
               img_src2: require("@/assets/image/itinerary_moon2/mo223.jpg"),
@@ -316,10 +304,7 @@ export default {
           en_namebig: 'VENUS',
           ch_name: '金星',
           imgs: [
-            {
-              img_src: require("@/assets/image/itinerary_venus1/v12.svg"),
-              img_src2: require("@/assets/image/itinerary_venus1/v13.svg"),
-            },
+
             {
               img_src: require("@/assets/image/itinerary_venus1/v21.svg"),
               img_src2: require("@/assets/image/itinerary_venus1/v23.svg"),
@@ -371,10 +356,7 @@ export default {
           en_namebig: 'TOUR',
           ch_name: '套裝行程',
           imgs: [
-            {
-              img_src: require("@/assets/image/itinerary_combo/c12.svg"),
-              img_src2: require("@/assets/image/itinerary_combo/c13.svg"),
-            },
+
             {
               img_src: require("@/assets/image/itinerary_combo/c21.svg"),
               img_src2: require("@/assets/image/itinerary_combo/c23.svg"),

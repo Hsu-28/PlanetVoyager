@@ -119,7 +119,7 @@ h1 {
 }
 
 .tab-li {
-    
+
     padding-top: 2rem;
     padding-bottom: 2rem;
 
@@ -379,7 +379,7 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
 }
 
 
-.outside-boder {
+.outside-border {
     margin: 0 auto;
     margin-bottom: 5%;
     padding: 1.5%; //10.73px
@@ -413,7 +413,8 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     }
 }
 
-.inside-boder {
+
+.inside-border {
     &::after {
         content: "";
         border: 0.3rem solid $blue; //12px
@@ -440,7 +441,21 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     }
 }
 
-.text-inside-boder {
+.el-carousel {
+    height: 300px;
+}
+
+:deep(.el-carousel__item) {
+    display: flex;
+    align-items: center;
+
+}
+
+.travel-img {
+    width: 100%;
+}
+
+.text-inside-border {
     &::after {
         content: "";
         border: 0.3rem solid $blue; //12px
@@ -467,18 +482,7 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     }
 }
 
-.el-carousel {
-    height:300px;
-}
 
-.travel-img-group {
-    display: flex;
-    justify-content: space-between;
-}
-
-.travel-img {
-    width: 45%;
-}
 
 // .slideshow {
 
@@ -676,8 +680,8 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
         margin-bottom: 0;
     }
 
-    .outside-boder {
-        padding: 1%; //10.73px
+    .outside-border {
+        padding: 0.5%; //10.73px
         border: 0.2rem solid $white; //3.3px
         border-radius: 0.4rem; //10px
         box-shadow: 0 0 1.2rem 0.4rem $blue; //40px 10px
@@ -694,9 +698,14 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
             border-radius: 0.4rem; //6px
         }
     }
+
+    .travel-img {
+        width: 50%;
+
+    }
 }
 
-.inside-boder {
+.inside-border {
     &::after {
         content: "";
         border: 0.6rem solid $blue; //12px
@@ -704,7 +713,7 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     }
 }
 
-.text-inside-boder {
+.text-inside-border {
     &::after {
         content: "";
         border: 0.6rem solid $blue; //12px
@@ -717,6 +726,8 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
         right: 0.2%;
         height: 100%;
     }
+
+
 }
 
 @media screen and (min-width: 1024px) {
