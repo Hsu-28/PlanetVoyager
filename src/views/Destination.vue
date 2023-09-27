@@ -67,7 +67,7 @@
               <el-carousel-item v-for="(img, index) in travel.imgs" :key="index">
                   <img class="travel-img" :src="img.img_src">
                   <img class="travel-img" :src="img.img_src2">
-              </el-carousel-item>
+              </el-carousel-item> 
             </el-carousel>
             <!-- <carousel :items-to-show="2" :wrapAround="true"  :autoplay="3000">
               <slide v-for="(img, index) in travel.imgs" :key="index">

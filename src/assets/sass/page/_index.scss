@@ -294,12 +294,12 @@ table.inside-bodrer.news-group {
     width: 100%;
 }
 
-tbody {
+#tbodyscroll {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     max-height: 300px;
     padding-right: 8%;
-    overflow-y: scroll;
+    overflow-y: auto; 
     &::-webkit-scrollbar {
         width: 0.5rem;
         border: 1px solid $blue;
