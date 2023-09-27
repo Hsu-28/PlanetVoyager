@@ -27,7 +27,7 @@
                         <p>{{ day.schedule }}</p>
                     </div>
                     <div class="schedule-pic">
-                        <div v-for="(URL, index) in imgUrls" :key="index" class="image-box" @click="showPic($event)">
+                        <div v-for="(URL, picIndex) in day.imgUrls" :key="picIndex" class="image-box" @click="showPic($event)">
                             <img :src="URL">
                         </div>
                     </div>
@@ -51,13 +51,22 @@ export default {
                 {
                     schedulenum: "schedule1",
                     num: "Day1 旅程啟航！",
-                    schedule: "從地球啟程後可飽覽星際風光，飛行十四個小時後，我們會抵達偉諭航空站，稍作休息後再前往火星。"
+                    schedule: "從地球啟程後可飽覽星際風光，飛行十四個小時後，我們會抵達偉諭航空站，稍作休息後再前往火星。",
+                    imgUrls: [
+                        require('@/assets/image/itinerary_mars1/d11.jpg'),
+                        require('@/assets/image/itinerary_mars1/d12.jpg'),
+                        require('@/assets/image/itinerary_mars1/d13.jpg'),
+                    ],
                 },
                 {
                     schedulenum: "schedule2",
                     num: "Day2 抵達火星",
-                    schedule: "抵達火星後現場觀察火星的地質歷史，學習探測器載具的使用探勘，適應火星的氣候。"
-
+                    schedule: "抵達火星後現場觀察火星的地質歷史，學習探測器載具的使用探勘，適應火星的氣候。",
+                    imgUrls: [
+                        require('@/assets/image/itinerary_mars1/d21.jpg'),
+                        require('@/assets/image/itinerary_mars1/d22.jpg'),
+                        require('@/assets/image/itinerary_mars1/d23.jpg'),
+                    ],
                 },
                 {
                     schedulenum: "schedule3",
@@ -84,11 +93,7 @@ export default {
 
                 },
             ],
-            imgUrls: [
-                require('@/assets/image/itinerary_mars1/d11.jpg'),
-                require('@/assets/image/itinerary_mars1/d12.jpg'),
-                require('@/assets/image/itinerary_mars1/d13.jpg'),
-            ]
+
         };
     },
     methods: {
@@ -96,7 +101,7 @@ export default {
             this.bigpic = e.target.src;
         },
         close() {
-            if( this.bigpic != ''){
+            if (this.bigpic != '') {
                 this.bigpic = '';
             }
         }
@@ -168,7 +173,7 @@ export default {
         font-size: 60px;
         text-shadow: 3px 1px 5px $blueL;
         top: -10%;
-        right: 0;
+        right: -1%;
     }
 
     .schedule-big-pic {
@@ -198,7 +203,7 @@ export default {
         z-index: 10;
 
         img {
-            z-index:2;
+            z-index: 2;
             max-width: 100%;
             width: 100%;
             height: 100%;
