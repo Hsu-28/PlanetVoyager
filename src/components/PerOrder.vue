@@ -3,7 +3,7 @@
     <div class="order-i">
 
       <h4>旅客{{ numOrder }}</h4>
-      <input type="text" placeholder="姓氏(請以英文輸入)">
+      <input type="text" placeholder="姓氏(請以英文輸入)" v-model="form.name">
       <input type="text" placeholder="名字">
       <input type="text" placeholder="性別">
       <input type="text" placeholder="出生日期">
@@ -46,16 +46,7 @@
       </div>
       <div class="cabin">
         <div class="cabin-all">
-          <div class="cabin-per"></div>
-          <div class="cabin-per"></div>
-          <div class="cabin-per"></div>
-          <div class="cabin-per"></div>
-          <div class="cabin-per"></div>
-          <div class="cabin-per"></div>
-          <div class="cabin-per"></div>
-          <div class="cabin-per"></div>
-          <div class="cabin-per"></div>
-          <div class="cabin-per"></div>
+          <div class="cabin-per" v-for="i in 10" :class="{'disable': alreadySelectSeatIndex.includes(i)}" @click="form.seatIndex = i"></div>
         </div>
       </div>
     </div>
@@ -64,7 +55,28 @@
 
 <script>
 export default {
-  props: ["numOrder", "status"],
+  props: ["numOrder", "status", "list"],
+  data() {
+    return {
+      form: {
+        name: '',
+        seatIndex: -1,
+      }
+    }
+  },
+  computed: {
+    alreadySelectSeatIndex() {
+      return this.list.map(v => v.seatIndex);
+    },
+  },
+  watch: {
+    form: {
+      handler(nVal) {
+        this.$emit('update-data', nVal)
+      },
+      deep: true,
+    }
+  },
   // emits
 }
 </script>

@@ -91,13 +91,17 @@
                 <p class="dec-p">第一時間接收我們的最新消息</p>
               </div>
             </div>
-            <div class="btn-container">
+            <div id="happy">
+
+              <subscribe :buttonText="'- SUBCRIBE US - '" :buttonBottomText="'  -pv-'" > <img src="~@/assets/image/headerfooter/globle.svg" alt="" class="btn-c"></subscribe>
+            </div>
+            <!-- <div class="btn-container">
               <p class="btn-p">SUBSCRIBE &nbsp;US &nbsp; NOW
-                <img src="~@/assets/image/headerfooter/globle.svg" alt="" class="btn-g">
-                <!-- <img src="~@/assets/image/headerfooter/btn.svg" class="btn">  -->
+                
+                
               </p>
   
-            </div>
+            </div> -->
           </div>
         </div>
       </section>
@@ -136,6 +140,26 @@
   <script src="./views/js/app.js"></script>
   
   <style lang="scss" >
-  @import "~@/assets/sass/component/headerFooter.scss";
+ 
   @import "~@/assets/sass/component/glitch.scss";
+  @import "~@/assets/sass/component/headerFooter.scss"; 
+  #happy .cybr-btn:after{
+    background: $blue;
+  }
+  #happy .cybr-btn {
+  min-width: 0px;
+  max-width: 100%;
+  margin-top: -10px;
+  height: 10%;
+}
+#happy button.cybr-btn{
+  font-size: 20px;
+  width: 60%;
+  height: 50px;
+}
+
+#happy .cybr-btn__glitch:before {
+
+    background: $white;
+} 
   </style>

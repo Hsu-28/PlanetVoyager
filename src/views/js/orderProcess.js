@@ -71,7 +71,7 @@ export default {
       // subContent: [
       // ],
       
-      // formList: [],
+      formList: [],
     }
   },
   methods: {
@@ -130,6 +130,10 @@ export default {
       this.amount = this.j4[1];
       this.date = this.j4[2];
     },
+    udpateForm(form, index) {
+      console.log(form, index)
+      this.formList[index] = form;
+    },
   },
   computed: {
     options() {
@@ -145,6 +149,11 @@ export default {
 
     }
     
+  },
+  watch: {
+    currentAmount() {
+      this.formList = []
+    },
   },
   // watch: {
   //   currentAmount(nVal) {

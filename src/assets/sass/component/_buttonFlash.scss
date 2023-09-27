@@ -60,6 +60,7 @@ body .cybr-btn+.cybr-btn {
   min-width: 300px;
   line-height: 55px;
   transition: background 0.2s;
+  --colorAfter:$blueO; //顏色
 }
 
 .cybr-btn:hover {
@@ -88,7 +89,7 @@ body .cybr-btn+.cybr-btn {
 }
 
 .cybr-btn:after {
-  // background: var(--primary); //之前顏色
+  // background: var(--colorAfter); //之前顏色
   background: $blueO;
 }
 .cybr-btn__tag {

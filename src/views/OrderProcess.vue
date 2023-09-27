@@ -182,7 +182,7 @@
     </select>
   </div>
   <section >
-    <orderList v-for="n in currentAmount" :key="n" :numOrder="n" :status="'正取'"></orderList>
+    <orderList v-for="n in currentAmount" :key="n" :numOrder="n" :status="'正取'" :list="formList" @update-data="udpateForm($event, n-1)"></orderList>
   </section>
 
 </section>
