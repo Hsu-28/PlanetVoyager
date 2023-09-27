@@ -91,7 +91,8 @@
     }
 
     .sum{
-        font-size: 24px;
+        font-size: 28px;
+        font-weight: 700;
         letter-spacing: .3rem;
     }
 
@@ -100,8 +101,6 @@
         align-items: center;
         list-style: none;
         padding: 0;
-      //   justify-content: flex-end;
-      //  margin-left: 5rem;
     } 
 
     .tab-mem-title button {
@@ -112,9 +111,15 @@
     }
     
     .pic.active-pic {
-        background-color: #f0f0f0;
-        border: 2px solid $blueMem;
-        box-shadow: 10px 10px 20px 0px rgba(1, 193, 253, 0.25);
+        background-color: #a7e6f9;
+      //   border: 2px solid $white;
+      //   box-shadow: 10px 10px 30px 0px rgba(1, 193, 253, 0.25);
+      box-shadow: inset -1px -1px 10px 10px rgba(1,193,253,20%),
+      inset -1px -1px 10px 5px rgba(1,193,253,80%),
+      inset 2px 2px 10px 2px rgba(1,193,253,90%)
+      2px -4px 10px 2px rgb(91, 19, 236),
+      0px 2.525px 8.4825px 0px #06F,
+      -0.42412px 0.84825px 0.42412px 0px rgba(255, 255, 255, 0.50);
     }
 
     .pic{
@@ -134,7 +139,7 @@
 
     .option-tab{
         margin-right: 10px; 
-      color: $blueMem;
+        color: $blueMem;
     }
 
     .option-tab:last-child { margin-right: 0; }
@@ -153,7 +158,7 @@
           margin: 3rem 0;
           border: 1.8px solid  $blueMem;
           border-radius: 10px;
-          background-color: rgba(47, 47, 47, 0.8);
+          background-color: rgba(47, 47, 47, 0.372);
     }
 
     .donate{
@@ -161,7 +166,7 @@
           margin: 3rem 0;
           border: 1.8px solid  $blueMem;
           border-radius: 10px;
-          background-color: rgba(47, 47, 47, 0.8);
+          background-color: rgba(47, 47, 47, 0.372);
     }
 
     .account-first-title, .account-sec-title{
@@ -179,8 +184,8 @@
     .information input{
           width: 300px;
           border-radius: 5px;
-          background-color: rgba(91, 19, 236, 0.2);
-          border: 2px solid $blue;
+          background-color: #01c2fd34;
+          border: 2px solid $blueMem;
           margin: 10px 0;
           padding: 5px;
           height: 35px;
@@ -211,6 +216,9 @@
          display: flex;
          justify-content: space-between;
          width:100%; 
+         & p{
+            color: $white;
+         }
      }
   
     .top-box{
@@ -222,8 +230,8 @@
     #sex{
           width: 300px;
           border-radius: 5px;
-          background-color: rgba(91, 19, 236, 0.2);
-          border: 2px solid $blue;
+          background-color: #01c2fd55;
+          border: 2px solid $blueMem;
           margin: 10px 0;
           padding: 5px;
           height: 35px;
@@ -245,6 +253,10 @@
           margin-left: 1rem;
     }
 
+    .google_text, .line_text{
+         color: $white;
+    }
+
     .account-hr{
           border-color:$blueMem;
           margin: 2rem 0;
@@ -255,6 +267,9 @@
           flex-direction: column; 
           align-items: center;
           justify-content: center; 
+          & span{
+            color: $white;
+          }
     }
 
     .bottom-button{margin-top: 1.5rem;}
@@ -266,7 +281,7 @@
           max-width: 850px; 
           border: 1.8px solid  $blueMem;
           border-radius: 10px;
-          background-color: rgba(47, 47, 47, 0.8);
+          background-color: rgba(47, 47, 47, 0.372);
           margin: 5rem 0;
     }
 
@@ -308,9 +323,8 @@
     .oddetail{
           display: flex;
           justify-content: space-around;
-          font-size: $p1-l;
+          font-size: 18px;
           text-align: center;
-          font-size: $p2-l;
     }
 
     .od-sec {
@@ -405,17 +419,270 @@
            padding: 5px 0;
            border-radius: 10px;   
            margin-bottom: 20px; 
+           cursor: pointer;
+           & :hover{
+            color: $white;
+           }
      }
    
      .journey-detail p{
            color: $black;
+           font-weight: 700;
+           cursor: pointer;
      }
 
     .journey-hr{
           border-color:$blueMem;
-          margin-top: -15px;
           margin-bottom: 15px;
     }
+    //彈窗
+    .popupBooking{
+         width: 90%;
+         max-width: 450px;
+         height: 40rem;
+         position: absolute;
+         top: 20%; 
+         left: 50%; 
+         transform: translate(-50%, 90%); 
+         text-align: center;  
+         background-color: $blueMem;
+         padding: 2%;
+         z-index: 999;
+         clip-path: polygon(9% 100%, 0 90%, 0% 0%, 100% 0%, 100% 100%);
+    }
+
+     //黑線
+     .popupBooking::after{
+         content:'';
+         width: 40rem;
+         height: .3rem;
+         display: block;
+         top: 7rem;
+         left: -.3rem;
+         position: absolute;
+         background-color: $black;
+    } 
+
+    .popupBooking button{
+         position: absolute;
+         right: 0;
+         top: 0;
+         background-color: $black;
+         letter-spacing: .2rem;
+         font-weight: 700;
+         font-size: 28px;
+         padding: 5px 10px;
+         border: none;
+         color: $blueMem;
+         font-size: $p1-l;
+         cursor: pointer;
+   }
+
+    .bookingTitle{
+         font-size: $h2-l;
+         color: $black;
+         font-weight: 700;
+         display: block;
+         margin-top: 1rem;
+    }
+
+    .bookingTotalPassanger{
+         color: $black;
+         font-size: $p1-l;
+         font-weight: 700;
+         margin-top: 3%;margin: auto;
+    }
+
+    .bookingForm{
+         position: absolute;
+         margin-top: 5%;
+         top: 50%; 
+         left: 50%; 
+         transform: translate(-50%, -50%); 
+         display: flex;
+         flex-wrap: wrap;
+         flex-direction: column; 
+         align-items: flex-start;   
+    }
+
+    .bookingId{
+         color: $black;
+         font-size: $p2-l;
+         font-weight: 700;
+         margin-bottom: 6%;
+         border-bottom: 1px solid $black;
+    }
+
+    .booking-container{
+         width: 100%; 
+         margin: 0 auto; 
+         text-align: center;
+         display: flex;
+         justify-content: space-between;
+         gap: 10%;
+         position: relative;
+         margin-bottom: 2%;
+         & p{
+            color: $white;
+            margin-top: 2%;
+         }
+    }
+
+    .bookingLastName, .bookingFirstName, .bookingSex, .bookingBirthday,
+    .bookingCountry, .bookingPassport, .bookingSize, .bookingDiet,
+    .bookingSuit, .bookingTravelStatus
+    {
+         width: 200px;
+         border-radius: 5px;
+         background-color: $black;
+         margin: 10px 0;
+         padding: 5px;
+         height: 35px;
+         color: $black;
+         font-size:$p1-s ;
+         position: relative;
+         text-align: center;
+   }
+
+   .bookingSecondTitle{
+         position: absolute;
+         top: -20px; 
+         left: 0;
+         color: $black;
+         font-size: $p2-s;
+   }
+
+   .bookingCheck{
+         display: flex;
+         align-items: center;
+         justify-content: space-evenly;
+         width: 200px;
+            & p{
+            color: $black;
+            font-weight: 700;
+        }
+   }
+
+
+.myCheckbox[type="checkbox"]::before {
+         content: "";
+         display: inline-block;
+         width: 25px; 
+         height: 25px;
+         position: relative;
+         top: -4px;
+         right: 5px;
+    }
+    
+    /* 选中状态的样式 */
+    .myCheckbox[type="checkbox"]:checked::before {
+         background-color: $black; 
+         border-color: $black; 
+    }
+    
+    /* 勾勾的样式 */
+    .myCheckbox[type="checkbox"]::after {
+         content: "\2713"; 
+         display: block;
+         font-size: 16px; 
+         color: $white; 
+         position: absolute;
+         top: 21px;
+         left: 3%; 
+         line-height: 1;
+    }
+    
+   .bookingLineBox{
+         margin: 20px 0;
+         height: 3px;
+         position: relative;
+   }
+
+   .bookingLine{
+         width: 410px;
+         height: 3px;
+         background-color: $black;
+         display: flex;
+         justify-content: space-between; 
+   }
+
+   .bookingLine2{
+        width: 200px;
+        height: 3px;
+        background-color: $black;
+        position: absolute;
+        left: 50%;
+   }
+
+   .bookingCircle{
+         width: 12px;
+         height: 12px;
+         border-radius: 50%;
+         background-color: $black; 
+         position: absolute;
+         top: -.3rem;
+   }
+
+   .paymentStatus{
+         color: $black;
+         text-align: left;
+         margin-top: 3%;
+         line-height: 1.2;
+         margin-top: 15%;
+         font-size: $p2-s;
+   }
+
+   .bookingCircle2{
+         width: 12px;
+         height: 12px;
+         border-radius: 50%;
+         background-color: $white;
+         border: 2px solid $black;
+         position: absolute;
+         top: -.3rem;
+         left: 12rem;
+   }
+
+   
+   .paymentStatus2{
+        color: $black;
+        font-size: $p2-s;
+        line-height: 1.2;
+        margin-top: 15%;
+         & span{
+          font-size: $p2-l;
+          font-weight: 700;
+          color: $black;
+   }
+  }
+
+  .bookingCircle3{
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: $blueMem;
+      border: 2px solid $black; 
+      position: absolute;
+      top: -.3rem;
+      right: 0;
+  }
+
+.paymentStatus3{
+     font-size: $p2-s;
+     color: $black;
+     margin-top: 15%;
+     text-align: center;
+  }
+
+  .notice{
+      color: $black;
+      font-weight: 700;
+      transform: translate(5rem, 3rem);
+  }
+
+
+
+
 
    
     //捐款明細
@@ -461,10 +728,10 @@
       //彈窗
     .popup {
           width: 98%;
-          height: 33rem;
+          height: 30rem;
           position: absolute;
           top: 1%;
-          background-color: rgba(13, 242, 242, 88%);
+          background-color: $blueMem;
           padding: 20px;
           clip-path: polygon(9% 100%, 0 90%, 0% 0%, 100% 0%, 100% 100%);
       }
@@ -473,7 +740,7 @@
      .popup::after{
          content:'';
          width: 40rem;
-         height: .3rem;
+         height: .2rem;
          display: block;
          top: 6rem;
          left: -.3rem;
@@ -482,18 +749,18 @@
     } 
 
     .popup button{
-      position: absolute;
-      top: 0;
-      right: 0;
-      background-color: $black;
-      letter-spacing: .2rem;
-       font-weight: 700;
-      font-size: 28px;
-      padding: 5px 10px;
-      border: none;
-      color: $blueL;
-      font-size: $p1-l;
-      cursor: pointer;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: $black;
+        letter-spacing: .2rem;
+        font-weight: 700;
+        font-size: 28px;
+        padding: 5px 10px;
+        border: none;
+        color: $blueMem;
+        font-size: $p1-l;
+        cursor: pointer;
     }
 
     .receipt-title{
@@ -569,7 +836,8 @@
       margin: 3rem 0;
       border: 1.8px solid  $blueMem;
       border-radius: 10px;
-      background-color: rgba(47, 47, 47, 0.8);
+      position: relative;
+      background-color:rgba(47, 47, 47, 0.372);
 }
 
 
@@ -610,7 +878,7 @@
 
     .line-box{
           margin: 20px 0;
-          height: 3px;
+           height: 3px;
           position: relative;
           background-color: $white;
     }
@@ -630,26 +898,23 @@
           border-radius: 50%;
           background-color: $blueMem; 
           position: absolute;
-    }
-
-    .line1::before {
-          position: absolute;
           top: -.3rem;
           left: 3rem;
     }
 
+
     .circle3{
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background-color:  $blueMem; 
-      position: absolute;
-      left: 13rem;
-      top: -.3rem;
-      & p{
-        transform: translate(-.1rem,1rem);
-        font-weight: $bold;
-        color: $white;
+         width: 12px;
+         height: 12px;
+         border-radius: 50%;
+         background-color:  $blueMem; 
+         position: absolute;
+         left: 13rem;
+         top: -.3rem;
+          & p{
+          transform: translate(-.1rem,1rem);
+          font-weight: $bold;
+          color: $white;
       }
 }
 
@@ -702,7 +967,7 @@
         }
     }
 
-    input[type="checkbox"]{
+    .input-box > input[type="checkbox"]{
           width: 1rem; 
           margin-right: 5px;
     }
@@ -715,7 +980,7 @@
     }
 
     .benefit-order{
-      font-size: $p1-l;
+          font-size: $p1-l;
     }
 
     .gift-redemption{
@@ -734,11 +999,14 @@
 
       //彈窗
       .popupGift {
-            width: 90%;
-            max-width: 450px;
+            width: 98%;
+            max-width: 420px;
             height: 33rem;
             position: absolute;
-            top: 50%;
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            text-align: center; 
             background-color: rgba(13, 242, 242, 88%);
             padding: 2%;
             clip-path: polygon(9% 100%, 0 90%, 0% 0%, 100% 0%, 100% 100%);
@@ -907,7 +1175,7 @@
              
       }
       .nickname{
-                  font-size:22px; 
+            font-size:22px; 
              }
       .tab-mem-title{
             // margin-right: 4rem;
@@ -916,7 +1184,7 @@
       
       .option-tab.active {
             cursor: pointer; 
-          }
+      }
 
       .information{
             display: flex;
@@ -927,10 +1195,10 @@
             font-size: $h2-s; 
       }
       .control-container{
-           flex-direction: column;
-           width: 100%; 
-           max-width: 300px; 
-           margin: 0 auto; 
+            flex-direction: column;
+            width: 100%; 
+            max-width: 300px; 
+            margin: 0 auto; 
       }
       .top-box{
             flex-direction: column;
@@ -953,9 +1221,7 @@
       }
       .trip-content{
             color: $blueMem;
-            font-size: $p2-m;
-            
-           
+            font-size: $p2-m;     
       }
       .rwdAmount, .rwdDate{
             display: block;
@@ -966,6 +1232,17 @@
             font-size: $p2-m;
             display: block;
       }
+      .journey-content {
+            font-size: 14px;
+      }
+      .journey-detail-rwd{  
+            margin-bottom: 20px; 
+            cursor: pointer;
+      }
+      .journey-detail-rwd span{
+            color: $blueMem;
+            font-weight: 700; 
+      }
 
       //捐款紀錄
       .order-title  p{
@@ -974,25 +1251,26 @@
       .donate-order p{
             font-size: $p2-m;
       }
-      .form-grop{
+      .form{
             position: relative;
       }
       .rwdLast{
             position: absolute;
             right: 0;
-            top: 33rem;
+            top: 97%;
             padding: 5px 10px;
             border: 2px solid $blueMem;
             border-radius: 30px;
             color: $blueMem;
             cursor: pointer; 
+            font-weight: $bold;
       }
       .popup .last-year-according{
             font-size: $h1-m;
             right: 20%;
       }
       .receipt-title p{
-            font-size: $p2-m;
+            font-size: 18px;
             margin-top: 10%;
       }
      
@@ -1064,10 +1342,199 @@
       .mem-benefits-info-rwd span:hover{
             color: $purple;
       }
-
-
-
-
 }
 
 @media screen and (max-width:375px) {}
+
+//button效果
+// @font-face {
+//       font-family: Cyber;
+//       src: url("https://assets.codepen.io/605876/Blender-Pro-Bold.otf");
+//       font-display: swap;
+//     }
+    
+//     * {
+//       box-sizing: border-box;
+//     }
+    
+//     body {
+//       display: flex;
+//       align-items: center;
+//       flex-direction: column;
+//       justify-content: center;
+//       min-height: 100vh;
+//       font-family: 'Cyber', sans-serif;
+//     }
+    
+//     body .cybr-btn + .cybr-btn {
+//       margin-top: 2rem;
+//     }
+    
+//     .cybr-btn {
+//       --primary: hsl(var(--primary-hue), 85%, calc(var(--primary-lightness, 50) * 1%));
+//       --shadow-primary: hsl(var(--shadow-primary-hue), 90%, 50%);
+//       --primary-hue: 260;
+//       --primary-lightness: 50;
+//       --color: hsl(0, 0%, 100%);
+//       --font-size: 16px;
+//       --shadow-primary-hue: 180;
+//       --label-size: 9px;
+//       --shadow-secondary-hue: 60;
+//       --shadow-secondary: hsl(var(--shadow-secondary-hue), 90%, 60%);
+//       --clip: polygon(0 0, 100% 0, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 70%);
+//       --border: 4px;
+//       --shimmy-distance: 5;
+//       --clip-one: polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 8% 95%, 0 70%);
+//       --clip-two: polygon(0 78%, 100% 78%, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 78%);
+//       --clip-three: polygon(0 44%, 100% 44%, 100% 54%, 95% 54%, 95% 54%, 85% 54%, 85% 54%, 8% 54%, 0 54%);
+//       --clip-four: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+//       --clip-five: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+//       --clip-six: polygon(0 40%, 100% 40%, 100% 85%, 95% 85%, 95% 85%, 85% 85%, 85% 85%, 8% 85%, 0 70%);
+//       --clip-seven: polygon(0 63%, 100% 63%, 100% 80%, 95% 80%, 95% 80%, 85% 80%, 85% 80%, 8% 80%, 0 70%);
+//       font-family: 'Cyber', sans-serif;
+//       color: var(--color);
+//       cursor: pointer;
+//       background: transparent;
+//       text-transform: uppercase;
+//       font-size: var(--font-size);
+//       outline: transparent;
+//       letter-spacing: 2px;
+//       position: relative;
+//       font-weight: 700;
+//       border: 0;
+//       width: 229px;
+//       height: 50px;
+//       line-height: 50px;
+//       transition: background 0.2s;
+//     }
+    
+//     .cybr-btn:hover {
+//       --primary: hsl(var(--primary-hue), 85%, calc(var(--primary-lightness, 50) * 0.8%));
+//     }
+//     .cybr-btn:active {
+//       --primary: hsl(var(--primary-hue), 85%, calc(var(--primary-lightness, 50) * 0.6%));
+//     }
+    
+//     .cybr-btn:after,
+//     .cybr-btn:before {
+//       content: '';
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//       right: 0;
+//       bottom: 0;
+//       clip-path: var(--clip);
+//       z-index: -1;
+//     }
+    
+//     .cybr-btn:before {
+//       background: var(--shadow-primary);
+//       transform: translate(var(--border), 0);
+//     }
+    
+//     .cybr-btn:after {
+//       background: var(--primary);
+//     }
+    
+//     .cybr-btn__tag {
+//       position: absolute;
+//       padding: 1px 4px;
+//       letter-spacing: 1px;
+//       line-height: 1;
+//       bottom: -5%;
+//       right: 5%;
+//       font-weight: normal;
+//       color: #fff;
+//       font-size: var(--label-size);
+//     }
+    
+//     .cybr-btn__glitch {
+//       position: absolute;
+//       top: calc(var(--border) * -1);
+//       left: calc(var(--border) * -1);
+//       right: calc(var(--border) * -1);
+//       bottom: calc(var(--border) * -1);
+//       background: var(--shadow-primary);
+//       text-shadow: 2px 2px var(--shadow-primary), -2px -2px var(--shadow-secondary);
+//       clip-path: var(--clip);
+//       animation: glitch 2s infinite;
+//       display: none;
+//     }
+    
+//     .cybr-btn:hover .cybr-btn__glitch {
+//       display: block;
+//     }
+    
+//     .cybr-btn__glitch:before {
+//       content: '';
+//       position: absolute;
+//       top: calc(var(--border) * 1);
+//       right: calc(var(--border) * 1);
+//       bottom: calc(var(--border) * 1);
+//       left: calc(var(--border) * 1);
+//       clip-path: var(--clip);
+//       background: var(--primary);
+//       z-index: -1;
+//     }
+    
+//     @keyframes glitch {
+//       0% {
+//         clip-path: var(--clip-one);
+//       }
+//       2%, 8% {
+//         clip-path: var(--clip-two);
+//         transform: translate(calc(var(--shimmy-distance) * -1%), 0);
+//       }
+//       6% {
+//         clip-path: var(--clip-two);
+//         transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+//       }
+//       9% {
+//         clip-path: var(--clip-two);
+//         transform: translate(0, 0);
+//       }
+//       10% {
+//         clip-path: var(--clip-three);
+//         transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+//       }
+//       13% {
+//         clip-path: var(--clip-three);
+//         transform: translate(0, 0);
+//       }
+//       14%, 21% {
+//         clip-path: var(--clip-four);
+//         transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+//       }
+//       25% {
+//         clip-path: var(--clip-five);
+//         transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+//       }
+//       30% {
+//         clip-path: var(--clip-five);
+//         transform: translate(calc(var(--shimmy-distance) * -1%), 0);
+//       }
+//       35%, 45% {
+//         clip-path: var(--clip-six);
+//         transform: translate(calc(var(--shimmy-distance) * -1%));
+//       }
+//       40% {
+//         clip-path: var(--clip-six);
+//         transform: translate(calc(var(--shimmy-distance) * 1%));
+//       }
+//       50% {
+//         clip-path: var(--clip-six);
+//         transform: translate(0, 0);
+//       }
+//       55% {
+//         clip-path: var(--clip-seven);
+//         transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+//       }
+//       60% {
+//         clip-path: var(--clip-seven);
+//         transform: translate(0, 0);
+//       }
+//       31%, 61%, 100% {
+//         clip-path: var(--clip-four);
+//       }
+//     }
+  

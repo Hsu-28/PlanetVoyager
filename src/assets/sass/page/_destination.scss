@@ -1,21 +1,23 @@
-.intro{
+.intro {
     opacity: 0;
     transform: translateY(20px);
     transition: 1s all ease-in-out;
 }
-.intro-appear{
-   opacity: 1;
-   transform: translateY(0px);
+
+.intro-appear {
+    opacity: 1;
+    transform: translateY(0px);
 }
 
-.intro2{
+.intro2 {
     opacity: 0;
     transform: translateY(20px);
     transition: 1.5s all ease-in-out;
 }
-.intro-appear2{
-   opacity: 1;
-   transform: translateY(0px);
+
+.intro-appear2 {
+    opacity: 1;
+    transform: translateY(0px);
 }
 
 
@@ -54,15 +56,16 @@ p {
     position: absolute;
     top: 0;
     left: 0;
-    background-image: 
-    linear-gradient(to top, rgba(0,0,0,0.3), transparent),
-    url('~@/assets/image/destination/destination-back.svg');
+    background-image:
+        linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent),
+        url('~@/assets/image/destination/destination-back.svg');
     mask-image: linear-gradient(to top, transparent, black);
     background-size: cover;
     z-index: -2;
-    
+
 }
-.h1-back img{
+
+.h1-back img {
     width: 99%;
     z-index: -5;
     opacity: 0;
@@ -77,9 +80,11 @@ h1 {
     justify-content: center;
     margin: 15% 0 30%;
 }
-.h1-ch{
+
+.h1-ch {
     letter-spacing: 0.5rem;
 }
+
 .h1-en {
     margin-top: 1rem;
     font-weight: bolder;
@@ -88,6 +93,7 @@ h1 {
 .section-title {
     margin-bottom: 20%;
 }
+
 //h2 
 
 .button-icon {
@@ -99,6 +105,7 @@ h1 {
     position: relative;
     margin: 0 1.5rem;
     padding: 30% 0;
+
     &::before {
         content: ""; //繪製直線
         position: absolute;
@@ -106,23 +113,32 @@ h1 {
         width: 1px;
         height: 100%;
         background-color: $gray;
-        mask-image: linear-gradient(to bottom, transparent, black, black, transparent);
+        mask-image: linear-gradient(to bottom, transparent, black, black, transparent),
     }
-
+    &::after {
+        content: "";
+        position: absolute;
+        top:-25%;
+        left: 0;
+        width: 120%;
+        height: 150%;
+        background-color: $black;
+        z-index: -2;
+        mask-image: 
+        linear-gradient(to bottom, transparent, black, black, transparent); 
+    }
 }
 
 .tab-li {
     padding-top: 2rem;
     padding-bottom: 2rem;
-
-    // width: 50%;
     &:first-child {
         padding-top: 4rem;
     }
-
     &:last-child {
         padding-bottom: 4rem;
     }
+
 }
 
 $buttonLeft: 2rem;
@@ -130,11 +146,13 @@ $circle: 1.3rem;
 $circleborder: 1.8rem;
 
 .planet-button {
+    cursor: pointer;
     background-color: transparent;
     margin-left: $buttonLeft;
     border: 0;
     color: $gray;
     font-size: 16px;
+    line-height: 1.5;
     display: flex;
     align-items: center;
     position: relative;
@@ -255,12 +273,14 @@ h3 {
     right: -0.15rem;
 }
 
-.dec-planet-up{
+.dec-planet-up {
     display: none;
 }
-.dec-planet-down{
+
+.dec-planet-down {
     display: none;
 }
+
 .planet-text {
     padding: 0 4%;
 
@@ -368,7 +388,7 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
 }
 
 
-.outside-boder {
+.outside-border {
     margin: 0 auto;
     margin-bottom: 5%;
     padding: 1.5%; //10.73px
@@ -376,6 +396,7 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     border-radius: 0.2rem; //10px
     box-shadow: 0 0 1rem 0.2rem $blue; //40px 10px
     position: relative;
+
     &::before {
         content: "";
         border: 0.1rem solid $blue; //6.6px
@@ -401,7 +422,8 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     }
 }
 
-.inside-boder {
+
+.inside-border {
     &::after {
         content: "";
         border: 0.3rem solid $blue; //12px
@@ -428,7 +450,21 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     }
 }
 
-.text-inside-boder {
+.el-carousel {
+    height: 300px;
+}
+
+:deep(.el-carousel__item) {
+    display: flex;
+    align-items: center;
+
+}
+
+.travel-img {
+    width: 100%;
+}
+
+.text-inside-border {
     &::after {
         content: "";
         border: 0.3rem solid $blue; //12px
@@ -455,9 +491,7 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     }
 }
 
-.travel-img {
-    width: 100%;
-}
+
 
 // .slideshow {
 
@@ -540,16 +574,17 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     font-size: $p2-s;
     color: $white;
     border: 0;
+    padding-top:3%;
     margin-left: auto;
     margin-bottom: 8%;
     display: block;
-    cursor: pointer;    
+    cursor: pointer;
 }
 
 @media screen and (min-width: 700px) {
     h1 {
         font-size: $h1-m;
-        margin-right: 25% ;
+        margin-right: 25%;
     }
 
     .h1-ch {
@@ -588,23 +623,26 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
             display: flex;
         }
     }
-    .dec-planet-h3{
+
+    .dec-planet-h3 {
         position: absolute;
         width: 100%;
-        top:70%;
+        top: 70%;
         left: -100%;
     }
-    .dec-planet-up{
+
+    .dec-planet-up {
         position: absolute;
         display: block;
         width: 100%;
-        top:-10%;
+        top: -10%;
     }
-    .dec-planet-down{
+
+    .dec-planet-down {
         position: absolute;
         display: block;
         width: 100%;
-        bottom:-20%;
+        bottom: -20%;
     }
 
     .planet-img-group {
@@ -652,8 +690,8 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
         margin-bottom: 0;
     }
 
-    .outside-boder {
-        padding: 1%; //10.73px
+    .outside-border {
+        padding: 0.5%; //10.73px
         border: 0.2rem solid $white; //3.3px
         border-radius: 0.4rem; //10px
         box-shadow: 0 0 1.2rem 0.4rem $blue; //40px 10px
@@ -670,9 +708,14 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
             border-radius: 0.4rem; //6px
         }
     }
+
+    .travel-img {
+        width: 50%;
+
+    }
 }
 
-.inside-boder {
+.inside-border {
     &::after {
         content: "";
         border: 0.6rem solid $blue; //12px
@@ -680,7 +723,7 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     }
 }
 
-.text-inside-boder {
+.text-inside-border {
     &::after {
         content: "";
         border: 0.6rem solid $blue; //12px
@@ -693,6 +736,8 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
         right: 0.2%;
         height: 100%;
     }
+
+
 }
 
 @media screen and (min-width: 1024px) {
@@ -720,9 +765,11 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     .section-title {
         margin-bottom: 10%
     }
-    .dec-planet-h3{
+
+    .dec-planet-h3 {
         top: 50%;
     }
+
     .planet-atmosphere {
         top: 10%;
     }
@@ -746,10 +793,12 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
             height: 300%;
         }
     }
-    .dec-planet-h3{
+
+    .dec-planet-h3 {
         top: 30%;
         left: -100%;
     }
+
     .planet-atmosphere {
         top: 10%;
         left: -70%;
