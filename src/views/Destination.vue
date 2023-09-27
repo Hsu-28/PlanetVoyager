@@ -63,12 +63,12 @@
           :key="travel.title" class="travel-info">
           <H2Style :cTitle="travel.ch_name" :eTitle="travel.en_namebig" v-if="travel.en_namebig"></H2Style>
           <article class="col-11 outside-boder ">
-            <el-carousel class="inside-boder" >
-              <el-carousel-item  v-for="(img, index) in travel.imgs" :key="index">              
+            <el-carousel class="inside-boder">
+              <el-carousel-item v-for="(img, index) in travel.imgs" :key="index">
                 <div class="travel-img-group">
-                <img class="travel-img" :src="img.img_src">
-                <img class="travel-img" :src="img.img_src2">
-              </div>
+                  <img class="travel-img" :src="img.img_src">
+                  <img class="travel-img" :src="img.img_src2">
+                </div>
               </el-carousel-item>
             </el-carousel>
             <!-- <carousel :items-to-show="2" :wrapAround="true"  :autoplay="3000">
@@ -102,7 +102,9 @@
                 </article>
                 <article class="col-11 col-md-7 ">
                   <p class="info travel-text">{{ travel.info }}</p>
-                  <button class="read-more">READ&nbspMORE<a href=""></a></button>
+                  <router-link :to="travel.link">
+                    <button class="read-more">READ&nbspMORE</button>
+                  </router-link>
                 </article>
               </div>
             </article>
@@ -166,24 +168,34 @@ export default {
       travelCard: [
         {
           id: 1,
+          link:'ItineraryMars',
           en_name: 'mars',
           en_namebig: 'MARS',
           ch_name: '火星',
           imgs: [
             {
-              img_src: require("@/assets/image/destination/mars01.svg"),
-              img_src2: require("@/assets/image/destination/mars01.svg"),
+              img_src: require("@/assets/image/itinerary_mars1/d12.jpg"),
+              img_src2: require("@/assets/image/itinerary_mars1/d13.jpg"),
             },
             {
-              img_src: require("@/assets/image/destination/mars02.svg"),
-              img_src2: require("@/assets/image/destination/mars01.svg"),
+              img_src: require("@/assets/image/itinerary_mars1/d21.jpg"),
+              img_src2: require("@/assets/image/itinerary_mars1/d23.jpg"),
             },
             {
-              img_src: require("@/assets/image/destination/mars02.svg"),
-              img_src2: require("@/assets/image/destination/mars01.svg"),
+              img_src: require("@/assets/image/itinerary_mars1/d32.jpg"),
+              img_src2: require("@/assets/image/itinerary_mars1/d33.jpg"),
             },
+            {
+              img_src: require("@/assets/image/itinerary_mars1/d42.jpg"),
+              img_src2: require("@/assets/image/itinerary_mars1/d43.jpg"),
+            },
+            {
+              img_src: require("@/assets/image/itinerary_mars1/d52.jpg"),
+              img_src2: require("@/assets/image/itinerary_mars1/d53.jpg"),
+            },
+
           ],
-         
+
           // img1:require("@/assets/image/destination/mars01.svg") ,
           // img2:require("@/assets/image/destination/mars02.svg") ,
           title: '奧林帕斯山脈之旅',
@@ -192,18 +204,34 @@ export default {
         },
         {
           id: 1,
+          link:'ItineraryMars2',
           en_name: 'mars',
           en_namebig: '',
           ch_name: '',
           imgs: [
             {
-              img_src: require("@/assets/image/destination/mars03.svg"),
+              img_src: require("@/assets/image/itinerary_mars2/m62.jpg"),
+              img_src2: require("@/assets/image/itinerary_mars2/m63.jpg"),
             },
             {
-              img_src: require("@/assets/image/destination/mars04.svg"),
+              img_src: require("@/assets/image/itinerary_mars2/m21.jpg"),
+              img_src2: require("@/assets/image/itinerary_mars2/m23.jpg"),
             },
+            {
+              img_src: require("@/assets/image/itinerary_mars2/m32.jpg"),
+              img_src2: require("@/assets/image/itinerary_mars2/m33.jpg"),
+            },
+            {
+              img_src: require("@/assets/image/itinerary_mars2/m42.jpg"),
+              img_src2: require("@/assets/image/itinerary_mars2/m43.jpg"),
+            },
+            {
+              img_src: require("@/assets/image/itinerary_mars2/m52.jpg"),
+              img_src2: require("@/assets/image/itinerary_mars2/m53.jpg"),
+            },
+
           ],
-        
+
           // img1:require("@/assets/image/destination/mars03.svg") ,
           // img2:require("@/assets/image/destination/mars04.svg") ,
           title: '尋找生命之旅',
@@ -212,18 +240,34 @@ export default {
         },
         {
           id: 2,
+          link:'ItineraryMoon',
           en_name: 'moon',
           en_namebig: 'MOON',
           ch_name: '月球',
           imgs: [
             {
-              img_src: require("@/assets/image/destination/moon01.svg"),
+              img_src: require("@/assets/image/itinerary_moon/mo12.svg"),
+              img_src2: require("@/assets/image/itinerary_moon/mo13.svg"),
             },
             {
-              img_src: require("@/assets/image/destination/moon02.svg"),
+              img_src: require("@/assets/image/itinerary_moon/mo21.svg"),
+              img_src2: require("@/assets/image/itinerary_moon/mo23.svg"),
             },
+            {
+              img_src: require("@/assets/image/itinerary_moon/mo32.svg"),
+              img_src2: require("@/assets/image/itinerary_moon/mo33.svg"),
+            },
+            {
+              img_src: require("@/assets/image/itinerary_moon/mo42.svg"),
+              img_src2: require("@/assets/image/itinerary_moon/mo43.svg"),
+            },
+            {
+              img_src: require("@/assets/image/itinerary_moon/mo52.svg"),
+              img_src2: require("@/assets/image/itinerary_moon/mo53.svg"),
+            },
+
           ],
-         
+
           // img1:require("@/assets/image/destination/moon02.svg") ,
           // img2:require("@/assets/image/destination/moon02.svg") ,
           title: '月球巡禮',
@@ -232,18 +276,33 @@ export default {
         },
         {
           id: 2,
+          link:'ItineraryMoon2',
           en_name: 'moon',
           en_namebig: '',
           ch_name: '',
           imgs: [
             {
-              img_src: require("@/assets/image/destination/moon03.svg"),
+              img_src: require("@/assets/image/itinerary_moon2/mo212.jpg"),
+              img_src2: require("@/assets/image/itinerary_moon2/mo213.jpg"),
             },
             {
-              img_src: require("@/assets/image/destination/moon04.svg"),
+              img_src: require("@/assets/image/itinerary_moon2/mo221.jpg"),
+              img_src2: require("@/assets/image/itinerary_moon2/mo223.jpg"),
+            },
+            {
+              img_src: require("@/assets/image/itinerary_moon2/mo232.jpg"),
+              img_src2: require("@/assets/image/itinerary_moon2/mo233.jpg"),
+            },
+            {
+              img_src: require("@/assets/image/itinerary_moon2/mo242.jpg"),
+              img_src2: require("@/assets/image/itinerary_moon2/mo243.jpg"),
+            },
+            {
+              img_src: require("@/assets/image/itinerary_moon2/mo252.jpg"),
+              img_src2: require("@/assets/image/itinerary_moon2/mo253.jpg"),
             },
           ],
-         
+
           // img1: require("@/assets/image/destination/moon03.svg"),
           // img2: require("@/assets/image/destination/moon04.svg"),
           title: '太空之心',
@@ -252,18 +311,33 @@ export default {
         },
         {
           id: 3,
+          link:'ItineraryVenus',
           en_name: 'venus',
           en_namebig: 'VENUS',
           ch_name: '金星',
           imgs: [
             {
-              img_src: require("@/assets/image/destination/venus01.svg"),
+              img_src: require("@/assets/image/itinerary_venus1/v12.svg"),
+              img_src2: require("@/assets/image/itinerary_venus1/v13.svg"),
             },
             {
-              img_src: require("@/assets/image/destination/venus02.svg"),
+              img_src: require("@/assets/image/itinerary_venus1/v21.svg"),
+              img_src2: require("@/assets/image/itinerary_venus1/v23.svg"),
+            },
+            {
+              img_src: require("@/assets/image/itinerary_venus1/v32.svg"),
+              img_src2: require("@/assets/image/itinerary_venus1/v33.svg"),
+            },
+            {
+              img_src: require("@/assets/image/itinerary_venus1/v42.svg"),
+              img_src2: require("@/assets/image/itinerary_venus1/v43.svg"),
+            },
+            {
+              img_src: require("@/assets/image/itinerary_venus1/v52.svg"),
+              img_src2: require("@/assets/image/itinerary_venus1/v53.svg"),
             },
           ],
-         
+
           // img1: require("@/assets/image/destination/venus01.svg"),
           // img2: require("@/assets/image/destination/venus02.svg"),
           title: '人文遺跡之旅',
@@ -272,18 +346,17 @@ export default {
         },
         {
           id: 3,
+          link:'ItineraryVenus2',
           en_name: 'venus',
           en_namebig: '',
           ch_name: '',
           imgs: [
             {
-              img_src: require("@/assets/image/destination/venus01.svg"),
-            },
-            {
-              img_src: require("@/assets/image/destination/venus02.svg"),
+              img_src: require("@/assets/image/itinerary_mars1/d52.jpg"),
+              img_src2: require("@/assets/image/itinerary_mars2/m52.jpg"),
             },
           ],
-        
+
           // img1: require("@/assets/image/destination/venus01.svg"),
           // img2: require("@/assets/image/destination/venus02.svg"),
           title: '金星夢幻秘境',
@@ -293,18 +366,33 @@ export default {
 
         {
           id: 4,
+          link:'ItineraryCombo',
           en_name: 'orbit',
           en_namebig: 'TOUR',
           ch_name: '套裝行程',
           imgs: [
             {
-              img_src: require("@/assets/image/destination/tour01.svg"),
+              img_src: require("@/assets/image/itinerary_combo/c12.svg"),
+              img_src2: require("@/assets/image/itinerary_combo/c13.svg"),
             },
             {
-              img_src: require("@/assets/image/destination/tour02.svg"),
+              img_src: require("@/assets/image/itinerary_combo/c21.svg"),
+              img_src2: require("@/assets/image/itinerary_combo/c23.svg"),
+            },
+            {
+              img_src: require("@/assets/image/itinerary_combo/c32.svg"),
+              img_src2: require("@/assets/image/itinerary_combo/c33.svg"),
+            },
+            {
+              img_src: require("@/assets/image/itinerary_combo/c42.svg"),
+              img_src2: require("@/assets/image/itinerary_combo/c43.svg"),
+            },
+            {
+              img_src: require("@/assets/image/itinerary_combo/c52.svg"),
+              img_src2: require("@/assets/image/itinerary_combo/c53.svg"),
             },
           ],
-         
+
           // img1: require("@/assets/image/destination/tour01.svg"),
           // img2: require("@/assets/image/destination/tour02.svg"),
           title: '行星繞行',
