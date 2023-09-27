@@ -1,21 +1,23 @@
-.intro{
+.intro {
     opacity: 0;
     transform: translateY(20px);
     transition: 1s all ease-in-out;
 }
-.intro-appear{
-   opacity: 1;
-   transform: translateY(0px);
+
+.intro-appear {
+    opacity: 1;
+    transform: translateY(0px);
 }
 
-.intro2{
+.intro2 {
     opacity: 0;
     transform: translateY(20px);
     transition: 1.5s all ease-in-out;
 }
-.intro-appear2{
-   opacity: 1;
-   transform: translateY(0px);
+
+.intro-appear2 {
+    opacity: 1;
+    transform: translateY(0px);
 }
 
 
@@ -54,15 +56,16 @@ p {
     position: absolute;
     top: 0;
     left: 0;
-    background-image: 
-    linear-gradient(to top, rgba(0,0,0,0.3), transparent),
-    url('~@/assets/image/destination/destination-back.svg');
+    background-image:
+        linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent),
+        url('~@/assets/image/destination/destination-back.svg');
     mask-image: linear-gradient(to top, transparent, black);
     background-size: cover;
     z-index: -2;
-    
+
 }
-.h1-back img{
+
+.h1-back img {
     width: 99%;
     z-index: -5;
     opacity: 0;
@@ -77,9 +80,11 @@ h1 {
     justify-content: center;
     margin: 15% 0 30%;
 }
-.h1-ch{
+
+.h1-ch {
     letter-spacing: 0.5rem;
 }
+
 .h1-en {
     margin-top: 1rem;
     font-weight: bolder;
@@ -88,6 +93,7 @@ h1 {
 .section-title {
     margin-bottom: 20%;
 }
+
 //h2 
 
 .button-icon {
@@ -99,6 +105,7 @@ h1 {
     position: relative;
     margin: 0 1.5rem;
     padding: 30% 0;
+
     &::before {
         content: ""; //繪製直線
         position: absolute;
@@ -112,6 +119,7 @@ h1 {
 }
 
 .tab-li {
+    
     padding-top: 2rem;
     padding-bottom: 2rem;
 
@@ -130,6 +138,7 @@ $circle: 1.3rem;
 $circleborder: 1.8rem;
 
 .planet-button {
+    cursor: pointer;
     background-color: transparent;
     margin-left: $buttonLeft;
     border: 0;
@@ -255,12 +264,14 @@ h3 {
     right: -0.15rem;
 }
 
-.dec-planet-up{
+.dec-planet-up {
     display: none;
 }
-.dec-planet-down{
+
+.dec-planet-down {
     display: none;
 }
+
 .planet-text {
     padding: 0 4%;
 
@@ -376,6 +387,7 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     border-radius: 0.2rem; //10px
     box-shadow: 0 0 1rem 0.2rem $blue; //40px 10px
     position: relative;
+
     &::before {
         content: "";
         border: 0.1rem solid $blue; //6.6px
@@ -455,8 +467,17 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     }
 }
 
+.el-carousel {
+    height:300px;
+}
+
+.travel-img-group {
+    display: flex;
+    justify-content: space-between;
+}
+
 .travel-img {
-    width: 100%;
+    width: 45%;
 }
 
 // .slideshow {
@@ -543,13 +564,13 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     margin-left: auto;
     margin-bottom: 8%;
     display: block;
-    cursor: pointer;    
+    cursor: pointer;
 }
 
 @media screen and (min-width: 700px) {
     h1 {
         font-size: $h1-m;
-        margin-right: 25% ;
+        margin-right: 25%;
     }
 
     .h1-ch {
@@ -588,23 +609,26 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
             display: flex;
         }
     }
-    .dec-planet-h3{
+
+    .dec-planet-h3 {
         position: absolute;
         width: 100%;
-        top:70%;
+        top: 70%;
         left: -100%;
     }
-    .dec-planet-up{
+
+    .dec-planet-up {
         position: absolute;
         display: block;
         width: 100%;
-        top:-10%;
+        top: -10%;
     }
-    .dec-planet-down{
+
+    .dec-planet-down {
         position: absolute;
         display: block;
         width: 100%;
-        bottom:-20%;
+        bottom: -20%;
     }
 
     .planet-img-group {
@@ -720,9 +744,11 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     .section-title {
         margin-bottom: 10%
     }
-    .dec-planet-h3{
+
+    .dec-planet-h3 {
         top: 50%;
     }
+
     .planet-atmosphere {
         top: 10%;
     }
@@ -746,10 +772,12 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
             height: 300%;
         }
     }
-    .dec-planet-h3{
+
+    .dec-planet-h3 {
         top: 30%;
         left: -100%;
     }
+
     .planet-atmosphere {
         top: 10%;
         left: -70%;

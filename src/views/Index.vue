@@ -94,7 +94,7 @@
                                 <span class="close" @click="hideMore">&times</span>
                                 <img class="more-img" :src="news.img" :alt="news.title">
                                 <p>
-                                <span class="more-title" v-html="news.title"></span>
+                                    <span class="more-title" v-html="news.title"></span>
                                 <p class="more-text" v-html="news.info">
                                 </p>
                                 </p>
@@ -109,7 +109,9 @@
 
                 <div class="col-5 title-group">
                     <h2style h2ch="星際介紹" h2en="DESTINATION"></h2style>
-                    <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
+                    <router-link to="destination">
+                        <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
+                    </router-link>
                 </div>
 
                 <div class="planet-group">
@@ -148,7 +150,9 @@
                             <br>
                             <span class="h3-en">{{ vehicles.h3enbig }}</span>
                         </h3>
-                        <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
+                        <router-link to="technology">
+                            <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
+                        </router-link>
                     </div>
                     <div class="col-11 col-md-7">
                         <img :class="vehicles.h3en" :src="vehicles.img" alt="太空船">
@@ -158,8 +162,11 @@
         </section>
         <section class="rwd-container">
             <div class="tourist-rwd-group">
-                <div>
+                <div class="title-group">
                     <h2style h2ch="團隊介紹" h2en="TOURIST GUIDE"></h2style>
+                    <router-link to="teamMembers">
+                        <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
+                    </router-link>
                 </div>
                 <div class="col-11 col-md-8">
                     <swiper :effect="'coverflow'" :grabCursor="true" :centeredSlides="true" :slidesPerView="'auto'"
@@ -175,11 +182,8 @@
                                 <div class="memberContent inside-border">
                                     <img class="member-img" :src="member.imgSvg" :alt="member.name">
                                     <div class="members-info">
-                                        <div class="member-text">
-                                            <span class="members-name">{{ member.name }}</span>
-                                            <span class="members-job">{{ member.nameJob }}</span>
-                                        </div>
-                                        <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
+                                        <span class="members-name">{{ member.name }}</span>
+                                        <span class="members-job">{{ member.nameJob }}</span>
                                     </div>
                                 </div>
                             </div>
