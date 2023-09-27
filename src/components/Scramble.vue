@@ -64,7 +64,7 @@
       this.mojicount = 0;
       this.displayText = '';
       this.scramble();
-    }, 800);
+    }, 650);
   },
   cancelScramble() {
     if (this.cancelTimeout) {

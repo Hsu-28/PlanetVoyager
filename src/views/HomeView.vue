@@ -1,9 +1,3 @@
-<!-- <template>
-  <div class="home">
-   第三組第三組得第一
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
-</template> -->
 
 <template>
   <section class="a">
