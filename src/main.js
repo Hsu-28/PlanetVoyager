@@ -7,7 +7,7 @@ import 'element-plus/dist/index.css'
 import ViewUIPlus from 'view-ui-plus'
 import 'view-ui-plus/dist/styles/viewuiplus.css'
 import './my-theme/index.scss';
-// import { Collapse } from 'vue-collapsed'
+import { Collapse } from 'vue-collapsed'
 
 const app = createApp(App);
 
@@ -18,7 +18,7 @@ app.use(ViewUIPlus);
 app.use(ElementPlus);
 
 // 注册全局组件
-// app.component('Collapse', Collapse);
+app.component('Collapse', Collapse);
 
 // 挂载应用程序
 app.mount('#app');
