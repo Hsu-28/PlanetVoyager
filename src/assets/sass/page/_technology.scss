@@ -1,5 +1,5 @@
 #technology{
-    
+    box-sizing: border-box;
     color: $white;
     .mw{
         max-width: 1200px;
@@ -235,25 +235,25 @@
         }
     }
 }
-
-@media screen and (max-width:1300px) {
+@media screen and (max-width:1200px) {
     #technology{
         .wrap{
             .spaceship-intro{
-                transform: translateX(0%);
                 max-width: 800px;
                 margin-left: auto;
                 margin-right: auto;
                 grid-template-columns: repeat(20, 40px);
                 grid-template-rows: repeat(18, 40px) ;
-                .thumbnail{
-                    height: 80%;
-                }
+                // .thumbnail{
+                //     height: 80%;
+                //     width: 33%;
+                // }
             }
            
         }
     }
 }
+
 
 @media screen and (max-width:768px) {
 #technology{
@@ -285,6 +285,10 @@
                 .thumbnail-list{
                     flex-direction: row;
                     justify-content: space-between;
+                }
+                .thumbnail{
+                    height: 80%;
+                    width: 33%;
                 }
                 .spaceship-feature, .spaceship-txt{
                     width: 40%;
@@ -318,7 +322,7 @@
 }
 
 
-@media screen and (max-width:375px) {
+@media screen and (max-width:400px) {
     
     #technology{
         .mw{
@@ -332,6 +336,9 @@
                     width: 350px;
                     height: 350px;
                    }
+                }
+                .spaceship-feature, .spaceship-txt{
+                    width: 100%;
                 }
             }
             

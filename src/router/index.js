@@ -169,7 +169,11 @@ const routes = [
     name: 'orbit',
     component: () => import(/* webpackChunkName: "order" */ '../views/OrderProcessOrbit.vue')
   },
-
+{
+  path: '/template',
+  name: 'template',
+  component: () => import(/* webpackChunkName: "order" */ '../views/template.vue')
+}
 
 ////-----------------後台-------------------------
 // {
