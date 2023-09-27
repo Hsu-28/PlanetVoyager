@@ -82,7 +82,7 @@ export default {
                 },
                 {
                     schedulenum: "schedule4",
-                    num: "Day4 蓋爾撞擊坑（Gale Crater）和夏普山（Mount Sharp）",
+                    num: "Day4 蓋爾撞擊坑( Gale Crater )和夏普山( Mount Sharp )",
                     schedule: "2012年火星探測車好奇號在蓋爾撞擊坑這塊區域發現了河床，沿著河床的軌跡、一直到火山口底部，更發現了許多「 火星上曾經有水」的證據。在附近一座名為夏普山的火山，發現了「有機分子」，被認為是宇宙中生命的起源，我們將前往此地，探索其中奧妙。",
                     imgUrls: [
                         require('@/assets/image/itinerary_mars2/m41.jpg'),
@@ -354,6 +354,11 @@ export default {
                 right: 2%;
                 width: 45%;
             }
+            .schedule-text::after {
+                top: 0%;
+                left: 130%;
+            }
+
         }
 
         // 第二塊
@@ -386,7 +391,7 @@ export default {
             margin-left: 10vh;
 
             .schedule-pic {
-                transform: translateY(-40%);
+                transform: translateY(-30%);
                 position: relative;
                 right: 40%;
                 display: flex;
@@ -403,7 +408,7 @@ export default {
 
             .schedule-text::after {
                 top: -45%;
-                left: 150%;
+                left: 130%;
                 content: url(@/assets/image/donate/down.svg);
                 transform: rotate(-135deg);
             }
@@ -418,21 +423,24 @@ export default {
 
         // 第五塊
         .schedule5 {
-            flex-direction: column;
-
+            flex-direction: column-reverse;
+            margin-left: 15vh;
             .schedule-pic {
                 position: relative;
-                transform: translateY(-30%);
+                transform: translateY(10%);
                 display: flex;
                 flex-direction: row;
                 width: 50%;
+            }
+            .schedule-text::after {
+                transform: rotate(-60deg);
             }
         }
 
         // 第六塊
         .schedule6 {
-            flex-direction: column-reverse;
-            margin-top: 20vh;
+            flex-direction: column;
+            margin-top: 25vh;
             margin-left: 20vh;
 
             .schedule-text::after {
@@ -440,10 +448,10 @@ export default {
             }
 
             .schedule-pic {
-                transform: translateY(15%);
+                transform: translateY(-10%);
                 display: flex;
                 flex-direction: row;
-                width: 45%;
+                width: 50%;
             }
         }
 
