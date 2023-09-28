@@ -64,7 +64,38 @@ export default {
                     text: "房間的設計旨在提供舒適、安靜和放鬆的環境，以確保太空旅行者在經過訓練後能夠得到適當的休息和恢復。",
                     page: "5/5"
                 }
-            ]
+            ],
+            //聊天機器人
+            isChatOpen: false,
+            messages: [
+                {
+                    text: "公司回覆1",
+                    icon: require("@/assets/image/donate/member.svg"),
+                    isCustomer: false
+                },
+                {
+                    text: "顧客問題1",
+                    isCustomer: true
+                },
+                {
+                    text: "公司回覆2",
+                    icon: require("@/assets/image/donate/member.svg"),
+                    isCustomer: false
+                },
+                {
+                    text: "顧客問題2",
+                    isCustomer: true
+                },
+                {
+                    text: "公司回覆3",
+                    icon: require("@/assets/image/donate/member.svg"),
+                    isCustomer: false
+                },
+                {
+                    text: "顧客問題3",
+                    isCustomer: true
+                },
+            ],
         };
     },
     methods: {
@@ -83,7 +114,15 @@ export default {
                     panel.classList.remove("active");
                 });
             }
-        }
+        },
+
+        // 聊天機器人
+        toggleChat() {
+            this.isChatOpen = !this.isChatOpen;
+        },
+        closeChat() {
+            this.isChatOpen = false;
+        },
     },
     mounted() {
         this.accordionEvent()
