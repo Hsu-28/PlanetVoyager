@@ -97,13 +97,13 @@
     <transition name="fade">
       <div v-if="quizCompleted" class="result">
         <p>您適合的行程是<br><span> {{ getResultCategory(totalScore) }}</span></p>
-        <img v-if="getResultCategory(totalScore) === '金星-夢幻祕境探險之旅'" src="../assets/image/destination/venus04.svg"  alt="Image 1">
-        <img v-if="getResultCategory(totalScore) === '金星-人文遺跡之旅'" src="../assets/image/destination/venus02.svg" alt="Image 2">
-        <img v-if="getResultCategory(totalScore) === '火星-尋找生命之旅'" src="../assets/image/destination/mars04.svg" alt="Image 3">
-        <img v-if="getResultCategory(totalScore) === '火星-奧林帕斯山脈之旅'" src="../assets/image/destination/mars01.svg" alt="Image 4">
-        <img v-if="getResultCategory(totalScore) === '月球-太空之心'" src="../assets/image/destination/moon04.svg" alt="Image 5">
-        <img v-if="getResultCategory(totalScore) === '月球-月球巡禮'" src="../assets/image/destination/moon02.svg" alt="Image 6">
-        <img v-if="getResultCategory(totalScore) === '行星繞行'" src="../assets/image/destination/tour01.svg" alt="Image 7">
+        <img v-if="getResultCategory(totalScore) === '金星-夢幻祕境探險之旅'" src="../assets/image/quiz/venus-04.png"  alt="Image 1">
+        <img v-if="getResultCategory(totalScore) === '金星-人文遺跡之旅'" src="../assets/image/quiz/venus-02.png" alt="Image 2">
+        <img v-if="getResultCategory(totalScore) === '火星-尋找生命之旅'" src="../assets/image/quiz/mars-04.png" alt="Image 3">
+        <img v-if="getResultCategory(totalScore) === '火星-奧林帕斯山脈之旅'" src="../assets/image/quiz/mars-01.png" alt="Image 4">
+        <img v-if="getResultCategory(totalScore) === '月球-太空之心'" src="../assets/image/quiz/moon-04.png" alt="Image 5">
+        <img v-if="getResultCategory(totalScore) === '月球-月球巡禮'" src="../assets/image/quiz/moon-02.png" alt="Image 6">
+        <img v-if="getResultCategory(totalScore) === '行星繞行'" src="../assets/image/quiz/tour01.png" alt="Image 7">
         <img v-if="getResultCategory(totalScore) === '留在地球'" src="../assets/image/quiz/stay-earth.png" alt="Image 8">
         
         

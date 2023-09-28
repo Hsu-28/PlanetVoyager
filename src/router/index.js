@@ -175,10 +175,19 @@ const routes = [
   component: () => import(/* webpackChunkName: "order" */ '../views/template.vue')
 },
 {
+  path: '/OrderSuccess',
+  name: 'OrderSuccess',
+  component: () => import(/* webpackChunkName: "order" */ '../views/OrderSuccess.vue')
+},
+{
   path: '/quiz',
   name: 'quiz',
   component: () => import(/* webpackChunkName: "order" */ '../views/Quiz.vue')
-}
+},
+
+
+
+
 
 ////-----------------後台-------------------------
 // {

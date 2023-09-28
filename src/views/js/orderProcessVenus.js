@@ -7,7 +7,10 @@ import orderList from "@/components/PerOrder.vue";
 export default {
   data() {
     return {
-      
+      orderCheck: false,
+      USD: 0,
+      YEN: 0,
+      NT: 0,
       A: false,
       B: false,
       j1C: false,
@@ -70,7 +73,7 @@ export default {
       // subContent: [
       // ],
       
-      // formList: [],
+      formList: [],
     }
   },
   methods: {
@@ -129,6 +132,16 @@ export default {
       this.amount = this.j4[1];
       this.date = this.j4[2];
     },
+    udpateForm(form, index) {
+      console.log(form, index)
+      this.formList[index] = form;
+    },
+    disOrder(){
+      this.orderCheck = !this.orderCheck
+    },
+    checkOrder(){
+      this.orderCheck = true
+    }
   },
   computed: {
     options() {
@@ -138,7 +151,17 @@ export default {
         }
       })
     },
+    exchange () {
+      this.YEN = Math.floor(this.USD*148.91);
+      this.NT = Math.floor(this.USD*32.23);
+
+    }
     
+  },
+  watch: {
+    currentAmount() {
+      this.formList = []
+    },
   },
   // watch: {
   //   currentAmount(nVal) {
@@ -170,6 +193,7 @@ export default {
 
 
 }
+
 
 
 
