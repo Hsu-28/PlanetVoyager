@@ -156,7 +156,7 @@
 
 .bg3 {
     // background-image: url('https://i.pinimg.com/originals/a9/8a/0e/a98a0ed91d96d4c56e0562842a402374.jpg');
-    background-image: url('../assets/image/aboutUs/founder03.jfif');
+    background-image: url('../assets/image/aboutUs/founder03.jpg');
 }
 
 .panel {
@@ -688,49 +688,135 @@ td a:hover {
     color: $blueL;
 }
 
-// .swiper-slide:nth-child(1n) {
-//     background-color: rgb(206, 17, 17);
-//     background-color: #000;
-//     border: 2px solid $blueL;
-// }
-
-// .swiper-slide:nth-child(2n) {
-//     background-color: rgb(0, 140, 255);
-// }
-
-// .swiper-slide:nth-child(3n) {
-//     background-color: rgb(10, 184, 111);
-// }
-
-// .swiper-slide:nth-child(4n) {
-//     background-color: rgb(211, 122, 7);
-// }
-
-// .swiper-slide:nth-child(5n) {
-//     background-color: rgb(118, 163, 12);
-// }
-
-// .swiper-slide:nth-child(6n) {
-//     background-color: rgb(180, 10, 47);
-// }
-
-// .swiper-slide:nth-child(7n) {
-//     background-color: rgb(35, 99, 19);
-// }
-
-// .swiper-slide:nth-child(8n) {
-//     background-color: rgb(0, 68, 255);
-// }
-
-// .swiper-slide:nth-child(9n) {
-//     background-color: rgb(218, 12, 218);
-// }
-
-// .swiper-slide:nth-child(10n) {
-//     background-color: rgb(54, 94, 77);
-// }
-
 // -------------公司介紹輪播結束-------------
+
+
+// -------------聊天機器人-------------
+.chatbot {
+    position: fixed;
+    bottom: 110px;
+    right: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: 25px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.chatbot img {
+    max-width: 100px;
+}
+
+button#closeButton {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: $blue;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.popup {
+    // display: none;
+    position: fixed;
+    bottom: 200px;
+    right: 20px;
+    width: 30%;
+    height: 600px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: block;
+    margin-left: auto;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.messages {
+    overflow-y: auto;
+    padding-top: 20px;
+    padding-left: 35px;
+    padding-right: 15px;
+}
+
+.msg-top {
+    background-color: $blueO;
+    line-height: 2.5;
+    padding-left: 30px;
+    color: $white;
+}
+
+.company-reply {
+    width: 80%;
+    background-color: $blueO;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.company-reply img {
+    position: absolute;
+    left: -31px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+// .company-reply::after {
+//     content: "";
+//     width: 25px;
+//     height: 25px;
+//     border-radius: 50%;
+//     background-color: #000;
+//     left: -27px;
+//     position: absolute;
+// }
+
+.customer-question {
+    width: 80%;
+    background-color: #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    position: relative;
+}
+
+.customer-question::before {
+    content: "";
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 9px solid #ccc;
+    display: inline-block;
+    position: absolute;
+    right: -7px;
+    bottom: 4px;
+}
+
+.typing {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}
+
+input {
+    width: 90%;
+    padding-left: 10px;
+}
+
+// -------------聊天機器人結束-------------
+
+
 
 @media screen and (min-width:1200px) {}
 
@@ -941,6 +1027,10 @@ td a:hover {
 
     .bottom {
         height: 550px;
+    }
+
+    .popup {
+        width: 60%;
     }
 }
 
@@ -1153,5 +1243,9 @@ td a:hover {
 
     .bottom {
         height: 380px;
+    }
+
+    .popup {
+        width: 90%;
     }
 }

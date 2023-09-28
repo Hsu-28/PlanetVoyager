@@ -166,7 +166,29 @@
             </div>
         </section>
     </div>
+
     <div class="bottom"></div>
+
+    <!-- 聊天機器人 -->
+    <div v-show="isChatOpen" id="chatPopup" class="popup">
+        <button @click="closeChat" id="closeButton">╳</button>
+        <div class="msg-top">
+            聊天機器人
+        </div>
+        <div class="messages">
+            <!-- 公司回覆和顧客問題的循環 -->
+            <div v-for="(message, index) in messages" :key="index"
+                :class="{ 'company-reply': !message.isCustomer, 'customer-question': message.isCustomer }">
+                <img :src="message.icon" alt="">
+                {{ message.text }}
+            </div>
+        </div>
+        <div class="typing">
+            <input type="text" placeholder="輸入訊息">
+        </div>
+    </div>
+    <button @click="toggleChat" id="chatButton" class="chatbot"><img src="../assets/image/chatbot/chatbot.svg"
+            alt=""></button>
 </template>
 
 <style scoped lang="scss">
