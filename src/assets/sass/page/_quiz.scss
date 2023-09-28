@@ -1,0 +1,235 @@
+#quiz{
+  font-family: 'Oswald', 'Roboto Mono','Noto Serif JP', 'Noto Serif TC',  serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+
+  .test, .result {
+    margin-top: 100px;
+  }
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity 0.5s;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
+  
+  .quiz, .intro {
+    margin-top: 50px;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: $white;
+  }
+  
+  ul {
+    list-style-type: none;
+    color: $white;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+  }
+  
+  li {
+    margin-bottom: 10px;
+    font-size: $p1-l;
+
+  }
+  
+  label {
+    margin-left: 5px;
+
+  }
+  
+  button {
+    // width: 50%;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    background-color: $inputB;
+    color: $black;
+    border: none;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 998;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+  }
+  
+  button:hover {
+    background-color: $blueL;
+  }
+
+ .leave{
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  background-color: $inputB;
+  color: $black;
+  border: none;
+  border-radius: 4px;
+  position: absolute;
+  z-index: 998;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ }
+
+ .leave:hover{
+  background-color: $blueL;
+ }
+ 
+  
+  .leave {
+    background-color: #008CBA;
+  }
+  
+  .leave:hover {
+    background-color: $blueL;
+  }
+  
+  .tryAgain {
+    background-color: #ffcc00;
+  }
+  
+  .tryAgain:hover {
+    background-color: #e6b800;
+  }
+
+  .test{
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .result{
+    line-height: 1.5;
+     & p{
+      color: $white;
+      font-size: 20px;
+     }
+  }
+  .result span{
+    font-size: 62px;
+    color: $blueL ;
+    font-weight: 700;
+  }
+
+ 
+  
+// 星戰開頭特效
+.star-war-intro{
+  width:100%;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  z-index: 2;
+  // background: url("https://cutewallpaper.org/21/star-wars-background-stars/Star-Wars-Tumblr-Backgrounds-Wallpaper-Cave.jpg") no-repeat fixed center; 
+  font-family: "Droid Sans", arial, verdana, sans-serif;
+}
+
+.intro-text{
+  width:max-content;
+  height:100%;
+  position:absolute;
+  top:45%;
+  left:25%;
+  z-index:1;
+}
+
+.intro-text p{
+  opacity: 0;
+  font-size:200%;
+  color: #4ee;
+  line-height: 1.5;
+  font-weight: 700;
+  animation-name: intro-text-fade-in-out;
+  animation-duration: 3s; 
+  font-family: 'Noto Serif JP';
+}
+@keyframes intro-text-fade-in-out{
+  0% {opacity:0;}
+  90% {opacity:1;}
+  100% {opacity:0;}
+}
+.intro-img{  width:100%;  margin:0 auto;  position:absolute;  top:25%;  z-index:2;}
+.intro-img img{  width:100%;  height:70%;  margin: auto auto;
+    animation-name: img-ani;  animation-timing-function: ease;  animation-delay: 5s;  animation-duration: 8s;  opacity:0;}
+
+@keyframes img-ani{
+  0% {opacity:1;-webkit-transform: scale(1);}
+  98% {opacity:1;}
+  100% {opacity:0;-webkit-transform: scale(0.01);}
+}
+
+.main-content{
+  position: absolute;
+  bottom: 0;
+  width:90%;
+  height:2000px;
+  
+  transform-origin: 50% 100%;
+  transform: perspective(350px) rotateX(25deg);
+  
+  
+  overflow: hidden;
+
+  font-size: 60px;
+  font-weight: bold;
+  text-align: justify;
+  color: #EBD71C;
+  font-family: "Droid Sans", arial, verdana, sans-serif;
+}
+
+
+.main-content .content{
+ position:relative;
+  top:100%;
+  
+}
+
+.main-content .title{
+  position:relative;
+  top:100%;
+  margin-bottom:15px;
+}
+
+
+
+.main-content .title, .content{
+/*   visibility: hidden; */
+  width:98%;
+  max-width:98%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  
+  
+  animation-name: main-content-ani;
+  animation-timing-function: linear;
+  animation-delay: 10s;
+  animation-duration: 10s;  
+}
+
+
+
+@keyframes main-content-ani{
+  0% { top:100%;}
+  100% {top:-270%;}
+}
+
+
+}

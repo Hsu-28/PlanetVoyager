@@ -173,6 +173,11 @@ const routes = [
   path: '/template',
   name: 'template',
   component: () => import(/* webpackChunkName: "order" */ '../views/template.vue')
+},
+{
+  path: '/quiz',
+  name: 'quiz',
+  component: () => import(/* webpackChunkName: "order" */ '../views/Quiz.vue')
 }
 
 ////-----------------後台-------------------------
