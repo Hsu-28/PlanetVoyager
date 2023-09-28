@@ -1,6 +1,6 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
-  filenameHashing:false,
+  filenameHashing: false,
   transpileDependencies: true,
   css: {
     loaderOptions: {
@@ -13,13 +13,13 @@ module.exports = defineConfig({
       },
     }
   },
-  
-    transpileDependencies: true,
-    publicPath: process.env.NODE_ENV === 'production'
-    ? '/chd103/g3/planet_voyager/'
+
+  transpileDependencies: true,
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/chd103/g3/PlanetVoyager/'
     : '/',
-    outputDir: 'planet_voyager'
-  
+  outputDir: 'dist'
+
 })
 
 // https://cli.vuejs.org/zh/config/

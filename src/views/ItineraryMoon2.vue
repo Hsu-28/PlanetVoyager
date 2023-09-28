@@ -152,6 +152,7 @@ export default {
             lerp: 0.05,
             getSpeed: true,
             tablet: {
+                direction: "horizontal",
                 smooth: true
             },
             smartphone: {

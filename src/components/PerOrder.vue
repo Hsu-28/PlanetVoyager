@@ -44,7 +44,9 @@
       <div class="check">
         <input type="checkbox">我已經詳閱健康規定與訂購注意事項。
       </div>
-      <div class="upload"> 上傳體檢報告</div>
+      <label for="fileUpload" class="upload">上傳體檢報告</label>
+      <input type="file" id="fileUpload" style="display: none;" class="upload">
+      <!-- <div class="upload"> 上傳體檢報告<input type="file" class="upload"></div> -->
     </div>
 
     <div class="order-s">

@@ -18,7 +18,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutUs.vue')
-  },  
+  },
   {
     path: '/t2',
     name: 'HereIsTest2',
@@ -26,7 +26,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/HereIsTest2.vue')
-  }, 
+  },
   {
     path: '/t1',
     name: 'HereIsTest',
@@ -49,7 +49,7 @@ const routes = [
     path: '/Destination',
     name: 'Destination',
     component: () => import(/* webpackChunkName: "Destination" */ '../views/Destination.vue')
-  },    
+  },
   {
     path: '/donate',
     name: 'donate',
@@ -79,12 +79,12 @@ const routes = [
     path: '/register',
     name: 'register',
     component: () => import(/* webpackChunkName: "Register" */ '../views/Register.vue')
-  }, { 
+  }, {
     path: '/order',
     name: 'order',
     component: () => import(/* webpackChunkName: "order" */ '../views/OrderTitle.vue')
   },
-  { 
+  {
     path: '/moon',
     name: 'moon',
     component: () => import(/* webpackChunkName: "order" */ '../views/OrderProcess.vue')
@@ -94,7 +94,7 @@ const routes = [
     name: 'technology',
     component: () => import(/* webpackChunkName: "order" */ '../views/Technology.vue')
   },
-   {
+  {
     path: '/registerv',
     name: 'registerv',
     component: () => import(/* webpackChunkName: "order" */ '../views/RegisterV.vue')
@@ -154,10 +154,10 @@ const routes = [
     name: 'mars',
     component: () => import(/* webpackChunkName: "order" */ '../views/OrderProcessMars.vue')
   },
-  { 
-    path: '/:pathMatch(.*)*', 
-    name: 'NotFound', 
-    component: () => import(/* webpackChunkName: "error" */ '../views/NotFound.vue') 
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: () => import(/* webpackChunkName: "error" */ '../views/NotFound.vue')
   },
   {
     path: '/venus',
@@ -189,42 +189,43 @@ const routes = [
 
 
 
-////-----------------後台-------------------------
-// {
-//   path: '/backstagelongin',
-//   name: 'backstagelongin',
-//   component: () => import(/* webpackChunkName: "BackstageLongin" */ '../backend/BackstageLongin.vue')
-// },
-// {
-//   path: '/mangerMGMT',
-//   name: 'mangerMGMT',
-//   component: () => import(/* webpackChunkName: "MangerMGMT" */ '../backend/MangerMGMT.vue')
-// },
+  ////-----------------後台-------------------------
+  // {
+  //   path: '/backstagelongin',
+  //   name: 'backstagelongin',
+  //   component: () => import(/* webpackChunkName: "BackstageLongin" */ '../backend/BackstageLongin.vue')
+  // },
+  // {
+  //   path: '/mangerMGMT',
+  //   name: 'mangerMGMT',
+  //   component: () => import(/* webpackChunkName: "MangerMGMT" */ '../backend/MangerMGMT.vue')
+  // },
 
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
+  // mode: 'history',
   routes,
   scrollBehavior(to, from, savedPosition) {
     // 始终滚動到顶部
     return { top: 0 }
   },
-  });
+});
 
-  router.beforeEach((to, from) => {
-    // 檢查用户是否已登录 並 ❗️避免無限重定向
-    if(to.meta.requiresAuth && to.name !== 'login'){
-      const isAuth = localStorage.getItem('token')
-      console.log('檢查用户'+ isAuth);
-      if(isAuth){
-        // return '/about'
-        return true
-      }else{
-        return '/login'
-      }
+router.beforeEach((to, from) => {
+  // 檢查用户是否已登录 並 ❗️避免無限重定向
+  if (to.meta.requiresAuth && to.name !== 'login') {
+    const isAuth = localStorage.getItem('token')
+    console.log('檢查用户' + isAuth);
+    if (isAuth) {
+      // return '/about'
+      return true
+    } else {
+      return '/login'
     }
-  })
+  }
+})
 
 
 export default router
