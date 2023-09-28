@@ -1,7 +1,7 @@
 <template>
     <div id="itinerary">
         <div class="planet-bg">
-            <img src="@/assets/image/itinerary_moon/moon-bg.png" alt="moon" C:\planet_voyager\Tiffany\src\assets\image\itinerary_moon\moon-bg.png>
+            <img src="@/assets/image/itinerary_moon/moon-bg.png" alt="moon">
         </div>
         <!-- 遮罩 -->
         <div v-if="coverbg" class="cover"></div>
@@ -45,7 +45,6 @@ import LocomotiveScroll from 'locomotive-scroll';
 export default {
     data() {
         return {
-            scrollInstance: null,
             bigpic: '',
             showBtn: true,
             scroll: null,
@@ -151,12 +150,13 @@ export default {
             }
         });
     },
-    // beforeUnmount() {
-    //     document.body.style.height = `auto`;
-    //     if (this.scrollInstance) {
-    //         this.scrollInstance.destroy();
-    //     }
-    // }
+    beforeUnmount() {
+        console.log(this.scroll);
+    if (this.scroll) {
+      this.scroll.destroy();
+    }
+    console.log(this.scroll);
+  }              
 };
 
 </script>
@@ -384,7 +384,7 @@ export default {
             margin-left: 10vh;
 
             .schedule-pic {
-                transform: translateY(-40%);
+                transform: translateY(-20%);
                 position: relative;
                 right: 40%;
                 display: flex;

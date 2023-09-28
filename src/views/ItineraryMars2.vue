@@ -43,7 +43,6 @@ import LocomotiveScroll from 'locomotive-scroll';
 export default {
     data() {
         return {
-            scrollInstance: null,
             bigpic: '',
             showBtn: true,
             scroll: null,
@@ -153,12 +152,13 @@ export default {
             }
         });
     },
-    // beforeUnmount() {
-    //     document.body.style.height = `auto`;
-    //     if (this.scrollInstance) {
-    //         this.scrollInstance.destroy();
-    //     }
-    // }
+    beforeUnmount() {
+        console.log(this.scroll);
+    if (this.scroll) {
+      this.scroll.destroy();
+    }
+    console.log(this.scroll);
+  }              
 };
 
 </script>
@@ -355,8 +355,8 @@ export default {
                 width: 45%;
             }
             .schedule-text::after {
-                top: 0%;
-                left: 130%;
+                top: 80%;
+                left: 140%;
             }
 
         }
