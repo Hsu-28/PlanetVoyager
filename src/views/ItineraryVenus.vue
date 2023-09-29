@@ -4,7 +4,7 @@
             <img src="@/assets/image/itinerary_venus/venus_bg.png" alt="Venus">
         </div>
         <!-- 遮罩 -->
-        <div v-if="coverbg" class="cover"></div>
+        <div v-if="coverbg" class="cover" @click="close"></div>
         <div v-if="showBtn" class="schedule-big-pic">
             <img :src="bigpic">
             <button v-if="showBtn" class="close-btn" @click="close">&times;</button>

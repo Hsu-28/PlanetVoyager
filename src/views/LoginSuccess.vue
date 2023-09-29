@@ -15,7 +15,7 @@ export default{
     mounted() {
     setTimeout(() => {
      this.$router.push('/memberCenter');
-    }, 3000);
+    }, 2200);
 },
 }
 </script>

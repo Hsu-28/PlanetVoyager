@@ -12,7 +12,15 @@
     </div>
 </div>
 </template>
-
+<script>
+    export default{
+    mounted() {
+    setTimeout(() => {
+     this.$router.push('/Login');
+    }, 2500);
+},
+}
+</script>
 <style scoped lang="scss">
 #login-success{
     .glitch {

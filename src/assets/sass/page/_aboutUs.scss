@@ -22,11 +22,11 @@
     padding-bottom: 10px;
     font-weight: 700;
     text-shadow:
-        3px 3px 0 #00000075,
-        2px -1px 0 #00000075,
-        2px -1px 0 #00000075,
-        -1px 1px 0 #00000075,
-        3px 1px 0 #00000075
+        3px 3px 10px #20202075,
+        2px -1px 10px #20202075,
+        2px -1px 10px #20202075,
+        -1px 1px 10px #20202075,
+        3px 1px 0 #20202075
 }
 
 .tit span {
@@ -34,11 +34,11 @@
     font-weight: 700;
     display: block;
     text-shadow:
-        3px 3px 0 #00000075,
-        2px -1px 0 #00000075,
-        2px -1px 0 #00000075,
-        -1px 1px 0 #00000075,
-        3px 1px 0 #00000075
+        3px 3px 10px #20202075,
+        2px -1px 10px #20202075,
+        2px -1px 10px #20202075,
+        -1px 1px 10px #20202075,
+        3px 1px 0 #20202075
 }
 
 .down {
@@ -725,10 +725,10 @@ button#closeButton {
 .popup {
     // display: none;
     position: fixed;
-    bottom: 200px;
-    right: 20px;
+    bottom: 60px;
+    right: 131px;
     width: 30%;
-    height: 600px;
+    height: 465px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     display: block;
@@ -1247,5 +1247,11 @@ input {
 
     .popup {
         width: 90%;
+        right: 15px;
+        bottom: 220px;
+    }
+
+    .chatbot img {
+        max-width: 80px;
     }
 }
