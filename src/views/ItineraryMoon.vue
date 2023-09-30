@@ -143,10 +143,14 @@ export default {
             lerp: 0.05,
             getSpeed: true,
             tablet: {
-                smooth: true
+                breakpoint: 0,
+                smooth: true,
+                direction: "horizontal"
             },
             smartphone: {
-                smooth: true
+                breakpoint: 0,
+                smooth: true,
+                direction: "horizontal"
             }
         });
     },
