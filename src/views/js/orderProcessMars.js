@@ -1,4 +1,4 @@
-
+import $ from 'jquery'
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 // import { ArrayCamera } from 'three'
@@ -7,6 +7,8 @@ import orderList from "@/components/PerOrder.vue";
 export default {
   data() {
     return {
+      jpRate:0,
+      ntRate:0,
       orderCheck: false,
       USD: 0,
       YEN: 0,
@@ -190,6 +192,13 @@ export default {
     ButtonFlashBox: ButtonFlashBox,
     orderList: orderList,
   },
+  created() {
+    // 在 Vue 的 created 鉤子中發送請求
+    $.get('https://openexchangerates.org/api/latest.json', {app_id: '738d67de7ed043e690b7b729c87953c1'}, data => {
+        this.ntRate = data.rates.TWD;
+        this.jpRate = data.rates.JPY;
+    });
+}
 
 
 }
