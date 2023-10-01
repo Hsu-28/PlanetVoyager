@@ -32,23 +32,23 @@ export default {
       date: "",
       imgs: [
         {
-          slide: require('@/assets/image/orderProcess/marsc2.svg'),
+          slide: require('@/assets/image/orderProcess/marsc2.jpg'),
           altp: "在月球等你",
         },
         {
-          slide: require('@/assets/image/orderProcess/marsc1.svg'),
+          slide: require('@/assets/image/orderProcess/marsc1.jpg'),
           altp: "火星外表",
         }, {
-          slide: require('@/assets/image/orderProcess/marsc3.svg'),
+          slide: require('@/assets/image/orderProcess/marsc3.jpg'),
           altp: "地質",
         }, {
-          slide: require('@/assets/image/orderProcess/marsc4.svg'),
+          slide: require('@/assets/image/orderProcess/marsc4.jpg'),
           altp: "火星照",
         }, {
-          slide: require('@/assets/image/orderProcess/marsc5.svg'),
+          slide: require('@/assets/image/orderProcess/marsc5.jpg'),
           altp: "飲料",
         }, {
-          slide: require('@/assets/image/orderProcess/marsc6.svg'),
+          slide: require('@/assets/image/orderProcess/marsc6.jpg'),
           altp: "火星地形",
         }
       ],

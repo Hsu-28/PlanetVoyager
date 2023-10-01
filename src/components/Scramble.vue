@@ -73,9 +73,7 @@
     }
   },
     },
-
       mounted() {
-      
         this.triggerScramble();
       ;
     }
