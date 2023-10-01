@@ -8,7 +8,7 @@
         </section>
         <section>
             <div class="landing-title">
-                SO FAR,WE HAVE BEEN COMPLETED
+                SO FAR,WE HAVE COMPLETED
             </div>
             <div>
                 <div class="rwd-container">
