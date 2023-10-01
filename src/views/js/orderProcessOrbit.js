@@ -32,23 +32,23 @@ export default {
       date: "",
       imgs: [
         {
-          slide: require('@/assets/image/orderProcess/orbit2.svg'),
+          slide: require('@/assets/image/orderProcess/orbit2.jpg'),
           altp: "在月球等你",
         },
         {
-          slide: require('@/assets/image/orderProcess/orbit1.svg'),
+          slide: require('@/assets/image/orderProcess/orbit1.jpg'),
           altp: "火星外表",
         }, {
-          slide: require('@/assets/image/orderProcess/orbit3.svg'),
+          slide: require('@/assets/image/orderProcess/orbit3.jpg'),
           altp: "地質",
         }, {
-          slide: require('@/assets/image/orderProcess/orbit4.svg'),
+          slide: require('@/assets/image/orderProcess/orbit4.jpg'),
           altp: "火星照",
         }, {
-          slide: require('@/assets/image/orderProcess/orbit5.svg'),
+          slide: require('@/assets/image/orderProcess/orbit5.jpg'),
           altp: "飲料",
         }, {
-          slide: require('@/assets/image/orderProcess/orbit6.svg'),
+          slide: require('@/assets/image/orderProcess/orbit6.jpg'),
           altp: "火星地形",
         }
       ],

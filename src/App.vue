@@ -45,11 +45,7 @@
         <div class="list">
           <ul>
             <li v-for="(item, index) in titlelist" :key="index">
-             <!-- <strong>
-                 <router-link @click="closeMenuF" :to="item.path" :style="{ color: item.color }">{{ item.titleC }} &nbsp;
-                  {{ item.titleE }}</router-link> </strong> -->
-  
-                <strong>
+                  <strong>
                   <router-link @click="closeMenuF" :to="item.path" :style="{ color: item.color }">
                     <scramble :text="`${item.titleC} ${item.titleE}`" />
                   </router-link>

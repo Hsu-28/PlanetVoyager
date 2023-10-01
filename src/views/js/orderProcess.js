@@ -32,23 +32,23 @@ export default {
       date: "",
       imgs: [
         {
-           slide: require('@/assets/image/orderProcess/moonc1.svg'),
+           slide: require('@/assets/image/orderProcess/moonc1.jpg'),
            altp: "在月球等你",
          },
          {
-           slide: require('@/assets/image/orderProcess/moonc2.svg'),
+           slide: require('@/assets/image/orderProcess/moonc2.jpg'),
            altp: "太空儀器",
          }, {
-           slide: require('@/assets/image/orderProcess/moonc3.svg'),
+           slide: require('@/assets/image/orderProcess/moonc3.jpg'),
            altp: "月球外星人",
          }, {
-           slide: require('@/assets/image/orderProcess/moonc4.svg'),
+           slide: require('@/assets/image/orderProcess/moonc4.jpg'),
            altp: "太空環境",
          }, {
-           slide: require('@/assets/image/orderProcess/moonc5.svg'),
+           slide: require('@/assets/image/orderProcess/moonc5.jpg'),
            altp: "月球景色",
          }, {
-           slide: require('@/assets/image/orderProcess/moonc6.svg'),
+           slide: require('@/assets/image/orderProcess/moonc6.jpg'),
            altp: "太空高爾夫",
          }
        ],
