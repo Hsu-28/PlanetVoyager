@@ -1,3 +1,4 @@
+import $ from 'jquery'
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 // import { ArrayCamera } from 'three'
@@ -6,6 +7,9 @@ import orderList from "@/components/PerOrder.vue";
 export default {
   data() {
     return {
+      jpRate:0,
+      ntRate:0,
+      orderCheck: false,
       USD: 0,
       YEN: 0,
       NT: 0,
@@ -71,7 +75,7 @@ export default {
       // subContent: [
       // ],
       
-      // formList: [],
+      formList: [],
     }
   },
   methods: {
@@ -86,7 +90,6 @@ export default {
       this.show1 = false
       this.btn2 = "btn-active"
       this.btn1 = "";
-
     },
     af() {
       this.B = false;
@@ -130,6 +133,16 @@ export default {
       this.amount = this.j4[1];
       this.date = this.j4[2];
     },
+    udpateForm(form, index) {
+      console.log(form, index)
+      this.formList[index] = form;
+    },
+    disOrder(){
+      this.orderCheck = !this.orderCheck
+    },
+    checkOrder(){
+      this.orderCheck = true
+    }
   },
   computed: {
     options() {
@@ -140,30 +153,18 @@ export default {
       })
     },
     exchange () {
-      this.YEN = Math.floor(this.USD*148.91);
-      this.NT = Math.floor(this.USD*32.23);
+      this.YEN = Math.floor(this.USD*this.jpRate.toFixed(2));
+      this.NT = Math.floor(this.USD*this.ntRate.toFixed(2));
 
     }
     
+    
   },
-  // watch: {
-  //   currentAmount(nVal) {
-  //     this.setFormList(nVal)
-  //   },
-  // },
-  // methods: {
-  //   setFormList(num) {
-  //     this.formList = Array.from({ length: num }, (_, i) => {
-  //       return {
-  //         name: '',
-  //         email: ''
-  //       }
-  //     })
-  //   },
-  // },
-  // mounted(){
-  //   this.setFormList(this.currentAmount)
-  // },
+  watch: {
+    currentAmount() {
+      this.formList = []
+    },
+  },
   name: 'App',
   components: {
     Carousel,
@@ -173,6 +174,13 @@ export default {
     ButtonFlashBox: ButtonFlashBox,
     orderList: orderList,
   },
+  created() {
+    // 在 Vue 的 created 鉤子中發送請求
+    $.get('https://openexchangerates.org/api/latest.json', {app_id: '738d67de7ed043e690b7b729c87953c1'}, data => {
+        this.ntRate = data.rates.TWD;
+        this.jpRate = data.rates.JPY;
+    });
+}
 
 
 }

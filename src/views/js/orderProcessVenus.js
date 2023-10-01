@@ -1,4 +1,4 @@
-
+import $ from 'jquery'
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 // import { ArrayCamera } from 'three'
@@ -7,7 +7,12 @@ import orderList from "@/components/PerOrder.vue";
 export default {
   data() {
     return {
-      
+      jpRate:0,
+      ntRate:0,
+      orderCheck: false,
+      USD: 0,
+      YEN: 0,
+      NT: 0,
       A: false,
       B: false,
       j1C: false,
@@ -70,7 +75,7 @@ export default {
       // subContent: [
       // ],
       
-      // formList: [],
+      formList: [],
     }
   },
   methods: {
@@ -129,6 +134,16 @@ export default {
       this.amount = this.j4[1];
       this.date = this.j4[2];
     },
+    udpateForm(form, index) {
+      console.log(form, index)
+      this.formList[index] = form;
+    },
+    disOrder(){
+      this.orderCheck = !this.orderCheck
+    },
+    checkOrder(){
+      this.orderCheck = true
+    }
   },
   computed: {
     options() {
@@ -138,7 +153,17 @@ export default {
         }
       })
     },
+    exchange () {
+      this.YEN = Math.floor(this.USD*148.91);
+      this.NT = Math.floor(this.USD*32.23);
+
+    }
     
+  },
+  watch: {
+    currentAmount() {
+      this.formList = []
+    },
   },
   // watch: {
   //   currentAmount(nVal) {
@@ -167,9 +192,17 @@ export default {
     ButtonFlashBox: ButtonFlashBox,
     orderList: orderList,
   },
+  created() {
+    // 在 Vue 的 created 鉤子中發送請求
+    $.get('https://openexchangerates.org/api/latest.json', {app_id: '738d67de7ed043e690b7b729c87953c1'}, data => {
+        this.ntRate = data.rates.TWD;
+        this.jpRate = data.rates.JPY;
+    });
+}
 
 
 }
+
 
 
 

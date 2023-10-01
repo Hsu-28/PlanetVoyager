@@ -1,7 +1,10 @@
 import scramble from '@/components/Scramble.vue'
+import subscribe from '@/components/ButtonFlash.vue'
 export default {
     components: {
-          scramble: scramble
+          scramble: scramble,
+          subscribe: subscribe,
+
       },
   data() {
   

@@ -182,7 +182,7 @@
     </select>
   </div>
   <section >
-    <orderList v-for="n in currentAmount" :key="n" :numOrder="n" :status="'正取'"></orderList>
+    <orderList v-for="n in currentAmount" :key="n" :numOrder="n" :status="'正取'" :list="formList" @update-data="udpateForm($event, n-1)"></orderList>
   </section>
 
 </section>
@@ -201,7 +201,7 @@
       <p>航程日期: {{date}}</p>
     </div>
     <div class="click">
-      <ButtonFlashBox :buttonText="'確認訂購'" :buttonBottomText="'-pv-'" class="kkss"></ButtonFlashBox>
+      <ButtonFlashBox :buttonText="'確認訂購'" :buttonBottomText="'-pv-'" class="kkss"  @click="checkOrder"></ButtonFlashBox>
     </div>
 
   </div>
@@ -235,10 +235,62 @@
   <div v-for="form in formList">
     <input type="text" v-model="form.name">
   </div> -->
+  <section class="confirm-Order" v-if="orderCheck">
+    <div class="confirm-contain">
+      <div class="confirm-title">
+        <h2>{{ journey }}</h2>
+        <h3> 旅客人數: {{ currentAmount }}</h3>
+        <h3>旅費金額: {{ 600 * currentAmount }}萬美金</h3>
+        <h3>航程日期: {{ date }}</h3>
+      </div>
+      <div class="confirm-content-container">
+        <div class="confirm-content" v-for="(item, index) in formList" :key="index" v-if="formList.length > 0">
+          <h2>旅客{{ index + 1 }}</h2>
+          <div>姓氏:{{ item.lastName }}</div>
+          <div>名字:{{ item.name }}</div>
+          <div>性別:{{ item.gender }}</div>
+          <div>出生日期:{{ item.birthday }}</div>
+          <div>國籍:{{ item.nation }}</div>
+          <div>護照號碼:{{ item.passId }}</div>
+          <div>訓練服尺寸:{{ item.size }}</div>
+          <div>旅位狀態:{{ status }}</div>
+          <div> 餐食備註:{{ item.other }}</div>
+          <div>艙位號碼: {{ item.seatIndex }}</div>
+
+        </div>
+
+      </div>
+      <div class="order-finall">
+
+        <div class="order-finall-btn btn-Cancle" @click="disOrder">修改資料</div>
+        <router-link to="OrderSuccess"> <div class="order-finall-btn btn-Check">確認訂購</div></router-link>
+       
+      </div>
+
+    </div>
+    <!-- <div class="confirm-content" >
+        <h2>{{ formList[0].name }}</h2>
+        <div>旅客1</div>
+
+        <div>姓氏:{{ formList[0].lastName }}</div>
+        <div>名字:{{ formList[0].name }}</div>
+        <div>性別:{{ formList[0].gender }}</div>
+        <div>出生日期:{{ formList[0].birthday }}</div>
+        <div>國籍:{{ formList[0].nation }}</div>
+        <div>護照號碼:{{ formList[0].passId }}</div>
+        <div>訓練服尺寸:{{ formList[0].size }}</div>
+        <div>旅位狀態:{{ status }}</div>
+        <div> 餐食備註:{{ formList[0].other }}</div>
+        <div>艙位號碼: {{ formList[0].seat }}</div>
+      </div> -->
+    <!-- </div> -->
+
+  </section>
 </template>
   
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
 <script src="@/views/js/orderProcess.js"></script>
+
 
 <style scoped lang="scss">
 @import "~@/assets/sass/page/orderProcess.scss";

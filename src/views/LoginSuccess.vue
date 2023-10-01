@@ -10,7 +10,15 @@
     </div>
 </div>
 </template>
-
+<script>
+export default{
+    mounted() {
+    setTimeout(() => {
+     this.$router.push('/memberCenter');
+    }, 2200);
+},
+}
+</script>
 <style scoped lang="scss">
 #login-success{
 

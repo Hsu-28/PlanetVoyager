@@ -1,8 +1,12 @@
 #technology{
-    
+    box-sizing: border-box;
     color: $white;
     .mw{
         max-width: 1200px;
+    }
+    .section-title{
+        margin-left: auto;
+        margin-right: auto;
     }
     .ma-0{
         margin: 0 auto;
@@ -21,6 +25,7 @@
                 margin-left: 10%;
                 font-size: $h1-l;
                 font-weight: 700;
+                text-shadow: 2px 2px 3px #666;
                 transform: translateY(-900%);
                 animation: slidein 1s .5s forwards;
                 &:first-child{
@@ -163,6 +168,8 @@
             }
             .costume{
                 width: 30%;
+                position: relative;
+                margin-bottom: 30%;
             }
             img{
                 max-width: 90%;
@@ -170,9 +177,9 @@
                 
             }
             img:last-child{
-                position: relative;
+                position: absolute;
                 max-width: 100%;
-                top: -35%;
+                bottom:0;
                 z-index: -2;
                 transform: scale(200%);
             }
@@ -235,32 +242,42 @@
         }
     }
 }
-
-@media screen and (max-width:1300px) {
+@media screen and (max-width:1200px) {
     #technology{
+        .mw{
+            max-width: 1000px;
+        }
         .wrap{
             .spaceship-intro{
-                transform: translateX(0%);
                 max-width: 800px;
                 margin-left: auto;
                 margin-right: auto;
                 grid-template-columns: repeat(20, 40px);
                 grid-template-rows: repeat(18, 40px) ;
-                .thumbnail{
-                    height: 80%;
-                }
+                // .thumbnail{
+                //     height: 80%;
+                //     width: 33%;
+                // }
+                transform: translateX(0%);
             }
            
         }
     }
 }
 
+
 @media screen and (max-width:768px) {
 #technology{
     .mw{
         max-width: 750px;
     }
-   
+    .banner{
+        .container{
+            h2{
+                font-size: $h2-m;
+            }
+        }
+    }
     .intro-wrap{
         max-width: 95%;
         .intro-pic{
@@ -270,24 +287,39 @@
             margin: 0 auto;
             width: 100%;
             p{
-            font-size: $p1-m;
+            font-size: $p2-m;
             }
         }
     }
         .wrap{
+            .spaceship-intro-text{
+                width: 80%;
+            }
             .spaceship-intro{
                 max-width: 750px;
+                width: 90%;
                 display: flex;
                 flex-wrap: wrap;
+                .spaceship-big{
+                    img{
+                    height: auto;
+                   }
+                }
                 .spaceship-big, .thumbnail-list{
                     width: 80%;
+                    margin: 0 auto;
                 }
                 .thumbnail-list{
                     flex-direction: row;
                     justify-content: space-between;
                 }
+                .thumbnail{
+                    height: 80%;
+                    width: 33%;
+                }
                 .spaceship-feature, .spaceship-txt{
                     width: 40%;
+                    margin: 0 auto;
                 }
             }
         
@@ -299,7 +331,6 @@
                     order: 3
                 }
                 .window{
-                    width:50%;
                     &::after, &::before{
                         display: none;
                     }
@@ -312,18 +343,38 @@
                        display: none;
                     }
                 }
+                img:last-child{
+                    transform: scale(100%);
+                    bottom:-10%;
+                }
             }
         }
     }
 }
 
+@media screen and (max-width:550px){
 
-@media screen and (max-width:375px) {
+    #technology{
+
+        .wrap{
+            .spaceship-intro{
+            .spaceship-feature, .spaceship-txt{
+                width: 100%;
+            }
+            }
+        }
+
+    }
+
+}
+@media screen and (max-width:400px) {
     
     #technology{
+
         .mw{
             max-width: 370px;
         }
+        
         .wrap{
             .spaceship-intro{
                 max-width: 370px;
@@ -333,8 +384,13 @@
                     height: 350px;
                    }
                 }
+                
             }
-            
+            .space-suit-intro{
+                .window:last-child{
+                    margin-top: 10px;
+                }
+            }
         }
     }
 }

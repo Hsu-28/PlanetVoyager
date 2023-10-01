@@ -4,21 +4,23 @@
   justify-content: center;
 
   .astronaut-pic{
+    margin-top: 5%;
     width: 47%;
     position: relative;
     object-fit: contain;
     img{
-      max-width: 70%;
+      max-width: 60%;
     }
   }
+  //X光掃描
     .astronaut-pic::after{
       content: "";
       display: block;
       position: absolute;
       z-index: 10;
-      top: -30px;
+      top: 0px;
       left: 0px;
-      width: 100%;
+      width: 70%;
       height: 3px;
       background-color: #5B13EC;
       box-shadow: 0px 0px 10px 4px #5B13EC;
@@ -33,17 +35,18 @@
     
     @keyframes scannedh {
       0% {
-        top: -27px;
+        top: 0px;
       }
       50% {
       }
       51% {
       }
       100% {
-        top: 90vh;
+        top: 80vh;
       }
     }
   .wrap{
+    margin-top: 5%;
     width: 357px;
   }
   .login-section{
@@ -312,4 +315,11 @@
     }
   }
 
- 
+ @media screen and (max-width:768px) {
+  .astronaut-pic{
+    display: none;
+  }
+  .wrap{
+    margin-top: 10vh;
+  }
+ }

@@ -145,7 +145,8 @@
                 </table>
                 <table class="addr">
                     <tr>
-                        <td><a href="https://maps.app.goo.gl/7UAKNLrP1b2kodCo6">W52 桃園市中壢區<br>復興路46號9樓</a></td>
+                        <td><a target="_blank" href="https://maps.app.goo.gl/7UAKNLrP1b2kodCo6">W52 桃園市中壢區<br>復興路46號9樓</a>
+                        </td>
                     </tr>
                     <tr>
                         <td>地址</td>
@@ -166,7 +167,29 @@
             </div>
         </section>
     </div>
+
     <div class="bottom"></div>
+
+    <!-- 聊天機器人 -->
+    <div v-show="isChatOpen" id="chatPopup" class="popup">
+        <button @click="closeChat" id="closeButton">╳</button>
+        <div class="msg-top">
+            聊天機器人
+        </div>
+        <div class="messages">
+            <!-- 公司回覆和顧客問題的循環 -->
+            <div v-for="(message, index) in messages" :key="index"
+                :class="{ 'company-reply': !message.isCustomer, 'customer-question': message.isCustomer }">
+                <img :src="message.icon" alt="">
+                {{ message.text }}
+            </div>
+        </div>
+        <div class="typing">
+            <input type="text" placeholder="輸入訊息">
+        </div>
+    </div>
+    <button @click="toggleChat" id="chatButton" class="chatbot"><img src="../assets/image/chatbot/chatbot.svg"
+            alt=""></button>
 </template>
 
 <style scoped lang="scss">

@@ -16,10 +16,13 @@
 }
 
 .arrow {
-    margin-bottom: 30%;
+    margin-bottom: 10%;
 }
 
 .clickdown {
+    width: 2.5%;
+    margin-top: 20%;
+    margin-left: 20%;
     animation: pulse 2s infinite;
 }
 
@@ -198,6 +201,7 @@ $gap: 10px;
 
 //按鈕樣式
 .cybr-btn {
+    z-index: 2;
     min-width: 0px;
     max-width: 250px;
     margin-top: 3%;
@@ -290,12 +294,12 @@ table.inside-bodrer.news-group {
     width: 100%;
 }
 
-tbody {
+#tbodyscroll {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     max-height: 300px;
     padding-right: 8%;
-    overflow-y: scroll;
+    overflow-y: auto; 
     &::-webkit-scrollbar {
         width: 0.5rem;
         border: 1px solid $blue;
@@ -318,10 +322,12 @@ tr {
     font-size: $p1-s;
     color: $white;
     border: 1px solid $blue;
+    cursor: pointer;
 }
 
 .news-title {
     width: 60%;
+    line-height: 1.5;
 }
 
 .news-date {
@@ -355,15 +361,16 @@ tr {
 }
 
 .more-base {
-    width: 50%;
-    margin:3% auto;
+    width: 80%;
+    margin:30% auto;
     background-color: $black;
     box-shadow: 5px 5px 0px 2px $blueO;
     border-radius: 10px;
     padding: 5% 3% 5% 5%;
     position: relative;
-
 }
+
+
 .more-base-scroll{
     padding-right:2%;
     height: 60vh;
@@ -379,14 +386,20 @@ tr {
 }
 
 .more-img {
+    display: block;
     width: 200px;
-    margin: 0 3% 3% 0;
-    float: left;
+    margin: 0 auto;
 }
-
+.more-title{
+    display: block;
+    
+    font-size: $p1-m;
+    line-height: 1.5;
+    color: $white;
+}
 .more-text {
     color: $white;
-    padding: 10px;
+    
     display: block;
     font-size: $p2-s;
     line-height: 1.5;
@@ -454,8 +467,6 @@ tr {
     animation-timing-function: linear;
     // 動畫的速度曲線。linear 保持恆定的速度，不會有加速或減速的效果。
     animation-name: orbit;
-
-
 }
 
 .card-planet {
@@ -693,21 +704,9 @@ h3 {
 
 .members-info {
     width: 90%;
-    top: 60%;
+    top: 70%;
     left: 3%;
     position: relative;
-    display: none;
-}
-
-.swiper-slide:hover .members-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.member-text {
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -715,6 +714,7 @@ h3 {
     color: $white;
     background-color: rgb(57, 56, 56, 70%);
 }
+
 
 .members-info .cybr-btn {
     max-width: 200px;
@@ -740,7 +740,10 @@ h3 {
     .news-ch {
         font-size: $h2-m;
     }
-
+    .more-img {
+        margin: 0 3% 3% 0;
+        float: left;
+    }
     .news-container {
         width: 75%;
     }
@@ -758,6 +761,13 @@ h3 {
         &::-webkit-scrollbar {
             width: 1rem;
         }
+    }
+    .more-base {
+        width: 70%;
+        margin:20% auto;
+    }
+    .more-title{
+        font-size: $p1-l;
     }
     .more-text {
         font-size: $p2-m;
@@ -847,10 +857,16 @@ h3 {
     .news-container td {
         font-size: $p1-l;
     }
+    .more-base {
+        width: 50%;
+        margin:5% auto;
+    }
+    .more-title{
+        font-size: $h2-s;
+    }
     .more-text {
         font-size: $p2-l;
     }
-
     h3 {
         font-size: $h2-l;
     }

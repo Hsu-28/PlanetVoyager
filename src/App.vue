@@ -91,13 +91,17 @@
                 <p class="dec-p">第一時間接收我們的最新消息</p>
               </div>
             </div>
-            <div class="btn-container">
+            <div id="happy">
+
+              <subscribe :buttonText="'- SUBCRIBE US  NOW- '" :buttonBottomText="'  -pv-'" > <img src="~@/assets/image/headerfooter/globle.svg" alt="" class="btn-c"></subscribe>
+            </div>
+            <!-- <div class="btn-container">
               <p class="btn-p">SUBSCRIBE &nbsp;US &nbsp; NOW
-                <img src="~@/assets/image/headerfooter/globle.svg" alt="" class="btn-g">
-                <!-- <img src="~@/assets/image/headerfooter/btn.svg" class="btn">  -->
+                
+                
               </p>
   
-            </div>
+            </div> -->
           </div>
         </div>
       </section>
@@ -105,15 +109,15 @@
     </section>
   <router-link to="order">
     <div class="d-order">
-    <div class="c-glitch " >
-      <div class="c-glitch__img" ></div>
-      <div class="c-glitch__img" ></div>
-      <div class="c-glitch__img" ></div>
-      <div class="c-glitch__img" ></div>
-      <div class="c-glitch__img" ></div>
+      <div class="c-glitch ">
+        <div class="c-glitch__img"></div>
+        <div class="c-glitch__img"></div>
+        <div class="c-glitch__img"></div>
+        <div class="c-glitch__img"></div>
+        <div class="c-glitch__img"></div>
       </div>
     </div>
-  
+
     <!-- <img class="d-order" src="~@/assets/image/headerfooter/dorder.svg" alt=""> -->
   </router-link>
   
@@ -136,6 +140,27 @@
   <script src="./views/js/app.js"></script>
   
   <style lang="scss" >
-  @import "~@/assets/sass/component/headerFooter.scss";
+ 
   @import "~@/assets/sass/component/glitch.scss";
+  @import "~@/assets/sass/component/headerFooter.scss"; 
+  #happy .cybr-btn:after{
+    background: rgba(91, 19, 236, 80%);
+  }
+  #happy .cybr-btn {
+  min-width: 0px;
+  max-width: 100%;
+  margin-top: -10px;
+  height: 10px;
+
+}
+#happy button.cybr-btn{
+  font-size: 20px;
+  width: 60%;
+  height: 50px;
+}
+
+#happy .cybr-btn__glitch:before {
+
+    background: $white;
+} 
   </style>
