@@ -150,7 +150,7 @@
                             <br>
                             <span class="h3-en">{{ vehicles.h3enbig }}</span>
                         </h3>
-                        <router-link to="technology">
+                        <router-link to="{ name: 'technology', hash: '#specific-part' }">
                             <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
                         </router-link>
                     </div>
