@@ -1,15 +1,15 @@
- <template>
+<template>
   <section class="per-order">
     <div class="order-i">
 
       <h4>旅客{{ numOrder }}</h4>
       <input type="text" placeholder="姓氏(請以英文輸入)" v-model="form.lastName">
-      <input type="text" placeholder="名字"  v-model="form.name">
+      <input type="text" placeholder="名字" v-model="form.name">
       <select type="text" placeholder="性別" v-model="form.gender" class="gender">
         <option value="" disabled selected>選擇性別</option>
-              <option value="男性" >男性 </option>
-              <option value="女性">女性</option>
-              <option value="其他">其他</option>
+        <option value="男性">男性 </option>
+        <option value="女性">女性</option>
+        <option value="其他">其他</option>
       </select>
 
 
@@ -57,10 +57,12 @@
       <div class="cabin">
         <div class="cabin-all">
 
-            <div v-for="i in 10" :key="i" :class="['cabin-per', `class${i}`, { 'disable': alreadySelectSeatIndex.includes(i) }]" @click="form.seatIndex = i"></div>
-            <div class="cabin-chose"><span>{{ form.seatIndex }}</span></div>
-          </div>
-        
+          <div v-for="i in 10" :key="i"
+            :class="['cabin-per', `class${i}`, { 'disable': alreadySelectSeatIndex.includes(i) }]"
+            @click="form.seatIndex = i"></div>
+          <div class="cabin-chose"><span>{{ form.seatIndex }}</span></div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -72,14 +74,14 @@ export default {
   data() {
     return {
       form: {
-        lastName:'',
+        lastName: '',
         name: '',
         gender: '',
         birthday: '',
-        nation:'',
-        passId:'',
-        size:'s',
-        other:'',
+        nation: '',
+        passId: '',
+        size: 's',
+        other: '',
         seatIndex: "",
       }
     }

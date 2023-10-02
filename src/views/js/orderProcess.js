@@ -1,3 +1,4 @@
+import $ from 'jquery'
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 // import { ArrayCamera } from 'three'
@@ -6,6 +7,8 @@ import orderList from "@/components/PerOrder.vue";
 export default {
   data() {
     return {
+      jpRate:0,
+      ntRate:0,
       orderCheck: false,
       USD: 0,
       YEN: 0,
@@ -29,23 +32,23 @@ export default {
       date: "",
       imgs: [
         {
-           slide: require('@/assets/image/orderProcess/moonc1.svg'),
+           slide: require('@/assets/image/orderProcess/moonc1.jpg'),
            altp: "在月球等你",
          },
          {
-           slide: require('@/assets/image/orderProcess/moonc2.svg'),
+           slide: require('@/assets/image/orderProcess/moonc2.jpg'),
            altp: "太空儀器",
          }, {
-           slide: require('@/assets/image/orderProcess/moonc3.svg'),
+           slide: require('@/assets/image/orderProcess/moonc3.jpg'),
            altp: "月球外星人",
          }, {
-           slide: require('@/assets/image/orderProcess/moonc4.svg'),
+           slide: require('@/assets/image/orderProcess/moonc4.jpg'),
            altp: "太空環境",
          }, {
-           slide: require('@/assets/image/orderProcess/moonc5.svg'),
+           slide: require('@/assets/image/orderProcess/moonc5.jpg'),
            altp: "月球景色",
          }, {
-           slide: require('@/assets/image/orderProcess/moonc6.svg'),
+           slide: require('@/assets/image/orderProcess/moonc6.jpg'),
            altp: "太空高爾夫",
          }
        ],
@@ -87,7 +90,6 @@ export default {
       this.show1 = false
       this.btn2 = "btn-active"
       this.btn1 = "";
-
     },
     af() {
       this.B = false;
@@ -151,10 +153,11 @@ export default {
       })
     },
     exchange () {
-      this.YEN = Math.floor(this.USD*148.91);
-      this.NT = Math.floor(this.USD*32.23);
+      this.YEN = Math.floor(this.USD*this.jpRate.toFixed(2));
+      this.NT = Math.floor(this.USD*this.ntRate.toFixed(2));
 
     }
+    
     
   },
   watch: {
@@ -162,24 +165,6 @@ export default {
       this.formList = []
     },
   },
-  // watch: {
-  //   currentAmount(nVal) {
-  //     this.setFormList(nVal)
-  //   },
-  // },
-  // methods: {
-  //   setFormList(num) {
-  //     this.formList = Array.from({ length: num }, (_, i) => {
-  //       return {
-  //         name: '',
-  //         email: ''
-  //       }
-  //     })
-  //   },
-  // },
-  // mounted(){
-  //   this.setFormList(this.currentAmount)
-  // },
   name: 'App',
   components: {
     Carousel,
@@ -189,6 +174,13 @@ export default {
     ButtonFlashBox: ButtonFlashBox,
     orderList: orderList,
   },
+  created() {
+    // 在 Vue 的 created 鉤子中發送請求
+    $.get('https://openexchangerates.org/api/latest.json', {app_id: '738d67de7ed043e690b7b729c87953c1'}, data => {
+        this.ntRate = data.rates.TWD;
+        this.jpRate = data.rates.JPY;
+    });
+}
 
 
 }
