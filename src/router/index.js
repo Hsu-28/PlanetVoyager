@@ -205,27 +205,27 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  // mode: 'history',
   routes,
   scrollBehavior(to, from, savedPosition) {
-    // 始终滚動到顶部
-    return { top: 0 }
-  },
+      if (to.hash) {
+          return { el: to.hash };
+      } else if (savedPosition) {
+          return savedPosition;
+      } else {
+          return { x: 0, y: 0 };
+      }
+  }
 });
 
 router.beforeEach((to, from) => {
-  // 檢查用户是否已登录 並 ❗️避免無限重定向
   if (to.meta.requiresAuth && to.name !== 'login') {
-    const isAuth = localStorage.getItem('token')
-    console.log('檢查用户' + isAuth);
-    if (isAuth) {
-      // return '/about'
-      return true
-    } else {
-      return '/login'
-    }
+      const isAuth = localStorage.getItem('token');
+      if (isAuth) {
+          return true;
+      } else {
+          return '/login';
+      }
   }
-})
+});
 
-
-export default router
+export default router;

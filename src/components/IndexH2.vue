@@ -1,6 +1,6 @@
 <template>
     <div class="h2-container">
-<img class="h2-back" src="~@/assets/image/index/h2_background.svg" alt="">
+<img class="h2-back" src="~@/assets/image/index/h2-background.svg" alt="">
         <span class="location">LOCATION</span>
         <hr class="h2-hr">
         <h2 class="h2-group">
