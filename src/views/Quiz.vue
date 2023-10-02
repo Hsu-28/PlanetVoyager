@@ -72,11 +72,12 @@
 
     <!-- 開始測驗 -->
     <transition name="fade" @after-leave="showResult"> 
-    <div v-if="showTest && !quizCompleted " class="test">
+    <div v-if="showTest && !quizCompleted " class="test" :style="{ backgroundImage: `url(${getBackgroundImage()})` }">
       <h2>{{ currentQuestion.title }}</h2>
  
-      <ul>
-        <li v-for="(option, index) in currentQuestion.options" :key="index">
+      <ul class="test-options">
+
+        <li v-for="(option, index) in currentQuestion.options" :key="index" >
           <input
             type="radio"
             v-model="selectedOption"
@@ -84,10 +85,13 @@
             :id="`option${index}`"
             required 
           />
-          <label :for="`option${index}`">{{ option.text }}</label>
+          <div class="label-box">
+            <label :for="`option${index}`">{{ option.text }}</label>
+          </div>
         </li>
+
       </ul>
-      <!-- </transition> -->
+
       <button @click="nextQuestion" :disabled="isNextButtonDisabled">Next</button>
     </div>
   </transition>
@@ -165,7 +169,7 @@ export default {
       currentQuestionIndex: 0,
       selectedOption: null,
       totalScore: 0,
-      quizCompleted: false
+      quizCompleted: false,
     };
   },
   computed: {
@@ -217,7 +221,18 @@ export default {
 
       // 啟動開場動畫
       this.startQuiz();
-    }
+    },
+    getBackgroundImage() {
+      // 根据当前问题的索引获取背景图像 URL
+      const backgroundImageMap = {
+        0: require("@/assets/image/quiz/bg1.gif"),
+        1: "../path/to/image2.jpg",
+        2: require("@/assets/image/quiz/bg3.gif"),
+      
+      };
+      return backgroundImageMap[this.currentQuestionIndex] || "";
+    },
+
   }
 };
 </script>

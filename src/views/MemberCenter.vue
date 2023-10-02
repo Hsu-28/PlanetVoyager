@@ -102,7 +102,7 @@
                 </div>
                 </div>
               </div>
-                <hr class="account-hr" >
+                <hr class="account-" >
                 <div class="password-bottom-container">
                   <p class="account-sec-title">修改密碼</p>
                   <span>舊密碼<br>
