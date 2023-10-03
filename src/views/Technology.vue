@@ -22,7 +22,7 @@
 
         <div class="wrap ma-0 mw">
         
-                <SectionTitle cTitle="太空船" eTitle="SPACESHIP" class="mb"></SectionTitle>
+                <SectionTitle cTitle="太空船" eTitle="SPACESHIP" class="mb" id="SPACESHIP"></SectionTitle>
                 <div class="spaceship-intro-text ma-0 mb">
                 <p>這三款太空船不僅代表了PLANET VOYAGER在太空科技領域的傑出成就，還象徵了我們對太空探索的熱情和承諾。無論是在月球、火星還是國際太空站，我們的太空船將繼續引領人類進行壯舉，開創未來的太空冒險。</p>
                 </div>
@@ -57,7 +57,7 @@
             
                 
             <section>
-                <SectionTitle cTitle="太空服" eTitle="SPACE SUIT" class="mb"></SectionTitle>
+                <SectionTitle cTitle="太空服" eTitle="SPACE SUIT" class="mb" id="SPACESUIT"></SectionTitle>
                 <div class="space-suit-txt ma-0 mb">
                 <p>太空服是一項令人驚奇的工程壯舉，它如同太空人在極端環境中的第二層皮膚。這些太空服不僅需提供充足的氧氣和壓力，以保持生命的正常運行，還必須有效地保護太空人免受宇宙中極端輻射和微重力帶來的威脅。太空服的設計和製造過程極為複雜，是一項充滿挑戰性的工程，需要卓越的工程技術和革新精神。</p>
                 </div>
