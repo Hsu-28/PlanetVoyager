@@ -1,6 +1,6 @@
 <template>
     <div class="bigImg">
-        <img src="@/assets/image/teamMembers/big.svg" alt="big-iamge">
+        <img src="@/assets/image/teamMembers/big.jpg" alt="big-iamge">
         <div class="introduceTitle">
             <p>團隊介紹</p>
             <p>TOURIST GUIDE</p>
@@ -32,7 +32,7 @@
 
                     <div class="imgContent">
                         <img :src="thisjob.imgSvg" alt="團隊照片" class="memberImg">
-                    </div><!-- <imgSvg :src="require('../assets/image/teamMembers/memberSvg/ASTRONAUT01.svg')" alt=""> -->
+                    </div><!-- <imgSvg :src="require('../assets/image/teamMembers/memberSvg/ASTRONAUT01.jpg')" alt=""> -->
                     <div class="membersSpan">
                         <p>{{ thisjob.name }}</p>
                         <p class="jobTitleMem">{{ thisjob.nameJob }}</p>
