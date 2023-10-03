@@ -109,13 +109,11 @@
         <img v-if="getResultCategory(totalScore) === '月球-月球巡禮'" src="../assets/image/quiz/moon-02.png" alt="Image 6">
         <img v-if="getResultCategory(totalScore) === '行星繞行'" src="../assets/image/quiz/tour01.png" alt="Image 7">
         <img v-if="getResultCategory(totalScore) === '留在地球'" src="../assets/image/quiz/stay-earth.png" alt="Image 8">
-        
-        
-        
         <button @click="leave" class="leave">查看行程</button>
         <button @click="tryAgain" class="tryAgain">再玩一次</button>
     </div>
   </transition>
+
   </div>
 </template>
 
@@ -148,7 +146,7 @@ export default {
           ]
         },
         {
-          title: "原來來到了一個村子的入口。這時遇到一群村民走出來，並詢問你是否要跟他們一同去騎太空機車，此時你會...?",
+          title: "原來來到一個村子的入口。這時遇到一群村民走出來，並詢問你是否要跟他們一同去騎太空機車，此時你會...?",
           options: [
             { text: "為什麼長得跟哆啦x夢有99分像", score: 0 },
             { text: "好啊好啊我+1", score: 20 },
@@ -223,7 +221,7 @@ export default {
       this.startQuiz();
     },
     getBackgroundImage() {
-      // 根据当前问题的索引获取背景图像 URL
+      // 獲取背景圖像 URL
       const backgroundImageMap = {
         0: require("@/assets/image/quiz/bg1.gif"),
         1: "../path/to/image2.jpg",

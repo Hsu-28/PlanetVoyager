@@ -2,6 +2,7 @@
     <div id="membercenter">
       <div class="memtitle">
         <h2 v-for="title in titles">{{title}}</h2></div>
+      <!-- 上方會員資訊 -->
       <div class="container">
         <section class="top">
           <div class="info">
@@ -30,6 +31,7 @@
               </div>
             </div>
           </div>
+        <!-- 切換頁面 -->
         <ul class="tab-mem-title">
           <li v-for="(option, index) in optionCard" :key="option.id" class="option-tab">
           <div class="top-tab" :class="{ 'active': option.id === activeId }">
@@ -43,6 +45,7 @@
         </ul>
       </section>
         <div class="content">
+        <!-- 帳戶資料 -->
           <div v-if="activeId === 1" class="information">
             <form action=""  @submit.prevent="handleSubmit">
               <p class="account-first-title">帳戶資訊</p>
@@ -102,7 +105,7 @@
                 </div>
                 </div>
               </div>
-                <hr class="account-" >
+                <hr class="account-hr" >
                 <div class="password-bottom-container">
                   <p class="account-sec-title">修改密碼</p>
                   <span>舊密碼<br>
@@ -119,7 +122,7 @@
              
           </form>
          </div>
-       
+       <!-- 查詢訂單 -->
           <div v-else-if="activeId === 2" class="check-order" >
             <p class="account-first-title">查詢訂單</p><br>
                 <div class="odtitle">                
@@ -186,12 +189,12 @@
                     <div v-for="(booking, index)  in bookings" :key="index" class="bookingInfo">
                       <button  @click="isPopupVisible = !isPopupVisible">CLOSE</button>
                       <p class="bookingTitle">旅程訂購資訊</p>
-                        <div class="bookingInfoBox">
-                          
+                      <div class="bookingInfoBox"> 
                         <div class="bookingForm">
                           <p class="bookingTotalPassanger"> 旅客人數:<span>4</span>人</p>
-                            <p class="bookingId">乘客{{ booking.id }}</p>
+                          
                             <div class="container-control">
+                              <p class="bookingId">乘客{{ booking.id }}</p>
                               <div class="booking-container">
                                   <div class="bookingLastName">
                                       <span class="bookingSecondTitle">姓氏</span>
@@ -226,12 +229,17 @@
                                       <p>{{ booking.diet }}</p></div>
                                 </div>
                               <div class="booking-container">
-                                  <div class="bookingCheck">
+                                  <div class="bookingCheck" v-if="!isMobile">
                                     <input type="checkbox" id="myCheckbox" class="myCheckbox" v-model="isChecked" :disabled="isDisabled" @click="preventCheckboxChange">
-                                    <p>我已經詳閱<span>健康規定</span></p></div>
-                                    <div class="bookingTravelStatus">
-                                        <span class="bookingSecondTitle">旅位狀態</span>
-                                        <p>{{ booking.status}}</p></div>
+                                    <p>我已經詳閱健康規定</p></div>
+                                  <!-- for rwd -->
+                                  <div class="bookingCheck" v-if="isMobile">
+                                    <input type="checkbox" id="myCheckbox" class="myCheckboxRwd" v-model="isChecked" :disabled="isDisabled" @click="preventCheckboxChange">
+                                    <p >我已經詳閱健康規定</p></div>
+
+                                  <div class="bookingTravelStatus">
+                                    <span class="bookingSecondTitle">旅位狀態</span>
+                                    <p>{{ booking.status}}</p></div>                                
                              </div>
                               <div class="bookingLineBox">
                                   <div class="bookingLine">
@@ -245,8 +253,8 @@
                                       <p class="paymentStatus2">健康審核:<br><span>已通過</span></p>
                                     </div>
                                     <div class="circleContent">
-                                      <div class="bookingCircle3"> </div>
-                                      <p class="paymentStatus3">行前訓練</p>
+                                      <div class="bookingCircle3"></div>
+                                      <p class="paymentStatus3">行前訓練</p> 
                                     </div>         
                                   </div>
                               </div> 
@@ -255,12 +263,13 @@
                     </div>
                 </div>
               </div>
+            
             </div>
           </Collapse >
         </div>
       </div>
     </div>
-
+        <!-- 捐款明細 -->
           <div v-else-if="activeId === 3" class="donate">
             <div class="form">
               <div class="donate-top">
@@ -337,7 +346,7 @@
             </div>      
           </div>
           </div>
-
+          <!-- 會員等級 -->
           <div v-else-if="activeId === 4" class="mem-benefit">
             <div class="tab-level">
               <div class="button-list">
@@ -404,8 +413,7 @@
              <div class="overlay" v-if="isPopupVisible"></div>
             <!-- 彈窗 -->
                 <div class="popupGift" v-if="isPopupVisible" >
-                    <p class="successful" v-if="!isMobile" >兌換成功</p>
-                    <spa class="successfulRwd" v-if="isMobile" >兌換成功</spa>
+                    <p class="successful" >兌換成功</p>
                 <div class="tick">
                       <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                         width="180" height="180"  viewBox="0 0 80 80">
