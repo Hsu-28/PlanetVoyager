@@ -437,16 +437,16 @@
     }
     //彈窗
     .popupBooking{
-         width: 90%;
-         max-width: 450px;
-         height: 40rem;
+         width: 98%;
+         max-width: 420px;
+         height: 45rem;
          position: absolute;
          top: 20%; 
          left: 50%; 
-         transform: translate(-50%, 90%); 
+         transform: translate(-50%, 70%); 
          text-align: center;  
          background-color: $blueMem;
-         padding: 2%;
+      //    padding: 3%;
          z-index: 999;
          clip-path: polygon(9% 100%, 0 90%, 0% 0%, 100% 0%, 100% 100%);
     }
@@ -454,13 +454,14 @@
      //黑線
      .popupBooking::after{
          content:'';
-         width: 40rem;
+         width: 100%;
          height: .3rem;
          display: block;
          top: 7rem;
          left: -.3rem;
          position: absolute;
          background-color: $black;
+         margin-top: .5rem;
     } 
 
     .popupBooking button{
@@ -471,46 +472,56 @@
          letter-spacing: .2rem;
          font-weight: 700;
          font-size: 28px;
-         padding: 5px 10px;
+         padding: 1%;
          border: none;
          color: $blueMem;
          font-size: $p1-l;
          cursor: pointer;
    }
 
+    .bookingInfo {
+         display: flex;
+         flex-direction: column;
+         justify-content: space-between;
+         height: 100%; 
+    }
+
+    .bookingInfoBox {
+         flex: 1; 
+    }
+
     .bookingTitle{
          font-size: $h2-l;
          color: $black;
          font-weight: 700;
          display: block;
-         margin-top: 1rem;
+         margin-top: 1.5rem;
     }
 
     .bookingTotalPassanger{
          color: $black;
          font-size: $p1-l;
-         font-weight: 700;
-         margin-top: 3%;margin: auto;
+         font-weight: 700;  
+         margin-left: 2rem;
+         margin-top: 1rem;
     }
 
     .bookingForm{
          position: absolute;
-         margin-top: 5%;
-         top: 50%; 
-         left: 50%; 
-         transform: translate(-50%, -50%); 
+         margin-top: 1rem;
          display: flex;
          flex-wrap: wrap;
-         flex-direction: column; 
          align-items: flex-start;   
+         justify-content: center;
     }
 
+    
     .bookingId{
          color: $black;
          font-size: $p2-l;
          font-weight: 700;
          margin-bottom: 6%;
-         border-bottom: 1px solid $black;
+         margin-top: 3rem;
     }
 
     .booking-container{
@@ -519,7 +530,7 @@
          text-align: center;
          display: flex;
          justify-content: space-between;
-         gap: 10%;
+         gap: 15px;
          position: relative;
          margin-bottom: 2%;
          & p{
@@ -532,10 +543,11 @@
     .bookingCountry, .bookingPassport, .bookingSize, .bookingDiet,
     .bookingSuit, .bookingTravelStatus
     {
-         width: 200px;
+         width: 10rem;
+         max-width: 300px;
          border-radius: 5px;
          background-color: $black;
-         margin: 10px 0;
+         margin-top: 1.2rem;
          padding: 5px;
          height: 35px;
          color: $black;
@@ -544,6 +556,7 @@
          text-align: center;
    }
 
+  
    .bookingSecondTitle{
          position: absolute;
          top: -20px; 
@@ -554,9 +567,10 @@
 
    .bookingCheck{
          display: flex;
-         align-items: center;
+         align-items: end;
          justify-content: space-evenly;
-         width: 200px;
+      //    width: 200px;
+         margin-bottom: 1rem;
             & p{
             color: $black;
             font-weight: 700;
@@ -567,28 +581,28 @@
 .myCheckbox[type="checkbox"]::before {
          content: "";
          display: inline-block;
-         width: 25px; 
-         height: 25px;
+         width: 20px; 
+         height: 20px;
          position: relative;
          top: -4px;
-         right: 5px;
+         right: 7px;
     }
     
-    /* 选中状态的样式 */
+    /* 選中 */
     .myCheckbox[type="checkbox"]:checked::before {
          background-color: $black; 
          border-color: $black; 
     }
     
-    /* 勾勾的样式 */
+    /* 勾勾*/
     .myCheckbox[type="checkbox"]::after {
          content: "\2713"; 
          display: block;
          font-size: 16px; 
          color: $white; 
          position: absolute;
-         top: 21px;
-         left: 3%; 
+         top: 40%; 
+         left: -1%; 
          line-height: 1;
     }
     
@@ -599,7 +613,7 @@
    }
 
    .bookingLine{
-         width: 410px;
+         width: 100%;
          height: 3px;
          background-color: $black;
          display: flex;
@@ -607,7 +621,7 @@
    }
 
    .bookingLine2{
-        width: 200px;
+        width: 30%;
         height: 3px;
         background-color: $black;
         position: absolute;
@@ -628,7 +642,7 @@
          text-align: left;
          margin-top: 3%;
          line-height: 1.2;
-         margin-top: 15%;
+         margin-top: 1rem;
          font-size: $p2-s;
    }
 
@@ -640,7 +654,7 @@
          border: 2px solid $black;
          position: absolute;
          top: -.3rem;
-         left: 12rem;
+         left: 10rem;
    }
 
    
@@ -648,7 +662,10 @@
         color: $black;
         font-size: $p2-s;
         line-height: 1.2;
-        margin-top: 15%;
+        margin-top: 1rem;
+        right:  40%;
+        
+        position: absolute;
          & span{
           font-size: $p2-l;
           font-weight: 700;
@@ -657,27 +674,31 @@
   }
 
   .bookingCircle3{
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background-color: $blueMem;
-      border: 2px solid $black; 
-      position: absolute;
-      top: -.3rem;
-      right: 0;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: $blueMem;
+        border: 2px solid $black; 
+        position: absolute;
+        top: -.3rem;
+        right: 0;
   }
 
 .paymentStatus3{
-     font-size: $p2-s;
-     color: $black;
-     margin-top: 15%;
-     text-align: center;
+      font-size: $p2-s;
+      color: $black;
+      margin-top: 15%;
+      text-align: center;
+      margin-top: 1rem;
+      right: 0;
   }
 
   .notice{
       color: $black;
       font-weight: 700;
-      transform: translate(5rem, 3rem);
+      position: absolute;
+      bottom: -20%;
+      // transform: translate(20%, 20%);
   }
 
 
@@ -728,6 +749,7 @@
       //彈窗
     .popup {
           width: 98%;
+          max-width: 420px;
           height: 30rem;
           position: absolute;
           top: 1%;
@@ -739,7 +761,7 @@
      //黑線
      .popup::after{
          content:'';
-         width: 40rem;
+         width: 110%;
          height: .2rem;
          display: block;
          top: 6rem;
@@ -756,7 +778,7 @@
         letter-spacing: .2rem;
         font-weight: 700;
         font-size: 28px;
-        padding: 5px 10px;
+        padding: 1%;
         border: none;
         color: $blueMem;
         font-size: $p1-l;
@@ -777,11 +799,13 @@
          display: flex;
          align-items:center ;
          & .receipt-cell p{
-            color: $black;
-            font-size: 18px;   
+            color: $black; 
        }
      }
 
+     .receipt-hr{
+      width: 100%;
+     }
     .last-year-according{
           font-size: $h2-l;
           color: $black;
@@ -793,7 +817,10 @@
 
     .popup hr{border-color: $black;}
 
-    .receipt-cell{margin-bottom: 2rem;}
+    .receipt-cell{
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
    
     .order-title, .donate-order, .receipt-title {
           display: grid;
@@ -811,7 +838,7 @@
          display: grid;
          grid-template-columns: repeat(4, 1fr); 
          text-align: center;
-         font-size: $p1-l;
+         margin: auto;
       }   
    
     .order-hr, .donate-order-hr{
@@ -1007,7 +1034,7 @@
             left: 50%; 
             transform: translate(-50%, -50%); 
             text-align: center; 
-            background-color: rgba(13, 242, 242, 88%);
+            background-color: $blueMem;
             padding: 2%;
             clip-path: polygon(9% 100%, 0 90%, 0% 0%, 100% 0%, 100% 100%);
     }
@@ -1015,7 +1042,7 @@
        //黑線
        .popupGift::after{
            content:'';
-           width: 40rem;
+           width: 100%;
            height: .3rem;
            display: block;
            top: 6rem;
@@ -1032,9 +1059,9 @@
            letter-spacing: .2rem;
            font-weight: 700;
            font-size: 28px;
-           padding: 5px 10px;
+           padding: 1%;
            border: none;
-           color: $blueL;
+           color: $blueMem;
            font-size: $p1-l;
            cursor: pointer;
     }
@@ -1045,6 +1072,7 @@
             font-weight: 700;
             text-align: center;
             display: block;
+            margin-top: 1rem;
     }
 
       //打勾
@@ -1203,7 +1231,6 @@
       .top-box{
             flex-direction: column;
       }
-
       //查詢訂單
       .odtitle, .order-amount, .order-date{
             display: none !important;
@@ -1243,6 +1270,62 @@
             color: $blueMem;
             font-weight: 700; 
       }
+   
+       .booking-container{
+            // flex-direction: column;
+       }
+       .bookingForm{
+            top: 40%; 
+            left: 50%; 
+            transform: translate(-50%, -54%); 
+       }
+       .bookingId{
+            margin: auto;
+       }
+   
+     
+   
+      .bookingCheckRwd{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+
+            width: 200px;
+               & p{
+               color: $black;
+               font-weight: 700;
+           }
+      }
+      .myCheckboxRwd[type="checkbox"]::before {
+            content: "";
+            display: inline-block;
+            width: 20px; 
+            height: 20px;
+            position: relative;
+            top: -4px;
+            right: 5px;
+       }
+       /* 選中 */
+      .myCheckboxRwd[type="checkbox"]:checked::before {
+            background-color: $black; 
+            border-color: $black; 
+      }
+ 
+      /* 勾勾*/
+      .myCheckboxRwd[type="checkbox"]::after {
+            content: "\2713"; 
+            display: block;
+            font-size: 16px; 
+             color: $white; 
+            position: absolute;
+            top: 40%; 
+            left: -1%; 
+            line-height: 1;
+      }
+      .checkBoxText{
+            color: $black;
+      }
+   
 
       //捐款紀錄
       .order-title  p{
@@ -1270,8 +1353,11 @@
             right: 20%;
       }
       .receipt-title p{
-            font-size: 18px;
-            margin-top: 10%;
+            font-size: 14px;
+            margin-top: 15%;
+      }
+      .receipt-order p{
+            font-size: 14px;
       }
      
       //會員等級
@@ -1311,16 +1397,6 @@
             margin-top: 10px;
             float: right;
             cursor: pointer;
-      }
-      .successfulRwd{
-            font-size: $h1-m;
-            color: $black;
-            font-weight: 700;
-            display: block;
-            position: absolute;
-            left: 9rem;
-            top: 2rem;
-
       }
       .exchangeText p{
             font-size: $p2-m;

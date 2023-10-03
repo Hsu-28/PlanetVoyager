@@ -4,7 +4,6 @@ export default {
     components: {
           scramble: scramble,
           subscribe: subscribe,
-
       },
   data() {
   

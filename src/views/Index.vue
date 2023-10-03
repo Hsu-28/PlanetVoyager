@@ -8,7 +8,7 @@
         </section>
         <section>
             <div class="landing-title">
-                SO FAR,WE HAVE BEEN COMPLETED
+                SO FAR,WE HAVE COMPLETED
             </div>
             <div>
                 <div class="rwd-container">
@@ -79,11 +79,12 @@
                 <div class="outside-border news-container">
                     <table class="inside-bodrer news-group">
                         <tbody id="tbodyscroll">
-    <tr v-for="(news, number) in news" :key="number" :class="{ 'active': activeId === news.id }" class="news-tr">
-        <td class="news-title" @click="activeId = news.id" v-html="news.title"></td>
-        <td class="news-date" @click="activeId = news.id">{{ news.date }}</td>
-    </tr>
-</tbody>
+                            <tr v-for="(news, number) in news" :key="number" :class="{ 'active': activeId === news.id }"
+                                class="news-tr">
+                                <td class="news-title" @click="activeId = news.id" v-html="news.title"></td>
+                                <td class="news-date" @click="activeId = news.id">{{ news.date }}</td>
+                            </tr>
+                        </tbody>
 
                     </table>
                 </div>
@@ -150,7 +151,7 @@
                             <br>
                             <span class="h3-en">{{ vehicles.h3enbig }}</span>
                         </h3>
-                        <router-link to="technology">
+                        <router-link :to="{ name: 'technology', hash: vehicles.h3enbig }">
                             <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
                         </router-link>
                     </div>
@@ -192,6 +193,7 @@
                 </div>
             </div>
         </section>
+        <div class="bottom"></div>
     </main>
 </template>
 
@@ -200,7 +202,7 @@
 @import "~@/assets/sass/page/rwd.scss";
 </style>
 <script>
-
+import { createRouter, createWebHistory } from 'vue-router';
 import { gsap, Power0 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -399,9 +401,9 @@ export default {
         }
     },
     mounted() {
-    this.$nextTick(() => {
-        document.getElementById("tbodyscroll").scrollTop = 0;
-    });
+        this.$nextTick(() => {
+            document.getElementById("tbodyscroll").scrollTop = 0;
+        });
 
         const num = document.getElementById("launchesOutside");
         const num1 = document.getElementById("landingOutside");
@@ -455,7 +457,6 @@ export default {
                 num2.innerHTML = obj.value;
             }
         })
-
     }
 }
 

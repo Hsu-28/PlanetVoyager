@@ -72,11 +72,12 @@
 
     <!-- 開始測驗 -->
     <transition name="fade" @after-leave="showResult"> 
-    <div v-if="showTest && !quizCompleted " class="test">
+    <div v-if="showTest && !quizCompleted " class="test" :style="{ backgroundImage: `url(${getBackgroundImage()})` }">
       <h2>{{ currentQuestion.title }}</h2>
  
-      <ul>
-        <li v-for="(option, index) in currentQuestion.options" :key="index">
+      <ul class="test-options">
+
+        <li v-for="(option, index) in currentQuestion.options" :key="index" >
           <input
             type="radio"
             v-model="selectedOption"
@@ -84,10 +85,13 @@
             :id="`option${index}`"
             required 
           />
-          <label :for="`option${index}`">{{ option.text }}</label>
+          <div class="label-box">
+            <label :for="`option${index}`">{{ option.text }}</label>
+          </div>
         </li>
+
       </ul>
-      <!-- </transition> -->
+
       <button @click="nextQuestion" :disabled="isNextButtonDisabled">Next</button>
     </div>
   </transition>
@@ -105,13 +109,11 @@
         <img v-if="getResultCategory(totalScore) === '月球-月球巡禮'" src="../assets/image/quiz/moon-02.png" alt="Image 6">
         <img v-if="getResultCategory(totalScore) === '行星繞行'" src="../assets/image/quiz/tour01.png" alt="Image 7">
         <img v-if="getResultCategory(totalScore) === '留在地球'" src="../assets/image/quiz/stay-earth.png" alt="Image 8">
-        
-        
-        
         <button @click="leave" class="leave">查看行程</button>
         <button @click="tryAgain" class="tryAgain">再玩一次</button>
     </div>
   </transition>
+
   </div>
 </template>
 
@@ -144,7 +146,7 @@ export default {
           ]
         },
         {
-          title: "原來來到了一個村子的入口。這時遇到一群村民走出來，並詢問你是否要跟他們一同去騎太空機車，此時你會...?",
+          title: "原來來到一個村子的入口。這時遇到一群村民走出來，並詢問你是否要跟他們一同去騎太空機車，此時你會...?",
           options: [
             { text: "為什麼長得跟哆啦x夢有99分像", score: 0 },
             { text: "好啊好啊我+1", score: 20 },
@@ -165,7 +167,7 @@ export default {
       currentQuestionIndex: 0,
       selectedOption: null,
       totalScore: 0,
-      quizCompleted: false
+      quizCompleted: false,
     };
   },
   computed: {
@@ -217,7 +219,18 @@ export default {
 
       // 啟動開場動畫
       this.startQuiz();
-    }
+    },
+    getBackgroundImage() {
+      // 獲取背景圖像 URL
+      const backgroundImageMap = {
+        0: require("@/assets/image/quiz/bg1.gif"),
+        1: "../path/to/image2.jpg",
+        2: require("@/assets/image/quiz/bg3.gif"),
+      
+      };
+      return backgroundImageMap[this.currentQuestionIndex] || "";
+    },
+
   }
 };
 </script>

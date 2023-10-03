@@ -32,23 +32,23 @@ export default {
       date: "",
       imgs: [
         {
-          slide: require('@/assets/image/orderProcess/venusc2.svg'),
+          slide: require('@/assets/image/orderProcess/venusc2.jpg'),
           altp: "在月球等你",
         },
         {
-          slide: require('@/assets/image/orderProcess/venusc1.svg'),
+          slide: require('@/assets/image/orderProcess/venusc1.jpg'),
           altp: "火星外表",
         }, {
-          slide: require('@/assets/image/orderProcess//venusc3.svg'),
+          slide: require('@/assets/image/orderProcess//venusc3.jpg'),
           altp: "地質",
         }, {
-          slide: require('@/assets/image/orderProcess//venusc4.svg'),
+          slide: require('@/assets/image/orderProcess//venusc4.jpg'),
           altp: "火星照",
         }, {
-          slide: require('@/assets/image/orderProcess//venusc5.svg'),
+          slide: require('@/assets/image/orderProcess//venusc5.jpg'),
           altp: "飲料",
         }, {
-          slide: require('@/assets/image/orderProcess//venusc6.svg'),
+          slide: require('@/assets/image/orderProcess//venusc6.jpg'),
           altp: "火星地形",
         }
       ],
