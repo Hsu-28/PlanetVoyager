@@ -79,40 +79,10 @@
         <div class="bg-mars"></div>
         <div class="wrap">
             <ul class="timeline">
-                <li>
-                    <div class="item">
-                        <h2>公司成立</h2>
-                        <p>在1999年，我們敢於夢想，創立了PlanetVoyager。我們的團隊由夢想家和科學家組成，致力於太空旅遊的可能性。</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="item">
-                        <h2>首次登陸</h2>
-                        <p>第二年(2000年)，我們成功進行了旅行團首次月球登陸。這次歷史性的登陸為我們的公司帶來了全球關注，標誌著太空旅遊的新紀元。</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="item">
-                        <h2>擴展與合作</h2>
-                        <p>2005年開始擴大我們的太空旅遊項目，新增火星及金星，並建立了與太空科技公司的合作夥伴關係，以提供更多選擇和更高的安全標準。</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="item">
-                        <h2>星際旅遊</h2>
-                        <p>2008年見證了星際旅遊的崛起，客戶可以在太空站中度過豪華且深度的假期。這一年，我們的服務超越了地球。</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="item">
-                        <h2>科學探索</h2>
-                        <p>2010我們開始支持科學家進行太空實驗，以研究太陽系中的神秘之處。我們成為太空科學的夥伴，推動知識的邊緣。</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="item">
-                        <h2>太空旅遊的未來</h2>
-                        <p>我們將目光投向更遠的未來，計劃更遠的目的地和更多的太空冒險。我們將繼續領先，實現太空夢！</p>
+                <li v-for="(item, index) in timeline" :key="index">
+                    <div class="item" :class="item.class">
+                        <h2>{{ item.title }}</h2>
+                        <p>{{ item.text }}</p>
                     </div>
                 </li>
             </ul>
@@ -170,26 +140,38 @@
 
     <div class="bottom"></div>
 
-    <!-- 聊天機器人 -->
-    <div v-show="isChatOpen" id="chatPopup" class="popup">
-        <button @click="closeChat" id="closeButton">╳</button>
-        <div class="msg-top">
-            聊天機器人
-        </div>
-        <div class="messages">
-            <!-- 公司回覆和顧客問題的循環 -->
-            <div v-for="(message, index) in messages" :key="index"
-                :class="{ 'company-reply': !message.isCustomer, 'customer-question': message.isCustomer }">
-                <img :src="message.icon" alt="">
+    <!-- 聊天機器人按鈕 -->
+    <!-- <button id="chatButton"><img src="../assets/image/chatbot/chatbot.svg" alt=""></button> -->
+    <!-- 聊天動態按鈕 -->
+    <button id="chatButton" class="cb">
+        <div class="cb__img"></div>
+        <div class="cb__img"></div>
+        <div class="cb__img"></div>
+        <div class="cb__img"></div>
+        <div class="cb__img"></div>
+    </button>
+    <!-- 聊天室 -->
+    <div id="chatRoom">
+        <div id="chatHeader">PlanetVoyager小幫手</div>
+        <div id="chatMessages">
+            <!-- 使用 v-for 渲染消息列表 -->
+            <div class="message" :class="message.isCustomer ? 'sent' : 'received'" v-for="(message, index) in messages"
+                :key="index">
                 {{ message.text }}
             </div>
         </div>
-        <div class="typing">
-            <input type="text" placeholder="輸入訊息">
+        <!-- 快速按鈕 -->
+        <div id="btnInput">
+            <button v-for="(btnMessage, index) in btnMessages" :key="index" @click="handleButtonClick(index)"
+                id="btnMessage">
+                {{ btnMessage.text }}
+            </button>
+        </div>
+        <div id="chatInput">
+            <input type="text" id="messageInput" placeholder="Type your message..." v-model="newMessageText">
+            <button id="sendButton" @click="sendMessage"><img src="../assets/image/chatbot/send.svg" alt=""></button>
         </div>
     </div>
-    <button @click="toggleChat" id="chatButton" class="chatbot"><img src="../assets/image/chatbot/chatbot.svg"
-            alt=""></button>
 </template>
 
 <style scoped lang="scss">
