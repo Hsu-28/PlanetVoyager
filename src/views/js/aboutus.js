@@ -2,6 +2,10 @@ import { EffectCards } from 'swiper/modules';
 import 'swiper/css';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css/effect-cards';
+import { onMounted } from 'vue';
+import { gsap, Power0 } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 
 export default {
@@ -65,40 +69,61 @@ export default {
                     page: "5/5"
                 }
             ],
-            //聊天機器人
-            isChatOpen: false,
-            messages: [
+            timeline: [
                 {
-                    text: "公司回覆1",
-                    icon: require("@/assets/image/donate/member.svg"),
-                    isCustomer: false
+                    title: "公司成立",
+                    text: "在1999年，我們敢於夢想，創立了PlanetVoyager。我們的團隊由夢想家和科學家組成，致力於太空旅遊的可能性。"
                 },
                 {
-                    text: "顧客問題1",
-                    isCustomer: true
+                    title: "首次登陸",
+                    text: "第二年(2000年)，我們成功進行了旅行團首次月球登陸。這次歷史性的登陸為我們的公司帶來了全球關注，標誌著太空旅遊的新紀元。"
                 },
                 {
-                    text: "公司回覆2",
-                    icon: require("@/assets/image/donate/member.svg"),
-                    isCustomer: false
+                    title: "擴展與合作",
+                    text: "2005年開始擴大我們的太空旅遊項目，新增火星及金星，並建立了與太空科技公司的合作夥伴關係，以提供更多選擇和更高的安全標準。"
                 },
                 {
-                    text: "顧客問題2",
-                    isCustomer: true
+                    title: "星際旅遊",
+                    text: "2008年見證了星際旅遊的崛起，客戶可以在太空站中度過豪華且深度的假期。這一年，我們的服務超越了地球。"
                 },
                 {
-                    text: "公司回覆3",
-                    icon: require("@/assets/image/donate/member.svg"),
-                    isCustomer: false
+                    title: "科學探索",
+                    text: "2010我們開始支持科學家進行太空實驗，以研究太陽系中的神秘之處。我們成為太空科學的夥伴，推動知識的邊緣。"
                 },
                 {
-                    text: "顧客問題3",
-                    isCustomer: true
-                },
+                    title: "太空旅遊的未來",
+                    text: "我們將目光投向更遠的未來，計劃更遠的目的地和更多的太空冒險。我們將繼續領先，實現太空夢！"
+                }
             ],
+
+
+            //聊天機器人
+            messages: [ // 聊天消息列表
+                {
+                    text: "您好，歡迎來到PlanetVoyager，有什麼能幫助您的嗎？",
+                    isCustomer: false
+                },
+                // 其他消息
+            ],
+            newMessageText: "", // 用於綁定新消息的文本
+            btnMessages: [
+                {
+                    text: "可以造訪哪些星球?"
+                },
+                {
+                    text: "我想了解行程"
+                },
+                {
+                    text: "行程訓練要準備什麼呢?"
+                },
+                {
+                    text: "捐款可以兌換什麼?"
+                }
+            ]
         };
     },
     methods: {
+        // 創辦人介紹
         accordionEvent() {
             const panels = document.querySelectorAll(".panel");
 
@@ -113,25 +138,130 @@ export default {
                 panels.forEach((panel) => {
                     panel.classList.remove("active");
                 });
+            };
+        },
+
+        // 聊天機器人輸入訊息回覆
+        sendMessage() {
+            const messageText = this.newMessageText.trim();
+            if (messageText !== '') {
+                // 添加新消息到列表中
+                this.messages.push({
+                    text: messageText,
+                    isCustomer: true // 假設這是顧客發送的消息
+                });
+                this.newMessageText = ''; // 清空輸入框
+
+                // 機器人回覆
+                setTimeout(() => {
+                    this.messages.push({
+                        text: '我不明白您的問題',
+                        isCustomer: false // 假設這是機器人的回覆
+                    });
+                }, 1000);
             }
         },
 
-        // 聊天機器人
-        toggleChat() {
-            this.isChatOpen = !this.isChatOpen;
+        // 聊天機器人點擊按鈕回覆
+        handleButtonClick(index) {
+            // 添加新消息到列表中
+            this.messages.push({
+                text: this.btnMessages[index].text,
+                isCustomer: true // 假設這是顧客發送的消息
+            });
+            // 機器人回覆
+            setTimeout(() => {
+                this.replyToUser(index);
+            }, 1000);
         },
-        closeChat() {
-            this.isChatOpen = false;
+        replyToUser(index) {
+            // 根據按鈕回覆不同內容
+            switch (index) {
+                case 0:
+                    this.messages.push({
+                        text: "您可以造訪月球、火星及金星。",
+                        isCustomer: false
+                    });
+                    break;
+                case 1:
+                    this.messages.push({
+                        text: "行程詳情請至星際旅程頁面了解~",
+                        isCustomer: false
+                    });
+                    break;
+                case 2:
+                    this.messages.push({
+                        text: "需要上傳健康評估、並參與七天訓練課程，其餘詳情請至行前準備頁面！",
+                        isCustomer: false
+                    });
+                    break;
+                case 3:
+                    this.messages.push({
+                        text: "會員等級達到銀可兌換鑰匙圈、金兌換棒球帽、白金兌換帽T、鑽石兌換太空人頭盔，還有機會抽中大獎喔！快去支持星際探索頁面看看！",
+                        isCustomer: false
+                    });
+                    break;
+                default:
+                    this.messages.push({
+                        text: "我不明白您的問題",
+                        isCustomer: false
+                    });
+            }
         },
+
+
+
     },
     mounted() {
         this.accordionEvent()
+
+        // 初始化GSAP和ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 每個.timeline元素
+        const timelines = document.querySelectorAll('.timeline');
+        timelines.forEach((timeline) => {
+            gsap.set(timeline.querySelectorAll('.item'), {
+                opacity: 0,
+                y: '30%',
+            });
+
+            ScrollTrigger.batch(timeline.querySelectorAll('.item'), {
+                onEnter: (batch) =>
+                    gsap.to(batch, {
+                        opacity: 1,
+                        y: 0,
+                        stagger: {
+                            each: 0.25,
+                            from: 'start',
+                        },
+                    }),
+                start: 'center center', // 在螢幕中才開始動作
+            });
+
+            ScrollTrigger.addEventListener('refreshInit', () =>
+                gsap.set(timeline.querySelectorAll('.item'), {
+                    opacity: 0,
+                    y: '30%',
+                })
+            );
+        });
     },
     setup() {
+        onMounted(() => {
+            chatbot();
+        });
         return {
             modules: [EffectCards],
         };
+
+        function chatbot() {
+            const chatButton = document.getElementById('chatButton');
+
+            // 點擊聊天機器人按鈕時顯示/隱藏聊天室
+            chatButton.addEventListener('click', () => {
+                chatRoom.style.display = chatRoom.style.display === 'block' ? 'none' : 'block';
+            });
+        };
     },
-
-
 }
