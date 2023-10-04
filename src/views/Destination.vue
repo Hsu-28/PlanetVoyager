@@ -111,6 +111,23 @@
       </div>
     </article>
 
+    <!-- 旅程測驗 -->
+    <article class="col-11  quiz">
+      <H2Style cTitle="旅程測驗" eTitle="TRAVEL QUIZ"></H2Style>
+      <div class="quizIntro">
+        <p>踏上一場獨特的旅行，通過我們的旅程測驗深入了解你的旅遊風格。<br>
+          這個快速而有趣的測驗將提供關於你的冒險程度、文化好奇心和旅遊習慣的見解。<br>
+          你是一位勇敢的探險家，還是更喜歡寧靜的度假勝地？<br>
+          這個測驗將為你揭示旅行中的隱藏特質，或者激發你探索新目的地的慾望。<br>
+          無論你是旅遊新手還是經驗豐富的冒險家，這個測驗都將帶你走向更深層次的旅行體驗。<br>
+          快來開始你的旅程吧！<br></p>
+          <router-link :to="{ name: 'quiz' }">
+            <ButtonStyle buttonText="開始測驗" buttonBottomText="-PV-"></ButtonStyle>
+          </router-link>
+      </div>
+   
+    </article>
+
   </main>
 </template>
   
