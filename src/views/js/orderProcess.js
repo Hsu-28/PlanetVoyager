@@ -1,4 +1,5 @@
 import $ from 'jquery'
+import axios from 'axios';
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 // import { ArrayCamera } from 'three'
@@ -7,6 +8,7 @@ import orderList from "@/components/PerOrder.vue";
 export default {
   data() {
     return {
+      phpData: '',
       jpRate:0,
       ntRate:0,
       orderCheck: false,
@@ -180,6 +182,15 @@ export default {
         this.ntRate = data.rates.TWD;
         this.jpRate = data.rates.JPY;
     });
+
+    // 發起HTTP GET 請求
+    axios.get('http://localhost/PV/phptest.php')
+      .then(response => {
+        this.phpData = response.data;
+      })
+      .catch(error => {
+        console.error(error);
+      });
 }
 
 

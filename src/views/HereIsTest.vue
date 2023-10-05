@@ -1,356 +1,304 @@
+
+
 <template>
- <div class="c-glitch d-order" >
-    <div class="c-glitch__img" ></div>
-    <div class="c-glitch__img" ></div>
-    <div class="c-glitch__img" ></div>
-    <div class="c-glitch__img" ></div>
-    <div class="c-glitch__img" ></div>
-</div>
-    
-
-
-
-</template>
-
-<style scoped lang="scss">
-/* =Variables
-------------------------------------- */
-// Colors
-$pure-white: hsla(0, 0%, 100%, 1); // #fff
-$pure-black: hsla(0, 0%, 0%, 1); // #000
-$dark-jungle-green: hsla(210, 3%, 11%, 1); //1c1d1e
-$grey-dark: hsla(0, 0%, 25%, 1); // #404040
-$white-dark: hsla(0, 0%, 95%, 1); /// #f1f1f1
-$fuel-yellow: hsla(36, 100%, 49%, 1); // #f89500
-
-// Fonts
-$droid-serif: 'Droid Serif', serif;
-$kalam: 'Kalam', cursive;
-$open-sans: 'Open Sans', sans-serif;
-
-// transition
-$transition: .5s cubic-bezier(.77, 0, .175, 1);
-$transition-fast: .2s cubic-bezier(.77, 0, .175, 1);
-
-/* =Functions
-------------------------------------- */
-// Convert a pixel value to REM units
-@function rem($pixel) {
-  @return $pixel / 16 + rem;
-}
-
-/* =Styles
-------------------------------------- */
-
-.c-intro {
-  animation: fe30-anime 1s ease-in-out 4s forwards;
-  opacity: 0;
-}
-
-.c-fe30 {
-  color: $pure-white;
-  margin-top: rem(40);
-  text-align: center;
+	
+	<div class="firstM">
+	  <img src="@/assets/image/orderProcess/moon.png" alt="">
+	</div>
+	<div class="title">
+	  <h1  id="apple">{{phpData.itinerary_no}}</h1> 
+	  <!-- <h1  id="apple">{{phpData}}</h1> -->
+	  <h2>Moon Exploration Journey</h2>
+	</div>
   
-  a {
-    color: $pure-white;
-    
-    &:hover {
-      text-decoration: none;
-    }
-  }
-}
-
-
-
-
-
-
-@keyframes fe30-anime {
-  0% {
-    opacity: 0;
-  }
+	<!-- 輪播 -->
+	<div class="carousel">
+	  <carousel :items-to-show="3" :wrapAround="true" :paginationColor="'#FFF'" class="custom-carousel" :autoplay="3000">
+		<slide v-for="(item, index) in imgs" :key="item.index">
+		  <div class="cimgs">
+			<img :src=item.slide alt="輪播圖片">
+		  </div>
+		</slide>
   
-  100% {
-    opacity: 1;
-  }
-}
-
-/* =Custom Styles
-------------------------------------- */
-.c-glitch,
-.c-glitch__img {
-  background-repeat: no-repeat;
-	background-position: 50% 50%;
-	background-size: cover;
-  background-image: url(~@/assets/image/headerfooter/dorder.svg);
-}
-
-.c-glitch {
-  height: 100px;
-  margin: 0 auto;
-  overflow: hidden;
-	position: relative;
-  width: 100px;
-}
-
-.c-glitch__img {
-  background-blend-mode: none;
-  background-color: transparent;
-  height: 100px;
-  left: 0;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  transform: translate3d(0, 0, 0);
-  width: 100px;
+		<template #addons>
   
-  .c-glitch:hover &:nth-child(n+2) {
-    animation-duration: 1s;
-    animation-delay: 0;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-fill-mode: forwards;
-  }
+		  <pagination />
+		</template>
+	  </carousel>
+	</div>
   
-  .c-glitch:hover &:nth-child(2) {
-    animation-name: glitch-anim-1;
-  }
+	<!-- 月球左右到，介紹、退費、行程 -->
+	<section class="place1">
+	  <section class="introduce-container">
+		<div class="introduce">
+		  <div class="button-container">
+			<button :class="btn1" @click="show1F">月球巡禮</button>
+			<button :class="btn2" @click="show2F">太空之心</button>
+		  </div>
+		  <div class="introduce-p" v-show="show1"  @click="chose0" :class="{'chosen':Chosen0}">
+			<h3>月球巡禮</h3>
+			<h4>用你的一小步 見證人類的一大步</h4>
+			<p>由地球出發
+			  一天的航程後，我們將會在第二天登陸月球，朝聖人類的星際里程碑--阿姆斯壯的腳印，之後會遊歷月球上最大的隕石坑---貝利環形山、在滿月海中馳騁、橫越東月大裂谷、參觀台日共構的月球基地，飽覽月球風光後再返回地球。
+			</p>
+		  </div>
+		  <div class="introduce-p" v-show="show2">
+			<h3>太空之心</h3>
+			<h4>月球七天六夜奇幻之旅</h4>
+			<p>
+			  行程簡介：抵達在月球基地後，您將穿上太空服，遊覽著名的月球撞擊坑，體驗月面散步的刺激。不僅如此，您還會採集珍貴的岩石和月壤樣本，並進行科學實驗。以及夜晚的天文觀測和無光污染。最後一天，盡情享受自由活動。最後登上太空船，啟程返回地球，締造您太空之旅的完美結局。
+			</p>
+		  </div>
+		</div>
   
-  .c-glitch:hover &:nth-child(3) {
-    animation-name: glitch-anim-2;
-  }
   
-  .c-glitch:hover &:nth-child(4) {
-    animation-name: glitch-anim-3;
-  }
   
-  .c-glitch:hover &:nth-child(5) {
-    animation-name: glitch-anim-4;
-    background-blend-mode: overlay;
-    background-color: #af4949;
-  }
-}
-
-.c-glitch__img:nth-child(n+2) {
-	opacity: 0;
-}
-
-@keyframes glitch-anim-1 {
-	0%, 100% { 
-		opacity: 1;
-		transform: translate3d(40px, 0, 0) scale3d(-1, -1, 1);
-		clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
-	}
+	  </section>
+	  <article class="card-planet">
+		<div class="location">
+		  <div class="planet__atmosphere">
+			<div class="moon planet__surface"></div>
+		  </div>
+		</div>
+	  </article>
+	</section>
   
-	20% {
-		clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
-	}
+	<!-- 退費政策 -->
   
-	30% {
-		clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%);
-	}
+	<section class="place2">
+	  <div class="travelInfo-conatiner">
+		<h3>太空旅遊資訊和退費政策</h3>
+		<h4>歡迎參加 PLANET VOYAGER太空旅遊團！</h4>
+		<ul class="travelInfo">
+		  <li v-for="(item, index) in tourInfo" :key="id">
+			<div class="box">{{ item.id }}</div>
+			<div class="itemp">{{ item.p }}</div>
+		  </li>
+		  <li>
   
-	40% {
-		clip-path: polygon(0 1%, 100% 1%, 100% 2%, 0 2%);
-	}
+			<div class="box"> <img src="@/assets/image/orderProcess/icon.svg" alt=""></div>
   
-	50% {
-		clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
-	}
+			<div class="itemp"><strong>行前訓練</strong><br>您須於旅程三個月前參與為期一週的訓練，並於結訓時接受評估，若行前訓練評估未通過則退費70% 。欲了解行前訓練內容，請
+			  <router-link to="/training">點擊此處 </router-link>。
+			</div>
   
-	55% {
-		clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
-	}
   
-	60% {
-		clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
-	}
-
-  65% {
-
-		clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
-	}
-
-	70% {
-
-		clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
-	}
-
-	80% {
-		clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
-	}
-
-	85% {
-		clip-path: polygon(0 60%, 100% 60%, 100% 65%, 0 65%);
-	}
-
-	95% {
-		clip-path: polygon(0 72%, 100% 72%, 100% 78%, 0 78%);
-	}
-}
-
-@keyframes glitch-anim-2 {
-	0%, 100% { 
-		opacity: 1;
-		transform: translate3d(-10px, 0, 0);
-		clip-path: polygon(0 25%, 100% 25%, 100% 30%, 0 30%);
-	}
+		  </li>
+		  <li>
+			<div class="box"><img src="@/assets/image/orderProcess/icon.svg" alt=""></div>
+			<div class="itemp"><strong>退費政策</strong><br>出發日期半年以前取消行程可全額退費，前5個月取消退費90%，前4個月取消退費70%，前3個月取消退費60%，三個月內不退費。</div>
+		  </li>
   
-	10% {
-		clip-path: polygon(0 3%, 100% 3%, 100% 3%, 0 3%);
-	}
   
-	15% {
-		clip-path: polygon(0 5%, 100% 5%, 100% 20%, 0 20%);
-	}
+		</ul>
   
-	17% {
-		clip-path: polygon(0 20%, 100% 20%, 100% 20%, 0 20%);
-	}
+	  </div>
+	  <article class="card-planet2">
+		<div class="location">
+		  <div class="planet__atmosphere">
+			<div class="moon planet__surface"></div>
+		  </div>
+		</div>
   
-	19% {
-		clip-path: polygon(0 40%, 100% 40%, 100% 40%, 0 40%);
-	}
+	  </article>
+	</section>
   
-	33% {
-		clip-path: polygon(0 52%, 100% 52%, 100% 59%, 0 59%);
-	}
+	<!-- 選擇行程 、時間 -->
   
-	35% {
-		clip-path: polygon(0 60%, 100% 60%, 100% 60%, 0 60%);
-	}
+	<section class="place3">
+	  <section class="itinerary-cotainer">
+		<div class="itinerary-c">
+		  <h4>選擇行程
+			<br>Choose Itinerary
+		  </h4>
+		</div>
+		<div class="itinerary-d" @click="af" :class="{ 'chosen': A }">
+		  <img src="@/assets/image/orderProcess/z.svg" alt="">
+		  月球巡禮
+		</div>
+		<div class="itinerary-d" @click="bf" :class="{ 'chosen': B }">
+		  <img src="@/assets/image/orderProcess/z.svg" alt="">
+		  太空之心
+		</div>
+	  </section>
+	  <section class="itinerary-cotainer2">
+		<div class="inL">
+		  <div class="itinerary-c">
+			選擇行程時間
+			<br>Choose Itinerary
+		  </div>
+		</div>
+		<div class="inR">
+		  <div class="itinerary-d" @click="j1f" :class="{ 'chosen': j1C }">
+			<h5>航程日期: </h5>
+			<p>{{j1[0]}}</p>
+			<h5>訓練日期:</h5>
+			<p>{{j1[2]}}</p>
   
-	40% {
-		clip-path: polygon(0 75%, 100% 75%, 100% 75%, 0 75%);
-	}
+			<p class="space">團位: 10 可售: {{ j1[1] }} 候補: 0</p>
+		  </div>
+		  <div class="itinerary-d" @click="j2f" :class="{ 'chosen': j2C }">
+			<h5>航程日期: </h5>
+			<p>{{j2[0]}}</p>
+			<h5>訓練日期:</h5>
+			<p>{{j2[2]}}</p>
   
-	45% {
-		clip-path: polygon(0 65%, 100% 65%, 100% 40%, 0 40%);
-	}
+			<p class="space">團位: 10 可售: {{j2[1]}} 候補: 0</p>
+		  </div>
+		  <div class="itinerary-d" @click="j3f" :class="{ 'chosen': j3C }">
+			<h5>航程日期: </h5>
+			<p>{{j3[0]}}</p>
+			<h5>訓練日期:</h5>
+			<p>{{j3[2]}}</p>
   
-	49% {
-		clip-path: polygon(0 45%, 100% 45%, 100% 50%, 0 50%);
-	}
+			<p class="space">團位: 10 可售: {{j3[1]}}候補: 0</p>
+		  </div>
+		  <div class="itinerary-d" @click="j4f" :class="{ 'chosen': j4C }">
+			<h5>航程日期: </h5>
+			<p>{{j4[0]}}</p>
+			<h5>訓練日期:</h5>
+			<p>{{j4[2]}}</p>
   
-	50% {
-		clip-path: polygon(0 14%, 100% 14%, 100% 33%, 0 33%);
-	}
+			<p class="space">團位: 10 可售: {{j4[1]}} 候補: 0</p>
+		  </div>
+		</div>
+	  </section>
+	  <article class="card-planet3">
+		<div class="location">
+		  <div class="planet__atmosphere">
+			<div class="moon planet__surface"></div>
+		  </div>
+		</div>
   
-	55% {
-		clip-path: polygon(0 15%, 100% 15%, 100% 35%, 0 35%);
-	}
+	  </article>
   
-	60% {
-		clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
-	}
+	</section>
   
-	70% {
-		clip-path: polygon(0 65%, 100% 65%, 100% 60%, 0 60%);
-	}
   
-	80% {
-		clip-path: polygon(0 80%, 100% 80%, 100% 85%, 0 85%);
-	}
+	<section class="passengerInfo">
   
-	90% {
-		clip-path: polygon(0 55%, 100% 55%, 100% 65%, 0 65%);
-	}
-}
-
-@keyframes glitch-anim-3 {
-	0%, 100% {
-		opacity: 1;
-		transform: translate3d(0, -5px, 0) scale3d(-1, -1, 1);
-		clip-path: polygon(0 1%, 100% 1%, 100% 3%, 0 3%);
-	}
   
-	5% {
-		clip-path: polygon(0 10%, 100% 10%, 100% 9%, 0 9%);
-	}
+  <section class="order-info">
+	<div class="p-num">
+	  乘客人數:
+	  <select name="" id="" v-model="currentAmount">
+		<option v-for="item in options" :value="item.num"> {{ item.num }} </option>
+	  </select>
+	</div>
+	<section >
+	  <orderList v-for="n in currentAmount" :key="n" :numOrder="n" :status="'正取'" :list="formList" @update-data="udpateForm($event, n-1)"></orderList>
+	</section>
   
-	11% {
-		clip-path: polygon(0 5%, 100% 5%, 100% 6%, 0 6%);
-	}
+  </section>
   
-	20% {
-		clip-path: polygon(0 20%, 100% 20%, 100% 20%, 0 20%);
-	}
+  <div class="order-detail">
+	<div class="order-card">
+	  <h4>ORDER DETAIL</h4>
+	  <div class="order-title">{{journey}}</div>
+	  <div class="order-num">
+		<p>旅客人數: {{currentAmount}} 人</p>
+	  </div>
+	  <div class="order-money">
+		<p>總金額: {{600*currentAmount}} 萬美金 </p>
+	  </div>
+	  <div class="order-date">
+		<p>航程日期: {{date}}</p>
+	  </div>
+	  <div class="click">
+		<ButtonFlashBox :buttonText="'確認訂購'" :buttonBottomText="'-pv-'" class="kkss"  @click="checkOrder"></ButtonFlashBox>
+	  </div>
   
-	25% {
-		clip-path: polygon(0 10%, 100% 10%, 100% 10%, 0 10%);
-	}
+	</div>
+	<div class="exchange-rate">
+	  <div>快速換算:<input  placeholder="0" v-on:input="exchange" v-model="USD" min="0">萬美元 </div>
+	  <div>日幣: &nbsp;{{YEN}} &nbsp; 萬元 </div>
+	  <div>台幣: &nbsp;{{NT}} &nbsp; 萬元 </div>
   
-	35% {
-		clip-path: polygon(0 30%, 100% 30%, 100% 25%, 0 25%);
-	}
+	</div>
+  </div>
+  </section>
   
-	42% {
-		clip-path: polygon(0 15%, 100% 15%, 100% 16%, 0 16%);
-	}
   
-	48% {
-		clip-path: polygon(0 40%, 100% 40%, 100% 39%, 0 39%);
-	}
+	<!-- <h1>{{ one }}</h1>
+	<hr>
+	<h1>{{ two }}</h1>
+	<hr>
+	<h1>{{ three }}</h1>
   
-	50% {
-		clip-path: polygon(0 20%, 100% 20%, 100% 21%, 0 21%);
-	}
   
-	56% {
-		clip-path: polygon(0 60%, 100% 60%, 100% 55%, 0 55%);
-	}
+	<div>
+	  這邊是想顯示的部分
+	</div>
   
-	61% {
-		clip-path: polygon(0 30%, 100% 30%, 100% 31%, 0 31%);
-	}
   
-	68% {
-		clip-path: polygon(0 70%, 100% 70%, 100% 69%, 0 69%);
-	}
+	<select name="" id="" v-model="currentAmount">
+	  <option :value="item.num" v-for="item in options"> {{ item.num }} </option>
+	</select>
   
-	72% {
-		clip-path: polygon(0 40%, 100% 40%, 100% 41%, 0 41%);
-	}
   
-	77% {
-		clip-path: polygon(0 80%, 100% 80%, 100% 75%, 0 75%);
-	}
+	<div v-for="form in formList">
+	  <input type="text" v-model="form.name">
+	</div> -->
+	<section class="confirm-Order" v-if="orderCheck">
+	  <div class="confirm-contain">
+		<div class="confirm-title">
+		  <h2>{{ journey }}</h2>
+		  <h3> 旅客人數: {{ currentAmount }}</h3>
+		  <h3>旅費金額: {{ 600 * currentAmount }}萬美金</h3>
+		  <h3>航程日期: {{ date }}</h3>
+		</div>
+		<div class="confirm-content-container">
+		  <div class="confirm-content" v-for="(item, index) in formList" :key="index" v-if="formList.length > 0">
+			<h2>旅客{{ index + 1 }}</h2>
+			<div>姓氏:{{ item.lastName }}</div>
+			<div>名字:{{ item.name }}</div>
+			<div>性別:{{ item.gender }}</div>
+			<div>出生日期:{{ item.birthday }}</div>
+			<div>國籍:{{ item.nation }}</div>
+			<div>護照號碼:{{ item.passId }}</div>
+			<div>訓練服尺寸:{{ item.size }}</div>
+			<div>旅位狀態:{{ status }}</div>
+			<div> 餐食備註:{{ item.other }}</div>
+			<div>艙位號碼: {{ item.seatIndex }}</div>
   
-	81% {
-		clip-path: polygon(0 50%, 100% 50%, 100% 51%, 0 51%);
-	}
+		  </div>
   
-	86% {
-		clip-path: polygon(0 90%, 100% 90%, 100% 90%, 0 90%);
-	}
+		</div>
+		<div class="order-finall">
   
-	90% {
-		clip-path: polygon(0 60%, 100% 60%, 100% 60%, 0 60%);
-	}
+		  <div class="order-finall-btn btn-Cancle" @click="disOrder">修改資料</div>
+		  <router-link to="OrderSuccess"> <div class="order-finall-btn btn-Check">確認訂購</div></router-link>
+		 
+		</div>
   
-	92% {
-		clip-path: polygon(0 100%, 100% 100%, 100% 99%, 0 99%);
-	}
+	  </div>
+	  <!-- <div class="confirm-content" >
+		  <h2>{{ formList[0].name }}</h2>
+		  <div>旅客1</div>
   
-	94% {
-		clip-path: polygon(0 70%, 100% 70%, 100% 71%, 0 71%);
-	}
-}
-
-@keyframes glitch-anim-4 {
-	0%, 5% { 
-		opacity: 0.2; 
-		transform: translate3d(10px, 5px, 0);
-	}
-
-	5.5%, 100% {
-		opacity: 0;
-		transform: translate3d(0, 0, 0);
-	}
-}
-
-main{
-
-}
-</style> 
+		  <div>姓氏:{{ formList[0].lastName }}</div>
+		  <div>名字:{{ formList[0].name }}</div>
+		  <div>性別:{{ formList[0].gender }}</div>
+		  <div>出生日期:{{ formList[0].birthday }}</div>
+		  <div>國籍:{{ formList[0].nation }}</div>
+		  <div>護照號碼:{{ formList[0].passId }}</div>
+		  <div>訓練服尺寸:{{ formList[0].size }}</div>
+		  <div>旅位狀態:{{ status }}</div>
+		  <div> 餐食備註:{{ formList[0].other }}</div>
+		  <div>艙位號碼: {{ formList[0].seat }}</div>
+		</div> -->
+	  <!-- </div> -->
+  
+	</section>
+  </template>
+	
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					  
+  <script src="@/views/js/orderProcess.js"></script>
+  
+  
+  <style scoped lang="scss">
+  @import "~@/assets/sass/page/orderProcess.scss";
+  @import "~@/assets/sass/page/orderProcessP.scss";
+  </style>
+  
+	
