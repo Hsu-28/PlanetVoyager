@@ -4,24 +4,46 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: black;
 
-
-  .result {
-    margin-top: 100px;
+//開頭動畫
+  .intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
+  .overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.542); 
+  }
+  
+  .bg {
+    width: 100%;
+    height: auto;
+  }
+
+  
   .nickName{
     margin-top: 200px;
+    & input{
+      width: 20%;
+      height: 3rem;
+      border-radius: 5px;
+      padding: 10px 15px;
+      background-color: rgba(217,217,217,0.6);
+      color: $white;
+    }
+    & input::placeholder{
+      color:  rgb(217,217,217);
+    }
   }
 
-  // .test {
-  //   display: flex;
-  // flex-direction: column;
-  // position: absolute;
-  // top: 50%; /* 將元素的上緣置於頁面的垂直中點 */
-  // left: 50%; /* 將元素的左緣置於頁面的水平中點 */
-  // transform: translate(-50%, -50%); /* 使用 translate 調整元素位置 */
-  // }
   
   .fade-enter-active, .fade-leave-active {
     transition: opacity 0.5s;
@@ -48,18 +70,15 @@
     padding: 0;
     margin: 0;
     width: 100%;
-
   }
   
   li {
     margin-bottom: 10px;
     font-size: $p1-l;
-
   }
   
   label {
     margin-left: 5px;
-
   }
   
   button {
@@ -250,6 +269,7 @@
   flex-direction:column;
   align-items:center;
   z-index: 2;
+  // background-image: url("../assets/image/quiz/1.gif") repeat fixed center; 
   // background: url("https://cutewallpaper.org/21/star-wars-background-stars/Star-Wars-Tumblr-Backgrounds-Wallpaper-Cave.jpg") no-repeat fixed center; 
   font-family: "Droid Sans", arial, verdana, sans-serif;
 }
@@ -267,6 +287,7 @@
   opacity: 0;
   font-size:200%;
   color: #4ee;
+  text-shadow: #e6b800;
   line-height: 1.5;
   font-weight: 700;
   animation-name: intro-text-fade-in-out;
@@ -346,3 +367,4 @@
 
 
 }
+

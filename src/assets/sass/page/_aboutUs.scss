@@ -691,129 +691,609 @@ td a:hover {
 
 
 // -------------聊天機器人-------------
-.chatbot {
-    position: fixed;
-    bottom: 110px;
-    right: 0;
-    display: block;
-    margin-left: auto;
-    margin-right: 25px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 1;
-}
-
-.chatbot img {
-    max-width: 100px;
-}
-
-button#closeButton {
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: $blue;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
-
-.popup {
-    // display: none;
-    position: fixed;
-    bottom: 60px;
-    right: 131px;
-    width: 30%;
-    height: 465px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    display: block;
-    margin-left: auto;
-    border-radius: 10px;
-    z-index: 1;
-}
-
-.messages {
-    overflow-y: auto;
-    padding-top: 20px;
-    padding-left: 35px;
-    padding-right: 15px;
-}
-
-.msg-top {
-    background-color: $blueO;
-    line-height: 2.5;
-    padding-left: 30px;
-    color: $white;
-}
-
-.company-reply {
-    width: 80%;
-    background-color: $blueO;
-    color: #fff;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.company-reply img {
-    position: absolute;
-    left: -31px;
-    background-color: black;
-    border-radius: 50%;
-}
-
-// .company-reply::after {
-//     content: "";
-//     width: 25px;
-//     height: 25px;
-//     border-radius: 50%;
-//     background-color: #000;
-//     left: -27px;
-//     position: absolute;
+// .chatbot {
+//     position: fixed;
+//     bottom: 110px;
+//     right: 0;
+//     display: block;
+//     margin-left: auto;
+//     margin-right: 25px;
+//     background-color: transparent;
+//     border: none;
+//     cursor: pointer;
+//     z-index: 1;
 // }
 
-.customer-question {
-    width: 80%;
-    background-color: #ccc;
-    border-radius: 5px;
+// .chatbot img {
+//     max-width: 100px;
+// }
+
+// button#closeButton {
+//     position: absolute;
+//     top: -10px;
+//     left: -10px;
+//     width: 30px;
+//     height: 30px;
+//     border-radius: 50%;
+//     background-color: #0df2f2;
+//     color: #000;
+//     border: none;
+//     cursor: pointer;
+// }
+
+// .popup {
+//     // display: none;
+//     position: fixed;
+//     bottom: 60px;
+//     right: 131px;
+//     width: 30%;
+//     height: 465px;
+//     background-color: #fff;
+//     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+//     display: block;
+//     margin-left: auto;
+//     border-radius: 10px;
+//     z-index: 1;
+//     overflow-y: scroll;
+// }
+
+// .messages {
+//     // overflow-y: auto;
+//     // overflow-y: scroll;
+//     padding-top: 20px;
+//     padding-left: 35px;
+//     padding-right: 15px;
+// }
+
+// .msg-top {
+//     background-color: rgb(0 0 0 / 83%);
+//     line-height: 2.5;
+//     padding-left: 30px;
+//     color: #F0F0F0;
+// }
+
+// .company-reply {
+//     width: 80%;
+//     background-color: rgb(0 0 0);
+//     color: #0df2f2;
+//     border-radius: 5px;
+//     padding: 10px;
+//     margin-bottom: 10px;
+//     position: relative;
+//     display: flex;
+//     align-items: center;
+//     line-height: 1.5;
+// }
+
+// .company-reply img {
+//     position: absolute;
+//     left: -31px;
+//     background-color: black;
+//     border-radius: 50%;
+// }
+
+// // .company-reply::after {
+// //     content: "";
+// //     width: 25px;
+// //     height: 25px;
+// //     border-radius: 50%;
+// //     background-color: #000;
+// //     left: -27px;
+// //     position: absolute;
+// // }
+
+// .customer-question {
+//     width: 80%;
+//     background-color: #ccc;
+//     border-radius: 5px;
+//     padding: 10px;
+//     margin-bottom: 10px;
+//     margin-left: auto;
+//     position: relative;
+//     line-height: 1.5;
+// }
+
+// .customer-question::before {
+//     content: "";
+//     border-top: 6px solid transparent;
+//     border-bottom: 6px solid transparent;
+//     border-left: 9px solid #ccc;
+//     display: inline-block;
+//     position: absolute;
+//     right: -7px;
+//     bottom: 4px;
+// }
+
+// .typing {
+//     display: flex;
+//     justify-content: center;
+//     position: absolute;
+//     bottom: 10px;
+//     width: 100%;
+// }
+
+// input {
+//     width: 90%;
+//     padding-left: 10px;
+// }
+
+
+// #chatInput {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     padding: 10px;
+//     background-color: #fff;
+//     border-top: 1px solid #ccc;
+//     position: sticky;
+//     bottom: 0;
+// }
+
+// #messageInput {
+//     flex: 1;
+//     padding: 5px;
+//     border: none;
+//     border-radius: 5px;
+//     margin-right: 10px;
+// }
+
+// #sendButton {
+//     padding: 5px 10px;
+//     background-color: #007BFF;
+//     color: #fff;
+//     border: none;
+//     border-radius: 5px;
+//     cursor: pointer;
+// }
+
+// -------------聊天機器人結束-------------
+// -------------聊天機器人2-------------
+// -----聊天按鈕特效-----
+.cb,
+.cb__img {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-image: url(~@/assets/image/chatbot/chatbot.svg);
+    ;
+}
+
+.cb {
+    height: 100px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    width: 100px;
+    z-index: 5;
+}
+
+.cb__img {
+    background-blend-mode: none;
+    background-color: transparent;
+    height: 100px;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transform: translate3d(0, 0, 0);
+    width: 100px;
+
+    .cb:hover &:nth-child(n+2) {
+        animation-duration: 1s;
+        animation-delay: 0;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+    }
+
+    .cb:hover &:nth-child(2) {
+        animation-name: cb-anim-1;
+    }
+
+    .cb:hover &:nth-child(3) {
+        animation-name: cb-anim-2;
+    }
+
+    .cb:hover &:nth-child(4) {
+        animation-name: cb-anim-3;
+    }
+
+    .cb:hover &:nth-child(5) {
+        animation-name: cb-anim-4;
+        background-blend-mode: overlay;
+        background-color: #af4949;
+    }
+}
+
+.cb__img:nth-child(n+2) {
+    opacity: 0;
+}
+
+@keyframes cb-anim-1 {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: translate3d(40px, 0, 0) scale3d(-1, -1, 1);
+        clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
+    }
+
+    20% {
+        clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
+    }
+
+    30% {
+        clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%);
+    }
+
+    40% {
+        clip-path: polygon(0 1%, 100% 1%, 100% 2%, 0 2%);
+    }
+
+    50% {
+        clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
+    }
+
+    55% {
+        clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
+    }
+
+    60% {
+        clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
+    }
+
+    65% {
+
+        clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
+    }
+
+    70% {
+
+        clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+    }
+
+    80% {
+        clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+    }
+
+    85% {
+        clip-path: polygon(0 60%, 100% 60%, 100% 65%, 0 65%);
+    }
+
+    95% {
+        clip-path: polygon(0 72%, 100% 72%, 100% 78%, 0 78%);
+    }
+}
+
+@keyframes cb-anim-2 {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: translate3d(-10px, 0, 0);
+        clip-path: polygon(0 25%, 100% 25%, 100% 30%, 0 30%);
+    }
+
+    10% {
+        clip-path: polygon(0 3%, 100% 3%, 100% 3%, 0 3%);
+    }
+
+    15% {
+        clip-path: polygon(0 5%, 100% 5%, 100% 20%, 0 20%);
+    }
+
+    17% {
+        clip-path: polygon(0 20%, 100% 20%, 100% 20%, 0 20%);
+    }
+
+    19% {
+        clip-path: polygon(0 40%, 100% 40%, 100% 40%, 0 40%);
+    }
+
+    33% {
+        clip-path: polygon(0 52%, 100% 52%, 100% 59%, 0 59%);
+    }
+
+    35% {
+        clip-path: polygon(0 60%, 100% 60%, 100% 60%, 0 60%);
+    }
+
+    40% {
+        clip-path: polygon(0 75%, 100% 75%, 100% 75%, 0 75%);
+    }
+
+    45% {
+        clip-path: polygon(0 65%, 100% 65%, 100% 40%, 0 40%);
+    }
+
+    49% {
+        clip-path: polygon(0 45%, 100% 45%, 100% 50%, 0 50%);
+    }
+
+    50% {
+        clip-path: polygon(0 14%, 100% 14%, 100% 33%, 0 33%);
+    }
+
+    55% {
+        clip-path: polygon(0 15%, 100% 15%, 100% 35%, 0 35%);
+    }
+
+    60% {
+        clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
+    }
+
+    70% {
+        clip-path: polygon(0 65%, 100% 65%, 100% 60%, 0 60%);
+    }
+
+    80% {
+        clip-path: polygon(0 80%, 100% 80%, 100% 85%, 0 85%);
+    }
+
+    90% {
+        clip-path: polygon(0 55%, 100% 55%, 100% 65%, 0 65%);
+    }
+}
+
+@keyframes cb-anim-3 {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: translate3d(0, -5px, 0) scale3d(-1, -1, 1);
+        clip-path: polygon(0 1%, 100% 1%, 100% 3%, 0 3%);
+    }
+
+    5% {
+        clip-path: polygon(0 10%, 100% 10%, 100% 9%, 0 9%);
+    }
+
+    11% {
+        clip-path: polygon(0 5%, 100% 5%, 100% 6%, 0 6%);
+    }
+
+    20% {
+        clip-path: polygon(0 20%, 100% 20%, 100% 20%, 0 20%);
+    }
+
+    25% {
+        clip-path: polygon(0 10%, 100% 10%, 100% 10%, 0 10%);
+    }
+
+    35% {
+        clip-path: polygon(0 30%, 100% 30%, 100% 25%, 0 25%);
+    }
+
+    42% {
+        clip-path: polygon(0 15%, 100% 15%, 100% 16%, 0 16%);
+    }
+
+    48% {
+        clip-path: polygon(0 40%, 100% 40%, 100% 39%, 0 39%);
+    }
+
+    50% {
+        clip-path: polygon(0 20%, 100% 20%, 100% 21%, 0 21%);
+    }
+
+    56% {
+        clip-path: polygon(0 60%, 100% 60%, 100% 55%, 0 55%);
+    }
+
+    61% {
+        clip-path: polygon(0 30%, 100% 30%, 100% 31%, 0 31%);
+    }
+
+    68% {
+        clip-path: polygon(0 70%, 100% 70%, 100% 69%, 0 69%);
+    }
+
+    72% {
+        clip-path: polygon(0 40%, 100% 40%, 100% 41%, 0 41%);
+    }
+
+    77% {
+        clip-path: polygon(0 80%, 100% 80%, 100% 75%, 0 75%);
+    }
+
+    81% {
+        clip-path: polygon(0 50%, 100% 50%, 100% 51%, 0 51%);
+    }
+
+    86% {
+        clip-path: polygon(0 90%, 100% 90%, 100% 90%, 0 90%);
+    }
+
+    90% {
+        clip-path: polygon(0 60%, 100% 60%, 100% 60%, 0 60%);
+    }
+
+    92% {
+        clip-path: polygon(0 100%, 100% 100%, 100% 99%, 0 99%);
+    }
+
+    94% {
+        clip-path: polygon(0 70%, 100% 70%, 100% 71%, 0 71%);
+    }
+}
+
+@keyframes cb-anim-4 {
+
+    0%,
+    5% {
+        opacity: 0.2;
+        transform: translate3d(10px, 5px, 0);
+    }
+
+    5.5%,
+    100% {
+        opacity: 0;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+// -----聊天按鈕特效結束-----
+#chatButton {
+    position: fixed;
+    bottom: 130px;
+    right: 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    background-color: transparent;
+}
+
+#chatButton img {
+    width: 100%;
+}
+
+#chatRoom {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 130px;
+    width: 30%;
+    height: 500px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    flex-direction: column;
+    z-index: 99;
+}
+
+#chatRoom::-webkit-scrollbar {
+    width: 4px;
+}
+
+#chatRoom::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.781);
+}
+
+#chatRoom::-webkit-scrollbar-thumb {
+    background-color: $blueO;
+}
+
+#chatHeader {
+    background-color: rgb(0 0 0 / 90%);
+    color: #fff;
+    text-align: center;
     padding: 10px;
-    margin-bottom: 10px;
-    margin-left: auto;
+    position: sticky;
+    top: 0;
+    font-size: $p2-s;
+    z-index: 1;
+}
+
+#chatMessages {
+    flex: 1;
+    padding: 10px;
+}
+
+.message {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    width: 90%;
+}
+
+.received {
+    background-color: #272727;
+    color: #fff;
+    line-height: 1.5;
     position: relative;
 }
 
-.customer-question::before {
+.received::after {
     content: "";
     border-top: 6px solid transparent;
     border-bottom: 6px solid transparent;
-    border-left: 9px solid #ccc;
+    border-right: 9px solid #272727;
+    display: inline-block;
+    position: absolute;
+    bottom: 4px;
+    left: -7px;
+}
+
+.sent {
+    background-color: #cbb8f1;
+    color: #000;
+    line-height: 1.5;
+    margin-left: auto;
+    position: relative;
+}
+
+.sent::after {
+    content: "";
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 9px solid #cbb8f1;
     display: inline-block;
     position: absolute;
     right: -7px;
     bottom: 4px;
 }
 
-.typing {
+#chatInput {
     display: flex;
-    justify-content: center;
-    position: absolute;
-    bottom: 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    position: sticky;
+    bottom: 0;
+}
+
+#messageInput {
+    flex: 1;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#sendButton {
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 25px;
+}
+
+#sendButton img {
     width: 100%;
 }
 
-input {
-    width: 90%;
-    padding-left: 10px;
+#btnInput {
+    padding: 10px;
+    width: 100%;
+    overflow-x: auto;
+    border-top: 1px solid #ccc;
+    position: sticky;
+    bottom: 55px;
+    background-color: rgb(226, 226, 226);
 }
 
-// -------------聊天機器人結束-------------
+#btnMessage {
+    // display: block;
+    // margin-left: auto;
+    border: 2px solid #0DF2F2;
+    padding: 3px 5px;
+    margin-bottom: 3px;
+    border-radius: 15px;
+    font-size: $p2-s;
+    transition: 0.3s;
+}
+
+#btnMessage:hover {
+    background-color: #0DF2F2;
+    color: #3a3a3a;
+}
+
+// -------------聊天機器人2結束-------------
 
 
 
@@ -851,6 +1331,10 @@ input {
 
     .bottom {
         height: 800px;
+    }
+
+    #chatRoom {
+        width: 40%;
     }
 }
 
@@ -1030,6 +1514,10 @@ input {
 
     .popup {
         width: 60%;
+    }
+
+    #chatRoom {
+        width: 50%;
     }
 }
 
@@ -1252,5 +1740,17 @@ input {
 
     .chatbot img {
         max-width: 80px;
+    }
+
+
+    #chatRoom {
+        width: 65%;
+        right: 90px;
+    }
+
+    #chatButton {
+        bottom: 70px;
+        right: 20px;
+        width: 70px;
     }
 }

@@ -62,7 +62,6 @@
                           <select  required v-model="sex" id="sex" style="color:#F0F0F0;">
                               <option value="1" >男性</option>
                               <option value="2" >女性</option>
-                              <option value="other">其他</option>
                           </select></p>
                       <p><span>生日</span><br>
                           <input type="date"  id="bir" required v-model="birthday"></p>
