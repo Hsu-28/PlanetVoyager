@@ -167,19 +167,6 @@ export default {
         handler(newActiveId) {
           this.amount = this.journeyAll[newActiveId-1].order;
           this.date = this.journeyAll[newActiveId-1].traningDate;
-          // if (newActiveId === 1) {
-          //   this.amount = this.journeyAll[0].order;
-          //   this.date = this.journeyAll[0].traningDate;
-          // } else if (newActiveId === 2) {
-          //   this.amount = this.journeyAll[1].order;
-          //   this.date = this.journeyAll[1].traningDate;
-          // } else if (newActiveId === 3) {
-          //   this.amount = this.journeyAll[2].order;
-          //   this.date = this.journeyAll[2].traningDate;
-          // } else if (newActiveId === 4) {
-          //   this.amount = this.journeyAll[3].order;
-          //   this.date = this.journeyAll[3].traningDate;
-          // }
         },
 
       }
