@@ -8,6 +8,7 @@ import orderList from "@/components/PerOrder.vue";
 export default {
   data() {
     return {
+      activeId: "",
       phpData: '',
       jpRate:0,
       ntRate:0,
@@ -17,21 +18,13 @@ export default {
       NT: 0,
       A: false,
       B: false,
-      j1C: false,
-      j2C: false,
-      j3C: false,
-      j4C: false,
       amount: 6,
+      date: "",
       show1: true,
       show2: false,
       btn1: "btn-active",
       btn2: "",
       journey: "月球巡禮",
-      j1:["2023/ 11/1~11/10",6,"2023/ 10/30~10/31"],
-      j2:["2023/ 12/1~11/10",2,"2023/ 11/29~1/30"],
-      j3:["2024/ 1/1~1/10",7,"2023/ 12/30~12/31"],
-      j4:["2024/ 3/1~3/10",4,"2024/ 2/27~2/28"],
-      date: "",
       imgs: [
         {
            slide: require('@/assets/image/orderProcess/moonc1.jpg'),
@@ -72,6 +65,41 @@ export default {
           p: "若因天氣因素而無法出發，則啟航日期向後順延14天，最多順延兩次，若依然因為天氣因素無法成團，則退費70%",
         },
       ],
+      journeyAll: [
+        {
+          id:1,
+          traveDate:"2023/ 11/1~11/10",
+          traningDate:"2023/ 11/1~11/10",
+          order: 6,
+          Alternate: 0,
+          state: this.j1C,
+          function: this.j1f,
+        },{
+          id:2,
+          traveDate:"2023/ 12/1~11/10",
+          traningDate:"2023/ 11/29~1/30",
+          order: 2,
+          Alternate: 0,
+          state: this.j2C,
+          function: this.j2f,
+        },{
+          id:3,
+          traveDate:"2024/ 1/1~1/10",
+          traningDate:"2023/ 12/30~12/31",
+          order: 7,
+          Alternate: 0,
+          state: this.j3C,
+          function: this.j3f,
+        },{
+          id:4,
+          traveDate:"2024/ 3/1~3/10",
+          traningDate:"2024/ 2/27~2/28",
+          order: 4,
+          Alternate: 0,
+          state: this.j4C,
+          function: this.j4f,
+        }
+      ],
       currentAmount: "1",
 
       // subContent: [
@@ -81,6 +109,7 @@ export default {
     }
   },
   methods: {
+    
     show1F() {
       this.show1 = true;
       this.show2 = false;
@@ -103,38 +132,6 @@ export default {
       this.B = !this.Chosen01;
       this.journey = "太空之心";
     }, 
-    j1f() {
-      this.j1C =!this.j1C;
-      this.j2C = false;
-      this.j3C = false;
-      this.j4C = false;
-      this.amount = this.j1[1];
-      this.date = this.j1[2];
-    },
-    j2f() {
-      this.j2C =!this.j2C;
-      this.j1C = false;
-      this.j3C = false;
-      this.j4C = false;
-      this.amount = this.j2[1];
-      this.date = this.j2[2];
-    },
-    j3f() {
-      this.j3C =!this.j3C;
-      this.j1C = false;
-      this.j2C = false;
-      this.j4C = false;
-      this.amount = this.j3[1];
-      this.date = this.j3[2];
-    },
-    j4f() {
-      this.j4C =!this.j4C;
-      this.j1C = false;
-      this.j2C = false;
-      this.j3C = false;
-      this.amount = this.j4[1];
-      this.date = this.j4[2];
-    },
     udpateForm(form, index) {
       console.log(form, index)
       this.formList[index] = form;
@@ -166,6 +163,27 @@ export default {
     currentAmount() {
       this.formList = []
     },
+      activeId: {
+        handler(newActiveId) {
+          this.amount = this.journeyAll[newActiveId-1].order;
+          this.date = this.journeyAll[newActiveId-1].traningDate;
+          // if (newActiveId === 1) {
+          //   this.amount = this.journeyAll[0].order;
+          //   this.date = this.journeyAll[0].traningDate;
+          // } else if (newActiveId === 2) {
+          //   this.amount = this.journeyAll[1].order;
+          //   this.date = this.journeyAll[1].traningDate;
+          // } else if (newActiveId === 3) {
+          //   this.amount = this.journeyAll[2].order;
+          //   this.date = this.journeyAll[2].traningDate;
+          // } else if (newActiveId === 4) {
+          //   this.amount = this.journeyAll[3].order;
+          //   this.date = this.journeyAll[3].traningDate;
+          // }
+        },
+
+      }
+    
   },
   name: 'App',
   components: {

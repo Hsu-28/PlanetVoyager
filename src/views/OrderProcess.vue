@@ -31,7 +31,7 @@
           <button :class="btn1" @click="show1F">月球巡禮</button>
           <button :class="btn2" @click="show2F">太空之心</button>
         </div>
-        <div class="introduce-p" v-show="show1"  @click="chose0" :class="{'chosen':Chosen0}">
+        <div class="introduce-p" v-show="show1" >
           <h3>月球巡禮</h3>
           <h4>用你的一小步 見證人類的一大步</h4>
           <p>由地球出發
@@ -125,37 +125,19 @@
         </div>
       </div>
       <div class="inR">
-        <div class="itinerary-d" @click="j1f" :class="{ 'chosen': j1C }">
+        <div  v-for="(item ,index) in journeyAll" 
+          class="itinerary-d" 
+          @click="activeId = item.id " 
+          :key="id" 
+          :class="{ 'chosen': activeId === item.id }"  
+          >
+        
           <h5>航程日期: </h5>
-          <p>{{j1[0]}}</p>
+          <p>{{item.traveDate}}</p>
           <h5>訓練日期:</h5>
-          <p>{{j1[2]}}</p>
+          <p>{{item.traningDate}}</p>
 
-          <p class="space">團位: 10 可售: {{ j1[1] }} 候補: 0</p>
-        </div>
-        <div class="itinerary-d" @click="j2f" :class="{ 'chosen': j2C }">
-          <h5>航程日期: </h5>
-          <p>{{j2[0]}}</p>
-          <h5>訓練日期:</h5>
-          <p>{{j2[2]}}</p>
-
-          <p class="space">團位: 10 可售: {{j2[1]}} 候補: 0</p>
-        </div>
-        <div class="itinerary-d" @click="j3f" :class="{ 'chosen': j3C }">
-          <h5>航程日期: </h5>
-          <p>{{j3[0]}}</p>
-          <h5>訓練日期:</h5>
-          <p>{{j3[2]}}</p>
-
-          <p class="space">團位: 10 可售: {{j3[1]}}候補: 0</p>
-        </div>
-        <div class="itinerary-d" @click="j4f" :class="{ 'chosen': j4C }">
-          <h5>航程日期: </h5>
-          <p>{{j4[0]}}</p>
-          <h5>訓練日期:</h5>
-          <p>{{j4[2]}}</p>
-
-          <p class="space">團位: 10 可售: {{j4[1]}} 候補: 0</p>
+          <p class="space">團位: 10 可售: {{ item.order }} 候補:  {{ item. Alternate }}</p>
         </div>
       </div>
     </section>
