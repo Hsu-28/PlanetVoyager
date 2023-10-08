@@ -8,8 +8,8 @@ import orderList from "@/components/PerOrder.vue";
 export default {
   data() {
     return {
+    
       activeId: "",
-      phpData: '',
       jpRate:0,
       ntRate:0,
       orderCheck: false,
@@ -67,39 +67,52 @@ export default {
       ],
       journeyAll: [
         {
-          id:1,
-          traveDate:"2023/ 11/1~11/10",
-          traningDate:"2023/ 11/1~11/10",
-          order: 6,
-          Alternate: 0,
-          state: this.j1C,
-          function: this.j1f,
-        },{
-          id:2,
-          traveDate:"2023/ 12/1~11/10",
-          traningDate:"2023/ 11/29~1/30",
-          order: 2,
-          Alternate: 0,
-          state: this.j2C,
-          function: this.j2f,
-        },{
-          id:3,
-          traveDate:"2024/ 1/1~1/10",
-          traningDate:"2023/ 12/30~12/31",
-          order: 7,
-          Alternate: 0,
-          state: this.j3C,
-          function: this.j3f,
-        },{
-          id:4,
-          traveDate:"2024/ 3/1~3/10",
-          traningDate:"2024/ 2/27~2/28",
-          order: 4,
-          Alternate: 0,
-          state: this.j4C,
-          function: this.j4f,
-        }
+        "trip_no": "",
+        "itinerary_no": "",
+        "trip_date": "",
+        "max_num": "",
+        "signup_num": "",
+        "waiting_people": "",
+        "training_date": ""
+      }, {
+        "trip_no": "",
+        "itinerary_no": "",
+        "trip_date": "",
+        "max_num": "",
+        "signup_num": "",
+        "waiting_people": "",
+        "training_date": ""
+      }, {
+        "trip_no": "",
+        "itinerary_no": "",
+        "trip_date": "",
+        "max_num": "",
+        "signup_num": "",
+        "waiting_people": "",
+        "training_date": ""
+      }, {
+        "trip_no": "",
+        "itinerary_no": "",
+        "trip_date": "",
+        "max_num": "",
+        "signup_num": "",
+        "waiting_people": "",
+        "training_date": ""
+      },
+       
       ],
+      subtitle:[
+        {
+            "planet_subtitle": "",
+            "content_title":'',
+            "introduction":''
+        },
+        {
+            "planet_subtitle": "",
+            "content_title":'',
+            "introduction":''
+        }
+    ],
       currentAmount: "1",
 
       // subContent: [
@@ -125,12 +138,12 @@ export default {
     af() {
       this.B = false;
       this.A = !this.Chosen00;
-      this.journey = "月球巡禮";
+      this.journey = this.subtitle[0].planet_subtitle;
     },
     bf() {
       this.A = false;
       this.B = !this.Chosen01;
-      this.journey = "太空之心";
+      this.journey =  this.subtitle[1].planet_subtitle;
     }, 
     udpateForm(form, index) {
       console.log(form, index)
@@ -163,13 +176,13 @@ export default {
     currentAmount() {
       this.formList = []
     },
-      activeId: {
-        handler(newActiveId) {
-          this.amount = this.journeyAll[newActiveId-1].order;
-          this.date = this.journeyAll[newActiveId-1].traningDate;
-        },
+      // activeId: {
+      //   handler(newActiveId) {
+      //     this.amount = this.journeyAll[newActiveId-1].signup_num;
+      //     this.date = this.journeyAll[newActiveId-1].traningDate;
+      //   },
 
-      }
+      // }
     
   },
   name: 'App',
@@ -189,9 +202,16 @@ export default {
     });
 
     // 發起HTTP GET 請求
-    axios.get('http://localhost/PV/phptest.php')
+    axios.get('http://localhost/PV/PlanetVoyager/public/php/orderprocess.php')
       .then(response => {
-        this.phpData = response.data;
+        this.subtitle = response.data;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+      axios.get('http://localhost/PV/PlanetVoyager/public/php/orderprocess2.php')
+      .then(response => {
+        this.journeyAll = response.data;
       })
       .catch(error => {
         console.error(error);
