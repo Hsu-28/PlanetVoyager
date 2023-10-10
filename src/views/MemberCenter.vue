@@ -9,25 +9,28 @@
               <div class="upload">
                 <!-- <img src="~@/assets/image/membercenter/avatar.png" alt="頭像"> -->
                 <!-- <label for="title"  class="upload-title">上傳圖片</label> -->
+                <form action="upload.php" method="post" enctype="multipart/form-data">
                   <div class="UploadImg">
                       <div class="img" v-for="i in 1" :key="i">
                         <label class="custom-file-upload">
                           <p  @mousedown="triggerFileInput(i)">＋</p>
-                          <input type="file" accept="image/*" ref="fileInput" style="display: none" @change="handleFileUpload(i, $event)">
+                          <input type="file"  name="user_image" accept="image/*" ref="fileInput" style="display: none" @change="handleFileUpload(i, $event)">
                           <img v-if="imgsData[i]" :src="uploadedImages[i]" alt="">
                         </label>
                     </div>
-                </div>
+                  </div>
+                <input type="submit" value="上傳圖片">
+                </form>
               </div>
+          
               <div class="mem-box">
                 <div class="greeting">
                   <img src="../assets/image/membercenter/level1.svg" alt="icon" class="icon">
                   <p>HI,<span class="nickname">玫瑰</span></p>
-                  <!-- <p>HI,<span class="nickname">{{ nickname }}</span></p> -->
                 </div>
               <div class="mem-number">
-                <p>會員編號<span class="number">0001</span></p>
-                <p>今年度捐款金額<br><span class="sum">$20,000</span></p>
+                <p>會員編號<span class="number">{{ phpData.mem_no }}</span></p>
+                <p>今年度捐款金額<br><span class="sum">{{ phpData.donate_sum }}</span></p>
               </div>
             </div>
           </div>
@@ -62,6 +65,7 @@
                           <select  required v-model="sex" id="sex" style="color:#F0F0F0;">
                               <option value="1" >男性</option>
                               <option value="2" >女性</option>
+                              <option value="other">其他</option>
                           </select></p>
                       <p><span>生日</span><br>
                           <input type="date"  id="bir" required v-model="birthday"></p>
@@ -508,6 +512,7 @@
   import SectionTitle from '../components/SectionTitle.vue';
   import { reactive } from 'vue';
   import { Collapse } from 'vue-collapsed';
+  import axios from 'axios';
 
   export default {
     components: {
@@ -516,6 +521,7 @@
   
     data() {
       return {
+        phpData: '',
         titles: ['會員中心', 'MEMBER CENTER'],
         uploadedImages: {}, 
         imgsData: {},
@@ -562,7 +568,7 @@
         panelExpanded: false,
         orders: [
           { 
-            img: require("@/assets/image/membercenter/moon_order_01.svg"), 
+            img: require("@/assets/image/membercenter/moon_order_01.jpg"), 
             orderTitle: '太空之心',
             headcount: '4人',
             departureDate:'2024-05-10 15:00',
@@ -597,7 +603,7 @@
             ]
           },
           { 
-            img: require("@/assets/image/membercenter/mars_order_01.svg"), 
+            img: require("@/assets/image/membercenter/c12.jpg"), 
             orderTitle: '行星繞行',
             headcount: '2人',
             departureDate: '2023-5-20 19:00',
@@ -620,7 +626,7 @@
             ]  
           },
           { 
-            img: require("@/assets/image/membercenter/mars_check.svg"), 
+            img: require("@/assets/image/membercenter/mars_check.jpg"), 
             orderTitle: '尋找生命之旅',
             headcount: '3人',
             departureDate: '2021-10-20 19:00',
@@ -792,6 +798,20 @@
       };
     },
 
+    created(){
+      //發起HTTP GET請求
+      axios.get('http://localhost/PV/phptest.php') 
+      .then(response => {
+        this.phpData = response.data;
+        //this.phpData = response.data;這行很重要
+        //response是一筆很大的資料  我們先設定拿裡面的data就好
+        //所以要寫response.data
+      })
+      .catch(error =>{
+        console.error(error);
+      });
+    },
+
     mounted() {
         //檢常窗口是否是行動裝置
         this.checkMobile();
@@ -893,7 +913,6 @@
       event.preventDefault();
   },
   },
-
       accordionEvent() {
         //點擊+號展開
         const acc = document.getElementsByClassName("client-accordion");
@@ -933,12 +952,6 @@
     },
   };
 
-
-  // function handleAccordion(selectedIndex) {
-  //   questions.forEach((_, index) => {
-  //     questions[index].isExpanded = index === selectedIndex ? !questions[index].isExpanded : false
-  //   })
-  // }
 
 
   </script>

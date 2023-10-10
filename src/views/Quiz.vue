@@ -8,35 +8,34 @@
       <img class="bg" src="../assets/image/quiz/1.gif"  alt="bg"> 
        <!-- 星戰開頭 -->
        <div class="star-war-intro">
-          <div class="intro-text">
-            <p>歡迎來到Planet Voyager</p>
-            <p>準備好試試自己適合什麼樣的旅程了嗎?</p>
-          </div>
-          <div class="intro-img"><img src="../assets/image/quiz/star-war-style.png" alt=" title"></div> 
-      </div>
-      <button @click="startQuiz">開始</button>
-    </div>
-
-
-
-
-
-
     
+           <div class="intro-text">
+            <h2 class="hero paths">WELCOME  <br>TO <br>PLANET <br>VOYAGER</h2>
+            <!-- <p>歡迎來到Planet Voyager</p>
+            <p>準備好試試自己適合什麼樣的旅程了嗎?</p> -->
+          </div>
+          <!-- <div class="intro-img"><img src="../assets/image/quiz/star-war-style.png" alt=" title"></div>  -->
+      </div>
+      <button @click="startQuiz" class="shareButton"  v-if="!isMobile">開始</button>
+      <button @click="startQuiz" class="shareButtonRwd"  v-if="isMobile">開始</button>
+    </div>
   </transition>
 
   <!-- 输入暱稱 -->
   <transition name="fade">
       <div v-if="showNameInput" class="nickName">
-        <h2>請輸入暱稱：</h2>
+        <h3>請輸入暱稱：</h3>
         <input v-model="nickname" placeholder="例：新莊新園結依">
-        <button @click="proceedToQuiz">確認</button>
+        <button @click="proceedToQuiz" class="shareButton" >確認</button>
       </div>
     </transition>
 
   <!-- 測驗内容 -->
-    <div v-if="showTest && !quizCompleted " class="test" :style="{ backgroundImage: `url(${getBackgroundImage()})` }">
-        <h2>{{ currentQuestion.title }}</h2>
+    <div v-if="showTest && !quizCompleted " class="test" 
+    :style="{ backgroundImage: `url(${getBackgroundImage()})`, backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }">
+        <div class="overlay"></div>
+        <h4>{{ currentQuestion.title }}</h4>
         <ul class="test-options">
           <li v-for="(option, index) in currentQuestion.options" :key="index" >
             <input
@@ -47,27 +46,32 @@
               required 
             />
             <div class="label-box">
-              <label :for="`option${index}`">{{ option.text }}</label>
+              <label :for="`option${index}`" :class="{ 'selected': selectedOption === option.score }">{{ option.text }}</label>
             </div>
           </li>
         </ul>
-        <button @click="nextQuestion" :disabled="isNextButtonDisabled">Next</button>
-  </div>
+        <button v-if="!isMobile" @click="nextQuestion" :disabled="isNextButtonDisabled"  class="shareButton">Next</button>
+        <button v-if="isMobile" @click="nextQuestion" :disabled="isNextButtonDisabled"  class="shareButtonRwd">Next</button>
+      </div>
   
 
   <!-- 測驗結果 -->
   <transition name="fade">
     <div v-if="quizCompleted" class="result">
-          <p>{{ nickname }}適合的行程是<br><span> {{ getResultCategory(totalScore) }}</span></p>
-          <img v-if="getResultCategory(totalScore) === '金星-夢幻祕境探險之旅'" src="../assets/image/quiz/venus-04.png"  alt="Image 1">
-          <img v-if="getResultCategory(totalScore) === '金星-人文遺跡之旅'" src="../assets/image/quiz/venus-02.png" alt="Image 2">
-          <img v-if="getResultCategory(totalScore) === '火星-尋找生命之旅'" src="../assets/image/quiz/mars-04.png" alt="Image 3">
-          <img v-if="getResultCategory(totalScore) === '火星-奧林帕斯山脈之旅'" src="../assets/image/quiz/mars-01.png" alt="Image 4">
-          <img v-if="getResultCategory(totalScore) === '月球-太空之心'" src="../assets/image/quiz/moon-04.png" alt="Image 5">
-          <img v-if="getResultCategory(totalScore) === '月球-月球巡禮'" src="../assets/image/quiz/moon-02.png" alt="Image 6">
-          <img v-if="getResultCategory(totalScore) === '行星繞行'" src="../assets/image/quiz/tour01.png" alt="Image 7">
-          <img v-if="getResultCategory(totalScore) === '留在地球'" src="../assets/image/quiz/stay-earth.png" alt="Image 8">
+      <div class="result-content">
+          <p>{{ nickname }}適合的行程是<br><span class="tripName"> {{ getResultCategory(totalScore) }}</span></p>
 
+          <img v-if="getResultCategory(totalScore) === '金星-夢幻祕境探險之旅'" src="../assets/image/quiz/venus-dream.png"  alt="Image 1" class="kenburns-top">
+          <img v-if="getResultCategory(totalScore) === '金星-人文遺跡之旅'" src="../assets/image/quiz/venus2.png" alt="Image 2" class="kenburns-top">
+          <img v-if="getResultCategory(totalScore) === '火星-尋找生命之旅'" src="../assets/image/quiz/mars-life.png" alt="Image 3" class="kenburns-top">
+          <img v-if="getResultCategory(totalScore) === '火星-奧林帕斯山脈之旅'" src="../assets/image/quiz/mars2.png" alt="Image 4" class="kenburns-top">
+          <img v-if="getResultCategory(totalScore) === '月球-太空之心'" src="../assets/image/quiz/moon-heart.png" alt="Image 5" class="kenburns-top">
+          <img v-if="getResultCategory(totalScore) === '月球-月球巡禮'" src="../assets/image/quiz/moon2.png" alt="Image 6" class="kenburns-top">
+          <img v-if="getResultCategory(totalScore) === '行星繞行'" src="../assets/image/quiz/combo.png" alt="Image 7" class="kenburns-top">
+          <img v-if="getResultCategory(totalScore) === '留在地球'" src="../assets/image/quiz/stay-earth.png" alt="Image 8" class="kenburns-top">
+          <div class="overlay2"></div>
+
+          <div v-if="!isMobile" class="resultButton">
           <router-link v-if="getResultCategory(totalScore) === '金星-夢幻祕境探險之旅'"  :to="'/itineraryVenus'">
           <button class="leave">查看行程</button></router-link>
           <router-link v-else-if="getResultCategory(totalScore) === '金星-人文遺跡之旅'" :to="'/itineraryVenus2' ">
@@ -82,12 +86,32 @@
           <button class="leave">查看行程</button></router-link>
           <router-link v-else-if="getResultCategory(totalScore) === '行星繞行'" :to="'/itineraryCombo'">
           <button class="leave">查看行程</button></router-link>
-          
-          
-          
-          <!-- <button @click="leave" class="leave">查看行程</button> -->
           <button @click="tryAgain" class="tryAgain">再玩一次</button>
+          </div>
+       
+
+        <div class="optionButton"  v-if="isMobile">
+          <div class="rwdOption">
+            <router-link v-if="getResultCategory(totalScore) === '金星-夢幻祕境探險之旅'"  :to="'/itineraryVenus'">
+            <button class="leaveRwd">查看行程</button></router-link>
+            <router-link v-else-if="getResultCategory(totalScore) === '金星-人文遺跡之旅'" :to="'/itineraryVenus2' ">
+            <button class="leaveRwd">查看行程</button></router-link>
+            <router-link v-else-if="getResultCategory(totalScore) === '火星-尋找生命之旅'" :to="'/itineraryMars2'">
+            <button class="leaveRwd">查看行程</button></router-link>
+            <router-link v-else-if="getResultCategory(totalScore) === '火星-奧林帕斯山脈之旅'" :to="'/itineraryMars'">
+            <button class="leaveRwd">查看行程</button> </router-link>
+            <router-link v-else-if="getResultCategory(totalScore) === '月球-太空之心'" :to="'/itineraryMoon2'">
+            <button class="leaveRwd">查看行程</button></router-link>
+            <router-link v-else-if="getResultCategory(totalScore) === '月球-月球巡禮'" :to="'/itineraryMoon'">
+            <button class="leaveRwd">查看行程</button></router-link>
+            <router-link v-else-if="getResultCategory(totalScore) === '行星繞行'" :to="'/itineraryCombo'">
+            <button class="leaveRwd">查看行程</button></router-link>
+          </div>
+          <button @click="tryAgain" class="tryAgainRwd">再玩一次</button>
+        </div> 
+        
       </div>
+    </div>
   </transition>
 
 
@@ -95,7 +119,7 @@
 </template>
 
 <script>
-import ButtonStyle from '../components/ButtonFlash.vue';
+
 
 export default {
   data() {
@@ -129,7 +153,7 @@ export default {
           options: [
             { text: "為什麼長得跟哆啦x夢有99分像", score: 0 },
             { text: "好啊好啊我+1", score: 20 },
-            { text: "不了，我想要先在村子附近探勘環境，看看有沒有古蹟", score: 10 },
+            { text: "不了，我想要先在村子附近探勘環境", score: 10 },
             { text: "好想要一起去，可是又好想看看附近有什麼喔", score: 1 }
           ]
         },
@@ -146,9 +170,11 @@ export default {
       currentQuestionIndex: 0,
       selectedOption: null,
       totalScore: 0,
-      quizCompleted: false,      
+      quizCompleted: false, 
+      isMobile: false, 
     };
   },
+  
   computed: {
     currentQuestion() {
       return this.questions[this.currentQuestionIndex];
@@ -157,7 +183,16 @@ export default {
     isNextButtonDisabled() {
       return this.selectedOption === null;
   },
+
   },
+
+  mounted() {
+        //檢常窗口是否是行動裝置
+        // this.checkMobile();
+        window.addEventListener('resize', this.checkMobile);
+  },
+
+
   methods: {
     //開場動畫
     startQuiz() {
@@ -215,13 +250,44 @@ export default {
     // 獲取背景圖像 URL
     getBackgroundImage() {
        const backgroundImageMap = {
-         0: require("@/assets/image/quiz/1.gif"),
-         1:  require("@/assets/image/quiz/bg1.gif"),
-         2:"../path/to/image2.jpg",
-         3:  require("@/assets/image/quiz/bg3.gif"),
+        0: require("@/assets/image/quiz/2.gif"),
+        1: require("@/assets/image/quiz/3.gif"),
+        2: require("@/assets/image/quiz/5.gif"),
+        3: require("@/assets/image/quiz/7.gif"),
        };
        return backgroundImageMap[this.currentQuestionIndex] || "";
     },
+
+    //確定輸入暱稱
+    proceedToQuiz() {
+    // 檢查暱稱是否存在並且不為空
+    if (this.nickname.trim() !== '') {
+      if (this.showIntro) {
+        this.showIntro = false;
+        this.showTest = true;
+      } else {
+        this.showNameInput = false;
+        this.showTest = true; 
+      }
+    } else {
+      alert('請輸入暱稱');
+    }
+    },
+    
+    checkMobile() {
+    // 根據窗口寬度判斷是否爲行動裝置
+        this.isMobile = window.innerWidth <= 768;
+      },
+    // 判斷是否是行動裝置（小於等於 768px）
+    checkMobile() {
+        const screenWidth = window.innerWidth;
+        this.isMobile = screenWidth <= 768;
+      },
+      beforeUnmount() {
+            // 在元件銷燬前移除窗口大小監聽器
+         window.removeEventListener('resize', this.checkMobile);
+    },
+
   }
 };
 </script>
