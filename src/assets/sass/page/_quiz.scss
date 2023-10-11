@@ -193,6 +193,10 @@
     transition: background-color 0.3s;
     display: flex;
     flex-wrap: wrap;
+    cursor: pointer; 
+    &:hover, .selected label {
+      border-color: $inputB; 
+    }
 }  
 
 
