@@ -38,8 +38,8 @@
 		// antialias 啟動讓畫面更平滑，但是運算上比較吃耗能
 		// alpha 啟動背景為透明，可以讓後面的東西透出來
 
-		const width = window.innerWidth * 0.4; // 20% of window width，自己設的變數不重要
-    	const height = width ; // 20% of window height，自己設的變數不重要
+		const width = window.innerWidth * 0.5; // 20% of window width，自己設的變數不重要
+    	const height = width*0.5 ; // 20% of window height，自己設的變數不重要
 
         renderer.setSize( width , height );//設定場景尺寸
         renderer.setClearColor(0xffffff, 0);//設定場景背景顏色
