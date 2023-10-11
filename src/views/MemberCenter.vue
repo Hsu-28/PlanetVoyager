@@ -1,5 +1,6 @@
 <template>
     <div id="membercenter">
+      <router-view>
       <div class="memtitle">
         <h2 v-for="title in titles">{{title}}</h2></div>
       <!-- 上方會員資訊 -->
@@ -26,7 +27,7 @@
               <div class="mem-box">
                 <div class="greeting">
                   <img src="../assets/image/membercenter/level1.svg" alt="icon" class="icon">
-                  <p>HI,<span class="nickname">玫瑰</span></p>
+                  <p>HI,<span class="nickname">{{ phpData.mem_nickname }}</span></p>
                 </div>
               <div class="mem-number">
                 <p>會員編號<span class="number">{{ phpData.mem_no }}</span></p>
@@ -38,7 +39,7 @@
         <ul class="tab-mem-title">
           <li v-for="(option, index) in optionCard" :key="option.id" class="option-tab">
           <div class="top-tab" :class="{ 'active': option.id === activeId }">
-            <button @click="activeId = option.id">
+            <button @click="handleOptionClick(option)">
             <div class="pic" :class="{ 'active-pic': option.id === activeId }" >
               <img :src="option.img" alt="icon"></div>
             {{ option.name }}
@@ -142,11 +143,19 @@
                     <div class="od-sec" >
                       <img v-if="order.img" :src="order.img"  alt="orderpic">
                       <div class="trip-content">
+                        <!-- <p>行程：{{ phpData.content_title }}</p>
+                        <p>人數：{{ phpData.ord_people }}人</p>
+                        <p>出團日期：<br>{{ phpData.trip_date }}</p>
+                        <p class="order-amount" v-if="!isMobile">{{ phpData.total_amount }}</p>
+                        <p class="order-date" v-if="!isMobile">{{ phpData.orders_date }}</p> -->
+                        <!-- <p class="rwdAmount" v-if="isMobile">金額：{{ phpData.trip_amount }}</p>
+                        <p class="rwdDate" v-if="isMobile">訂購日期：<br>{{ phpData.orders_date }}</p>  -->
+                        
                         <p>行程：{{ order.orderTitle }}</p>
-                        <p>人數：{{ order.headcount }}</p>
+                        <p>人數：{{ order.headcount }}</p> 
                         <p>出團日期：<br>{{ order.departureDate }}</p>
                         <p class="rwdAmount" v-if="isMobile">金額：{{ order.amount }}</p>
-                        <p class="rwdDate" v-if="isMobile">訂購日期：<br>{{ order.orderDate }}</p>
+                        <p class="rwdDate" v-if="isMobile">訂購日期：<br>{{ order.orderDate }}</p> 
                       </div> 
                   </div>
                   <button v-if="!isMobile" class="client-accordion" @click="toggleUserExpanded(order)" >
@@ -160,7 +169,7 @@
                     </button>
                 </div>
                     <p class="order-amount" v-if="!isMobile">{{ order.amount }}</p>
-                    <p class="order-date" v-if="!isMobile">{{ order.orderDate }}</p>
+                    <p class="order-date" v-if="!isMobile">{{ order.orderDate }}</p> 
                 </div>
           
                 <Collapse :when="order.isExpanded" :onExpanded="scrollIntoView" class="collapse">
@@ -490,15 +499,13 @@
               </div>
               </div>
 
-             
-
-
             </div>
           </div>
           
       
   </div> 
   </div> 
+</router-view>
 </div> 
   </template>
 
@@ -526,7 +533,7 @@
         uploadedImages: {}, 
         imgsData: {},
         activeId: 1,
-        fixedIds: [1, 2, 3, 4],
+        fixedIds: [1, 2, 3, 4, 5],
         optionCard: [
           {
             id: 1,
@@ -547,6 +554,11 @@
             id: 4,
             name: '會員等級',
             img: require("@/assets/image/membercenter/level1.svg"),
+          },
+          {
+            id: 5,
+            name: '登出',
+            img: require("@/assets/image/membercenter/log-out.svg"),
           },
         ],
         showContent: null,
@@ -826,6 +838,15 @@
       triggerFileInput(index) {
             this.$refs.fileInput[index -1].click();
       },
+      
+      //登出
+      handleOptionClick(option) {
+      if (option.id === 5) {
+        this.$router.push('/');
+      } else {
+        this.activeId = option.id;
+      }
+    },
   
       handleFileUpload(index, event) {
             const fileInput = event.target;
