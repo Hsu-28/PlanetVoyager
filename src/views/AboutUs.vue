@@ -139,39 +139,6 @@
     </div>
 
     <div class="bottom"></div>
-
-    <!-- 聊天機器人按鈕 -->
-    <!-- <button id="chatButton"><img src="../assets/image/chatbot/chatbot.svg" alt=""></button> -->
-    <!-- 聊天動態按鈕 -->
-    <button id="chatButton" class="cb">
-        <div class="cb__img"></div>
-        <div class="cb__img"></div>
-        <div class="cb__img"></div>
-        <div class="cb__img"></div>
-        <div class="cb__img"></div>
-    </button>
-    <!-- 聊天室 -->
-    <div id="chatRoom">
-        <div id="chatHeader">PlanetVoyager小幫手</div>
-        <div id="chatMessages">
-            <!-- 使用 v-for 渲染消息列表 -->
-            <div class="message" :class="message.isCustomer ? 'sent' : 'received'" v-for="(message, index) in messages"
-                :key="index">
-                {{ message.text }}
-            </div>
-        </div>
-        <!-- 快速按鈕 -->
-        <div id="btnInput">
-            <button v-for="(btnMessage, index) in btnMessages" :key="index" @click="handleButtonClick(index)"
-                id="btnMessage">
-                {{ btnMessage.text }}
-            </button>
-        </div>
-        <div id="chatInput">
-            <input type="text" id="messageInput" placeholder="Type your message..." v-model="newMessageText">
-            <button id="sendButton" @click="sendMessage"><img src="../assets/image/chatbot/send.svg" alt=""></button>
-        </div>
-    </div>
 </template>
 
 <style scoped lang="scss">

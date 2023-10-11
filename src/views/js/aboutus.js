@@ -2,7 +2,7 @@ import { EffectCards } from 'swiper/modules';
 import 'swiper/css';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css/effect-cards';
-import { onMounted } from 'vue';
+// import { onMounted } from 'vue'; //聊天機器人
 import { gsap, Power0 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -95,31 +95,6 @@ export default {
                     text: "我們將目光投向更遠的未來，計劃更遠的目的地和更多的太空冒險。我們將繼續領先，實現太空夢！"
                 }
             ],
-
-
-            //聊天機器人
-            messages: [ // 聊天消息列表
-                {
-                    text: "您好，歡迎來到PlanetVoyager，有什麼能幫助您的嗎？",
-                    isCustomer: false
-                },
-                // 其他消息
-            ],
-            newMessageText: "", // 用於綁定新消息的文本
-            btnMessages: [
-                {
-                    text: "可以造訪哪些星球?"
-                },
-                {
-                    text: "我想了解行程"
-                },
-                {
-                    text: "行程訓練要準備什麼呢?"
-                },
-                {
-                    text: "捐款可以兌換什麼?"
-                }
-            ]
         };
     },
     methods: {
@@ -140,77 +115,6 @@ export default {
                 });
             };
         },
-
-        // 聊天機器人輸入訊息回覆
-        sendMessage() {
-            const messageText = this.newMessageText.trim();
-            if (messageText !== '') {
-                // 添加新消息到列表中
-                this.messages.push({
-                    text: messageText,
-                    isCustomer: true // 假設這是顧客發送的消息
-                });
-                this.newMessageText = ''; // 清空輸入框
-
-                // 機器人回覆
-                setTimeout(() => {
-                    this.messages.push({
-                        text: '我不明白您的問題',
-                        isCustomer: false // 假設這是機器人的回覆
-                    });
-                }, 1000);
-            }
-        },
-
-        // 聊天機器人點擊按鈕回覆
-        handleButtonClick(index) {
-            // 添加新消息到列表中
-            this.messages.push({
-                text: this.btnMessages[index].text,
-                isCustomer: true // 假設這是顧客發送的消息
-            });
-            // 機器人回覆
-            setTimeout(() => {
-                this.replyToUser(index);
-            }, 1000);
-        },
-        replyToUser(index) {
-            // 根據按鈕回覆不同內容
-            switch (index) {
-                case 0:
-                    this.messages.push({
-                        text: "您可以造訪月球、火星及金星。",
-                        isCustomer: false
-                    });
-                    break;
-                case 1:
-                    this.messages.push({
-                        text: "行程詳情請至星際旅程頁面了解~",
-                        isCustomer: false
-                    });
-                    break;
-                case 2:
-                    this.messages.push({
-                        text: "需要上傳健康評估、並參與七天訓練課程，其餘詳情請至行前準備頁面！",
-                        isCustomer: false
-                    });
-                    break;
-                case 3:
-                    this.messages.push({
-                        text: "會員等級達到銀可兌換鑰匙圈、金兌換棒球帽、白金兌換帽T、鑽石兌換太空人頭盔，還有機會抽中大獎喔！快去支持星際探索頁面看看！",
-                        isCustomer: false
-                    });
-                    break;
-                default:
-                    this.messages.push({
-                        text: "我不明白您的問題",
-                        isCustomer: false
-                    });
-            }
-        },
-
-
-
     },
     mounted() {
         this.accordionEvent()
@@ -248,20 +152,8 @@ export default {
         });
     },
     setup() {
-        onMounted(() => {
-            chatbot();
-        });
         return {
             modules: [EffectCards],
-        };
-
-        function chatbot() {
-            const chatButton = document.getElementById('chatButton');
-
-            // 點擊聊天機器人按鈕時顯示/隱藏聊天室
-            chatButton.addEventListener('click', () => {
-                chatRoom.style.display = chatRoom.style.display === 'block' ? 'none' : 'block';
-            });
-        };
+        };;
     },
 }
