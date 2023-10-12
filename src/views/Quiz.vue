@@ -61,7 +61,7 @@
       <div class="result-content">
           <p>{{ nickname }}適合的行程是<br><span class="tripName"> {{ getResultCategory(totalScore) }}</span></p>
 
-          <img v-if="getResultCategory(totalScore) === '金星-夢幻秘境探險之旅'" src="../assets/image/quiz/venus2.png" alt="Image 1" class="kenburns-top">
+          <img v-if="getResultCategory(totalScore) === '金星-夢幻秘境探險之旅'" src="../assets/image/quiz/venus-dream.png" alt="Image 1" class="kenburns-top">
           <img v-if="getResultCategory(totalScore) === '金星-人文遺跡之旅'" src="../assets/image/quiz/venus2.png" alt="Image 2" class="kenburns-top">
           <img v-if="getResultCategory(totalScore) === '火星-尋找生命之旅'" src="../assets/image/quiz/mars-life.png" alt="Image 3" class="kenburns-top">
           <img v-if="getResultCategory(totalScore) === '火星-奧林帕斯山脈之旅'" src="../assets/image/quiz/mars2.png" alt="Image 4" class="kenburns-top">
