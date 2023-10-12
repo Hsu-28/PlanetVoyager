@@ -1,5 +1,6 @@
 <template>
     <div id="membercenter">
+      <router-view>
       <div class="memtitle">
         <h2 v-for="title in titles">{{title}}</h2></div>
       <!-- 上方會員資訊 -->
@@ -9,25 +10,28 @@
               <div class="upload">
                 <!-- <img src="~@/assets/image/membercenter/avatar.png" alt="頭像"> -->
                 <!-- <label for="title"  class="upload-title">上傳圖片</label> -->
+                <form action="upload.php" method="post" enctype="multipart/form-data">
                   <div class="UploadImg">
                       <div class="img" v-for="i in 1" :key="i">
                         <label class="custom-file-upload">
                           <p  @mousedown="triggerFileInput(i)">＋</p>
-                          <input type="file" accept="image/*" ref="fileInput" style="display: none" @change="handleFileUpload(i, $event)">
+                          <input type="file"  name="user_image" accept="image/*" ref="fileInput" style="display: none" @change="handleFileUpload(i, $event)">
                           <img v-if="imgsData[i]" :src="uploadedImages[i]" alt="">
                         </label>
                     </div>
-                </div>
+                  </div>
+                <input type="submit" value="上傳圖片">
+                </form>
               </div>
+          
               <div class="mem-box">
                 <div class="greeting">
                   <img src="../assets/image/membercenter/level1.svg" alt="icon" class="icon">
-                  <p>HI,<span class="nickname">玫瑰</span></p>
-                  <!-- <p>HI,<span class="nickname">{{ nickname }}</span></p> -->
+                  <p>HI,<span class="nickname">{{ phpData.mem_nickname }}</span></p>
                 </div>
               <div class="mem-number">
-                <p>會員編號<span class="number">0001</span></p>
-                <p>今年度捐款金額<br><span class="sum">$20,000</span></p>
+                <p>會員編號<span class="number">{{ phpData.mem_no }}</span></p>
+                <p>今年度捐款金額<br><span class="sum">{{ phpData.donate_sum }}</span></p>
               </div>
             </div>
           </div>
@@ -35,7 +39,7 @@
         <ul class="tab-mem-title">
           <li v-for="(option, index) in optionCard" :key="option.id" class="option-tab">
           <div class="top-tab" :class="{ 'active': option.id === activeId }">
-            <button @click="activeId = option.id">
+            <button @click="handleOptionClick(option)">
             <div class="pic" :class="{ 'active-pic': option.id === activeId }" >
               <img :src="option.img" alt="icon"></div>
             {{ option.name }}
@@ -139,11 +143,19 @@
                     <div class="od-sec" >
                       <img v-if="order.img" :src="order.img"  alt="orderpic">
                       <div class="trip-content">
+                        <!-- <p>行程：{{ phpData.content_title }}</p>
+                        <p>人數：{{ phpData.ord_people }}人</p>
+                        <p>出團日期：<br>{{ phpData.trip_date }}</p>
+                        <p class="order-amount" v-if="!isMobile">{{ phpData.total_amount }}</p>
+                        <p class="order-date" v-if="!isMobile">{{ phpData.orders_date }}</p> -->
+                        <!-- <p class="rwdAmount" v-if="isMobile">金額：{{ phpData.trip_amount }}</p>
+                        <p class="rwdDate" v-if="isMobile">訂購日期：<br>{{ phpData.orders_date }}</p>  -->
+                        
                         <p>行程：{{ order.orderTitle }}</p>
-                        <p>人數：{{ order.headcount }}</p>
+                        <p>人數：{{ order.headcount }}</p> 
                         <p>出團日期：<br>{{ order.departureDate }}</p>
                         <p class="rwdAmount" v-if="isMobile">金額：{{ order.amount }}</p>
-                        <p class="rwdDate" v-if="isMobile">訂購日期：<br>{{ order.orderDate }}</p>
+                        <p class="rwdDate" v-if="isMobile">訂購日期：<br>{{ order.orderDate }}</p> 
                       </div> 
                   </div>
                   <button v-if="!isMobile" class="client-accordion" @click="toggleUserExpanded(order)" >
@@ -157,7 +169,7 @@
                     </button>
                 </div>
                     <p class="order-amount" v-if="!isMobile">{{ order.amount }}</p>
-                    <p class="order-date" v-if="!isMobile">{{ order.orderDate }}</p>
+                    <p class="order-date" v-if="!isMobile">{{ order.orderDate }}</p> 
                 </div>
           
                 <Collapse :when="order.isExpanded" :onExpanded="scrollIntoView" class="collapse">
@@ -487,15 +499,13 @@
               </div>
               </div>
 
-             
-
-
             </div>
           </div>
           
       
   </div> 
   </div> 
+</router-view>
 </div> 
   </template>
 
@@ -509,6 +519,7 @@
   import SectionTitle from '../components/SectionTitle.vue';
   import { reactive } from 'vue';
   import { Collapse } from 'vue-collapsed';
+  import axios from 'axios';
 
   export default {
     components: {
@@ -517,11 +528,12 @@
   
     data() {
       return {
+        phpData: '',
         titles: ['會員中心', 'MEMBER CENTER'],
         uploadedImages: {}, 
         imgsData: {},
         activeId: 1,
-        fixedIds: [1, 2, 3, 4],
+        fixedIds: [1, 2, 3, 4, 5],
         optionCard: [
           {
             id: 1,
@@ -543,6 +555,11 @@
             name: '會員等級',
             img: require("@/assets/image/membercenter/level1.svg"),
           },
+          {
+            id: 5,
+            name: '登出',
+            img: require("@/assets/image/membercenter/log-out.svg"),
+          },
         ],
         showContent: null,
         el: 'content',
@@ -563,7 +580,7 @@
         panelExpanded: false,
         orders: [
           { 
-            img: require("@/assets/image/membercenter/moon_order_01.svg"), 
+            img: require("@/assets/image/membercenter/moon_order_01.jpg"), 
             orderTitle: '太空之心',
             headcount: '4人',
             departureDate:'2024-05-10 15:00',
@@ -598,7 +615,7 @@
             ]
           },
           { 
-            img: require("@/assets/image/membercenter/mars_order_01.svg"), 
+            img: require("@/assets/image/membercenter/c12.jpg"), 
             orderTitle: '行星繞行',
             headcount: '2人',
             departureDate: '2023-5-20 19:00',
@@ -621,7 +638,7 @@
             ]  
           },
           { 
-            img: require("@/assets/image/membercenter/mars_check.svg"), 
+            img: require("@/assets/image/membercenter/mars_check.jpg"), 
             orderTitle: '尋找生命之旅',
             headcount: '3人',
             departureDate: '2021-10-20 19:00',
@@ -793,6 +810,20 @@
       };
     },
 
+    created(){
+      //發起HTTP GET請求
+      axios.get('http://localhost/PV/phptest.php') 
+      .then(response => {
+        this.phpData = response.data;
+        //this.phpData = response.data;這行很重要
+        //response是一筆很大的資料  我們先設定拿裡面的data就好
+        //所以要寫response.data
+      })
+      .catch(error =>{
+        console.error(error);
+      });
+    },
+
     mounted() {
         //檢常窗口是否是行動裝置
         this.checkMobile();
@@ -807,6 +838,15 @@
       triggerFileInput(index) {
             this.$refs.fileInput[index -1].click();
       },
+      
+      //登出
+      handleOptionClick(option) {
+      if (option.id === 5) {
+        this.$router.push('/');
+      } else {
+        this.activeId = option.id;
+      }
+    },
   
       handleFileUpload(index, event) {
             const fileInput = event.target;
@@ -894,7 +934,6 @@
       event.preventDefault();
   },
   },
-
       accordionEvent() {
         //點擊+號展開
         const acc = document.getElementsByClassName("client-accordion");
@@ -934,12 +973,6 @@
     },
   };
 
-
-  // function handleAccordion(selectedIndex) {
-  //   questions.forEach((_, index) => {
-  //     questions[index].isExpanded = index === selectedIndex ? !questions[index].isExpanded : false
-  //   })
-  // }
 
 
   </script>

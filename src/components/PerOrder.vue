@@ -1,8 +1,12 @@
 <template>
   <section class="per-order">
+    <form action="">
+
+    
     <div class="order-i">
 
       <h4>旅客{{ numOrder }}</h4>
+     
       <input type="text" placeholder="姓氏(請以英文輸入)" v-model="form.lastName">
       <input type="text" placeholder="名字" v-model="form.name">
       <select type="text" placeholder="性別" v-model="form.gender" class="gender">
@@ -11,11 +15,10 @@
         <option value="女性">女性</option>
         <option value="其他">其他</option>
       </select>
-
-
       <input type="date" placeholder="出生日期" v-model="form.birthday" class="birthday">
       <input type="text" placeholder="國籍" v-model="form.nation">
       <input type="text" placeholder="護照號碼" v-model="form.passId">
+    
       <div class="c-s">
         <div class="clothe">訓練服尺寸:
           <div class="chose-size">
@@ -36,19 +39,17 @@
 
       <div class="remark">
         餐食備註:<br>
-        <textarea name="" id="" cols="50" rows="10" class="remark-t" v-model="form.other">
-
-  </textarea>
+        <textarea name="" id="" cols="50" rows="10" class="remark-t" v-model="form.other"></textarea>
       </div>
-
+    
       <div class="check">
         <input type="checkbox">我已經詳閱健康規定與訂購注意事項。
       </div>
       <label for="fileUpload" class="upload">上傳體檢報告</label>
       <input type="file" id="fileUpload" style="display: none;" class="upload">
       <!-- <div class="upload"> 上傳體檢報告<input type="file" class="upload"></div> -->
-    </div>
-
+      </div>
+  
     <div class="order-s">
       <div class="order-c">
         <h4>選擇艙位</h4>
@@ -65,6 +66,7 @@
 
       </div>
     </div>
+  </form>
   </section>
 </template>
 

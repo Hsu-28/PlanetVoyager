@@ -89,17 +89,15 @@
                     </table>
                 </div>
                 <div v-for="(news, number) in news" :key="number" v-show="activeId === news.id" class="more">
-                    <div class="more-inf">
-                        <div class="more-base">
-                            <div class="more-base-scroll">
-                                <span class="close" @click="hideMore">&times</span>
-                                <img class="more-img" :src="news.img" :alt="news.title">
-                                <p>
-                                    <span class="more-title" v-html="news.title"></span>
-                                <p class="more-text" v-html="news.info">
-                                </p>
-                                </p>
-                            </div>
+                    <div class="more-base">
+                        <div class="more-base-scroll">
+                            <span class="close" @click="hideMore">&times</span>
+                            <img class="more-img" :src="news.img" :alt="news.title">
+                            <p>
+                                <span class="more-title" v-html="news.title"></span>
+                            <p class="more-text" v-html="news.info">
+                            </p>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -151,7 +149,7 @@
                             <br>
                             <span class="h3-en">{{ vehicles.h3enbig }}</span>
                         </h3>
-                        <router-link :to="{ name: 'technology', hash: vehicles.h3enbig }">
+                        <router-link :to="{ name: 'technology', hash: `#${vehicles.h3enbig}` }">
                             <ButtonStyle buttonText="EXPLORE" buttonBottomText="-PV-"></ButtonStyle>
                         </router-link>
                     </div>
@@ -402,7 +400,7 @@ export default {
     },
     mounted() {
         this.$nextTick(() => {
-            document.getElementById("tbodyscroll").scrollTop = 0;
+            document.getElementById("tbodyscroll").scrollTop = -1000000;
         });
 
         const num = document.getElementById("launchesOutside");
