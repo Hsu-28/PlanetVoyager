@@ -147,7 +147,7 @@ export default {
                     name: "PAISLEE COX",//女
                     nameJob: "太空醫療照護",
                     imgSvg: require("@/assets/image/teamMembers/memberSvg/MEDICAL02.svg"),
-                    imgSvg: require("@/assets/image/teamMembers/memberSvg/MEDICAL02.svg"),
+                    // imgSvg: require("@/assets/image/teamMembers/memberSvg/MEDICAL02.svg"),
                     text: `姓名：PAISLEE COX\n
                     學歷：麻省理工學院太空醫學系博士\n
                     經歷：PAISLEE在多次國際太空任務中擔任醫療照護專家，她的專業知識不僅止於太空醫學，她還熟悉跨文化醫療照護，能夠針對不同文化背景的航天員提供個性化的醫療方案。`,
@@ -157,7 +157,7 @@ export default {
                     name: "JOEL BECK",
                     nameJob: "健康監控與評估",
                     imgSvg: require("@/assets/image/teamMembers/memberSvg/MEDICAL03.svg"),
-                    imgSvg: require("@/assets/image/teamMembers/memberSvg/MEDICAL03.svg"),
+                    // imgSvg: require("@/assets/image/teamMembers/memberSvg/MEDICAL03.svg"),
                     text: `姓名：JOEL BECK\n
                     學歷：加州理工學院生物醫學工程系博士\n
                     經歷：BECK深耕於遙感健康監測技術領域，尤其針對太空環境，並多次參與國際太空站的健康監控任務。`,
