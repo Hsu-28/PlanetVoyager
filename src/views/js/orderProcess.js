@@ -1,4 +1,5 @@
 import $ from 'jquery'
+import axios from 'axios';
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 // import { ArrayCamera } from 'three'
@@ -7,6 +8,8 @@ import orderList from "@/components/PerOrder.vue";
 export default {
   data() {
     return {
+    
+      activeId: "",
       jpRate:0,
       ntRate:0,
       orderCheck: false,
@@ -15,21 +18,13 @@ export default {
       NT: 0,
       A: false,
       B: false,
-      j1C: false,
-      j2C: false,
-      j3C: false,
-      j4C: false,
       amount: 6,
+      date: "",
       show1: true,
       show2: false,
       btn1: "btn-active",
       btn2: "",
       journey: "月球巡禮",
-      j1:["2023/ 11/1~11/10",6,"2023/ 10/30~10/31"],
-      j2:["2023/ 12/1~11/10",2,"2023/ 11/29~1/30"],
-      j3:["2024/ 1/1~1/10",7,"2023/ 12/30~12/31"],
-      j4:["2024/ 3/1~3/10",4,"2024/ 2/27~2/28"],
-      date: "",
       imgs: [
         {
            slide: require('@/assets/image/orderProcess/moonc1.jpg'),
@@ -70,6 +65,54 @@ export default {
           p: "若因天氣因素而無法出發，則啟航日期向後順延14天，最多順延兩次，若依然因為天氣因素無法成團，則退費70%",
         },
       ],
+      journeyAll: [
+        {
+        "trip_no": "",
+        "itinerary_no": "",
+        "trip_date": "",
+        "max_num": "",
+        "signup_num": "",
+        "waiting_people": "",
+        "training_date": ""
+      }, {
+        "trip_no": "",
+        "itinerary_no": "",
+        "trip_date": "",
+        "max_num": "",
+        "signup_num": "",
+        "waiting_people": "",
+        "training_date": ""
+      }, {
+        "trip_no": "",
+        "itinerary_no": "",
+        "trip_date": "",
+        "max_num": "",
+        "signup_num": "",
+        "waiting_people": "",
+        "training_date": ""
+      }, {
+        "trip_no": "",
+        "itinerary_no": "",
+        "trip_date": "",
+        "max_num": "",
+        "signup_num": "",
+        "waiting_people": "",
+        "training_date": ""
+      },
+       
+      ],
+      subtitle:[
+        {
+            "planet_subtitle": "",
+            "content_title":'',
+            "introduction":''
+        },
+        {
+            "planet_subtitle": "",
+            "content_title":'',
+            "introduction":''
+        }
+    ],
       currentAmount: "1",
 
       // subContent: [
@@ -79,6 +122,7 @@ export default {
     }
   },
   methods: {
+    
     show1F() {
       this.show1 = true;
       this.show2 = false;
@@ -94,45 +138,13 @@ export default {
     af() {
       this.B = false;
       this.A = !this.Chosen00;
-      this.journey = "月球巡禮";
+      this.journey = this.subtitle[0].planet_subtitle;
     },
     bf() {
       this.A = false;
       this.B = !this.Chosen01;
-      this.journey = "太空之心";
+      this.journey =  this.subtitle[1].planet_subtitle;
     }, 
-    j1f() {
-      this.j1C =!this.j1C;
-      this.j2C = false;
-      this.j3C = false;
-      this.j4C = false;
-      this.amount = this.j1[1];
-      this.date = this.j1[2];
-    },
-    j2f() {
-      this.j2C =!this.j2C;
-      this.j1C = false;
-      this.j3C = false;
-      this.j4C = false;
-      this.amount = this.j2[1];
-      this.date = this.j2[2];
-    },
-    j3f() {
-      this.j3C =!this.j3C;
-      this.j1C = false;
-      this.j2C = false;
-      this.j4C = false;
-      this.amount = this.j3[1];
-      this.date = this.j3[2];
-    },
-    j4f() {
-      this.j4C =!this.j4C;
-      this.j1C = false;
-      this.j2C = false;
-      this.j3C = false;
-      this.amount = this.j4[1];
-      this.date = this.j4[2];
-    },
     udpateForm(form, index) {
       console.log(form, index)
       this.formList[index] = form;
@@ -164,6 +176,14 @@ export default {
     currentAmount() {
       this.formList = []
     },
+      // activeId: {
+      //   handler(newActiveId) {
+      //     this.amount = this.journeyAll[newActiveId-1].signup_num;
+      //     this.date = this.journeyAll[newActiveId-1].traningDate;
+      //   },
+
+      // }
+    
   },
   name: 'App',
   components: {
@@ -180,6 +200,22 @@ export default {
         this.ntRate = data.rates.TWD;
         this.jpRate = data.rates.JPY;
     });
+
+    // 發起HTTP GET 請求
+    axios.get('http://localhost/PV/PlanetVoyager/public/php/orderprocess.php')
+      .then(response => {
+        this.subtitle = response.data;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+      axios.get('http://localhost/PV/PlanetVoyager/public/php/orderprocess2.php')
+      .then(response => {
+        this.journeyAll = response.data;
+      })
+      .catch(error => {
+        console.error(error);
+      });
 }
 
 

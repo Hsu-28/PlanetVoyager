@@ -28,22 +28,18 @@
     <section class="introduce-container">
       <div class="introduce">
         <div class="button-container">
-          <button :class="btn1" @click="show1F">月球巡禮</button>
-          <button :class="btn2" @click="show2F">太空之心</button>
+          <button :class="btn1" @click="show1F">{{subtitle[0].planet_subtitle}}</button>
+          <button :class="btn2" @click="show2F">{{subtitle[1].planet_subtitle}}</button>
         </div>
-        <div class="introduce-p" v-show="show1"  @click="chose0" :class="{'chosen':Chosen0}">
-          <h3>月球巡禮</h3>
-          <h4>用你的一小步 見證人類的一大步</h4>
-          <p>由地球出發
-            一天的航程後，我們將會在第二天登陸月球，朝聖人類的星際里程碑--阿姆斯壯的腳印，之後會遊歷月球上最大的隕石坑---貝利環形山、在滿月海中馳騁、橫越東月大裂谷、參觀台日共構的月球基地，飽覽月球風光後再返回地球。
-          </p>
+        <div class="introduce-p" v-show="show1" >
+          <h3>{{subtitle[0].planet_subtitle}}</h3>
+          <h4>{{subtitle[0].content_title}}</h4>
+          <p> {{subtitle[0].introduction}}</p>
         </div>
         <div class="introduce-p" v-show="show2">
-          <h3>太空之心</h3>
-          <h4>月球七天六夜奇幻之旅</h4>
-          <p>
-            行程簡介：抵達在月球基地後，您將穿上太空服，遊覽著名的月球撞擊坑，體驗月面散步的刺激。不僅如此，您還會採集珍貴的岩石和月壤樣本，並進行科學實驗。以及夜晚的天文觀測和無光污染。最後一天，盡情享受自由活動。最後登上太空船，啟程返回地球，締造您太空之旅的完美結局。
-          </p>
+          <h3>{{subtitle[1].planet_subtitle}}</h3>
+          <h4>{{subtitle[1].content_title}}</h4>
+          <p> {{subtitle[1].introduction}}</p>
         </div>
       </div>
 
@@ -110,11 +106,11 @@
       </div>
       <div class="itinerary-d" @click="af" :class="{ 'chosen': A }">
         <img src="@/assets/image/orderProcess/z.svg" alt="">
-        月球巡禮
+        {{subtitle[0].planet_subtitle}}
       </div>
       <div class="itinerary-d" @click="bf" :class="{ 'chosen': B }">
         <img src="@/assets/image/orderProcess/z.svg" alt="">
-        太空之心
+        {{subtitle[1].planet_subtitle}}
       </div>
     </section>
     <section class="itinerary-cotainer2">
@@ -125,37 +121,25 @@
         </div>
       </div>
       <div class="inR">
-        <div class="itinerary-d" @click="j1f" :class="{ 'chosen': j1C }">
+        <!-- <div  v-for="(item ,index) in journeyAll" 
+          class="itinerary-d" 
+          @click="activeId = item.id " 
+          :key="id" 
+          :class="{ 'chosen': activeId === item.id }"  
+          > -->
+          <div  v-for="(item ,index) in journeyAll" 
+          class="itinerary-d" 
+          @click="activeId = item.trip_no " 
+          :key="trip_no" 
+          :class="{ 'chosen': activeId === item.trip_no}"
+          >
+        
           <h5>航程日期: </h5>
-          <p>{{j1[0]}}</p>
+          <p>{{item.trip_date}}</p>
           <h5>訓練日期:</h5>
-          <p>{{j1[2]}}</p>
+          <p>{{item.training_date}}</p>
 
-          <p class="space">團位: 10 可售: {{ j1[1] }} 候補: 0</p>
-        </div>
-        <div class="itinerary-d" @click="j2f" :class="{ 'chosen': j2C }">
-          <h5>航程日期: </h5>
-          <p>{{j2[0]}}</p>
-          <h5>訓練日期:</h5>
-          <p>{{j2[2]}}</p>
-
-          <p class="space">團位: 10 可售: {{j2[1]}} 候補: 0</p>
-        </div>
-        <div class="itinerary-d" @click="j3f" :class="{ 'chosen': j3C }">
-          <h5>航程日期: </h5>
-          <p>{{j3[0]}}</p>
-          <h5>訓練日期:</h5>
-          <p>{{j3[2]}}</p>
-
-          <p class="space">團位: 10 可售: {{j3[1]}}候補: 0</p>
-        </div>
-        <div class="itinerary-d" @click="j4f" :class="{ 'chosen': j4C }">
-          <h5>航程日期: </h5>
-          <p>{{j4[0]}}</p>
-          <h5>訓練日期:</h5>
-          <p>{{j4[2]}}</p>
-
-          <p class="space">團位: 10 可售: {{j4[1]}} 候補: 0</p>
+          <p class="space">團位: 10 可售: {{ item.signup_num}} 候補:  {{ item. waiting_people }}</p>
         </div>
       </div>
     </section>

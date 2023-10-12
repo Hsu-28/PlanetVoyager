@@ -560,7 +560,7 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
 //訂購按鈕
 .cybr-btn {
     min-width: 0px;
-    width: 80%;
+    width: 15rem;
 }
 
 .travel-text {
@@ -581,7 +581,26 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
     cursor: pointer;
 }
 
+//旅程測驗
 
+.quiz{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.quizIntro{
+    line-height: 1.5;
+    margin-top: -10%;
+    margin-bottom: 10%;
+    & p{
+        margin: 5% 0;
+    }
+}
 
 @media screen and (min-width: 700px) {
     h1 {
@@ -739,7 +758,7 @@ planetRotate的動畫，該動畫將背景位置由0%移動到-200%。
         height: 100%;
     }
 
-
+ 
 }
 
 @media screen and (min-width: 1024px) {

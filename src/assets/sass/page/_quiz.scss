@@ -4,20 +4,67 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: black;
 
-
-  .result {
-    margin-top: 100px;
+//開頭動畫
+  .intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
-  // .test {
-  //   display: flex;
-  // flex-direction: column;
-  // position: absolute;
-  // top: 50%; /* 將元素的上緣置於頁面的垂直中點 */
-  // left: 50%; /* 將元素的左緣置於頁面的水平中點 */
-  // transform: translate(-50%, -50%); /* 使用 translate 調整元素位置 */
-  // }
+  .overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.542); 
+  }
+  
+  .bg {
+    width: 100%;
+    height: auto;
+  }
+
+  .intro-text{
+    width:max-content;
+    height:100%;
+    position:absolute;
+    top:30%;
+    left:25%;
+    z-index:1;
+}
+
+.intro-text p{
+    opacity: 0;
+    font-size:200%;
+    color: $white;
+    text-shadow: #e6b800;
+    line-height: 1.5;
+    font-weight: 700;
+    animation-name: intro-text-fade-in-out;
+    animation-duration: 3s; 
+    font-family: 'Noto Serif JP';
+}
+
+  
+  .nickName{
+    margin-top: 200px;
+    & input{
+      width: 200px;
+      height: 3rem;
+      border-radius: 5px;
+      padding: 10px 15px;
+      background-color: rgba(217,217,217,0.6);
+      color: $white;
+    }
+    & input::placeholder{
+      color:  rgb(217,217,217);
+    }
+  }
+
   
   .fade-enter-active, .fade-leave-active {
     transition: opacity 0.5s;
@@ -31,8 +78,8 @@
     text-align: center;
   }
   
-  h2 {
-    font-size: 24px;
+  h3 {
+    font-size: 20px;
     margin-bottom: 20px;
     color: $white;
     font-weight: 700;
@@ -44,23 +91,19 @@
     padding: 0;
     margin: 0;
     width: 100%;
-
   }
   
   li {
     margin-bottom: 10px;
     font-size: $p1-l;
-
   }
   
   label {
     margin-left: 5px;
-
   }
   
-  button {
-    // width: 50%;
-    padding: 20px;
+ .shareButton {
+    padding: 1rem;
     font-size: 20px;
     font-weight: 700;
     cursor: pointer;
@@ -70,80 +113,35 @@
     border-radius: 4px;
     position: absolute;
     z-index: 998;
-    top: 95%;
+    top: 90%;
     left: 50%;
     transform: translate(-50%, -50%);
-
   }
   
   button:hover {
     background-color: $blueL;
+    border: 2px solid #21fafa ;
   }
 
- .leave{
-    padding: 10px;
-    font-size: 20px;
-    font-weight: 700;
-    cursor: pointer;
-    background-color: $inputB;
-    color: $black;
-    border: none;
-    border-radius: 4px;
-    position: absolute;
-    z-index: 998;
-    top: 50%;
-    left: 80%;
-    transform: translate(-80%, -50%);
- }
-
- .leave:hover{
-    background-color: $blueL;
- }
-
- .tryAgain{
-    padding: 10px;
-    font-size: 20px;
-    font-weight: 700;
-    cursor: pointer;
-    background-color: $inputB;
-    color: $black;
-    border: none;
-    border-radius: 4px;
-    position: absolute;
-    z-index: 998;
-    top: 70%;
-    left: 80%;
-    transform: translate(-80%, -50%);
- }
-
- .tryAgain:hover{
-    background-color: $blueL;
- }
- 
-  
-  .leave {
-    background-color: #008CBA;
-  }
-  
-  .leave:hover {
-    background-color: $blueL;
-  }
-  
-  .tryAgain {
-    background-color: #ffcc00;
-  }
-  
-  .tryAgain:hover {
-    background-color: #e6b800;
-  }
 
   .test{
     z-index: 999;
     display: flex;
     flex-direction: column;
     margin-top: 100px;
-    background-position: center;
-    background-repeat: repeat;
+    height: 80vh;
+  }
+
+  .overlay{
+    width: 100%;
+    background-color: rgba(41, 41, 41, 0.214);
+  }
+
+  h4{
+    font-size: 20px;
+    color:$white;
+    font-weight: 700;
+    line-height: 1.5;
   }
 
   .test-options {
@@ -177,19 +175,7 @@
         width: max-content;
         position: relative;
         margin: auto;
-        
-
-        &::before {
-          content: '';
-          display: block;
-          position: absolute;
-          left: -15px;
-          top: 50%;
-          transform: translateY(-50%);
-          border-style: solid;
-          border-width: 8px 0 8px 13px;
-          border-color: transparent transparent transparent #ffffff;
-        }
+        font-size: 16px;
 
         &:hover, .selected label {
           color: $inputB; 
@@ -200,145 +186,605 @@
   }
 
   .label-box{
-    width: 50%;
+    width: 23rem;
     border: 2px solid white;
     margin: auto;
     padding: 10px;
     transition: background-color 0.3s;
+    display: flex;
+    flex-wrap: wrap;
+    cursor: pointer; 
+    &:hover, &:focus {
+      border-color: $inputB;
+    }
 }  
+
+
 
   input[type="radio"] + label {
       transition: color 0.3s, background-color 0.3s, border-color 0.3s;
     }
 
-
-  input[type="checkbox"]:checked + label {
+  .label-box label.selected {
     color: $inputB;
-
-    &::before {
-      border-color: red; // 点击时变色
-    }
+    border-color: $inputB;
   }
+  
 
-
-
+  //三角形按鈕
+  input[type="radio"]:checked + .label-box label::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-style: solid;
+    border-width: 8px 0 8px 13px;
+    border-color: transparent transparent transparent $inputB;
+  }
+ 
   .result{
+    width: 99%;
     line-height: 1.5;
-    margin-top: 5rem ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+    
      & p{
       color: $white;
       font-size: 20px;
+      margin-bottom: 3rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 999;
+      transform: translate(-50%, -50%);
      }
   }
-  .result span{
-    font-size: 62px;
-    color: $blueL ;
-    font-weight: 700;
+
+
+  .result-content {
+    text-align: center; 
+    width: 90%;
   }
 
+  .overlay2{
+    position: fixed;
+    top: 30%;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background-color: rgba(44, 44, 44, 0.703); 
+  }
+
+  .tripName{
+     font-size: 48px;
+     color: $blueL ;
+     margin: 0 auto;
+     text-align: center;
+     color: white;
+     text-shadow: 0 0 10px #87ceeb, 0 0 15px #87ceeb, 0 0 30px deepskyblue, 0 0 30px deepskyblue, 0 0 30px deepskyblue, 0 0 40px deepskyblue, 0 0 50px deepskyblue, 0 0 60px deepskyblue, 0 0 70px deepskyblue, 0 0 80px deepskyblue, 0 0 90px deepskyblue, 0 0 100px skyblue;
+     font-weight: 700;
+  }
+
+  .kenburns-top{
+    width: 90%;
+    -webkit-animation: kenburns-top 5s ease-out both;
+	        animation: kenburns-top 5s ease-out both;
+  }
+
+  @-webkit-keyframes kenburns-top {
+    0% {
+      -webkit-transform: scale(1) translateY(0);
+              transform: scale(1) translateY(0);
+      -webkit-transform-origin: 50% 16%;
+              transform-origin: 50% 16%;
+    }
+    100% {
+      -webkit-transform: scale(1.25) translateY(-15px);
+              transform: scale(1.25) translateY(-15px);
+      -webkit-transform-origin: top;
+              transform-origin: top;
+    }
+  }
+  @keyframes kenburns-top {
+    0% {
+      -webkit-transform: scale(1) translateY(0);
+              transform: scale(1) translateY(0);
+      -webkit-transform-origin: 50% 16%;
+              transform-origin: 50% 16%;
+    }
+    100% {
+      -webkit-transform: scale(1.25) translateY(-15px);
+              transform: scale(1.25) translateY(-15px);
+      -webkit-transform-origin: top;
+              transform-origin: top;
+    }
+  }
+
+   .leave{
+    font-size: 20px;
+    font-weight: 700;
+    color: $black;
+    position: absolute;
+    top: 40%;
+    left: 80%;
+    transform: translate(-80%, -40%);
+    margin: 0 5px;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    cursor: pointer;
+    background-color: #111f232b;
+    transition: 0.5s;
+    box-shadow: 1px 1px 10px #7ce0fe;
+    border: 1px solid $blueL;
+    color: $blueL;
+    border-radius: 5px;
+    font-size: 16px;
+       &:hover {
+         color: $black;
+     }
+     & :focus{
+       color: $black;
+     }
+  }
+
+
+  .tryAgain{
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    position: absolute;
+    z-index: 998;
+    top: 60%;
+    left: 80%;
+    transform: translate(-80%, -60%);
+    margin: 0 5px;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    cursor: pointer;
+    background-color: #111f232b;
+    transition: 0.5s;
+    box-shadow: 1px 1px 10px #7ce0fe;
+    border: 1px solid $blueL;
+    color: $blueL;
+    border-radius: 5px;
+    font-size: 16px;
+       &:hover {
+         color: $black;
+         background-color: #7ce0fe;
+     }
+     & :focus{
+       color: $black;
+       background-color: #7ce0fe;
+     }
+   }
  
   
-// 星戰開頭特效
-.star-war-intro{
-  width:100%;
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+  // 開頭
+.hero {
+  font-size: clamp(40px, 10vw, 62px);
+  line-height: 1;
+  display: inline-block;
+  color: #fff;
   z-index: 2;
-  // background: url("https://cutewallpaper.org/21/star-wars-background-stars/Star-Wars-Tumblr-Backgrounds-Wallpaper-Cave.jpg") no-repeat fixed center; 
-  font-family: "Droid Sans", arial, verdana, sans-serif;
+  letter-spacing: 10px;
+
+  filter: drop-shadow(0 1px 3px);
 }
 
-.intro-text{
-  width:max-content;
-  height:100%;
-  position:absolute;
-  top:45%;
-  left:25%;
-  z-index:1;
+
+.paths {
+  animation: paths 5s step-end infinite;
 }
 
-.intro-text p{
-  opacity: 0;
-  font-size:200%;
-  color: #4ee;
-  line-height: 1.5;
-  font-weight: 700;
-  animation-name: intro-text-fade-in-out;
-  animation-duration: 3s; 
-  font-family: 'Noto Serif JP';
-}
-@keyframes intro-text-fade-in-out{
-  0% {opacity:0;}
-  90% {opacity:1;}
-  100% {opacity:0;}
-}
-.intro-img{  width:100%;  margin:0 auto;  position:absolute;  top:25%;  z-index:2;}
-.intro-img img{  width:100%;  height:70%;  margin: auto auto;
-    animation-name: img-ani;  animation-timing-function: ease;  animation-delay: 5s;  animation-duration: 8s;  opacity:0;}
+@keyframes paths {
+  0% {
+    clip-path: polygon(
+      0% 43%,
+      83% 43%,
+      83% 22%,
+      23% 22%,
+      23% 24%,
+      91% 24%,
+      91% 26%,
+      18% 26%,
+      18% 83%,
+      29% 83%,
+      29% 17%,
+      41% 17%,
+      41% 39%,
+      18% 39%,
+      18% 82%,
+      54% 82%,
+      54% 88%,
+      19% 88%,
+      19% 4%,
+      39% 4%,
+      39% 14%,
+      76% 14%,
+      76% 52%,
+      23% 52%,
+      23% 35%,
+      19% 35%,
+      19% 8%,
+      36% 8%,
+      36% 31%,
+      73% 31%,
+      73% 16%,
+      1% 16%,
+      1% 56%,
+      50% 56%,
+      50% 8%
+    );
+  }
 
-@keyframes img-ani{
-  0% {opacity:1;-webkit-transform: scale(1);}
-  98% {opacity:1;}
-  100% {opacity:0;-webkit-transform: scale(0.01);}
+  5% {
+    clip-path: polygon(
+      0% 29%,
+      44% 29%,
+      44% 83%,
+      94% 83%,
+      94% 56%,
+      11% 56%,
+      11% 64%,
+      94% 64%,
+      94% 70%,
+      88% 70%,
+      88% 32%,
+      18% 32%,
+      18% 96%,
+      10% 96%,
+      10% 62%,
+      9% 62%,
+      9% 84%,
+      68% 84%,
+      68% 50%,
+      52% 50%,
+      52% 55%,
+      35% 55%,
+      35% 87%,
+      25% 87%,
+      25% 39%,
+      15% 39%,
+      15% 88%,
+      52% 88%
+    );
+  }
+
+  30% {
+    clip-path: polygon(
+      0% 53%,
+      93% 53%,
+      93% 62%,
+      68% 62%,
+      68% 37%,
+      97% 37%,
+      97% 89%,
+      13% 89%,
+      13% 45%,
+      51% 45%,
+      51% 88%,
+      17% 88%,
+      17% 54%,
+      81% 54%,
+      81% 75%,
+      79% 75%,
+      79% 76%,
+      38% 76%,
+      38% 28%,
+      61% 28%,
+      61% 12%,
+      55% 12%,
+      55% 62%,
+      68% 62%,
+      68% 51%,
+      0% 51%,
+      0% 92%,
+      63% 92%,
+      63% 4%,
+      65% 4%
+    );
+  }
+
+  45% {
+    clip-path: polygon(
+      0% 33%,
+      2% 33%,
+      2% 69%,
+      58% 69%,
+      58% 94%,
+      55% 94%,
+      55% 25%,
+      33% 25%,
+      33% 85%,
+      16% 85%,
+      16% 19%,
+      5% 19%,
+      5% 20%,
+      79% 20%,
+      79% 96%,
+      93% 96%,
+      93% 50%,
+      5% 50%,
+      5% 74%,
+      55% 74%,
+      55% 57%,
+      96% 57%,
+      96% 59%,
+      87% 59%,
+      87% 65%,
+      82% 65%,
+      82% 39%,
+      63% 39%,
+      63% 92%,
+      4% 92%,
+      4% 36%,
+      24% 36%,
+      24% 70%,
+      1% 70%,
+      1% 43%,
+      15% 43%,
+      15% 28%,
+      23% 28%,
+      23% 71%,
+      90% 71%,
+      90% 86%,
+      97% 86%,
+      97% 1%,
+      60% 1%,
+      60% 67%,
+      71% 67%,
+      71% 91%,
+      17% 91%,
+      17% 14%,
+      39% 14%,
+      39% 30%,
+      58% 30%,
+      58% 11%,
+      52% 11%,
+      52% 83%,
+      68% 83%
+    );
+  }
+
+  76% {
+    clip-path: polygon(
+      0% 26%,
+      15% 26%,
+      15% 73%,
+      72% 73%,
+      72% 70%,
+      77% 70%,
+      77% 75%,
+      8% 75%,
+      8% 42%,
+      4% 42%,
+      4% 61%,
+      17% 61%,
+      17% 12%,
+      26% 12%,
+      26% 63%,
+      73% 63%,
+      73% 43%,
+      90% 43%,
+      90% 67%,
+      50% 67%,
+      50% 41%,
+      42% 41%,
+      42% 46%,
+      50% 46%,
+      50% 84%,
+      96% 84%,
+      96% 78%,
+      49% 78%,
+      49% 25%,
+      63% 25%,
+      63% 14%
+    );
+  }
+
+  90% {
+    clip-path: polygon(
+      0% 41%,
+      13% 41%,
+      13% 6%,
+      87% 6%,
+      87% 93%,
+      10% 93%,
+      10% 13%,
+      89% 13%,
+      89% 6%,
+      3% 6%,
+      3% 8%,
+      16% 8%,
+      16% 79%,
+      0% 79%,
+      0% 99%,
+      92% 99%,
+      92% 90%,
+      5% 90%,
+      5% 60%,
+      0% 60%,
+      0% 48%,
+      89% 48%,
+      89% 13%,
+      80% 13%,
+      80% 43%,
+      95% 43%,
+      95% 19%,
+      80% 19%,
+      80% 85%,
+      38% 85%,
+      38% 62%
+    );
+  }
+
+  1%,
+  7%,
+  33%,
+  47%,
+  78%,
+  93% {
+    clip-path: none;
+  }
 }
+
 
 .main-content{
-  position: absolute;
-  bottom: 0;
-  width:90%;
-  height:2000px;
+    position: absolute;
+    bottom: 0;
+    width:90%;
+    height:2000px;
+    
+    transform-origin: 50% 100%;
+    transform: perspective(350px) rotateX(25deg);
   
-  transform-origin: 50% 100%;
-  transform: perspective(350px) rotateX(25deg);
   
-  
-  overflow: hidden;
+    overflow: hidden;
 
-  font-size: 60px;
-  font-weight: bold;
-  text-align: justify;
-  color: #EBD71C;
-  font-family: "Droid Sans", arial, verdana, sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+    text-align: justify;
+    color: #EBD71C;
+    font-family: "Droid Sans", arial, verdana, sans-serif;
 }
 
 
 .main-content .content{
- position:relative;
-  top:100%;
+    position:relative;
+    top:100%;
   
 }
 
 .main-content .title{
-  position:relative;
-  top:100%;
-  margin-bottom:15px;
+    position:relative;
+    top:100%;
+    margin-bottom:15px;
 }
 
 
 
 .main-content .title, .content{
-/*   visibility: hidden; */
-  width:98%;
-  max-width:98%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  
-  
-  animation-name: main-content-ani;
-  animation-timing-function: linear;
-  animation-delay: 10s;
-  animation-duration: 10s;  
+    width:98%;
+    max-width:98%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    
+    
+    animation-name: main-content-ani;
+    animation-timing-function: linear;
+    animation-delay: 10s;
+    animation-duration: 10s;  
 }
 
 
 
 @keyframes main-content-ani{
-  0% { top:100%;}
-  100% {top:-270%;}
+    0% { top:100%;}
+    100% {top:-270%;}
 }
 
 
+
+}
+
+@media screen and (min-width:1200px) {}
+
+@media screen and (max-width:1200px) {}
+  
+@media screen and (max-width:768px) {
+  .overlay2{
+     height: 20%;
+   }
+   .shareButtonRwd{
+    padding: 1rem;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    background-color: $inputB;
+    color: $black;
+    border: none;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 998;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   }
+  .result-content span {
+    font-size: 30px !important;
+   }
+   .optionButton {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     position: absolute;
+     top: 70%;
+     left: 15%;
+     width: 85%;
+  
+   }
+  .leaveRwd{
+    font-size: 20px;
+    font-weight: 700;
+    color: $black;
+    position: absolute;
+    margin: 0 5px;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    cursor: pointer;
+    background-color: #111f232b;
+    transition: 0.5s;
+    box-shadow: 1px 1px 10px #7ce0fe;
+    border: 1px solid $blueL;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+       &:hover {
+         color: $black;
+     }
+     & :focus{
+       color: $black;
+     }
+     & :active{
+      color: $black;
+    }
+  }
+
+
+  .tryAgainRwd{
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    position: absolute;
+    z-index: 998;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    cursor: pointer;
+    background-color: #111f232b;
+    transition: 0.5s;
+    box-shadow: 1px 1px 10px #7ce0fe;
+    border: 1px solid $blueL;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+       &:hover {
+         color: $black;
+     }
+     & :focus{
+       color: $black;
+     }
+   }
+  
+}
+
+@media screen and (max-width:375px) {
+
+   
 }

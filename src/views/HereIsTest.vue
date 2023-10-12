@@ -1,356 +1,101 @@
 <template>
- <div class="c-glitch d-order" >
-    <div class="c-glitch__img" ></div>
-    <div class="c-glitch__img" ></div>
-    <div class="c-glitch__img" ></div>
-    <div class="c-glitch__img" ></div>
-    <div class="c-glitch__img" ></div>
-</div>
-    
+    <div>
+      <canvas id="threeJS"></canvas>
+    </div>
+  </template>
+  
+  <script>
+	import * as THREE from "three"; //把全部thress.js的東西引入
+	import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js"; //引入GLTFloader，以載入GLTF 格式 3D 模型的模組。
+	import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+	//載入thress.js軌道，控制相機軌道的模組
+	//"相機軌道控制模組"（OrbitControls），用於實現 3D 场景中相機的控制。允許透過鼠標控制旋轉 縮放 等操作
+	//旋轉相機以不同的角度觀看 3D 场景。
+	//使用滾輪縮放相機以放大或縮小場景中的物體。
+	//平移相機以改變視角。
+	//控制相機的運動速度和限制。
+	//基本上就是一定要載入拉
+
+  export default {
+    data(){
+      return{
+        publicPath: process.env.BASE_URL,
+		//這邊不太懂，定義路徑
+      }
+      
+    },
+    mounted() {
+      this.initThree();
+    },
+	
+    methods: {
+      initThree() {
+        const scene = new THREE.Scene();//先設定場景
+  
+        const canvas = document.querySelector("#threeJS");//設定"canvas"抓到canvas畫布
+        const renderer = new THREE.WebGLRenderer({canvas,antialias: true,alpha: true });
+		// new THREE.WebGLRenderer宣告在瀏覽器使用WebGL 技術渲染 3D 场景。
+		// antialias 啟動讓畫面更平滑，但是運算上比較吃耗能
+		// alpha 啟動背景為透明，可以讓後面的東西透出來
+
+		const width = window.innerWidth * 0.5; // 20% of window width，自己設的變數不重要
+    	const height = width*0.5 ; // 20% of window height，自己設的變數不重要
+
+        renderer.setSize( width , height );//設定場景尺寸
+        renderer.setClearColor(0xffffff, 0);//設定場景背景顏色
+     
+        const camera = new THREE.PerspectiveCamera(
+          50,          //這是視場（Field of View）的值，表示相機的視角廣度。
+          600 / 350,   //這是相機的寬高比（Aspect Ratio）
+          0.1,         //這是相機的近平面（Near Plane）的距離。米為單位
+          1000         //這是相機的遠平面（Far Plane）的距離。米為單位
+        );
+        camera.position.y = 0;
+        camera.position.x = 1;
+        camera.position.z = 1;//相機位置
+  
+        const gltfLoader = new GLTFLoader();//宣告說要建立GLTF物件，然後下面開始掛載
+		gltfLoader.load(`${this.publicPath}art/t3/scene.gltf`, (gltf) => {
+		let model = gltf.scene;//這一行將從 GLTF 文件中加載的 3D 模型保存在 model 變數中。這個變數代表整個 3D 模型的場景，包括所有的物體和結構。
+		scene.add(model);//把她掛到three.js場景裡面
+		model.scale.set(0.3, 0.3 , 0.3);//這一行調整了模型的縮放。
+		model.position.y = -0.5;//這一行調整了模型的位置。
+		controls.minPolarAngle = controls.maxPolarAngle = Math.PI / 2; // 限制只能水平旋轉
+        });
 
 
 
-</template>
+        const topLight = new THREE.DirectionalLight(0xffffff, .5); 
+        topLight.position.set(100, 0, 200); 
+        topLight.castShadow = true;
+        scene.add(topLight);
 
-<style scoped lang="scss">
-/* =Variables
-------------------------------------- */
-// Colors
-$pure-white: hsla(0, 0%, 100%, 1); // #fff
-$pure-black: hsla(0, 0%, 0%, 1); // #000
-$dark-jungle-green: hsla(210, 3%, 11%, 1); //1c1d1e
-$grey-dark: hsla(0, 0%, 25%, 1); // #404040
-$white-dark: hsla(0, 0%, 95%, 1); /// #f1f1f1
-$fuel-yellow: hsla(36, 100%, 49%, 1); // #f89500
-
-// Fonts
-$droid-serif: 'Droid Serif', serif;
-$kalam: 'Kalam', cursive;
-$open-sans: 'Open Sans', sans-serif;
-
-// transition
-$transition: .5s cubic-bezier(.77, 0, .175, 1);
-$transition-fast: .2s cubic-bezier(.77, 0, .175, 1);
-
-/* =Functions
-------------------------------------- */
-// Convert a pixel value to REM units
-@function rem($pixel) {
-  @return $pixel / 16 + rem;
-}
-
-/* =Styles
-------------------------------------- */
-
-.c-intro {
-  animation: fe30-anime 1s ease-in-out 4s forwards;
-  opacity: 0;
-}
-
-.c-fe30 {
-  color: $pure-white;
-  margin-top: rem(40);
-  text-align: center;
+		let controls = new OrbitControls(camera, renderer.domElement);//設定控制器屬性
+        controls.enableDamping = false;
+        controls.enablePan = false;
+		controls.enableZoom = false; 
+        controls.target.set( 0, 0, 0);
+        
+		
+		const customColor = 0xfffffff;
+        const ambientLight = new THREE.AmbientLight(customColor, 2.1);//創造環境光  我用這個變色
+        scene.add(ambientLight);
   
-  a {
-    color: $pure-white;
-    
-    &:hover {
-      text-decoration: none;
-    }
-  }
-}
-
-
-
-
-
-
-@keyframes fe30-anime {
-  0% {
-    opacity: 0;
-  }
   
-  100% {
-    opacity: 1;
-  }
-}
-
-/* =Custom Styles
-------------------------------------- */
-.c-glitch,
-.c-glitch__img {
-  background-repeat: no-repeat;
-	background-position: 50% 50%;
-	background-size: cover;
-  background-image: url(~@/assets/image/headerfooter/dorder.svg);
-}
-
-.c-glitch {
-  height: 100px;
-  margin: 0 auto;
-  overflow: hidden;
-	position: relative;
-  width: 100px;
-}
-
-.c-glitch__img {
-  background-blend-mode: none;
-  background-color: transparent;
-  height: 100px;
-  left: 0;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  transform: translate3d(0, 0, 0);
-  width: 100px;
+        
+        //設定會自動渲染場景
+        function animate() {
+          renderer.render(scene, camera);
+          controls.update();
+          requestAnimationFrame(animate);
+        }
   
-  .c-glitch:hover &:nth-child(n+2) {
-    animation-duration: 1s;
-    animation-delay: 0;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-fill-mode: forwards;
-  }
+        animate();
+      },
+    },
+  };
+  </script>
   
-  .c-glitch:hover &:nth-child(2) {
-    animation-name: glitch-anim-1;
-  }
+  <style scoped>
+  </style>
   
-  .c-glitch:hover &:nth-child(3) {
-    animation-name: glitch-anim-2;
-  }
-  
-  .c-glitch:hover &:nth-child(4) {
-    animation-name: glitch-anim-3;
-  }
-  
-  .c-glitch:hover &:nth-child(5) {
-    animation-name: glitch-anim-4;
-    background-blend-mode: overlay;
-    background-color: #af4949;
-  }
-}
-
-.c-glitch__img:nth-child(n+2) {
-	opacity: 0;
-}
-
-@keyframes glitch-anim-1 {
-	0%, 100% { 
-		opacity: 1;
-		transform: translate3d(40px, 0, 0) scale3d(-1, -1, 1);
-		clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
-	}
-  
-	20% {
-		clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
-	}
-  
-	30% {
-		clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%);
-	}
-  
-	40% {
-		clip-path: polygon(0 1%, 100% 1%, 100% 2%, 0 2%);
-	}
-  
-	50% {
-		clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
-	}
-  
-	55% {
-		clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
-	}
-  
-	60% {
-		clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
-	}
-
-  65% {
-
-		clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
-	}
-
-	70% {
-
-		clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
-	}
-
-	80% {
-		clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
-	}
-
-	85% {
-		clip-path: polygon(0 60%, 100% 60%, 100% 65%, 0 65%);
-	}
-
-	95% {
-		clip-path: polygon(0 72%, 100% 72%, 100% 78%, 0 78%);
-	}
-}
-
-@keyframes glitch-anim-2 {
-	0%, 100% { 
-		opacity: 1;
-		transform: translate3d(-10px, 0, 0);
-		clip-path: polygon(0 25%, 100% 25%, 100% 30%, 0 30%);
-	}
-  
-	10% {
-		clip-path: polygon(0 3%, 100% 3%, 100% 3%, 0 3%);
-	}
-  
-	15% {
-		clip-path: polygon(0 5%, 100% 5%, 100% 20%, 0 20%);
-	}
-  
-	17% {
-		clip-path: polygon(0 20%, 100% 20%, 100% 20%, 0 20%);
-	}
-  
-	19% {
-		clip-path: polygon(0 40%, 100% 40%, 100% 40%, 0 40%);
-	}
-  
-	33% {
-		clip-path: polygon(0 52%, 100% 52%, 100% 59%, 0 59%);
-	}
-  
-	35% {
-		clip-path: polygon(0 60%, 100% 60%, 100% 60%, 0 60%);
-	}
-  
-	40% {
-		clip-path: polygon(0 75%, 100% 75%, 100% 75%, 0 75%);
-	}
-  
-	45% {
-		clip-path: polygon(0 65%, 100% 65%, 100% 40%, 0 40%);
-	}
-  
-	49% {
-		clip-path: polygon(0 45%, 100% 45%, 100% 50%, 0 50%);
-	}
-  
-	50% {
-		clip-path: polygon(0 14%, 100% 14%, 100% 33%, 0 33%);
-	}
-  
-	55% {
-		clip-path: polygon(0 15%, 100% 15%, 100% 35%, 0 35%);
-	}
-  
-	60% {
-		clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
-	}
-  
-	70% {
-		clip-path: polygon(0 65%, 100% 65%, 100% 60%, 0 60%);
-	}
-  
-	80% {
-		clip-path: polygon(0 80%, 100% 80%, 100% 85%, 0 85%);
-	}
-  
-	90% {
-		clip-path: polygon(0 55%, 100% 55%, 100% 65%, 0 65%);
-	}
-}
-
-@keyframes glitch-anim-3 {
-	0%, 100% {
-		opacity: 1;
-		transform: translate3d(0, -5px, 0) scale3d(-1, -1, 1);
-		clip-path: polygon(0 1%, 100% 1%, 100% 3%, 0 3%);
-	}
-  
-	5% {
-		clip-path: polygon(0 10%, 100% 10%, 100% 9%, 0 9%);
-	}
-  
-	11% {
-		clip-path: polygon(0 5%, 100% 5%, 100% 6%, 0 6%);
-	}
-  
-	20% {
-		clip-path: polygon(0 20%, 100% 20%, 100% 20%, 0 20%);
-	}
-  
-	25% {
-		clip-path: polygon(0 10%, 100% 10%, 100% 10%, 0 10%);
-	}
-  
-	35% {
-		clip-path: polygon(0 30%, 100% 30%, 100% 25%, 0 25%);
-	}
-  
-	42% {
-		clip-path: polygon(0 15%, 100% 15%, 100% 16%, 0 16%);
-	}
-  
-	48% {
-		clip-path: polygon(0 40%, 100% 40%, 100% 39%, 0 39%);
-	}
-  
-	50% {
-		clip-path: polygon(0 20%, 100% 20%, 100% 21%, 0 21%);
-	}
-  
-	56% {
-		clip-path: polygon(0 60%, 100% 60%, 100% 55%, 0 55%);
-	}
-  
-	61% {
-		clip-path: polygon(0 30%, 100% 30%, 100% 31%, 0 31%);
-	}
-  
-	68% {
-		clip-path: polygon(0 70%, 100% 70%, 100% 69%, 0 69%);
-	}
-  
-	72% {
-		clip-path: polygon(0 40%, 100% 40%, 100% 41%, 0 41%);
-	}
-  
-	77% {
-		clip-path: polygon(0 80%, 100% 80%, 100% 75%, 0 75%);
-	}
-  
-	81% {
-		clip-path: polygon(0 50%, 100% 50%, 100% 51%, 0 51%);
-	}
-  
-	86% {
-		clip-path: polygon(0 90%, 100% 90%, 100% 90%, 0 90%);
-	}
-  
-	90% {
-		clip-path: polygon(0 60%, 100% 60%, 100% 60%, 0 60%);
-	}
-  
-	92% {
-		clip-path: polygon(0 100%, 100% 100%, 100% 99%, 0 99%);
-	}
-  
-	94% {
-		clip-path: polygon(0 70%, 100% 70%, 100% 71%, 0 71%);
-	}
-}
-
-@keyframes glitch-anim-4 {
-	0%, 5% { 
-		opacity: 0.2; 
-		transform: translate3d(10px, 5px, 0);
-	}
-
-	5.5%, 100% {
-		opacity: 0;
-		transform: translate3d(0, 0, 0);
-	}
-}
-
-main{
-
-}
-</style> 

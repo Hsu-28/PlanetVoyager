@@ -10,7 +10,7 @@
           <ul class="tab-ul">
             <li v-for="(planet, index) in planetCard" :key="planet.id" class="tab-li"
               :class="{ 'active': activeId === planet.id }">
-              <button @click="activeId = planet.id" class="planet-button">
+              <button @click="activeId = planet.id; $router.push({ query: { planet: planet.id } })" class="planet-button">
                 <span v-show="activeId === planet.id">
                   <img class="button-icon" src="~@/assets/image/destination/icon-planets.svg" alt="星球icon">
                 </span>
@@ -65,9 +65,9 @@
           <article class="col-11 outside-border ">
             <el-carousel class="inside-border">
               <el-carousel-item v-for="(img, index) in travel.imgs" :key="index">
-                  <img class="travel-img" :src="img.img_src">
-                  <img class="travel-img" :src="img.img_src2">
-              </el-carousel-item> 
+                <img class="travel-img" :src="img.img_src">
+                <img class="travel-img" :src="img.img_src2">
+              </el-carousel-item>
             </el-carousel>
             <!-- <carousel :items-to-show="2" :wrapAround="true"  :autoplay="3000">
               <slide v-for="(img, index) in travel.imgs" :key="index">
@@ -109,6 +109,23 @@
           </article>
         </article>
       </div>
+    </article>
+
+    <!-- 旅程測驗 -->
+    <article class="col-11  quiz">
+      <H2Style cTitle="旅程測驗" eTitle="TRAVEL QUIZ"></H2Style>
+      <div class="quizIntro">
+        <p>踏上一場獨特的旅行，通過我們的旅程測驗深入了解你的旅遊風格。<br>
+          這個快速而有趣的測驗將提供關於你的冒險程度、文化好奇心和旅遊習慣的見解。<br>
+          你是一位勇敢的探險家，還是更喜歡寧靜的度假勝地？<br>
+          這個測驗將為你揭示旅行中的隱藏特質，或者激發你探索新目的地的慾望。<br>
+          無論你是旅遊新手還是經驗豐富的冒險家，這個測驗都將帶你走向更深層次的旅行體驗。<br>
+          快來開始你的旅程吧！<br></p>
+          <router-link :to="{ name: 'quiz' }">
+            <ButtonStyle buttonText="開始測驗" buttonBottomText="-PV-"></ButtonStyle>
+          </router-link>
+      </div>
+   
     </article>
 
   </main>
@@ -166,7 +183,7 @@ export default {
       travelCard: [
         {
           id: 1,
-          link:'ItineraryMars',
+          link: 'ItineraryMars',
           en_name: 'mars',
           en_namebig: 'MARS',
           ch_name: '火星',
@@ -199,7 +216,7 @@ export default {
         },
         {
           id: 1,
-          link:'ItineraryMars2',
+          link: 'ItineraryMars2',
           en_name: 'mars',
           en_namebig: '',
           ch_name: '',
@@ -232,7 +249,7 @@ export default {
         },
         {
           id: 2,
-          link:'ItineraryMoon',
+          link: 'ItineraryMoon',
           en_name: 'moon',
           en_namebig: 'MOON',
           ch_name: '月球',
@@ -265,7 +282,7 @@ export default {
         },
         {
           id: 2,
-          link:'ItineraryMoon2',
+          link: 'ItineraryMoon2',
           en_name: 'moon',
           en_namebig: '',
           ch_name: '',
@@ -297,7 +314,7 @@ export default {
         },
         {
           id: 3,
-          link:'ItineraryVenus',
+          link: 'ItineraryVenus2',
           en_name: 'venus',
           en_namebig: 'VENUS',
           ch_name: '金星',
@@ -329,14 +346,26 @@ export default {
         },
         {
           id: 3,
-          link:'ItineraryVenus2',
+          link: 'ItineraryVenus',
           en_name: 'venus',
           en_namebig: '',
           ch_name: '',
           imgs: [
             {
-              img_src: require("@/assets/image/itinerary_mars1/d52.jpg"),
-              img_src2: require("@/assets/image/itinerary_mars2/m52.jpg"),
+              img_src: require("@/assets/image/itinerary_venus/v221.svg"),
+              img_src2: require("@/assets/image/itinerary_venus/v223.svg"),
+            },
+            {
+              img_src: require("@/assets/image/itinerary_venus/v232.svg"),
+              img_src2: require("@/assets/image/itinerary_venus/v231.svg"),
+            },
+            {
+              img_src: require("@/assets/image/itinerary_venus/v242.svg"),
+              img_src2: require("@/assets/image/itinerary_venus/v243.svg"),
+            },
+            {
+              img_src: require("@/assets/image/itinerary_venus/v252.svg"),
+              img_src2: require("@/assets/image/itinerary_venus/v253.jpg"),
             },
           ],
 
@@ -349,7 +378,7 @@ export default {
 
         {
           id: 4,
-          link:'ItineraryCombo',
+          link: 'ItineraryCombo',
           en_name: 'orbit',
           en_namebig: 'TOUR',
           ch_name: '套裝行程',
@@ -442,6 +471,8 @@ export default {
     this.scrollAppear();
     window.addEventListener('scroll', this.scrollAppear2);
     this.scrollAppear2();
+
+    this.activeId = this.$route.query?.planet ? +this.$route.query.planet : 1 
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.scrollAppear);
