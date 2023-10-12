@@ -19,10 +19,10 @@
           </button>
           <button id="login-btn">登入</button>
         </div>
-        <form action="">
+        <form action="post">
           <P>請輸入與密碼</P>
-          <input type="email" v-model="username" placeholder="信箱" /><br>
-          <input type="password" v-model="pswdddv" placeholder="密碼" />
+          <input type="email" name="memId" v-model="username" placeholder="信箱" /><br>
+          <input type="password" name="memPsw" v-model="pswdddv" placeholder="密碼" />
           <button class="cybr-btn" @click="signin">登入<span aria-hidden class="cybr-btn__glitch">登入</span><span aria-hidden
               class="cybr-btn__tag">&emsp;&emsp;-PV-</span></button>
           <p class="go-register">還沒有帳戶嗎？<router-link to="/register"><span>註冊一個吧！</span></router-link></p>
