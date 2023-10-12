@@ -61,7 +61,7 @@
       <div class="result-content">
           <p>{{ nickname }}適合的行程是<br><span class="tripName"> {{ getResultCategory(totalScore) }}</span></p>
 
-          <img v-if="getResultCategory(totalScore) === '金星-夢幻祕境探險之旅'" src="../assets/image/quiz/venus-dream.png"  alt="Image 1" class="kenburns-top">
+          <img v-if="getResultCategory(totalScore) === '金星-夢幻秘境探險之旅'" src="../assets/image/quiz/venus2.png" alt="Image 1" class="kenburns-top">
           <img v-if="getResultCategory(totalScore) === '金星-人文遺跡之旅'" src="../assets/image/quiz/venus2.png" alt="Image 2" class="kenburns-top">
           <img v-if="getResultCategory(totalScore) === '火星-尋找生命之旅'" src="../assets/image/quiz/mars-life.png" alt="Image 3" class="kenburns-top">
           <img v-if="getResultCategory(totalScore) === '火星-奧林帕斯山脈之旅'" src="../assets/image/quiz/mars2.png" alt="Image 4" class="kenburns-top">
@@ -72,7 +72,7 @@
           <div class="overlay2"></div>
 
           <div v-if="!isMobile" class="resultButton">
-          <router-link v-if="getResultCategory(totalScore) === '金星-夢幻祕境探險之旅'"  :to="'/itineraryVenus'">
+          <router-link v-if="getResultCategory(totalScore) === '金星-夢幻秘境探險之旅'"  :to="'/itineraryVenus'">
           <button class="leave">查看行程</button></router-link>
           <router-link v-else-if="getResultCategory(totalScore) === '金星-人文遺跡之旅'" :to="'/itineraryVenus2' ">
           <button class="leave">查看行程</button></router-link>
@@ -92,7 +92,7 @@
 
         <div class="optionButton"  v-if="isMobile">
           <div class="rwdOption">
-            <router-link v-if="getResultCategory(totalScore) === '金星-夢幻祕境探險之旅'"  :to="'/itineraryVenus'">
+            <router-link v-if="getResultCategory(totalScore) === '金星-夢幻秘境探險之旅'"  :to="'/itineraryVenus'">
             <button class="leaveRwd">查看行程</button></router-link>
             <router-link v-else-if="getResultCategory(totalScore) === '金星-人文遺跡之旅'" :to="'/itineraryVenus2' ">
             <button class="leaveRwd">查看行程</button></router-link>
@@ -162,7 +162,7 @@ export default {
           options: [
             { text: "那個螢光棒是什麼~先走過去再說", score: 30 },
             { text: "先報警再說", score: 0 },
-            { text: "那男的太可疑了，你好再見", score: 10 },
+            { text: "那男的太可疑了，你好再見", score: 20 },
             { text: "不管那是甚麼，先給我來一支", score: 1 }
           ]
         },

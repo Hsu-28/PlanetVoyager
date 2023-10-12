@@ -194,10 +194,11 @@
     display: flex;
     flex-wrap: wrap;
     cursor: pointer; 
-    &:hover, .selected label {
-      border-color: $inputB; 
+    &:hover, &:focus {
+      border-color: $inputB;
     }
 }  
+
 
 
   input[type="radio"] + label {
@@ -206,6 +207,7 @@
 
   .label-box label.selected {
     color: $inputB;
+    border-color: $inputB;
   }
   
 
