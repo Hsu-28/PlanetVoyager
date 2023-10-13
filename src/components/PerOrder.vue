@@ -7,22 +7,22 @@
 
       <h4>旅客{{ numOrder }}</h4>
      
-      <input type="text" placeholder="姓氏(請以英文輸入)" v-model="form.lastName">
-      <input type="text" placeholder="名字" v-model="form.name">
-      <select type="text" placeholder="性別" v-model="form.gender" class="gender">
+      <input type="text" placeholder="姓氏(請以英文輸入)" v-model="form.lastName" name="infos">
+      <input type="text" placeholder="名字" v-model="form.name" name="infos">
+      <select type="text" placeholder="性別" v-model="form.gender" class="gender" name="infos">
         <option value="" disabled selected>選擇性別</option>
         <option value="男性">男性 </option>
         <option value="女性">女性</option>
         <option value="其他">其他</option>
       </select>
-      <input type="date" placeholder="出生日期" v-model="form.birthday" class="birthday">
-      <input type="text" placeholder="國籍" v-model="form.nation">
-      <input type="text" placeholder="護照號碼" v-model="form.passId">
+      <input type="date" placeholder="出生日期" v-model="form.birthday" class="birthday" name="infos">
+      <input type="text" placeholder="國籍" v-model="form.nation" name="infos">
+      <input type="text" placeholder="護照號碼" v-model="form.passId" name="infos">
     
       <div class="c-s">
         <div class="clothe">訓練服尺寸:
           <div class="chose-size">
-            <select name="" id="" placeholder="訓練服尺寸" v-model="form.size">
+            <select name="infos" id="" placeholder="訓練服尺寸" v-model="form.size" >
               <option value="S">S</option>
               <option value="M">M</option>
               <option value="L">L</option>
@@ -39,11 +39,11 @@
 
       <div class="remark">
         餐食備註:<br>
-        <textarea name="" id="" cols="50" rows="10" class="remark-t" v-model="form.other"></textarea>
+        <textarea name="infos" id="" cols="50" rows="10" class="remark-t" v-model="form.other"></textarea>
       </div>
     
       <div class="check">
-        <input type="checkbox">我已經詳閱健康規定與訂購注意事項。
+        <input type="checkbox" name="infos" class="infoscheck">我已經詳閱健康規定與訂購注意事項。
       </div>
       <label for="fileUpload" class="upload">上傳體檢報告</label>
       <input type="file" id="fileUpload" style="display: none;" class="upload">
@@ -61,7 +61,7 @@
           <div v-for="i in 10" :key="i"
             :class="['cabin-per', `class${i}`, { 'disable': alreadySelectSeatIndex.includes(i) }]"
             @click="form.seatIndex = i"></div>
-          <div class="cabin-chose"><span>{{ form.seatIndex }}</span></div>
+          <div class="cabin-chose"><span class="seats">{{ form.seatIndex }}</span></div>
         </div>
 
       </div>
@@ -82,7 +82,7 @@ export default {
         birthday: '',
         nation: '',
         passId: '',
-        size: 's',
+        size: '',
         other: '',
         seatIndex: "",
       }

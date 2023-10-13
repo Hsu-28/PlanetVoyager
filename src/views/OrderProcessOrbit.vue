@@ -1,10 +1,10 @@
 <template>
-  <div class="firstM fororbitbg">
+  <div class="firstM">
     <img src="@/assets/image/orderProcess/orbitbg.svg" alt="">
   </div>
   <div class="title">
     <h1>星際繞行之旅</h1>
-    <h2>Orbit Exploration Journey</h2>
+    <h2>Planetary Orbit  Journey</h2>
   </div>
 
   <!-- 輪播 -->
@@ -28,17 +28,13 @@
     <section class="introduce-container">
       <div class="introduce">
         <div class="button-container">
-          <button :class="btn1" @click="show1F">星際繞行</button>
-
+          <button :class="btn1" @click="show1F">{{subtitle[0].planet_subtitle}}</button>
         </div>
         <div class="introduce-p" v-show="show1">
-          <h3>星際繞行</h3>
-          <h4>穿梭群星之隙</h4>
-          <p>
-            七天的壯遊，在太空中飄浮，感受銀河的奧秘。我們從地球出發，抵達月球探索未知的生物和美麗的地貌；於金星探索這炎熱的星球，發現更多驚奇；火星尋找遠古遺跡，感受生命的謎團。最後，第五天回歸地球，帶著難以忘懷的回憶，沉浸在銀河的壯麗美景中。
-          </p>
+          <h3>{{subtitle[0].planet_subtitle}}</h3>
+          <h4>{{subtitle[0].content_title}}</h4>
+          <p> {{subtitle[0].introduction}}</p>
         </div>
-
       </div>
 
 
@@ -95,6 +91,8 @@
 
   <!-- 選擇行程 、時間 -->
 
+
+
   <section class="place3">
     <section class="itinerary-cotainer">
       <div class="itinerary-c">
@@ -102,13 +100,9 @@
           <br>Choose Itinerary
         </h4>
       </div>
-      <!-- <div class="itinerary-d" @click="af" :class="{ 'chosen': A }">
+      <div class="itinerary-d" @click="af" :class="{ 'chosen': A }">
         <img src="@/assets/image/orderProcess/z.svg" alt="">
-        月球巡禮
-      </div> -->
-      <div class="itinerary-d  forOrbit" @click="bf" :class="{ 'chosen': B }">
-        <img src="@/assets/image/orderProcess/z.svg" alt="">
-        星際繞行
+        {{subtitle[0].planet_subtitle}}
       </div>
     </section>
     <section class="itinerary-cotainer2">
@@ -119,50 +113,33 @@
         </div>
       </div>
       <div class="inR">
-        <div class="itinerary-d" @click="j1f" :class="{ 'chosen': j1C }">
+          <div  v-for="(item ,index) in MJ1" 
+          class="itinerary-d" 
+          @click="activeId = item.trip_no " 
+          :key="trip_no" 
+          :class="{ 'chosen': activeId === item.trip_no}"
+          >
+        
           <h5>航程日期: </h5>
-          <p>{{ j1[0] }}</p>
+          <p>{{item.trip_date}}</p>
           <h5>訓練日期:</h5>
-          <p>{{ j1[2] }}</p>
+          <p>{{item.training_date}}</p>
 
-          <p class="space">團位: 10 可售: {{ j1[1] }} 候補: 0</p>
-        </div>
-        <div class="itinerary-d" @click="j2f" :class="{ 'chosen': j2C }">
-          <h5>航程日期: </h5>
-          <p>{{ j2[0] }}</p>
-          <h5>訓練日期:</h5>
-          <p>{{ j2[2] }}</p>
-
-          <p class="space">團位: 10 可售: {{ j2[1] }} 候補: 0</p>
-        </div>
-        <div class="itinerary-d" @click="j3f" :class="{ 'chosen': j3C }">
-          <h5>航程日期: </h5>
-          <p>{{ j3[0] }}</p>
-          <h5>訓練日期:</h5>
-          <p>{{ j3[2] }}</p>
-
-          <p class="space">團位: 10 可售: {{ j3[1] }}候補: 0</p>
-        </div>
-        <div class="itinerary-d" @click="j4f" :class="{ 'chosen': j4C }">
-          <h5>航程日期: </h5>
-          <p>{{ j4[0] }}</p>
-          <h5>訓練日期:</h5>
-          <p>{{ j4[2] }}</p>
-
-          <p class="space">團位: 10 可售: {{ j4[1] }} 候補: 0</p>
+          <p class="space">團位: 10 可售: {{ item.signup_num}} 候補:  {{ item. waiting_people }}</p>
         </div>
       </div>
     </section>
     <article class="card-planet3">
       <div class="location">
         <div class="planet__atmosphere">
-          <div class="moon planet__surface"></div>
+          <div class="mars  planet__surface"></div>
         </div>
       </div>
 
     </article>
 
   </section>
+
 
 
   <section class="passengerInfo">
@@ -196,7 +173,8 @@
           <p>航程日期: {{ date }}</p>
         </div>
         <div class="click">
-          <ButtonFlashBox :buttonText="'確認訂購'" :buttonBottomText="'-pv-'" class="kkss"  @click="checkOrder"></ButtonFlashBox>
+          <ButtonFlashBox :buttonText="'確認訂購'" :buttonBottomText="'-pv-'" class="kkss" @click="checkOrder">
+          </ButtonFlashBox>
         </div>
 
       </div>
@@ -207,14 +185,29 @@
 
       </div>
     </div>
-
   </section>
+
+  <!--   
+    <div>
+      這邊是想顯示的部分currentAmount
+    </div>
+  
+  
+    <select name="" id="" v-model="currentAmount">
+      <option :value="item.num" v-for="item in options"> {{ item.num }} </option>
+    </select>
+  
+  
+    <div v-for="form in formList">
+      <input type="text" v-model="form.name">
+    </div>  -->
+
   <section class="confirm-Order" v-if="orderCheck">
     <div class="confirm-contain">
       <div class="confirm-title">
         <h2>{{ journey }}</h2>
         <h3> 旅客人數: {{ currentAmount }}</h3>
-        <h3>旅費金額: {{ 600 * currentAmount }}萬美金</h3>
+        <h3>旅費金額: {{ 500 * currentAmount }}萬美金</h3>
         <h3>航程日期: {{ date }}</h3>
       </div>
       <div class="confirm-content-container">
@@ -238,41 +231,24 @@
 
         <div class="order-finall-btn btn-Cancle" @click="disOrder">修改資料</div>
         <router-link to="OrderSuccess"><div class="order-finall-btn btn-Check">確認訂購</div></router-link>
-        
+
       </div>
 
     </div>
-    <!-- <div class="confirm-content" >
-        <h2>{{ formList[0].name }}</h2>
-        <div>旅客1</div>
-
-        <div>姓氏:{{ formList[0].lastName }}</div>
-        <div>名字:{{ formList[0].name }}</div>
-        <div>性別:{{ formList[0].gender }}</div>
-        <div>出生日期:{{ formList[0].birthday }}</div>
-        <div>國籍:{{ formList[0].nation }}</div>
-        <div>護照號碼:{{ formList[0].passId }}</div>
-        <div>訓練服尺寸:{{ formList[0].size }}</div>
-        <div>旅位狀態:{{ status }}</div>
-        <div> 餐食備註:{{ formList[0].other }}</div>
-        <div>艙位號碼: {{ formList[0].seat }}</div>
-      </div> -->
-    <!-- </div> -->
+    <section class="alert" v-if="showAlert" >
+    <p @click="showAlert = false" ><img src="@/assets/image/orderProcess/X.jpg" alt=""></p>
+    尚有資料未填寫完成，請確認
+    </section>
 
   </section>
 </template>
-      
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-<script src="@/views/js/orderProcessOrbit.js"></script>
     
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+<script src="@/views/js/orderProcessOrbit.js"></script>
+  
 <style scoped lang="scss">
 @import "~@/assets/sass/page/orderProcess.scss";
 @import "~@/assets/sass/page/orderProcessP.scss";
-
-.forOrbit {
-  margin-right: 38%;
-}
 </style>
-    
   
-  
+

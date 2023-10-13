@@ -275,6 +275,7 @@ body {
   background-color: rgba(0, 0, 0, 0.86);
   font-size: 14px;
   width: 100%;
+  
   nav{
     .login-btn-menu{
       position: absolute;
@@ -300,6 +301,10 @@ body {
     }
   }
 
+
+  .menu-content::-webkit-scrollbar {
+    display: none;
+  }
   .menu-content {
     display: flex;
     top: 120px;
@@ -309,6 +314,9 @@ body {
     left: 50%;
     width: 70%;
     transform: translateX(-50%);
+    overflow: auto;
+    
+
 
     .list {
       font-size: 24px;
