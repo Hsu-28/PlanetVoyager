@@ -28,18 +28,18 @@
     <section class="introduce-container">
       <div class="introduce">
         <div class="button-container">
-          <button :class="btn1" @click="show1F">金星探險</button>
-          <button :class="btn2" @click="show2F">秘境之行</button>
+          <button :class="btn1" @click="show1F">{{subtitle[0].planet_subtitle}}</button>
+          <button :class="btn2" @click="show2F">{{subtitle[4].planet_subtitle}}</button>
         </div>
         <div class="introduce-p" v-show="show1">
-          <h3>金星探險</h3>
-          <h4>深入體驗金星生活 </h4>
-          <p>沉浸於麥田圈迷宮的神秘符號，融入蜥蜴人社區，學習語言、文化，共享美食，追隨遺跡，穿越城市廢墟，發現寶藏，探索過去文明，挑戰銀河砂流，感受宇宙冒險。</p>
+          <h3>{{subtitle[0].planet_subtitle}}</h3>
+          <h4>{{subtitle[0].content_title}}</h4>
+          <p> {{subtitle[0].introduction}}</p>
         </div>
         <div class="introduce-p" v-show="show2">
-          <h3>秘境之行</h3>
-          <h4>金星夢幻秘境探索之旅</h4>
-          <p>金星地形豐富，充滿奇特的自然地貌，有宇宙公園之稱，是一生必去的星球！這趟旅程將帶您前往伊師塔高地以及首都瑞茲城，除了驚奇美景，也能見證金星人文之美。</p>
+          <h3>{{subtitle[4].planet_subtitle}}</h3>
+          <h4>{{subtitle[4].content_title}}</h4>
+          <p> {{subtitle[4].introduction}}</p>
         </div>
       </div>
 
@@ -49,7 +49,7 @@
     <article class="card-planet">
       <div class="location">
         <div class="planet__atmosphere">
-          <div class="venus planet__surface"></div>
+          <div class="mars planet__surface"></div>
         </div>
       </div>
     </article>
@@ -88,7 +88,7 @@
     <article class="card-planet2">
       <div class="location">
         <div class="planet__atmosphere">
-          <div class="venus  planet__surface"></div>
+          <div class="mars  planet__surface"></div>
         </div>
       </div>
 
@@ -106,64 +106,45 @@
       </div>
       <div class="itinerary-d" @click="af" :class="{ 'chosen': A }">
         <img src="@/assets/image/orderProcess/z.svg" alt="">
-        金星探險
+        {{subtitle[0].planet_subtitle}}
       </div>
       <div class="itinerary-d" @click="bf" :class="{ 'chosen': B }">
         <img src="@/assets/image/orderProcess/z.svg" alt="">
-        秘境之行
+        {{subtitle[4].planet_subtitle}}
       </div>
     </section>
     <section class="itinerary-cotainer2">
       <div class="inL">
         <div class="itinerary-c">
           選擇行程時間
-          <br>Choose Itinerary's Time
+          <br>Choose Itinerary
         </div>
       </div>
       <div class="inR">
-        <div class="itinerary-d" @click="j1f" :class="{ 'chosen': j1C }">
+          <div  v-for="(item ,index) in MJ1" 
+          class="itinerary-d" 
+          @click="activeId = item.trip_no " 
+          :key="trip_no" 
+          :class="{ 'chosen': activeId === item.trip_no}"
+          >
+        
           <h5>航程日期: </h5>
-          <p>{{ j1[0] }}</p>
+          <p>{{item.trip_date}}</p>
           <h5>訓練日期:</h5>
-          <p>{{ j1[2] }}</p>
+          <p>{{item.training_date}}</p>
 
-          <p class="space">團位: 10 可售: {{ j1[1] }} 候補: 0</p>
-        </div>
-        <div class="itinerary-d" @click="j2f" :class="{ 'chosen': j2C }">
-          <h5>航程日期: </h5>
-          <p>{{ j2[0] }}</p>
-          <h5>訓練日期:</h5>
-          <p>{{ j2[2] }}</p>
-
-          <p class="space">團位: 10 可售: {{ j2[1] }} 候補: 0</p>
-        </div>
-        <div class="itinerary-d" @click="j3f" :class="{ 'chosen': j3C }">
-          <h5>航程日期: </h5>
-          <p>{{ j3[0] }}</p>
-          <h5>訓練日期:</h5>
-          <p>{{ j3[2] }}</p>
-
-          <p class="space">團位: 10 可售: {{ j3[1] }}候補: 0</p>
-        </div>
-        <div class="itinerary-d" @click="j4f" :class="{ 'chosen': j4C }">
-          <h5>航程日期: </h5>
-          <p>{{ j4[0] }}</p>
-          <h5>訓練日期:</h5>
-          <p>{{ j4[2] }}</p>
-
-          <p class="space">團位: 10 可售: {{ j4[1] }} 候補: 0</p>
+          <p class="space">團位: 10 可售: {{ item.signup_num}} 候補:  {{ item. waiting_people }}</p>
         </div>
       </div>
     </section>
     <article class="card-planet3">
       <div class="location">
         <div class="planet__atmosphere">
-          <div class="venus  planet__surface"></div>
+          <div class="mars  planet__surface"></div>
         </div>
       </div>
 
     </article>
-
 
   </section>
 
@@ -194,7 +175,7 @@
           <p>旅客人數: {{ currentAmount }} 人</p>
         </div>
         <div class="order-money">
-          <p>總金額: {{ 600 * currentAmount }} 萬美金 </p>
+          <p>總金額: {{ 500 * currentAmount }} 萬美金 </p>
         </div>
         <div class="order-date">
           <p>航程日期: {{ date }}</p>
@@ -234,7 +215,7 @@
       <div class="confirm-title">
         <h2>{{ journey }}</h2>
         <h3> 旅客人數: {{ currentAmount }}</h3>
-        <h3>旅費金額: {{ 600 * currentAmount }}萬美金</h3>
+        <h3>旅費金額: {{ 500 * currentAmount }}萬美金</h3>
         <h3>航程日期: {{ date }}</h3>
       </div>
       <div class="confirm-content-container">
@@ -262,22 +243,10 @@
       </div>
 
     </div>
-    <!-- <div class="confirm-content" >
-        <h2>{{ formList[0].name }}</h2>
-        <div>旅客1</div>
-
-        <div>姓氏:{{ formList[0].lastName }}</div>
-        <div>名字:{{ formList[0].name }}</div>
-        <div>性別:{{ formList[0].gender }}</div>
-        <div>出生日期:{{ formList[0].birthday }}</div>
-        <div>國籍:{{ formList[0].nation }}</div>
-        <div>護照號碼:{{ formList[0].passId }}</div>
-        <div>訓練服尺寸:{{ formList[0].size }}</div>
-        <div>旅位狀態:{{ status }}</div>
-        <div> 餐食備註:{{ formList[0].other }}</div>
-        <div>艙位號碼: {{ formList[0].seat }}</div>
-      </div> -->
-    <!-- </div> -->
+    <section class="alert" v-if="showAlert" >
+    <p @click="showAlert = false" ><img src="@/assets/image/orderProcess/X.jpg" alt=""></p>
+    尚有資料未填寫完成，請確認
+    </section>
 
   </section>
 </template>

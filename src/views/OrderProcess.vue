@@ -29,7 +29,7 @@
       <div class="introduce">
         <div class="button-container">
           <button :class="btn1" @click="show1F">{{subtitle[0].planet_subtitle}}</button>
-          <button :class="btn2" @click="show2F">{{subtitle[1].planet_subtitle}}</button>
+          <button :class="btn2" @click="show2F">{{subtitle[4].planet_subtitle}}</button>
         </div>
         <div class="introduce-p" v-show="show1" >
           <h3>{{subtitle[0].planet_subtitle}}</h3>
@@ -37,9 +37,9 @@
           <p> {{subtitle[0].introduction}}</p>
         </div>
         <div class="introduce-p" v-show="show2">
-          <h3>{{subtitle[1].planet_subtitle}}</h3>
-          <h4>{{subtitle[1].content_title}}</h4>
-          <p> {{subtitle[1].introduction}}</p>
+          <h3>{{subtitle[4].planet_subtitle}}</h3>
+          <h4>{{subtitle[4].content_title}}</h4>
+          <p> {{subtitle[4].introduction}}</p>
         </div>
       </div>
 
@@ -110,7 +110,7 @@
       </div>
       <div class="itinerary-d" @click="bf" :class="{ 'chosen': B }">
         <img src="@/assets/image/orderProcess/z.svg" alt="">
-        {{subtitle[1].planet_subtitle}}
+        {{subtitle[4].planet_subtitle}}
       </div>
     </section>
     <section class="itinerary-cotainer2">
@@ -121,13 +121,7 @@
         </div>
       </div>
       <div class="inR">
-        <!-- <div  v-for="(item ,index) in journeyAll" 
-          class="itinerary-d" 
-          @click="activeId = item.id " 
-          :key="id" 
-          :class="{ 'chosen': activeId === item.id }"  
-          > -->
-          <div  v-for="(item ,index) in journeyAll" 
+          <div  v-for="(item ,index) in MJ1" 
           class="itinerary-d" 
           @click="activeId = item.trip_no " 
           :key="trip_no" 
@@ -179,12 +173,12 @@
       <p>旅客人數: {{currentAmount}} 人</p>
     </div>
     <div class="order-money">
-      <p>總金額: {{600*currentAmount}} 萬美金 </p>
+      <p>總金額: {{500*currentAmount}} 萬美金 </p>
     </div>
     <div class="order-date">
       <p>航程日期: {{date}}</p>
     </div>
-    <div class="click">
+    <div class="click" @click="checkOrderInfo">
       <ButtonFlashBox :buttonText="'確認訂購'" :buttonBottomText="'-pv-'" class="kkss"  @click="checkOrder"></ButtonFlashBox>
     </div>
 
@@ -224,7 +218,7 @@
       <div class="confirm-title">
         <h2>{{ journey }}</h2>
         <h3> 旅客人數: {{ currentAmount }}</h3>
-        <h3>旅費金額: {{ 600 * currentAmount }}萬美金</h3>
+        <h3>旅費金額: {{ 500 * currentAmount }}萬美金</h3>
         <h3>航程日期: {{ date }}</h3>
       </div>
       <div class="confirm-content-container">
@@ -240,7 +234,6 @@
           <div>旅位狀態:{{ status }}</div>
           <div> 餐食備註:{{ item.other }}</div>
           <div>艙位號碼: {{ item.seatIndex }}</div>
-
         </div>
 
       </div>
@@ -252,23 +245,12 @@
       </div>
 
     </div>
-    <!-- <div class="confirm-content" >
-        <h2>{{ formList[0].name }}</h2>
-        <div>旅客1</div>
 
-        <div>姓氏:{{ formList[0].lastName }}</div>
-        <div>名字:{{ formList[0].name }}</div>
-        <div>性別:{{ formList[0].gender }}</div>
-        <div>出生日期:{{ formList[0].birthday }}</div>
-        <div>國籍:{{ formList[0].nation }}</div>
-        <div>護照號碼:{{ formList[0].passId }}</div>
-        <div>訓練服尺寸:{{ formList[0].size }}</div>
-        <div>旅位狀態:{{ status }}</div>
-        <div> 餐食備註:{{ formList[0].other }}</div>
-        <div>艙位號碼: {{ formList[0].seat }}</div>
-      </div> -->
-    <!-- </div> -->
+  </section>
 
+  <section class="alert" v-if="showAlert" >
+    <p @click="showAlert = false" ><img src="@/assets/image/orderProcess/X.jpg" alt=""></p>
+    尚有資料未填寫完成，請確認
   </section>
 </template>
   

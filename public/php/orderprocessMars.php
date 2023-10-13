@@ -11,8 +11,19 @@ require_once("../../../connectdb.php");
 
 
 // 下sql指令
-$sql_query = "SELECT 
-planet_subtitle ,content_title, introduction FROM itinerary  WHERE planet_name = '火星'";
+$sql_query = "SELECT
+i.planet_subtitle,
+i.content_title,
+i.introduction,
+t.*
+FROM
+itinerary i
+INNER JOIN
+trip t
+ON
+i.itinerary_no = t.itinerary_no
+WHERE
+i.planet_name = '火星';";
 $statement = $pdo->query($sql_query);
 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 

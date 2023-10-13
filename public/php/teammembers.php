@@ -11,8 +11,11 @@ require_once("../../../connectdb.php");
 
 
 // 下sql指令
-$sql_query = "SELECT 
-* FROM trip  WHERE trip_no IN (5, 6, 7, 8)";
+$sql_query = "SELECT
+*
+FROM
+teamintro"
+;
 $statement = $pdo->query($sql_query);
 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 

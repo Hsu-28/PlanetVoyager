@@ -1,4 +1,5 @@
 import $ from 'jquery'
+import axios from 'axios';
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 // import { ArrayCamera } from 'three'
@@ -7,6 +8,8 @@ import orderList from "@/components/PerOrder.vue";
 export default {
   data() {
     return {
+      showAlert: false,
+      activeId: "",
       jpRate:0,
       ntRate:0,
       orderCheck: false,
@@ -15,41 +18,33 @@ export default {
       NT: 0,
       A: false,
       B: false,
-      j1C: false,
-      j2C: false,
-      j3C: false,
-      j4C: false,
       amount: 6,
+      date: "",
       show1: true,
       show2: false,
       btn1: "btn-active",
       btn2: "",
-      journey: "金星探險",
-      j1:["2023/ 11/1~11/10",6,"2023/ 10/30~10/31"],
-      j2:["2023/ 12/1~11/10",2,"2023/ 11/29~1/30"],
-      j3:["2024/ 1/1~1/10",7,"2023/ 12/30~12/31"],
-      j4:["2024/ 3/1~3/10",4,"2024/ 2/27~2/28"],
-      date: "",
+      journey: "奧林帕斯山脈之旅",
       imgs: [
         {
           slide: require('@/assets/image/orderProcess/venusc2.jpg'),
-          altp: "在月球等你",
+          altp: "在金球等你",
         },
         {
           slide: require('@/assets/image/orderProcess/venusc1.jpg'),
-          altp: "火星外表",
+          altp: "金星外表",
         }, {
           slide: require('@/assets/image/orderProcess//venusc3.jpg'),
           altp: "地質",
         }, {
           slide: require('@/assets/image/orderProcess//venusc4.jpg'),
-          altp: "火星照",
+          altp: "金星照",
         }, {
           slide: require('@/assets/image/orderProcess//venusc5.jpg'),
-          altp: "飲料",
+          altp: "金星照",
         }, {
           slide: require('@/assets/image/orderProcess//venusc6.jpg'),
-          altp: "火星地形",
+          altp: "金星照",
         }
       ],
       tourInfo: [
@@ -70,6 +65,38 @@ export default {
           p: "若因天氣因素而無法出發，則啟航日期向後順延14天，最多順延兩次，若依然因為天氣因素無法成團，則退費70%",
         },
       ],
+      subtitle:[
+        {
+            "planet_subtitle": "",
+            "content_title":'',
+            "introduction":''
+        },
+        {
+            "planet_subtitle": "",
+            "content_title":'',
+            "introduction":''
+        },
+        {
+          "planet_subtitle": "",
+          "content_title":'',
+          "introduction":''
+      },
+      {
+          "planet_subtitle": "",
+          "content_title":'',
+          "introduction":''
+      },{
+        "planet_subtitle": "",
+        "content_title":'',
+        "introduction":''
+    },
+    {
+        "planet_subtitle": "",
+        "content_title":'',
+        "introduction":''
+    }
+
+    ],
       currentAmount: "1",
 
       // subContent: [
@@ -79,6 +106,7 @@ export default {
     }
   },
   methods: {
+    
     show1F() {
       this.show1 = true;
       this.show2 = false;
@@ -90,50 +118,17 @@ export default {
       this.show1 = false
       this.btn2 = "btn-active"
       this.btn1 = "";
-
     },
     af() {
       this.B = false;
       this.A = !this.Chosen00;
-      this.journey = "金星探險";
+      this.journey = this.subtitle[0].planet_subtitle;
     },
     bf() {
       this.A = false;
       this.B = !this.Chosen01;
-      this.journey = "秘境之行";
+      this.journey =  this.subtitle[1].planet_subtitle;
     }, 
-    j1f() {
-      this.j1C =!this.j1C;
-      this.j2C = false;
-      this.j3C = false;
-      this.j4C = false;
-      this.amount = this.j1[1];
-      this.date = this.j1[2];
-    },
-    j2f() {
-      this.j2C =!this.j2C;
-      this.j1C = false;
-      this.j3C = false;
-      this.j4C = false;
-      this.amount = this.j2[1];
-      this.date = this.j2[2];
-    },
-    j3f() {
-      this.j3C =!this.j3C;
-      this.j1C = false;
-      this.j2C = false;
-      this.j4C = false;
-      this.amount = this.j3[1];
-      this.date = this.j3[2];
-    },
-    j4f() {
-      this.j4C =!this.j4C;
-      this.j1C = false;
-      this.j2C = false;
-      this.j3C = false;
-      this.amount = this.j4[1];
-      this.date = this.j4[2];
-    },
     udpateForm(form, index) {
       console.log(form, index)
       this.formList[index] = form;
@@ -141,9 +136,22 @@ export default {
     disOrder(){
       this.orderCheck = !this.orderCheck
     },
-    checkOrder(){
+    checkOrder() {
       this.orderCheck = true
-    }
+    },
+    checkOrderInfo() {
+      const inputs = Array.from(document.getElementsByName("infos"));
+      const checkbox = document.querySelector('.infoscheck');
+      const seats = document.querySelector('.seats').innerText
+      for (let input of inputs) {
+        if(input.value.trim() === "" || !checkbox.checked || seats == ""){
+          
+          this.orderCheck = false
+          this.showAlert = true
+          // alert("還有資料尚未填寫")
+        }
+        }
+      },
   },
   computed: {
     options() {
@@ -154,35 +162,29 @@ export default {
       })
     },
     exchange () {
-      this.YEN = Math.floor(this.USD*148.91);
-      this.NT = Math.floor(this.USD*32.23);
+      this.YEN = Math.floor(this.USD*this.jpRate.toFixed(2));
+      this.NT = Math.floor(this.USD*this.ntRate.toFixed(2));
 
-    }
-    
+    },
+    MJ1() {
+        return this.subtitle.filter(v => v.planet_subtitle === "人文遺跡之旅")
+    },
   },
   watch: {
     currentAmount() {
       this.formList = []
     },
+      activeId: {
+        handler(newActiveId) {
+          const index = this.MJ1.findIndex(v=> v.trip_no===newActiveId)
+          if (index ===-1)return 
+          this.amount = this.MJ1[index].signup_num;
+          this.date = this.MJ1[index].trip_date;
+        },
+
+      }
+    
   },
-  // watch: {
-  //   currentAmount(nVal) {
-  //     this.setFormList(nVal)
-  //   },
-  // },
-  // methods: {
-  //   setFormList(num) {
-  //     this.formList = Array.from({ length: num }, (_, i) => {
-  //       return {
-  //         name: '',
-  //         email: ''
-  //       }
-  //     })
-  //   },
-  // },
-  // mounted(){
-  //   this.setFormList(this.currentAmount)
-  // },
   name: 'App',
   components: {
     Carousel,
@@ -198,10 +200,20 @@ export default {
         this.ntRate = data.rates.TWD;
         this.jpRate = data.rates.JPY;
     });
+
+    // 發起HTTP GET 請求
+    axios.get('http://localhost/PV/PlanetVoyager/public/php/orderprocessVenus.php')
+      .then(response => {
+        this.subtitle = response.data;
+      })
+      .catch(error => {
+        console.error(error);
+      });
 }
 
 
 }
+
 
 
 
