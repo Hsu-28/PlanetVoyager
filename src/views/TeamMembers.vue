@@ -34,7 +34,7 @@
                         <img :src="thisjob.imgSvg" alt="團隊照片" class="memberImg">
                     </div><!-- <imgSvg :src="require('../assets/image/teamMembers/memberSvg/ASTRONAUT01.jpg')" alt=""> -->
                     <div class="membersSpan">
-                        <p>{{ thisjob.name }}</p>
+                        <p>{{ '00'+memberIndex}}</p>
                         <p class="jobTitleMem">{{ thisjob.nameJob }}</p>
                         <div class="number">{{ thisjob.number }}</div>
                     </div>
@@ -106,7 +106,7 @@ export default {
             ],
             member: [
                 {
-                    number: "001",
+                    // number: "001",
                     name: "DAMON HINES",
                     nameJob: "首席系統工程師",
 
@@ -116,7 +116,7 @@ export default {
                     經歷：於太空界超過20年，曾經參與多次火星和月球的探測任務，並負責核心系統的設計和維護，且多次獲得國際航天獎項。`,
                 },
                 {
-                    number: "002",
+                    // number: "002",
                     name: "VICTOR MCKENZIE	",
                     nameJob: "電子、電力計算系統工程師",
                     imgSvg: require("@/assets/image/teamMembers/memberSvg/ENGINEER02.svg"),
@@ -125,7 +125,7 @@ export default {
                     經歷：MCKENZIE研發的節能太空電力系統已多次在太空探險中得到應用。他負責監督和創新所有航天器的電子系統，確保在太空的極端環境中都能保持最佳性能。`,
                 },
                 {
-                    number: "003",
+                    // number: "003",
                     name: "ROSE YATES",//女
                     nameJob: "飛行系統設計與分析",
                     imgSvg: require("@/assets/image/teamMembers/memberSvg/ENGINEER03.svg"),
