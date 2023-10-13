@@ -8,7 +8,7 @@ import orderList from "@/components/PerOrder.vue";
 export default {
   data() {
     return {
-    
+      showAlert: false,
       activeId: "",
       jpRate:0,
       ntRate:0,
@@ -65,42 +65,6 @@ export default {
           p: "若因天氣因素而無法出發，則啟航日期向後順延14天，最多順延兩次，若依然因為天氣因素無法成團，則退費70%",
         },
       ],
-      journeyAll: [
-        {
-        "trip_no": "",
-        "itinerary_no": "",
-        "trip_date": "",
-        "max_num": "",
-        "signup_num": "",
-        "waiting_people": "",
-        "training_date": ""
-      }, {
-        "trip_no": "",
-        "itinerary_no": "",
-        "trip_date": "",
-        "max_num": "",
-        "signup_num": "",
-        "waiting_people": "",
-        "training_date": ""
-      }, {
-        "trip_no": "",
-        "itinerary_no": "",
-        "trip_date": "",
-        "max_num": "",
-        "signup_num": "",
-        "waiting_people": "",
-        "training_date": ""
-      }, {
-        "trip_no": "",
-        "itinerary_no": "",
-        "trip_date": "",
-        "max_num": "",
-        "signup_num": "",
-        "waiting_people": "",
-        "training_date": ""
-      },
-       
-      ],
       subtitle:[
         {
             "planet_subtitle": "",
@@ -111,7 +75,27 @@ export default {
             "planet_subtitle": "",
             "content_title":'',
             "introduction":''
-        }
+        },
+        {
+          "planet_subtitle": "",
+          "content_title":'',
+          "introduction":''
+      },
+      {
+          "planet_subtitle": "",
+          "content_title":'',
+          "introduction":''
+      },{
+        "planet_subtitle": "",
+        "content_title":'',
+        "introduction":''
+    },
+    {
+        "planet_subtitle": "",
+        "content_title":'',
+        "introduction":''
+    }
+
     ],
       currentAmount: "1",
 
@@ -152,9 +136,22 @@ export default {
     disOrder(){
       this.orderCheck = !this.orderCheck
     },
-    checkOrder(){
+    checkOrder() {
       this.orderCheck = true
-    }
+    },
+    checkOrderInfo() {
+      const inputs = Array.from(document.getElementsByName("infos"));
+      const checkbox = document.querySelector('.infoscheck');
+      const seats = document.querySelector('.seats').innerText
+      for (let input of inputs) {
+        if(input.value.trim() === "" || !checkbox.checked || seats == ""){
+          
+          this.orderCheck = false
+          this.showAlert = true
+          // alert("還有資料尚未填寫")
+        }
+        }
+      },
   },
   computed: {
     options() {
@@ -168,21 +165,24 @@ export default {
       this.YEN = Math.floor(this.USD*this.jpRate.toFixed(2));
       this.NT = Math.floor(this.USD*this.ntRate.toFixed(2));
 
-    }
-    
-    
+    },
+    MJ1() {
+        return this.subtitle.filter(v => v.planet_subtitle === "月 球 巡 禮")
+    },
   },
   watch: {
     currentAmount() {
       this.formList = []
     },
-      // activeId: {
-      //   handler(newActiveId) {
-      //     this.amount = this.journeyAll[newActiveId-1].signup_num;
-      //     this.date = this.journeyAll[newActiveId-1].traningDate;
-      //   },
+      activeId: {
+        handler(newActiveId) {
+          const index = this.MJ1.findIndex(v=> v.trip_no===newActiveId)
+          if (index ===-1)return 
+          this.amount = this.MJ1[index].signup_num;
+          this.date = this.MJ1[index].trip_date;
+        },
 
-      // }
+      }
     
   },
   name: 'App',
@@ -205,13 +205,6 @@ export default {
     axios.get('http://localhost/PV/PlanetVoyager/public/php/orderprocess.php')
       .then(response => {
         this.subtitle = response.data;
-      })
-      .catch(error => {
-        console.error(error);
-      });
-      axios.get('http://localhost/PV/PlanetVoyager/public/php/orderprocess2.php')
-      .then(response => {
-        this.journeyAll = response.data;
       })
       .catch(error => {
         console.error(error);

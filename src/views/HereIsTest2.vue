@@ -5,6 +5,8 @@
   <div class="title">
     <h1>月球體驗之旅</h1>
     <h2>Moon Exploration Journey</h2>
+    <div>{{  }}</div>
+    <div>{{  }}</div>
   </div>
 
   <!-- 輪播 -->

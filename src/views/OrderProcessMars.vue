@@ -28,20 +28,18 @@
     <section class="introduce-container">
       <div class="introduce">
         <div class="button-container">
-          <button :class="btn1" @click="show1F">奧林帕斯山</button>
-          <button :class="btn2" @click="show2F">火星生命</button>
+          <button :class="btn1" @click="show1F">{{subtitle[0].planet_subtitle}}</button>
+          <button :class="btn2" @click="show2F">{{subtitle[4].planet_subtitle}}</button>
         </div>
         <div class="introduce-p" v-show="show1">
-          <h3>奧林帕斯山脈</h3>
-          <h4>登奧帕而小宇宙</h4>
-          <p>踏上一場壯闊的冒險，親臨太陽系最大的火山—奧林帕斯山。在這趟旅程中，遊客將體驗火星的獨特地貌、探索古老的火山結構，並從高空俯瞰其壯觀景色，感受宇宙中的偉大奧秘。</p>
+          <h3>{{subtitle[0].planet_subtitle}}</h3>
+          <h4>{{subtitle[0].content_title}}</h4>
+          <p> {{subtitle[0].introduction}}</p>
         </div>
         <div class="introduce-p" v-show="show2">
-          <h3>火星生命</h3>
-          <h4>感受宇宙的浩瀚與生命的神奇</h4>
-          <p>
-            探索生命存在的可能性。從巡遊壯觀的水手峽谷，到深入隱秘的地下水道，體驗火星獨特的生態與地質特徵。在這趟冒險之旅中，參與者不僅能使用先進科技親手探測微生物跡象，更可以透過氣候與大氣觀測深入了解其生命潛質。此旅程不僅是探索宇宙的奇妙之旅，追尋生命起源，帶領你挑戰未知，感受宇宙的浩瀚與生命的神奇。
-          </p>
+          <h3>{{subtitle[4].planet_subtitle}}</h3>
+          <h4>{{subtitle[4].content_title}}</h4>
+          <p> {{subtitle[4].introduction}}</p>
         </div>
       </div>
 
@@ -110,52 +108,34 @@
       </div>
       <div class="itinerary-d" @click="af" :class="{ 'chosen': A }">
         <img src="@/assets/image/orderProcess/z.svg" alt="">
-        奧帕之行
+        {{subtitle[0].planet_subtitle}}
       </div>
       <div class="itinerary-d" @click="bf" :class="{ 'chosen': B }">
         <img src="@/assets/image/orderProcess/z.svg" alt="">
-        火星生命
+        {{subtitle[4].planet_subtitle}}
       </div>
     </section>
     <section class="itinerary-cotainer2">
       <div class="inL">
         <div class="itinerary-c">
           選擇行程時間
-          <br>Choose Itinerary's Time
+          <br>Choose Itinerary
         </div>
       </div>
       <div class="inR">
-        <div class="itinerary-d" @click="j1f" :class="{ 'chosen': j1C }">
+          <div  v-for="(item ,index) in MJ1" 
+          class="itinerary-d" 
+          @click="activeId = item.trip_no " 
+          :key="trip_no" 
+          :class="{ 'chosen': activeId === item.trip_no}"
+          >
+        
           <h5>航程日期: </h5>
-          <p>{{ j1[0] }}</p>
+          <p>{{item.trip_date}}</p>
           <h5>訓練日期:</h5>
-          <p>{{ j1[2] }}</p>
+          <p>{{item.training_date}}</p>
 
-          <p class="space">團位: 10 可售: {{ j1[1] }} 候補: 0</p>
-        </div>
-        <div class="itinerary-d" @click="j2f" :class="{ 'chosen': j2C }">
-          <h5>航程日期: </h5>
-          <p>{{ j2[0] }}</p>
-          <h5>訓練日期:</h5>
-          <p>{{ j2[2] }}</p>
-
-          <p class="space">團位: 10 可售: {{ j2[1] }} 候補: 0</p>
-        </div>
-        <div class="itinerary-d" @click="j3f" :class="{ 'chosen': j3C }">
-          <h5>航程日期: </h5>
-          <p>{{ j3[0] }}</p>
-          <h5>訓練日期:</h5>
-          <p>{{ j3[2] }}</p>
-
-          <p class="space">團位: 10 可售: {{ j3[1] }}候補: 0</p>
-        </div>
-        <div class="itinerary-d" @click="j4f" :class="{ 'chosen': j4C }">
-          <h5>航程日期: </h5>
-          <p>{{ j4[0] }}</p>
-          <h5>訓練日期:</h5>
-          <p>{{ j4[2] }}</p>
-
-          <p class="space">團位: 10 可售: {{ j4[1] }} 候補: 0</p>
+          <p class="space">團位: 10 可售: {{ item.signup_num}} 候補:  {{ item. waiting_people }}</p>
         </div>
       </div>
     </section>
@@ -219,7 +199,7 @@
 
   <!--   
     <div>
-      這邊是想顯示的部分
+      這邊是想顯示的部分currentAmount
     </div>
   
   
@@ -237,7 +217,7 @@
       <div class="confirm-title">
         <h2>{{ journey }}</h2>
         <h3> 旅客人數: {{ currentAmount }}</h3>
-        <h3>旅費金額: {{ 600 * currentAmount }}萬美金</h3>
+        <h3>旅費金額: {{ 500 * currentAmount }}萬美金</h3>
         <h3>航程日期: {{ date }}</h3>
       </div>
       <div class="confirm-content-container">
@@ -261,26 +241,14 @@
 
         <div class="order-finall-btn btn-Cancle" @click="disOrder">修改資料</div>
         <router-link to="OrderSuccess"><div class="order-finall-btn btn-Check">確認訂購</div></router-link>
-        
+
       </div>
 
     </div>
-    <!-- <div class="confirm-content" >
-        <h2>{{ formList[0].name }}</h2>
-        <div>旅客1</div>
-
-        <div>姓氏:{{ formList[0].lastName }}</div>
-        <div>名字:{{ formList[0].name }}</div>
-        <div>性別:{{ formList[0].gender }}</div>
-        <div>出生日期:{{ formList[0].birthday }}</div>
-        <div>國籍:{{ formList[0].nation }}</div>
-        <div>護照號碼:{{ formList[0].passId }}</div>
-        <div>訓練服尺寸:{{ formList[0].size }}</div>
-        <div>旅位狀態:{{ status }}</div>
-        <div> 餐食備註:{{ formList[0].other }}</div>
-        <div>艙位號碼: {{ formList[0].seat }}</div>
-      </div> -->
-    <!-- </div> -->
+    <section class="alert" v-if="showAlert" >
+    <p @click="showAlert = false" ><img src="@/assets/image/orderProcess/X.jpg" alt=""></p>
+    尚有資料未填寫完成，請確認
+    </section>
 
   </section>
 </template>
