@@ -32,7 +32,7 @@
                     <div class="membersSpan">
                         <p>{{ thisjob.team_memname }}</p>
                         <p class="jobTitleMem">{{ thisjob.team_memjob }}</p>
-                        <div class="number">{{ thisjob.team_memno }}</div>
+                        <div class="number">{{ `00${memberIndex+1}`}}</div>
                     </div>
                 </div>
             </div>
