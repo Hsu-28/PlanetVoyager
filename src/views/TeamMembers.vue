@@ -28,7 +28,7 @@
 
                     <div class="imgContent">
                         <img :src="require(`@/assets/image/teamMembers/memberSvg/${thisjob.team_memimage}`)" alt="團隊照片" class="memberImg">
-                    </div><!-- <imgSvg :src="require('../assets/image/teamMembers/memberSvg/ASTRONAUT01.jpg')" alt=""> -->
+                    </div>
                     <div class="membersSpan">
                         <p>{{ thisjob.team_memname }}</p>
                         <p class="jobTitleMem">{{ thisjob.team_memjob }}</p>
