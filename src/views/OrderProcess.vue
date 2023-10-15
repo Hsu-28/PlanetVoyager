@@ -233,7 +233,9 @@
           <div>訓練服尺寸:{{ item.size }}</div>
           <div>旅位狀態:{{ status }}</div>
           <div> 餐食備註:{{ item.other }}</div>
-          <div>艙位號碼: {{ item.seatIndex }}</div>
+          <div> 艙位號碼: {{ item.seatIndex }}</div>
+          <div> 太空服尺寸: {{ item.ssize }}</div>
+          <div> 太空服顏色: {{ item.scolor }}</div>
         </div>
 
       </div>

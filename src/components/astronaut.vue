@@ -1,7 +1,7 @@
 <template>
-  
-      <canvas id="threeJS"></canvas>
 
+      <canvas id="threeJS"></canvas>
+ 
   </template>
   
   <script>
@@ -19,9 +19,8 @@
   export default {
     data(){
       return{
-        publicPath: process.env.BASE_URL,
-		//這邊不太懂，定義路徑
-    appleWidth: window.innerWidth * 0.5,
+        publicPath: process.env.BASE_URL,//這邊不太懂，定義路徑
+		appleWidth: window.innerWidth * 0.5,
       }
       
     },
@@ -129,7 +128,4 @@ initThree() {
   };
   </script>
   
-  <style scoped>
- 
-  </style>
   
