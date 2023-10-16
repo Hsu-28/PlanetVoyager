@@ -133,7 +133,7 @@
           <h5>訓練日期:</h5>
           <p>{{item.training_date}}</p>
 
-          <p class="space">團位: 10 可售: {{ item.signup_num}} 候補:  {{ item. waiting_people }}</p>
+          <p class="space">團位: 10 可售: {{ item.vacancy_num}} 候補:  {{ item. waiting_people }}</p>
         </div>
       </div>
     </section>

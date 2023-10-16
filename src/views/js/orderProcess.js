@@ -153,6 +153,7 @@ export default {
         }
       },
   },
+  
   computed: {
     options() {
       return Array.from({ length: this.amount }, (_, i) => {
@@ -178,7 +179,7 @@ export default {
         handler(newActiveId) {
           const index = this.MJ1.findIndex(v=> v.trip_no===newActiveId)
           if (index ===-1)return 
-          this.amount = this.MJ1[index].signup_num;
+          this.amount = this.MJ1[index].vacancy_num;
           this.date = this.MJ1[index].trip_date;
         },
 

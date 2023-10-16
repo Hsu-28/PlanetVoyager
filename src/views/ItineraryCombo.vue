@@ -14,12 +14,15 @@
             <div class="scrollsection" data-scroll-section>
                 <div class="title" style="writing-mode: vertical-lr" data-scroll data-scroll-speed="1">
                     <div>
-                        <h1>銀 河 漫 遊 之 旅</h1>
+                        <!-- <h1 v-if="myData.length > 0">{{ myData}}</h1> -->
+                        <h1>{{ myData.itinerary[0].planet_subtitle }}</h1>
+                        <h1>{{ photos }}</h1>
                     </div>
 
 
                 </div>
             </div>
+            
             <div v-for="(day, index) in schedules" :key="index" class="scrollsection" data-scroll-section>
                 <div class="schedule" :class="day.schedulenum" data-scroll data-scroll-speed="2">
                     <div class="schedule-text">
@@ -27,8 +30,11 @@
                         <p>{{ day.schedule }}</p>
                     </div>
                     <div class="schedule-pic">
-                        <div v-for="(URL, picIndex) in day.imgUrls" :key="picIndex" class="image-box" @click="showPic($event)">
-                            <img :src="URL">
+                        <div v-for="(URL, picIndex) in day.imgUrls" :key="picIndex" class="image-box"
+                            @click="showPic($event)">
+                            <!-- <img :src="URL"> 原來的 -->
+                            <img :src="`require(@/assets/image/itinerary_combo/${URL.itinerary_pic})`">
+                            <!-- <img :src="`require('@/assets/image/itinerary_combo/c11.svg')`"> -->
                         </div>
                     </div>
                 </div>
@@ -39,17 +45,20 @@
 
 <script>
 import LocomotiveScroll from 'locomotive-scroll';
-
+import axios from 'axios';
 export default {
     data() {
         return {
+            photos:[],
+            myData: [],
+            test: "",
             bigpic: '',
             showBtn: true,
             scroll: null,
             schedules: [
                 {
                     schedulenum: "schedule1",
-                    num: "Day1 旅程啟航！",
+                    num: "Day111111 旅程啟航！",
                     schedule: "從地球啟程後可飽覽星際風光，隔日中午抵達月球，在銀河中體驗太空中漂浮。",
                     imgUrls: [
                         require('@/assets/image/itinerary_combo/c11.svg'),
@@ -59,7 +68,7 @@ export default {
                 },
                 {
                     schedulenum: "schedule2",
-                    num: "Day2 月球美景饗宴",
+                    num: "Day22222 月球美景饗宴",
                     schedule: "在月球周圍繞行，除了神奇的月亮景色，也能於月球的空中觀測未知的生物和奇異的地貌，滿足您的探索精神。",
                     imgUrls: [
                         require('@/assets/image/itinerary_combo/c21.svg'),
@@ -108,7 +117,7 @@ export default {
                     ],
                 },
             ],
-
+            content: '',
         };
     },
     methods: {
@@ -119,7 +128,7 @@ export default {
             if (this.bigpic != '') {
                 this.bigpic = '';
             }
-        }
+        },
     },
     computed: {
         showBtn() {
@@ -128,9 +137,15 @@ export default {
         },
         coverbg() {
             return this.bigpic !== ''
-        }
+        },
+        D1() {
+        return this.schedules[0].imgUrls = this.photos.filter(v => v.itinerary_photo_no < 4)
+        
+    },
+
     },
     mounted() {
+
         const el = document.querySelector('#main-container')
         if (!el) return;
         console.log(el)
@@ -154,11 +169,33 @@ export default {
     },
     beforeUnmount() {
         console.log(this.scroll);
-    if (this.scroll) {
-      this.scroll.destroy();
-    }
-    console.log(this.scroll);
-  }              
+        if (this.scroll) {
+            this.scroll.destroy();
+        }
+        console.log(this.scroll);
+    },
+
+
+    created() {
+
+        axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryCombo.php')
+            .then(response => {
+                this.myData = response.data;
+                this.photos = this.myData.itinerary_photos;
+            })
+        // .then((res) => res.json())
+        // .then((res) => {
+        //   this.myData = res; 
+        // })
+        // .catch((error) => {
+        //   console.error("發生錯誤:", error);
+        // });
+            
+            .catch(error => {
+                console.error(error);
+            });
+        
+    },
 };
 
 </script>
