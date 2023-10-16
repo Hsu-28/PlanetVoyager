@@ -184,7 +184,7 @@ methods: {
     const parentContainer = document.querySelector(".apple"); // 获取父容器元素
     const width = parentContainer.clientWidth; // 获取父容器的宽度
     const height = parentContainer.clientHeight
-    this.appleWidth = width*0.8;
+    this.appleWidth = width;
     // const width = this.appleWidth*0.9; // 20% of window width，自己設的變數不重要
     // const height = width ; // 20% of window height，自己設的變數不重要
 
@@ -197,9 +197,9 @@ methods: {
       0.1,         //這是相機的近平面（Near Plane）的距離。米為單位
       1000         //這是相機的遠平面（Far Plane）的距離。米為單位
     );
-    camera.position.y = 1;
-    camera.position.x = 0;
-    camera.position.z = 0.8;//相機位置
+    camera.position.y = 0.39;
+    camera.position.x = 0.08;
+    camera.position.z = 1.04;//相機位置
 
     canvas.camera = camera;
   
@@ -208,8 +208,8 @@ methods: {
     let model = gltf.scene;//這一行將從 GLTF 文件中加載的 3D 模型保存在 model 變數中。這個變數代表整個 3D 模型的場景，包括所有的物體和結構。
     scene.add(model);//把她掛到three.js場景裡面
 
-    model.scale.set(0.43, 0.43 , 0.47);//這一行調整了模型的縮放。
-    model.position.y = -0.51;//這一行調整了模型的Y軸位置。
+    model.scale.set(0.31, 0.31 , 0.35);//這一行調整了模型的縮放。
+    model.position.y = -0.38;//這一行調整了模型的Y軸位置。
     // model.position.x = -0.5;//這一行調整了模型的X軸位置。
     // controls.minPolarAngle = controls.maxPolarAngle = Math.PI / 2; // 限制只能水平旋轉
     });
@@ -250,7 +250,7 @@ methods: {
     const parentContainer = document.querySelector(".apple"); // 获取父容器元素
     const width = parentContainer.clientWidth; // 获取父容器的宽度
     const height = parentContainer.clientHeight
-    this.appleWidth = width*0.8;
+    this.appleWidth = width;
 
     // 更新 canvas 元素的大小
     const canvas = document.querySelector(".threeJS");
@@ -271,7 +271,7 @@ methods: {
     this.updateAmbientLightColor();
   },
   gray () {
-    this.color = 0x111111 
+    this.color = 0x333333 
     this.updateAmbientLightColor();
   },
   // blue() {
