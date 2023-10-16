@@ -15,26 +15,36 @@
                 <div class="title" style="writing-mode: vertical-lr" data-scroll data-scroll-speed="1">
                     <div>
                         <!-- <h1 v-if="myData.length > 0">{{ myData}}</h1> -->
-                        <h1>{{ myData.itinerary[0].planet_subtitle }}</h1>
-                        <h1>{{ photos }}</h1>
+                        <h1 v-if="myData && myData.itinerary && myData.itinerary.length > 0" >{{ myData.itinerary[0].planet_subtitle }}</h1>
                     </div>
 
 
                 </div>
             </div>
-            
+
             <div v-for="(day, index) in schedules" :key="index" class="scrollsection" data-scroll-section>
                 <div class="schedule" :class="day.schedulenum" data-scroll data-scroll-speed="2">
                     <div class="schedule-text">
                         <h3>{{ day.num }}</h3>
                         <p>{{ day.schedule }}</p>
+                       
                     </div>
+                    <!-- <div class="schedule-pic">
+                        <div v-for="(URL, picIndex) in day.imgUrls" :key="picIndex" class="image-box"
+                            @click="showPic($event)">
+                            <img :src="URL"> 原來的
+                            
+                            <img :src="require(`@/assets/image/itinerary_combo${URL}`)"> 
+
+                            
+                        </div>
+                    </div> -->
                     <div class="schedule-pic">
                         <div v-for="(URL, picIndex) in day.imgUrls" :key="picIndex" class="image-box"
                             @click="showPic($event)">
-                            <!-- <img :src="URL"> 原來的 -->
-                            <img :src="`require(@/assets/image/itinerary_combo/${URL.itinerary_pic})`">
-                            <!-- <img :src="`require('@/assets/image/itinerary_combo/c11.svg')`"> -->
+                            <!-- <img :src="require(`@/assets/image/itinerary_combo/${URL}`)"> -->
+                             <img :src="`http://localhost/PV/PlanetVoyager/src/assets/image/itinerary_combo/${URL.itinerary_pic}`" alt="">
+                            
                         </div>
                     </div>
                 </div>
@@ -49,8 +59,17 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            photos:[],
-            myData: [],
+            photos: [],
+            myData: {
+                // "itinerary": [
+                //     {
+                //         "planet_subtitle": "星際繞行",
+                //         "itinerary_day": "Day1 旅程啟航！\r\n從地球啟程後可飽覽星際風光，隔日中午抵達月球，在銀河中體驗太空中漂浮。\r\nDay2 月球美景饗宴\r\n在月球周圍繞行，除了神奇的月亮景色，也能於月球的空中觀測未知的生物和奇異的地貌，滿足您的探索精神。\r\nDay3 金星秘景探索\r\n藉由蟲洞跳躍，我們前往金星，探索這個炎熱的星球。在金星空中的飛航期間，您將發現更多奇異的景色和未知生物，使我們的旅程更加驚喜。\r\nDay4、5 火星遺跡巡航\r\n再次飛入蟲洞，前往火星。在這顆紅色星球上，於空中觀看遠古遺跡、麥田圈等等，尋訪生命的起源和消亡，為您的旅程添上色彩。\r\nDay 6 台日共構月球基地--蒂芬妮丘\r\n蒂芬妮丘是深太空探索的跳板，有助於實現我們登陸更遠的星系。月球基地的太陽能發電站將為未來太空任務提供可再生能源，強化星際探索空持續性。旅客在此休息養足精神，隔日再行返家。\r\nDay 7 返回家鄉--地球\r\n星際旅遊的壯闊冒險完美收尾！在無重力中飄浮的日子即將結束，我們即將返回地球。帶著難以置信的回憶和深刻的體驗，我們準備迎接重力的擁抱。也請各位珍惜回程最後飽覽太空的絕美景觀的機會。如果捨不得，我們期待著下次再與您共度星際旅遊的美好時光，感謝您的參與！\r\n"
+                //     }
+                // ],
+                // "itinerary_photos": [
+                // ]
+            },
             test: "",
             bigpic: '',
             showBtn: true,
@@ -61,9 +80,12 @@ export default {
                     num: "Day111111 旅程啟航！",
                     schedule: "從地球啟程後可飽覽星際風光，隔日中午抵達月球，在銀河中體驗太空中漂浮。",
                     imgUrls: [
-                        require('@/assets/image/itinerary_combo/c11.svg'),
-                        require('@/assets/image/itinerary_combo/c12.svg'),
-                        require('@/assets/image/itinerary_combo/c13.svg'),
+                        // require('@/assets/image/itinerary_combo/c11.svg'),
+                        // require('@/assets/image/itinerary_combo/c12.svg'),
+                        // require('@/assets/image/itinerary_combo/c13.svg'),
+                        // 'c11.svg',
+                        // 'c12.svg',
+                        // 'c13.svg'
                     ],
                 },
                 {
@@ -71,9 +93,12 @@ export default {
                     num: "Day22222 月球美景饗宴",
                     schedule: "在月球周圍繞行，除了神奇的月亮景色，也能於月球的空中觀測未知的生物和奇異的地貌，滿足您的探索精神。",
                     imgUrls: [
-                        require('@/assets/image/itinerary_combo/c21.svg'),
-                        require('@/assets/image/itinerary_combo/c22.svg'),
-                        require('@/assets/image/itinerary_combo/c23.svg'),
+                        // require('@/assets/image/itinerary_combo/c21.svg'),
+                        // require('@/assets/image/itinerary_combo/c22.svg'),
+                        // require('@/assets/image/itinerary_combo/c23.svg'),
+                        // 'c21.svg',
+                        // 'c22.svg',
+                        // 'c23.svg'
                     ],
                 },
                 {
@@ -81,9 +106,12 @@ export default {
                     num: "Day3 金星秘景探索",
                     schedule: "藉由蟲洞跳躍，我們前往金星，探索這個炎熱的星球。在金星空中的飛航期間，您將發現更多奇異的景色和未知生物，使我們的旅程更加驚喜。",
                     imgUrls: [
-                        require('@/assets/image/itinerary_combo/c31.svg'),
-                        require('@/assets/image/itinerary_combo/c32.svg'),
-                        require('@/assets/image/itinerary_combo/c33.svg'),
+                        // require('@/assets/image/itinerary_combo/c31.svg'),
+                        // require('@/assets/image/itinerary_combo/c32.svg'),
+                        // require('@/assets/image/itinerary_combo/c33.svg'),
+                        'c31.svg',
+                        'c32.svg',
+                        'c33.svg'
                     ],
                 },
                 {
@@ -91,9 +119,12 @@ export default {
                     num: "Day4、5 火星遺跡巡航",
                     schedule: "再次飛入蟲洞，前往火星。在這顆紅色星球上，於空中觀看遠古遺跡、麥田圈等等，尋訪生命的起源和消殞，為您的旅程添上色彩。",
                     imgUrls: [
-                        require('@/assets/image/itinerary_combo/c41.svg'),
-                        require('@/assets/image/itinerary_combo/c42.svg'),
-                        require('@/assets/image/itinerary_combo/c43.svg'),
+                        // require('@/assets/image/itinerary_combo/c41.svg'),
+                        // require('@/assets/image/itinerary_combo/c42.svg'),
+                        // require('@/assets/image/itinerary_combo/c43.svg'),
+                        'c41.svg',
+                        'c42.svg',
+                        'c43.svg'
                     ],
                 },
                 {
@@ -101,9 +132,12 @@ export default {
                     num: "Day 6 台日共構月球基地--蒂芬妮丘",
                     schedule: "蒂芬妮丘是深太空探索的跳板，有助於實現我們登陸更遠的星系。月球基地的太陽能發電站將為未來太空任務提供可再生能源，強化星際探索空持續性。旅客在此休息養足精神，隔日再行返家。",
                     imgUrls: [
-                        require('@/assets/image/itinerary_combo/c51.svg'),
-                        require('@/assets/image/itinerary_combo/c52.svg'),
-                        require('@/assets/image/itinerary_combo/c53.svg'),
+                        // require('@/assets/image/itinerary_combo/c51.svg'),
+                        // require('@/assets/image/itinerary_combo/c52.svg'),
+                        // require('@/assets/image/itinerary_combo/c53.svg'),
+                        'c51.svg',
+                        'c52.svg',
+                        'c53.svg',
                     ],
                 },
                 {
@@ -111,9 +145,12 @@ export default {
                     num: "Day 7 返回家鄉--地球",
                     schedule: "星際旅遊的壯闊冒險完美收尾！在無重力中飄浮的日子即將結束，我們即將返回地球。帶著難以置信的回憶和深刻的體驗，我們準備迎接重力的擁抱。也請各位珍惜回程最後飽覽太空的絕美景觀的機會。如果捨不得，我們期待著下次再與您共度星際旅遊的美好時光，感謝您的參與！",
                     imgUrls: [
-                        require('@/assets/image/itinerary_combo/c11.svg'),
-                        require('@/assets/image/itinerary_combo/c12.svg'),
-                        require('@/assets/image/itinerary_combo/c13.svg'),
+                        // require('@/assets/image/itinerary_combo/c11.svg'),
+                        // require('@/assets/image/itinerary_combo/c12.svg'),
+                        // require('@/assets/image/itinerary_combo/c13.svg'),
+                        'c11.svg',
+                        'c12.svg',
+                        'c13.svg',
                     ],
                 },
             ],
@@ -139,9 +176,12 @@ export default {
             return this.bigpic !== ''
         },
         D1() {
-        return this.schedules[0].imgUrls = this.photos.filter(v => v.itinerary_photo_no < 4)
-        
-    },
+            return this.schedules[0].imgUrls = this.photos.filter(v => v.itinerary_photo_no < 4)
+
+        },
+        D1() {
+            return this.schedules[0].imgUrls = this.photos.filter(v => v.itinerary_photo_no < 4)
+        },
 
     },
     mounted() {
@@ -183,18 +223,10 @@ export default {
                 this.myData = response.data;
                 this.photos = this.myData.itinerary_photos;
             })
-        // .then((res) => res.json())
-        // .then((res) => {
-        //   this.myData = res; 
-        // })
-        // .catch((error) => {
-        //   console.error("發生錯誤:", error);
-        // });
-            
             .catch(error => {
                 console.error(error);
             });
-        
+
     },
 };
 

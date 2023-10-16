@@ -267,7 +267,7 @@ methods: {
     renderer.setSize(this.appleWidth, height);
   },
   white () {
-    this.color = 0xffffff
+    this.color = 0xffffaa
     this.updateAmbientLightColor();
   },
   gray () {

@@ -137,7 +137,7 @@ export default {
     bf() {
       this.A = false;
       this.B = !this.Chosen01;
-      this.journey =  this.subtitle[1].planet_subtitle;
+      this.journey =  this.subtitle[4].planet_subtitle;
     }, 
     udpateForm(form, index) {
       console.log(form, index)
