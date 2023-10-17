@@ -8,6 +8,20 @@ import orderList from "@/components/PerOrder.vue";
 export default {
   data() {
     return {
+      formData: {
+        lastName: '',
+        name: '',
+        gender: '',
+        birthday: '',
+        nation: '',
+        passId: '',
+        size: '',
+        status: '',
+        other: '',
+        seatIndex: '',
+        ssize: '',
+        scolor: ''
+      },
       showAlert: false,
       activeId: "",
       jpRate:0,
@@ -152,8 +166,7 @@ export default {
         }
         }
     },
-    Addorder() {
-      document.getElementById("submitBtn").addEventListener("click", function() {
+    Addorder() {  
         var formData = {
           lastName: document.getElementById("lastName").textContent,
           name: document.getElementById("name").textContent,
@@ -186,7 +199,6 @@ export default {
         .catch(error => {
           console.error('请求错误:', error);
         });
-      });
       
     },
   },

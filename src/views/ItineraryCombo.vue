@@ -222,24 +222,24 @@ export default {
         coverbg() {
             return this.bigpic !== ''
         },
-        D1() {
-        return this.schedules[0].imgUrls = this.photos.filter(v => v.itinerary_photo_no < 4)   
-        },
-        D2() {
-        return this.schedules[1].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 3 && v.itinerary_photo_no < 7);
-        },
-        D3() {
-        return this.schedules[2].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 6 && v.itinerary_photo_no < 10)   
-        },
-        D4() {
-        return this.schedules[3].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 9 && v.itinerary_photo_no < 13)   
-        },
-        D5() {
-        return this.schedules[4].imgUrls = this.photos.filter(v => v.itinerary_photo_no < 4)   
-        },
-        D6() {
-        return this.schedules[5].imgUrls = this.photos.filter(v => v.itinerary_photo_no < 3 && v.itinerary_photo_no < 7)   
-        },
+        // D1() {
+        // return this.schedules[0].imgUrls = this.photos.filter(v => v.itinerary_photo_no < 4)   
+        // },
+        // D2() {
+        // return this.schedules[1].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 3 && v.itinerary_photo_no < 7);
+        // },
+        // D3() {
+        // return this.schedules[2].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 6 && v.itinerary_photo_no < 10)   
+        // },
+        // D4() {
+        // return this.schedules[3].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 9 && v.itinerary_photo_no < 13)   
+        // },
+        // D5() {
+        // return this.schedules[4].imgUrls = this.photos.filter(v => v.itinerary_photo_no < 4)   
+        // },
+        // D6() {
+        // return this.schedules[5].imgUrls = this.photos.filter(v => v.itinerary_photo_no < 3 && v.itinerary_photo_no < 7)   
+        // },
 
 
     },

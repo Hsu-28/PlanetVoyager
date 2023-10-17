@@ -74,7 +74,7 @@
       <div class="order-a apple">
      
       
-      <canvas class="threeJS"></canvas>
+      <canvas class="threeJS" ref="canvas"></canvas>
       <div class="spacesuit-size">
         <div class="clothe">&nbsp; 太空服尺寸:&nbsp;&nbsp;
           <div class="chose-size">
@@ -174,7 +174,7 @@ export default {
 methods: {
   initThree() {
     const scene = new THREE.Scene();//先設定場景
-    const canvas = document.querySelector(".threeJS");//設定"canvas"抓到canvas畫布
+    const canvas =this.$refs.canvas;//設定"canvas"抓到canvas畫布
     const renderer = new THREE.WebGLRenderer({canvas,antialias: true,alpha: true });
     renderer.setSize(canvas.clientWidth, canvas.clientHeight);  // 设置 canvas 大小
     // new THREE.WebGLRenderer宣告在瀏覽器使用WebGL 技術渲染 3D 场景。
@@ -267,7 +267,7 @@ methods: {
     renderer.setSize(this.appleWidth, height);
   },
   white () {
-    this.color = 0xffffaa
+    this.color = 0xffffff
     this.updateAmbientLightColor();
   },
   gray () {
