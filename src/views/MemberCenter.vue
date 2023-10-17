@@ -1,41 +1,25 @@
 <template>
     <div id="membercenter">
       <router-view>
-      <div class="memtitle">
-        <h2 v-for="title in titles">{{title}}</h2></div>
+      <div class="memtitle"><h2 v-for="title in titles">{{title}}</h2></div>
       <!-- 上方會員資訊 -->
       <div class="container">
         <section class="top">
           <div class="info">
-              <div class="upload">
-                <!-- <img src="~@/assets/image/membercenter/avatar.png" alt="頭像"> -->
-                <!-- <label for="title"  class="upload-title">上傳圖片</label> -->
-                <form action="upload.php" method="post" enctype="multipart/form-data">
-                  <div class="UploadImg">
-                      <div class="img" v-for="i in 1" :key="i">
-                        <label class="custom-file-upload">
-                          <p  @mousedown="triggerFileInput(i)">＋</p>
-                          <input type="file"  name="user_image" accept="image/*" ref="fileInput" style="display: none" @change="handleFileUpload(i, $event)">
-                          <img v-if="imgsData[i]" :src="uploadedImages[i]" alt="">
-                        </label>
-                    </div>
-                  </div>
-                <input type="submit" value="上傳圖片">
-                </form>
-              </div>
-          
+      <!-- 會員資訊 -->
               <div class="mem-box">
-                <div class="greeting">
-                  <img src="../assets/image/membercenter/level1.svg" alt="icon" class="icon">
-                  <p>HI,<span class="nickname">{{ phpData.mem_nickname }}</span></p>
+                <div class="greeting" >
+                  <img  :src="getIconPath(memLevel)" alt="icon" class="icon">
+                  <p>HI,<span class="nickname" v-if="myData && myData.itinerary && myData.itinerary.length > 0">{{  phpData[0].mem_nickname}}</span></p>
                 </div>
               <div class="mem-number">
-                <p>會員編號<span class="number">{{ phpData.mem_no }}</span></p>
-                <p>今年度捐款金額<br><span class="sum">{{ phpData.donate_sum }}</span></p>
+                <p>會員編號<span class="number">{{  phpData[0].mem_no }}</span></p>
+                <p>今年度捐款金額<br><span class="sum">{{  phpData[0].donate_sum  }}</span></p>
               </div>
             </div>
+         
           </div>
-        <!-- 切換頁面 -->
+      <!-- 切換頁面 -->
         <ul class="tab-mem-title">
           <li v-for="(option, index) in optionCard" :key="option.id" class="option-tab">
           <div class="top-tab" :class="{ 'active': option.id === activeId }">
@@ -48,50 +32,44 @@
           </li>
         </ul>
       </section>
+
+
         <div class="content">
         <!-- 帳戶資料 -->
           <div v-if="activeId === 1" class="information">
             <form action=""  @submit.prevent="handleSubmit">
               <p class="account-first-title">帳戶資訊</p>
               <div class="top-input">
-                <div class="all-input">
+              <div class="all-input">
                   <div class="control-container">
-                    <p id="name"><span >姓名</span><br>
-                      <input type="text" required v-model="name"></p>
-                    <p><span>暱稱</span><br>
-                      <input type="text" required v-model="nickname"></p>
-                  </div>
+                    <p id="name">姓名<br><input type="text" required v-model="nameFromPHP"></p>
+                    <p>暱稱<br><input type="text" required v-model="nicknameFromPHP"></p>
+              </div>
                   <div class="control-container">
                       <p><span >性別</span><br>
-                          <select  required v-model="sex" id="sex" style="color:#F0F0F0;">
-                              <option value="1" >男性</option>
-                              <option value="2" >女性</option>
-                              <option value="other">其他</option>
+                          <select  required v-model="sexFromPHP" id="sex" style="color:#F0F0F0;">
+                            <option v-for="(option, index) in genderOptions" :key="index" :value="option.value">
+                           {{ option.label }}</option>
                           </select></p>
-                      <p><span>生日</span><br>
-                          <input type="date"  id="bir" required v-model="birthday"></p>
+                      <p>生日<br><input type="date"  id="bir" required v-model="birthdayFromPHP"></p>
                   </div>
                   <div class="control-container">
-                    <p id="mobile"><span>手機號碼</span><br>
-                      <input type="text" maxlength="10" oninput="value=value.replace(/[^\d]/g,'')"
-                      required v-model="phoneNumber"></p>
-                    <p><span>E-MAIL</span><br>
-                      <input type="email" required v-model="email" ></p>
+                    <p id="mobile">手機號碼<br><input type="text" maxlength="10" oninput="value=value.replace(/[^\d]/g,'')" required v-model="phoneNumberFromPHP"></p>
+                    <p>E-MAIL<br><input type="email" required v-model="emailFromPHP" ></p>
                     </div>
                   <div class="control-container">
-                    <p id="address"><span>收件/聯絡地址</span><br>
-                      <input type="text" required v-model="address"></p>
-                    <p><span>護照號碼</span><br>
-                      <input type="text" maxlength="9" oninput="value=value.replace(/[^\d]/g,'')"
-                              v-model="passportNumber" ></p> 
+                    <p id="address">收件/聯絡地址<br><input type="text" required v-model="addressFromPHP"></p>
+                    <p>護照號碼<br><input type="text" maxlength="9" oninput="value=value.replace(/[^\d]/g,'')" v-model="passportNumberFromPHP" ></p> 
                   </div>
               </div>
+
                 <div class="top-box">
+
                   <div class="social">
                     <div class="facebook">
                       <a href="" style="display: flex; align-items: center;">
                         <img src="../assets/image/membercenter/facebook.svg" alt="fb">
-                      <p class="fb">FACEBOOK(已綁定) </p></a>
+                      <p class="fb">FACEBOOK(已綁定)</p></a>
                     </div>
                     <div class="google">
                     <a href="" style="display: flex; align-items: center;">
@@ -112,22 +90,18 @@
                 <hr class="account-hr" >
                 <div class="password-bottom-container">
                   <p class="account-sec-title">修改密碼</p>
-                  <span>舊密碼<br>
-                    <input type="password" v-model="oldPw"></span>
-                  <span>新密碼<br>
-                    <input type="password" v-model="newPw"></span>
-                  <span>確認新密碼<br>
-                    <input type="password" v-model="confirmPw"></span>
+                  <span>舊密碼<br><input type="password" v-model="oldPwFromPHP"></span>
+                  <span>新密碼<br><input type="password" v-model="newPw"></span>
+                  <span>確認新密碼<br><input type="password" v-model="confirmPw"></span>
                 <div class="bottom-button">
-                  <!--<button class="cybr-btn" @click="signin">確認修改<span aria-hidden class="cybr-btn__glitch"></span><span aria-hidden class="cybr-btn__tag">&emsp;&emsp;-PV-</span></button> -->
                   <ButtonStyle buttonText="確認修改" buttonBottomText="-PV-"></ButtonStyle> 
                 </div>
                 </div>
-             
           </form>
          </div>
+
        <!-- 查詢訂單 -->
-          <div v-else-if="activeId === 2" class="check-order" >
+          <div v-else-if="activeId === 2" class="check-order">
             <p class="account-first-title">查詢訂單</p><br>
                 <div class="odtitle">                
                   <p class="odtitle-name">訂單名稱</p>
@@ -138,40 +112,35 @@
                 <hr class="odtitle-hr">
 
                 <div class="odnames-container">
-                <div v-for="(order, index) in orders" :key="index" class="odname">
+                <div  class="odname">
                 <div class="oddetail">
                     <div class="od-sec" >
-                      <img v-if="order.img" :src="order.img"  alt="orderpic">
-                      <div class="trip-content">
-                        <!-- <p>行程：{{ phpData.content_title }}</p>
-                        <p>人數：{{ phpData.ord_people }}人</p>
-                        <p>出團日期：<br>{{ phpData.trip_date }}</p>
-                        <p class="order-amount" v-if="!isMobile">{{ phpData.total_amount }}</p>
-                        <p class="order-date" v-if="!isMobile">{{ phpData.orders_date }}</p> -->
-                        <!-- <p class="rwdAmount" v-if="isMobile">金額：{{ phpData.trip_amount }}</p>
-                        <p class="rwdDate" v-if="isMobile">訂購日期：<br>{{ phpData.orders_date }}</p>  -->
-                        
-                        <p>行程：{{ order.orderTitle }}</p>
-                        <p>人數：{{ order.headcount }}</p> 
-                        <p>出團日期：<br>{{ order.departureDate }}</p>
-                        <p class="rwdAmount" v-if="isMobile">金額：{{ order.amount }}</p>
-                        <p class="rwdDate" v-if="isMobile">訂購日期：<br>{{ order.orderDate }}</p> 
+                      <img :src="getItineraryImagePath(result.planet_subtitle)" alt="orderpic">
+                      <div class="trip-content"> 
+                        <p>行程：{{ phpData.result1 && phpData.result1.length > 0 ? phpData.result4[0].planet_subtitle : 'N/A' }}</p>
+                        <p>人數：{{ phpData.result1 && phpData.result1.length > 0 ? phpData.result3[0].ord_people : 'N/A' }}人</p>
+                        <p>出團日期：<br>{{ phpData.result1 && phpData.result1.length > 0 ? phpData.result2[0].trip_date : 'N/A' }}</p>
+                        <p class="rwdDate" v-if="isMobile">訂購日期：<br>{{ phpData.result1 && phpData.result1.length > 0 ? phpData.result3[0].orders_date : 'N/A' }}</p>
                       </div> 
-                  </div>
-                  <button v-if="!isMobile" class="client-accordion" @click="toggleUserExpanded(order)" >
-                    <span> {{ order.isExpanded ? '-' : '+' }}</span>
-                  </button>
-                  <div class="rwdPassanger" v-if="isMobile">
-                   
-                      <button  class="client-accordion" @click="toggleUserExpanded(order)" >
-                      <span> {{ order.isExpanded ? '-' : '+' }}</span>
-                      <p>乘客名單</p><br>
+                    </div>
+                    <button v-if="!isMobile" class="client-accordion" @click="toggleExpanded">
+                    <span class="accordion-icon" :class="{ 'expanded': isExpanded }"></span>
                     </button>
-                </div>
-                    <p class="order-amount" v-if="!isMobile">{{ order.amount }}</p>
-                    <p class="order-date" v-if="!isMobile">{{ order.orderDate }}</p> 
+
+                    
+
+
+                    <div class="rwdPassanger" v-if="isMobile">
+                    <button v-if="!isMobile" class="client-accordion" @click="toggleExpanded">
+                    <p>乘客名單</p><br>
+                    <span class="accordion-icon" :class="{ 'expanded': isExpanded }"></span>
+                    </button>
+                    </div>
+                    <p class="order-amount" v-if="!isMobile">{{ phpData.result1 && phpData.result1.length > 0 ? phpData.result3[0].total_amount : 'N/A' }}</p>
+                    <p class="order-date" v-if="!isMobile">{{ phpData.result1 && phpData.result1.length > 0 ? phpData.result3[0].orders_date : 'N/A' }}</p>    
                 </div>
           
+          <!-- 手風琴下開內容     -->
                 <Collapse :when="order.isExpanded" :onExpanded="scrollIntoView" class="collapse">
                   <div class="panel">
                     <div class="p-title">
@@ -180,15 +149,16 @@
                       <p>狀態</p>
                       <p>明細</p>
                     </div>
-                    <div v-for="(user, userIndex) in order.users" :key="userIndex" class="journey">
+                    <div v-for="(user, userIndex) in members" :key="userIndex" class="journey">
                       <div class="journey-content">
-                        <p>{{ user.id }}</p>
-                        <p >{{ user.name }}</p>
-                        <p >{{ user.status }}</p>
+                        <p>{{ user.passenger_no ? user.passenger_no: 'N/A' }}</p>
+                        <p>{{ user.passenger_name ? user.passenger_name : 'N/A' }}</p>
+                        <p>{{ user.passenger_status ? user.passenger_status : 'N/A' }}</p>
+
                         <div class="journey-detail" @click="isPopupVisible = !isPopupVisible"  v-if="!isMobile">
-                          <p>{{ user.details }}</p></div>
-                        <div class="journey-detail-rwd" @click="isPopupVisible = !isPopupVisible"  v-if="isMobile">
-                          <span>{{ user.details }}</span></div>
+                          <p>查看</p></div>
+                        <div class="journey-detail-rwd" @click="isPopupVisible = !isPopupVisible" v-if="isMobile">
+                          <span>查看</span></div>
                       </div>
                         <hr class="journey-hr">
                     </div>
@@ -198,60 +168,63 @@
                 <div class="overlay" v-if="isPopupVisible"></div>
                 <!-- 明細查看彈窗 -->
                 <div class="popupBooking" v-if="isPopupVisible">
-                    <div v-for="(booking, index)  in bookings" :key="index" class="bookingInfo">
+                    <div v-for="(user, userIndex) in bookings" :key="userIndex" class="bookingInfo">
                       <button  @click="isPopupVisible = !isPopupVisible">CLOSE</button>
                       <p class="bookingTitle">旅程訂購資訊</p>
                       <div class="bookingInfoBox"> 
                         <div class="bookingForm">
-                          <p class="bookingTotalPassanger"> 旅客人數:<span>4</span>人</p>
+                          <p class="bookingTotalPassanger"> 旅客人數:
+                            <span>{{ phpData.result1 && phpData.result1.length > 0 ? phpData.result3[0].ord_people : 'N/A' }}</span>人</p>
                           
                             <div class="container-control">
-                              <p class="bookingId">乘客{{ booking.id }}</p>
+                              <p class="bookingId">乘客{{ user.passenger_no ? user.passenger_no: 'N/A' }}</p>
                               <div class="booking-container">
                                   <div class="bookingLastName">
-                                      <span class="bookingSecondTitle">姓氏</span>
-                                      <p>{{ booking.lastName }}</p></div>
-                                      <div class="bookingFirstName">
-                                      <span class="bookingSecondTitle">名字</span>
-                                      <p>{{ booking.firstName }}</p>
-                                    </div>
+                                      <span class="bookingSecondTitle">姓名</span>
+                                      <p>{{ user.passenger_name ? user.passenger_name: 'N/A' }}</p></div>
+                                  <div class="bookingBirthday">
+                                      <span class="bookingSecondTitle">出生日期</span>
+                                      <p>{{user.birthday ? user.birthday: 'N/A' }}</p></div>
                               </div>
+                              
                               <div class="booking-container">
                                   <div class="bookingSex">
                                       <span class="bookingSecondTitle">性別</span>
-                                      <p>{{ booking.sex }}</p></div>
-                                  <div class="bookingBirthday">
-                                      <span class="bookingSecondTitle">出生日期</span>
-                                      <p>{{booking.birthday }}</p></div>
+                                      <p>{{ user.passenger_gender ? user.passenger_gender: 'N/A' }}</p></div>
+                                    <div class="bookingPassport">
+                                      <span class="bookingSecondTitle">身分證或護照號碼</span>
+                                      <p>{{ user.passport ? user.passport: 'N/A' }}</p></div>
                               </div>
+
                               <div class="booking-container">
                                 <div class="bookingCountry">
                                       <span class="bookingSecondTitle">國籍</span>
-                                      <p>{{ booking.country }}</p></div>
-                                  <div class="bookingPassport">
-                                      <span class="bookingSecondTitle">身分證或護照號碼</span>
-                                      <p>{{ booking.passport }}</p></div>
+                                      <p>{{ user.passenger_nationality ? user.passenger_nationality: 'N/A' }}</p></div>
+                                <div class="bookingDiet">
+                                      <span class="bookingSecondTitle">飲食習慣</span>
+                                      <p class="diet">{{ user.passenger_diet ? user.passenger_diet: 'N/A' }}</p></div> 
                                 </div>
+
                                 <div class="booking-container">
                                   <div class="bookingSize">
                                       <span class="bookingSecondTitle">訓練服尺寸</span>
-                                      <p>{{ booking.size }}</p></div>
-                                  <div class="bookingDiet">
-                                      <span class="bookingSecondTitle">飲食習慣</span>
-                                      <p>{{ booking.diet }}</p></div>
+                                      <p>{{ user.shirt_size ? user.shirt_size: 'N/A'}}</p></div>
+                                <div class="bookingTravelStatus">
+                                    <span class="bookingSecondTitle">旅位狀態</span>
+                                    <p>{{ user.passenger_status ? user.passenger_status: 'N/A'}}</p></div>     
                                 </div>
+
                               <div class="booking-container">
                                   <div class="bookingCheck" v-if="!isMobile">
                                     <input type="checkbox" id="myCheckbox" class="myCheckbox" v-model="isChecked" :disabled="isDisabled" @click="preventCheckboxChange">
                                     <p>我已經詳閱健康規定</p></div>
-                                  <!-- for rwd -->
-                                  <div class="bookingCheck" v-if="isMobile">
+
+                              <!-- for rwd -->
+                              <div class="bookingCheck" v-if="isMobile">
                                     <input type="checkbox" id="myCheckbox" class="myCheckboxRwd" v-model="isChecked" :disabled="isDisabled" @click="preventCheckboxChange">
                                     <p >我已經詳閱健康規定</p></div>
 
-                                  <div class="bookingTravelStatus">
-                                    <span class="bookingSecondTitle">旅位狀態</span>
-                                    <p>{{ booking.status}}</p></div>                                
+                                                             
                              </div>
                               <div class="bookingLineBox">
                                   <div class="bookingLine">
@@ -275,12 +248,12 @@
                     </div>
                 </div>
               </div>
-            
             </div>
           </Collapse >
         </div>
       </div>
     </div>
+
         <!-- 捐款明細 -->
           <div v-else-if="activeId === 3" class="donate">
             <div class="form">
@@ -288,48 +261,41 @@
                 <p class="account-first-title">捐款紀錄</p>
                 <span  class="last-year" v-if="!isMobile"  @click="isPopupVisible = !isPopupVisible">去年度明細</span>
                 
-                <!-- 遮罩 -->
-                <div class="overlay" v-if="isPopupVisible"></div>
-                <!-- 彈窗 -->
-                 <div class="popup" v-if="isPopupVisible" >
-                  <p class="last-year-according">2022年捐款紀錄</p>
-                    <div class="receipt">
-                      <div class="form-group">
-                        <div class="receipt-title">
-                          <p class="donate-title">收據編號</p>
-                          <p class="donate-title">金額</p>
-                          <p class="donate-title">捐款日期</p>
-                          <p class="donate-title">會員狀態</p>
-                        </div>
-            
+              <!-- 遮罩 -->
+              <div class="overlay" v-if="isPopupVisible"></div>
+              <!-- 彈窗 -->
+              <div class="popup" v-if="isPopupVisible" >
+                <p class="last-year-according">2022年捐款紀錄</p>
+                <div class="receipt">
+                  <div class="form-group">
+                    <div class="receipt-title">
+                        <p class="donate-title">收據編號</p>
+                        <p class="donate-title">金額</p>
+                        <p class="donate-title">捐款日期</p>
+                        <p class="donate-title">會員狀態</p>
+                    </div>
                         <div class="black-box"></div>
                         <hr class="receipt-hr">
-                      </div>
+                  </div>
                       <div class="form-group">
-                        <div v-for="(receipt, index) in receipts" :key="index" class="receiptInfo">
+                         <div v-for="(receipt, index) in receipts" :key="index" class="receiptInfo"> 
                           <div class="receipt-order">
-                            <div class="receipt-cell">  
-                              <p>{{ receipt.receiptNumber }}</p>
+                            <div class="receipt-cell"  v-if="dataLoaded">
+                              <!-- <p v-if="phpData.result6 && phpData.result6.length > 0">{{ phpData.result6[0].donate_no }}</p> -->
                             </div>
-                            <div class="receipt-cell"> 
-                              <p>{{ receipt.summary }}</p>
-                            </div>
-                            <div class="receipt-cell"> 
-                              <p>{{ receipt.donateDate }}</p>
-                            </div>
-                            <div class="receipt-cell"> 
-                              <p>{{ receipt.memberStatus }}</p>
-                            </div>
+                            <div class="receipt-cell"> <p>{{ receipt.summary }}</p></div>
+                            <div class="receipt-cell"> <p>{{ receipt.donateDate }}</p></div>
+                            <div class="receipt-cell"> <p>{{ receipt.memberStatus }}</p></div>
                           </div>
-                          <hr class="receipt-order-hr">
-                        </div>
-                      </div>
-                      <button  @click="isPopupVisible = !isPopupVisible">CLOSE</button>
+                        <hr class="receipt-order-hr">
+                       </div>
                     </div>
-                  </div> 
-                  
+                  <button  @click="isPopupVisible = !isPopupVisible">CLOSE</button>
+                </div>
+              </div>       
           </div>
 
+          <!-- 捐款明細 -->
               <div class="form-group">
                 <div class="order-title">
                     <p class="donate-title">收據編號</p>
@@ -477,7 +443,6 @@
                     </div>
                   </div>
               </div>
-
               
 
               <div v-if="showContent === 'content3'" >
@@ -509,473 +474,14 @@
 </div> 
   </template>
 
-   <style scoped lang="scss">
+<script src="./js/membercenter.js"></script>
+
+<style scoped lang="scss">
    @import "~@/assets/sass/page/_membercenter.scss";
-   </style>
+</style>
  
  
-  <script>
-  import ButtonStyle from '../components/ButtonFlash.vue';
-  import SectionTitle from '../components/SectionTitle.vue';
-  import { reactive } from 'vue';
-  import { Collapse } from 'vue-collapsed';
-  import axios from 'axios';
 
-  export default {
-    components: {
-      ButtonStyle,  SectionTitle,
-    },
-  
-    data() {
-      return {
-        phpData: '',
-        titles: ['會員中心', 'MEMBER CENTER'],
-        uploadedImages: {}, 
-        imgsData: {},
-        activeId: 1,
-        fixedIds: [1, 2, 3, 4, 5],
-        optionCard: [
-          {
-            id: 1,
-            name: '帳戶資料',
-            img: require("@/assets/image/membercenter/account.svg"),
-          },
-          {
-            id: 2,
-            name: '查詢訂單',
-            img: require("@/assets/image/membercenter/order.svg"),
-          },
-          {
-            id: 3,
-            name: '捐款明細',
-            img: require("@/assets/image/membercenter/捐款.svg"),
-          },
-          {
-            id: 4,
-            name: '會員等級',
-            img: require("@/assets/image/membercenter/level1.svg"),
-          },
-          {
-            id: 5,
-            name: '登出',
-            img: require("@/assets/image/membercenter/log-out.svg"),
-          },
-        ],
-        showContent: null,
-        el: 'content',
-        fromData: {
-          image: '',
-          name: '',
-          nickname: '',
-          birthday: '',
-          selectedGender: '' ,
-          email: '',
-          address: '',
-          passportNumber: '',
-          showPhoneError: false,
-          oldPw: '',
-          newPw: '',
-          confirmPw: '',
-        },
-        panelExpanded: false,
-        orders: [
-          { 
-            img: require("@/assets/image/membercenter/moon_order_01.jpg"), 
-            orderTitle: '太空之心',
-            headcount: '4人',
-            departureDate:'2024-05-10 15:00',
-            amount: 'NT $700萬',
-            orderDate: '2023-08-09 14:30',
-            isExpanded: false, 
-            users:[
-              {
-              id: 1,
-              name: 'Harry',
-              status: '健康檢查審核已通過',
-              details: '查看',
-              },
-              {
-              id: 2,
-              name: 'Ron',
-              status: '健康檢查審核已通過',
-              details: '查看',
-              },
-              {
-              id: 3,
-              name: 'Hermione',
-              status: '健康檢查審核已通過',
-              details: '查看',
-              },
-              {
-              id: 4,
-              name: 'Ginny',
-              status: '健康檢查審核未通過',
-              details: '查看',
-              },
-            ]
-          },
-          { 
-            img: require("@/assets/image/membercenter/c12.jpg"), 
-            orderTitle: '行星繞行',
-            headcount: '2人',
-            departureDate: '2023-5-20 19:00',
-            amount:'NT $600萬',
-            orderDate: '2022-08-20 19:10',
-            isExpanded: false,
-            users:[
-              {
-              id: 1,
-              name: 'Harry',
-              status: '行程已完成',
-              details: '查看',
-              },
-              {
-              id: 2,
-              name: 'Severus',
-              status: '行程已完成',
-              details: '查看',
-              },
-            ]  
-          },
-          { 
-            img: require("@/assets/image/membercenter/mars_check.jpg"), 
-            orderTitle: '尋找生命之旅',
-            headcount: '3人',
-            departureDate: '2021-10-20 19:00',
-            amount: 'NT $700萬',
-            orderDate: '2020-09-23 05:15',
-            isExpanded: false, 
-            users:[
-              {
-              id: 1,
-              name: 'Harry ',
-              status: '取消',
-              details: '查看',
-              },
-              {
-              id: 2,
-              name: 'Lord',
-              status: '取消',
-              details: '查看',
-              },
-              {
-              id: 3,
-              name: 'Sirius',
-              status: '取消',
-              details: '查看',
-              },
-            ]
-          },
-        ],
-        donates:[
-          {
-            receiptNumber: '#1234-5678',
-            summary: '$600',
-            donateDate:'2023-08-09 14:30',
-            memberStatus: '銅',
-          },
-          {
-            receiptNumber: '#1234-5678',
-            summary: '$600',
-            donateDate:'2023-08-09 14:30',
-            memberStatus: '銅',
-          },
-          {
-            receiptNumber: '#1234-5678',
-            summary: '$600',
-            donateDate:'2023-08-09 14:30',
-            memberStatus: '銅',
-          },
-          {
-            receiptNumber: '#1234-5678',
-            summary: '$600',
-            donateDate:'2023-08-09 14:30',
-            memberStatus: '銅',
-          },
-        ],
-        activeIndex: 0, 
-        showContent: 'content1',
-        buttonColors: {
-          content1: '#01C1FD',
-          content2: '#F0F0F0',
-          content3: '#F0F0F0',
-        },
-        benefits:[
-          {
-            memberLevel: '銅',
-            amount: '$3,000',
-            date: '2022-08-09',
-            gift: '鑰匙圈',
-            selected: false,
-          },
-          {
-            memberLevel: '銀',
-            amount: '$6,000',
-            date: '2023-08-10',
-            gift: '棒球帽(已兌換)',
-            selected: false,
-          },
-          {
-            id: 'b',
-            memberLevel: '金',
-            amount: '$20,000',
-            gift: '帽T',
-            selected: false,
-          },
-        ],
-        explains:[
-          {
-            img: require("@/assets/image/membercenter/level1_1.svg"),
-            memLevel: "銅",
-            targetAmount : 'NT$3,000',
-            freeGift : '鑰匙圈',
-          },
-          {
-            img: require("@/assets/image/membercenter/level2.svg"),
-            memLevel: "銀",
-            targetAmount : 'NT$6,000',
-            freeGift : '棒球帽',
-          },
-          {
-            img: require("@/assets/image/membercenter/level3.svg"),
-            memLevel:'金',
-            targetAmount : 'NT$20,000',
-            freeGift : '帽T',
-          },
-          {
-            img: require("@/assets/image/membercenter/level4.svg"),
-            memLevel: '鑽',
-            targetAmount : 'NT$100,000',
-            freeGift : '太空人頭盔',
-          },
-        ],
-        infos:[
-          {
-            content: ' ‧會員金額累計時間以申辦日開始一年起算。',
-          },
-          {
-            content: ' ‧贈品兌換需於一年內於會員頁面申請領取。',
-          },
-          {
-            content: ' ‧本公司保留隨時變更使用規則之權利，最新使用規則請網站公告為準。',
-          },
-          {
-            content: ' ‧其他相關規範：',
-          },
-          {
-            link: ' 個人資料保護法',
-          },
-          {
-            link: '隱私權政策',
-          },
-        ],
-        isMobile: false,// 默認不是行動裝置
-        isPopupVisible:false,
-        receipts:[
-          {
-            receiptNumber: '#2022-1234',
-            summary: '$600',
-            donateDate:'2022-08-09 14:30',
-            memberStatus: '銅',
-          },
-          {
-            receiptNumber: '#2022-1989',
-            summary: '$600',
-            donateDate:'2022-10-09 19:30',
-            memberStatus: '銅',
-          },
-          {
-            receiptNumber: '#2022-2222',
-            summary: '$600',
-            donateDate:'2022-11-09 19:30',
-            memberStatus: '銅',
-          },
-        ],
-        currentTime: '' ,
-        isChecked: true ,
-        bookings:[
-          {
-            id: '1',
-            lastName: 'Potter',
-            firstName: 'Harry',
-            sex: '男',
-            birthday: '1980-07-30',
-            country: '英國',
-            passport: 'AUJ-1234',
-            size: 'L',
-            diet: '葷',
-            status: '正取',
-          }
-        ]
-      };
-    },
-
-    created(){
-      //發起HTTP GET請求
-      axios.get('http://localhost/PV/phptest.php') 
-      .then(response => {
-        this.phpData = response.data;
-        //this.phpData = response.data;這行很重要
-        //response是一筆很大的資料  我們先設定拿裡面的data就好
-        //所以要寫response.data
-      })
-      .catch(error =>{
-        console.error(error);
-      });
-    },
-
-    mounted() {
-        //檢常窗口是否是行動裝置
-        this.checkMobile();
-        window.addEventListener('resize', this.checkMobile);
-        //抓取時間
-        this.updateDateTime();
-    },
-    
-
-    methods: {
-      //上傳圖片
-      triggerFileInput(index) {
-            this.$refs.fileInput[index -1].click();
-      },
-      
-      //登出
-      handleOptionClick(option) {
-      if (option.id === 5) {
-        this.$router.push('/');
-      } else {
-        this.activeId = option.id;
-      }
-    },
-  
-      handleFileUpload(index, event) {
-            const fileInput = event.target;
-            const files = fileInput.files;
-            console.log(`Handling files for index ${index}`);
-            console.log(fileInput);
-            console.log(files);
-            // 处理选定的文件
-            for (let j = 0; j < files.length; j++) {
-                const file = files[j];
-
-                this.uploadedImages[index] = URL.createObjectURL(file);
-                this.imgsData[index] = true;
-            }
-        },
-
-      checkMobile() {
-            // 根據窗口寬度判斷是否爲行動裝置
-            this.isMobile = window.innerWidth <= 768;
-      },
-
-      getActiveOption(id) {
-            if (this.fixedIds.includes(id)) {
-              return this.optionCard.find(option => option.id === id);
-            } else {
-              return this.optionCard.find(option => option.id === this.activeId);
-            }
-      },
-
-      toggleUserExpanded(order) {
-            this.orders.forEach((o) => {
-              if (o === order) {
-                o.isExpanded = !o.isExpanded; 
-            } else {
-              o.isExpanded = false; 
-              }
-            });
-      },
-
-      updateButtonColors(content) {
-            //改編輸入後input的底色
-            for (const key in this.buttonColors) {
-              if (key === content) {
-                this.buttonColors[key] = '#01C1FD';
-              } else {
-                this.buttonColors[key] = '#F0F0F0';
-              }
-            }
-      },
-      //獲取電腦時間
-      updateDateTime(){
-            const now = new Date();
-            
-            // 格式化日期爲字串（例如：YYYY-MM-DD）
-            const year = now.getFullYear();
-            const month = (now.getMonth() + 1).toString().padStart(2, '0');
-            const day = now.getDate().toString().padStart(2, '0');
-            this.currentDate = `${year}-${month}-${day}`;
-            
-            // 格式化時間爲字串（例如：HH:MM:SS）
-            const hours = now.getHours().toString().padStart(2, '0');
-            const minutes = now.getMinutes().toString().padStart(2, '0');
-            this.currentTime = `${hours}:${minutes}`;
-
-            // 每隔一秒鐘更新一次日期和時間
-            const _this = this; // Reference to the component
-            setTimeout(function () {
-              _this.updateDateTime();
-            }, 1000);
-    },
-
-      getTotalAmountForId(id) {
-        // 計算給定id的總金額
-        let totalAmount = 0;
-        for (const benefit of this.benefits) {
-          if (benefit.memberLevel === id) {
-            totalAmount += parseInt(benefit.amount.replace(/\$|,/g, ''), 10);
-          }
-        }
-        return totalAmount;
-      },
-
-      // 阻止默认点击事件
-      preventCheckboxChange() {
-      event.preventDefault();
-  },
-  },
-      accordionEvent() {
-        //點擊+號展開
-        const acc = document.getElementsByClassName("client-accordion");
-            for (let i = 0; i < acc.length; i++) {
-              acc[i].addEventListener("click", function () {this.classList.toggle("active");
-                const panel = this.nextElementSibling;
-                  if (panel.style.maxHeight) { 
-                      panel.style.maxHeight = null;
-                      this.$data.showPanelContent = false;
-              } else {
-                  panel.style.maxHeight = panel.scrollHeight + "px";
-                  this.$data.showPanelContent = true;
-              }
-          });
-        }
-      },
-
-      toggleAccordion(order) {
-        order.isExpanded = !order.isExpanded;
-    },
-
-      handleSubmit() {
-          console.log(this.fromData.name, this.fromData.nickname,this.fromData.email,this.fromData.address,
-                    this.fromData.passportNumber, 'Submit button clicked');
-      },
-
-  
-      checkMobile() {
-          // 判斷是否是行動裝置（小於等於 768px）
-            const screenWidth = window.innerWidth;
-            this.isMobile = screenWidth <= 768;
-      },
-
-      beforeUnmount() {
-            // 在元件銷燬前移除窗口大小監聽器
-            window.removeEventListener('resize', this.checkMobile);
-    },
-  };
-
-
-
-  </script>
 
   
   

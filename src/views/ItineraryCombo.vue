@@ -15,8 +15,11 @@
                 <div class="title" style="writing-mode: vertical-lr" data-scroll data-scroll-speed="1">
                     <div>
                         <!-- <h1 v-if="myData.length > 0">{{ myData}}</h1> -->
-                        <h1>{{ myData.itinerary[0].planet_subtitle }}</h1>
-                        <h1>{{ photos }}</h1>
+                        <h1  v-if="myData && myData.itinerary && myData.itinerary.length > 0">
+                            {{ myData.itinerary[0].planet_subtitle }}
+                            {{ schedules[0].imgUrls[0] }}
+                            
+                        </h1>
                     </div>
 
 
@@ -32,9 +35,9 @@
                     <div class="schedule-pic">
                         <div v-for="(URL, picIndex) in day.imgUrls" :key="picIndex" class="image-box"
                             @click="showPic($event)">
+                           
                             <!-- <img :src="URL"> 原來的 -->
-                            <img :src="`require(@/assets/image/itinerary_combo/${URL.itinerary_pic})`">
-                            <!-- <img :src="`require('@/assets/image/itinerary_combo/c11.svg')`"> -->
+                            <img :src="`/img/${URL.itinerary_pic}`"> <!-- 好了拉  白癡喔 -->
                         </div>
                     </div>
                 </div>
@@ -61,7 +64,7 @@ export default {
                     num: "Day111111 旅程啟航！",
                     schedule: "從地球啟程後可飽覽星際風光，隔日中午抵達月球，在銀河中體驗太空中漂浮。",
                     imgUrls: [
-                        require('@/assets/image/itinerary_combo/c11.svg'),
+                        require('@/assets/image/itinerary_combo/c11.svg'),  
                         require('@/assets/image/itinerary_combo/c12.svg'),
                         require('@/assets/image/itinerary_combo/c13.svg'),
                     ],
@@ -130,20 +133,7 @@ export default {
             }
         },
     },
-    computed: {
-        showBtn() {
-            console.log('click');
-            return this.bigpic !== ''
-        },
-        coverbg() {
-            return this.bigpic !== ''
-        },
-        D1() {
-        return this.schedules[0].imgUrls = this.photos.filter(v => v.itinerary_photo_no < 4)
-        
-    },
-
-    },
+    
     mounted() {
 
         const el = document.querySelector('#main-container')
@@ -183,18 +173,40 @@ export default {
                 this.myData = response.data;
                 this.photos = this.myData.itinerary_photos;
             })
-        // .then((res) => res.json())
-        // .then((res) => {
-        //   this.myData = res; 
-        // })
-        // .catch((error) => {
-        //   console.error("發生錯誤:", error);
-        // });
-            
             .catch(error => {
                 console.error(error);
             });
         
+    },
+
+    computed: {
+        showBtn() {
+            console.log('click');
+            return this.bigpic !== ''
+        },
+        coverbg() {
+            return this.bigpic !== ''
+        },
+        D1() {
+        return this.schedules[0].imgUrls = this.photos.filter(v => v.itinerary_photo_no < 4)   
+        },
+        D2() {
+        return this.schedules[1].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 3 && v.itinerary_photo_no < 7);
+        },
+        D3() {
+        return this.schedules[2].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 6 && v.itinerary_photo_no < 10)   
+        },
+        D4() {
+        return this.schedules[3].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 9 && v.itinerary_photo_no < 13)   
+        },
+        D5() {
+        return this.schedules[4].imgUrls = this.photos.filter(v => v.itinerary_photo_no < 4)   
+        },
+        D6() {
+        return this.schedules[5].imgUrls = this.photos.filter(v => v.itinerary_photo_no < 3 && v.itinerary_photo_no < 7)   
+        },
+
+
     },
 };
 

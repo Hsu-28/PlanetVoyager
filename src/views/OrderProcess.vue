@@ -242,7 +242,7 @@
       <div class="order-finall">
 
         <div class="order-finall-btn btn-Cancle" @click="disOrder">修改資料</div>
-        <router-link to="OrderSuccess"> <div class="order-finall-btn btn-Check">確認訂購</div></router-link>
+        <router-link to="OrderSuccess" id="submitBtn"> <div class="order-finall-btn btn-Check">確認訂購</div></router-link>
        
       </div>
 
