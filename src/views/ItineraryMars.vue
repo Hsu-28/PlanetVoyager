@@ -14,7 +14,11 @@
             <div class="scrollsection" data-scroll-section>
                 <div class="title" style="writing-mode: vertical-lr" data-scroll data-scroll-speed="1">
                     <div>
-                        <h1>奧 林 帕 斯 山 脈 之 旅</h1>
+                        <h1  v-if="myData && myData.itinerary && myData.itinerary.length > 0">
+                            {{ myData.itinerary[0].planet_subtitle }}
+                            {{ schedules[0].imgUrls[0] }}
+                            
+                        </h1>
                     </div>
 
 
@@ -28,7 +32,7 @@
                     </div>
                     <div class="schedule-pic">
                         <div v-for="(URL, picIndex) in day.imgUrls" :key="picIndex" class="image-box" @click="showPic($event)">
-                            <img :src="URL">
+                            <img :src="`/img/${URL.itinerary_pic}`">
                         </div>
                     </div>
                 </div>
@@ -39,7 +43,7 @@
 
 <script>
 import LocomotiveScroll from 'locomotive-scroll';
-
+import axios from 'axios';
 export default {
     data() {
         return {
@@ -132,7 +136,25 @@ export default {
         },
         coverbg() {
             return this.bigpic !== ''
-        }
+        },
+        D1() {
+        return this.schedules[0].imgUrls = this.photos.filter(v => v.itinerary_photo_no < 53)   
+        },
+        D2() {
+        return this.schedules[1].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 53 && v.itinerary_photo_no < 57);
+        },
+        D3() {
+        return this.schedules[2].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 56 && v.itinerary_photo_no < 60)   
+        },
+        D4() {
+        return this.schedules[3].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 59 && v.itinerary_photo_no < 63)   
+        },
+        D5() {
+        return this.schedules[4].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 53 && v.itinerary_photo_no < 57)   
+        },
+        D6() {
+        return this.schedules[5].imgUrls = this.photos.filter(v => v.itinerary_photo_no < 53 && v.itinerary_photo_no < 57)   
+        },
     },
     mounted() {
         const el = document.querySelector('#main-container')
@@ -162,7 +184,19 @@ export default {
       this.scroll.destroy();
     }
     console.log(this.scroll);
-  }              
+  },  
+  created() {
+
+axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryMars.php')
+    .then(response => {
+        this.myData = response.data;
+        this.photos = this.myData.itinerary_photos;
+    })
+    .catch(error => {
+        console.error(error);
+    });
+
+},         
 };
 
 </script>

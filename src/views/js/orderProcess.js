@@ -151,7 +151,44 @@ export default {
           // alert("還有資料尚未填寫")
         }
         }
-      },
+    },
+    Addorder() {
+      document.getElementById("submitBtn").addEventListener("click", function() {
+        var formData = {
+          lastName: document.getElementById("lastName").textContent,
+          name: document.getElementById("name").textContent,
+          gender: document.getElementById("gender").textContent,
+          birthday: document.getElementById("birthday").textContent,
+          nation: document.getElementById("nation").textContent,
+          passId: document.getElementById("passId").textContent,
+          size: document.getElementById("size").textContent,
+          status: document.getElementById("status").textContent,
+          other: document.getElementById("other").textContent,
+          seatIndex: document.getElementById("seatIndex").textContent,
+          ssize: document.getElementById("ssize").textContent,
+          scolor: document.getElementById("scolor").textContent
+        };
+      
+        // 使用fetch API 发送POST请求到服务器的PHP文件
+        fetch('insertPassenger.php', {
+          method: 'POST',
+          body: JSON.stringify(formData),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => response.json())
+        .then(data => {
+          // 处理服务器的响应
+          console.log(data);
+          // 可以在这里执行任何其他操作，如页面跳转或显示成功消息
+        })
+        .catch(error => {
+          console.error('请求错误:', error);
+        });
+      });
+      
+    },
   },
   
   computed: {
