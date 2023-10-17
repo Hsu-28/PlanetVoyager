@@ -15,14 +15,22 @@
         <h3>F A Q s</h3>
       </div>
       <span class="caption">GENERAL</span>
-      <div v-for="(item, index) in questions" :key="item.order">
+      <div v-for="(item, index) in questions" :key="index">
+        <button class="accordion">
+          <img src="~@/assets/image/faq/title.svg" alt="">
+          <span>{{ item.faq_no }}</span>{{ item.question }}</button>
+        <div class="panel">
+          <p>{{ item.question_ans }}</p>
+        </div>
+      </div>
+      <!-- <div v-for="(item, index) in questions" :key="item.order">
         <button class="accordion">
           <img src="~@/assets/image/faq/title.svg" alt="">
           <span>{{ item.order }}</span>{{ item.question }}</button>
         <div class="panel">
           <p>{{ item.answer }}</p>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
