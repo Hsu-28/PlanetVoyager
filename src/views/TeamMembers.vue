@@ -69,13 +69,18 @@
 @import "~@/assets/sass/page/_teamMembers.scss";
 </style>
 <script>
+<<<<<<< HEAD
 import axios from 'axios';
+=======
+import axios from'axios';
+>>>>>>> Tiffany
 export default {
     components: {
 
     },
     data() {
         return {
+            phpData: '',
             title: "團隊介紹",
             titleText: `我們的團隊由一群對太空充滿熱情的專家組成，\n願景是將人類帶入太空，體驗浩渺宇宙的魅力。\n相信PlanetVoyager，\n讓我們帶領您進入夢想中的宇宙冒險吧！`,
             showDetail: false,
@@ -239,6 +244,7 @@ export default {
 
         }
     },
+<<<<<<< HEAD
     created() {
         axios.get('http://localhost/PV/PlanetVoyager/public/php/teammembers.php')
       .then(response => {
@@ -249,5 +255,17 @@ export default {
       });
     }
 
+=======
+    // created() {
+    //     axios.get(http://localhost/Backend/teamintro.php){
+    //         .then(response => {
+    //     this.phpData = response.data;
+    //   })
+    //   .catch(error => {
+    //     console.error(error)
+    //   })
+        
+    // }
+>>>>>>> Tiffany
 }
 </script>
