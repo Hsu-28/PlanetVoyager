@@ -1,7 +1,7 @@
 <template>
     <main>
-        <h1 class="banner" >
-            <img src="~@/assets/image/index/banner.svg" alt="banner圖片">
+        <h1 class="banner" v-for="(banner, index) in banner" :key="index">
+            <img :src="require(`@/assets/image/index/${banner.banner_pic}`)" alt="banner圖片">
         </h1>
         <section class="arrow">
             <img class="clickdown" src="~@/assets/image/index/clickdown.svg" alt="向下引導箭頭">
@@ -42,7 +42,7 @@
                     </router-link>
                 </div>
                 <div class="col-9 col-md-4">
-                    <img class="aboutus-img" src="~@/assets/image/index/aboutus.svg" alt="太空船艙">
+                    <img class="aboutus-img" src="~@/assets/image/index/aboutus.png" alt="太空船艙">
                 </div>
             </div>
         </section>
@@ -79,8 +79,8 @@
                 <div class="outside-border news-container">
                     <table class="inside-bodrer news-group">
                         <tbody id="tbodyscroll">
-                            <tr v-for="(news, news_no) in news" :key="news_no" :class="{ 'active': activeId === news.news_no }"
-                                class="news-tr">
+                            <tr v-for="(news, news_no) in news" :key="news_no"
+                                :class="{ 'active': activeId === news.news_no }" class="news-tr">
                                 <td class="news-title" @click="activeId = news.news_no" v-html="news.news_title"></td>
                                 <td class="news-date" @click="activeId = news.news_no">{{ news.news_date }}</td>
                             </tr>
@@ -92,7 +92,8 @@
                     <div class="more-base">
                         <div class="more-base-scroll">
                             <span class="close" @click="hideMore">&times</span>
-                            <img class="more-img" :src="news.news_img" :alt="news.news_title">
+                            <img class="more-img" :src="require(`@/assets//image/index/${news.news_image}`)"
+                                :alt="news.news_title">
                             <p>
                                 <span class="more-title" v-html="news.news_title"></span>
                             <p class="more-text" v-html="news.news_content">
@@ -176,13 +177,15 @@
                             modifier: 1,
                             slideShadows: true,
                         }" :modules="modules" class="mySwiper">
-                        <swiper-slide v-for="(member, Index) in member" :key="Index" class="swiper-slide">
+                        <swiper-slide v-for="(members, Index) in members" :key="Index" class="swiper-slide">
                             <div class="outside-border">
                                 <div class="memberContent inside-border">
-                                    <img class="member-img" :src="member.imgSvg" :alt="member.name">
+                                    <img class="member-img"
+                                        :src="require(`@/assets//image/teamMembers/memberSvg/${members.team_memimage}`)"
+                                        :alt="members.team_memname">
                                     <div class="members-info">
-                                        <span class="members-name">{{ member.name }}</span>
-                                        <span class="members-job">{{ member.nameJob }}</span>
+                                        <span class="members-name">{{ members.team_memname }}</span>
+                                        <span class="members-job">{{ members.team_memjob }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -233,6 +236,7 @@ export default {
     },
     data() {
         return {
+            banner:[],
             imgcarousel: [
                 {
                     note: '航空基地',
@@ -276,7 +280,7 @@ export default {
                 },
             ],
             activeId: 1,
-            news: {},
+            news: [],
             // news: [
             //     {
             //         id: '1',
@@ -319,80 +323,81 @@ export default {
                     h3en: 'spaceship',
                     h3enbig: 'SPACESHIP',
                     h3ch: '太空船',
-                    img: require("@/assets/image/index/ship.svg"),
+                    img: require("@/assets/image/index/ship.png"),
 
                 },
                 {
                     h3en: 'spacesuit',
                     h3enbig: 'SPACESUIT',
                     h3ch: '太空服',
-                    img: require("@/assets/image/index/suit.svg"),
+                    img: require("@/assets/image/index/suit.png"),
                 },
             ],
-            member: [
-                {
-                    name: "DAMON HINES",
-                    nameJob: "首席系統工程師",
-                    imgSvg: require("@/assets/image/teamMembers/memberSvg/ENGINEER01.svg"),
-                },
-                {
-                    name: "VICTOR MCKENZIE	",
-                    nameJob: "電子、電力計算系統工程師",
-                    imgSvg: require("@/assets/image/teamMembers/memberSvg/ENGINEER02.svg"),
-                },
-                {
-                    name: "ROSE YATES",//女
-                    nameJob: "飛行系統設計與分析",
-                    imgSvg: require("@/assets/image/teamMembers/memberSvg/ENGINEER03.svg"),
-                },
-                {
-                    name: "ISABELLE LUNA",//女
-                    nameJob: "首席醫官",
-                    imgSvg: require("@/assets/image/teamMembers/memberSvg/MEDICAL01.svg"),
-                },
-                {
-                    name: "PAISLEE COX",//女
-                    nameJob: "太空醫療照護",
-                    imgSvg: require("@/assets/image/teamMembers/memberSvg/MEDICAL02.svg"),
-                },
-                {
-                    name: "JOEL BECK",
-                    nameJob: "健康監控與評估",
-                    imgSvg: require("@/assets/image/teamMembers/memberSvg/MEDICAL03.svg"),
+            members: [],
+            // member: [
+            //     {
+            //         name: "DAMON HINES",
+            //         nameJob: "首席系統工程師",
+            //         imgSvg: require("@/assets/image/teamMembers/memberSvg/ENGINEER01.svg"),
+            //     },
+            //     {
+            //         name: "VICTOR MCKENZIE	",
+            //         nameJob: "電子、電力計算系統工程師",
+            //         imgSvg: require("@/assets/image/teamMembers/memberSvg/ENGINEER02.svg"),
+            //     },
+            //     {
+            //         name: "ROSE YATES",//女
+            //         nameJob: "飛行系統設計與分析",
+            //         imgSvg: require("@/assets/image/teamMembers/memberSvg/ENGINEER03.svg"),
+            //     },
+            //     {
+            //         name: "ISABELLE LUNA",//女
+            //         nameJob: "首席醫官",
+            //         imgSvg: require("@/assets/image/teamMembers/memberSvg/MEDICAL01.svg"),
+            //     },
+            //     {
+            //         name: "PAISLEE COX",//女
+            //         nameJob: "太空醫療照護",
+            //         imgSvg: require("@/assets/image/teamMembers/memberSvg/MEDICAL02.svg"),
+            //     },
+            //     {
+            //         name: "JOEL BECK",
+            //         nameJob: "健康監控與評估",
+            //         imgSvg: require("@/assets/image/teamMembers/memberSvg/MEDICAL03.svg"),
 
-                },
-                {
-                    name: "JOURNEY HARVEY", //女
-                    nameJob: "指揮長",
-                    imgSvg: require("@/assets/image/teamMembers/memberSvg/ASTRONAUT01.svg"),
-                },
-                {
-                    name: "ETHAN LAMBERT",
-                    nameJob: "外部維修",
-                    imgSvg: require("@/assets/image/teamMembers/memberSvg/ASTRONAUT02.svg"),
-                },
-                {
-                    name: "TRISTAN MCKINNEY",
-                    nameJob: "航天器操作與導航",
-                    imgSvg: require("@/assets/image/teamMembers/memberSvg/ASTRONAUT03.svg"),
-                },
-                {
-                    name: "JAIDEN HARRISON",
-                    nameJob: "月球導遊",
-                    imgSvg: require("@/assets/image/teamMembers/memberSvg/TourGuide01.svg"),
-                },
-                {
-                    name: "	ADELAIDE SANTOS",//女
-                    nameJob: "火星導遊",
-                    imgSvg: require("@/assets/image/teamMembers/memberSvg/TourGuide02.svg"),
+            //     },
+            //     {
+            //         name: "JOURNEY HARVEY", //女
+            //         nameJob: "指揮長",
+            //         imgSvg: require("@/assets/image/teamMembers/memberSvg/ASTRONAUT01.svg"),
+            //     },
+            //     {
+            //         name: "ETHAN LAMBERT",
+            //         nameJob: "外部維修",
+            //         imgSvg: require("@/assets/image/teamMembers/memberSvg/ASTRONAUT02.svg"),
+            //     },
+            //     {
+            //         name: "TRISTAN MCKINNEY",
+            //         nameJob: "航天器操作與導航",
+            //         imgSvg: require("@/assets/image/teamMembers/memberSvg/ASTRONAUT03.svg"),
+            //     },
+            //     {
+            //         name: "JAIDEN HARRISON",
+            //         nameJob: "月球導遊",
+            //         imgSvg: require("@/assets/image/teamMembers/memberSvg/TourGuide01.svg"),
+            //     },
+            //     {
+            //         name: "	ADELAIDE SANTOS",//女
+            //         nameJob: "火星導遊",
+            //         imgSvg: require("@/assets/image/teamMembers/memberSvg/TourGuide02.svg"),
 
-                },
-                {
-                    name: "BEAU JOSEPH",
-                    nameJob: "金星導遊",
-                    imgSvg: require("@/assets/image/teamMembers/memberSvg/TourGuide03.svg"),
-                },
-            ]
+            //     },
+            //     {
+            //         name: "BEAU JOSEPH",
+            //         nameJob: "金星導遊",
+            //         imgSvg: require("@/assets/image/teamMembers/memberSvg/TourGuide03.svg"),
+            //     },
+            // ]
         }
     },
     methods: {
@@ -459,11 +464,28 @@ export default {
         })
     },
     created() {
-        // 發起HTTP GET 請求
-        axios.get('http://localhost/PV/PlanetVoyager/public/php/index.php')
+        axios.get('http://localhost/PV/PlanetVoyager/public/php/Indexbanner.php')
+            .then(response => {
+                this.banner = response.data;
+                console.log(this.banner);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+        axios.get('http://localhost/PV/PlanetVoyager/public/php/IndexNews.php')
             .then(response => {
                 this.news = response.data;
-                console.log(this.news)
+                console.log(this.news);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+        axios.get('http://localhost/PV/PlanetVoyager/public/php/teammembers.php')
+            .then(response => {
+                this.members = response.data;
+                console.log(this.members);
             })
             .catch(error => {
                 console.error(error);
