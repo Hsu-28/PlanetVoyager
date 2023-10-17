@@ -5,7 +5,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 header("Content-Type: application/json"); 
 
 try{
-  require_once("./connect.php");
+  require_once("../../../connect_chd103g3.php");
   $sql = "select * from `member` where email=:memId and mem_pw=:memPsw"; 
   $member = $pdo->prepare($sql);
   $member->bindValue(":memId", $_POST["memId"]);

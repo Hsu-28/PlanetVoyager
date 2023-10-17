@@ -5,7 +5,7 @@ header("Content-Type:application/json;charset=utf-8");
 
 try{
     
-    require_once("./connect.php");
+    require_once("../../../connect_chd103g3.php");
 	$sql = "INSERT INTO `member` (`email`, `address`, `mem_name`, `mem_phone`, `mem_passport`, `mem_pw`) VALUES (:email, :address, :mem_name, :mem_phone, :mem_passport, :mem_pw)";
 
 	$member = $pdo->prepare($sql);	
