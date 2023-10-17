@@ -11,7 +11,7 @@
         <div class="intro">
             <div class="intro-wrap ma-0 mb mw">
                 <div class="intro-pic">
-                    <img src="~@/assets/image/technology/太空人.png" alt="太空人">
+                    <img src="~@/assets/image/technology/techastronaut.png" alt="太空人">
                 </div>
                 <div class="intro-txt">
                     <p>科技創新是人類探索宇宙的無限潛力的驅動力之一，而太空服和太空船科技正是這一壯闊使命的堅實基石，讓我們有機會深入了解宇宙的奧秘。在這個令人著迷的世界中，科學家、工程師和太空探險家共同努力，不斷推動著太空科技的發展，為人類在太空中的未來鋪路，這些令人驚嘆的科技將引領我們進入更遼闊的宇宙領域，尋找答案，尋求冒險，並繼續夢想。</p>
@@ -72,8 +72,8 @@
                         
                     </div>
                     <div class="costume">
-                        <img src="~@/assets/image/technology/大太空服.svg" alt="">
-                        <img src="~@/assets/image/technology/底座.svg" alt="">
+                        <img src="~@/assets/image/technology/bigspacesuit.svg" alt="">
+                        <img src="~@/assets/image/technology/platform.svg" alt="">
                     </div>
                     <div class="window neon-border">
                         <div class="bb">

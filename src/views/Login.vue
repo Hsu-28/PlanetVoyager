@@ -12,18 +12,18 @@
       </svg>
       <div class="login-section">
         <div class="button_group">
-          <button id="register-btn">
-            <router-link to="/register">
+          <router-link to="/register">
+            <button id="register-btn">
               註冊
-            </router-link>
-          </button>
+            </button>
+          </router-link>
           <button id="login-btn">登入</button>
         </div>
-        <form action="post">
-          <P>請輸入與密碼</P>
-          <input type="email" name="memId" v-model="username" placeholder="信箱" /><br>
-          <input type="password" name="memPsw" v-model="pswdddv" placeholder="密碼" />
-          <button class="cybr-btn" @click="signin">登入<span aria-hidden class="cybr-btn__glitch">登入</span><span aria-hidden
+        <form @submit.prevent="login">
+          <p>請輸入信箱與密碼</p>
+          <input type="email" name="memId" v-model="username" placeholder="信箱" id="username" /><br>
+          <input type="password" name="memPsw" v-model="pswdddv" placeholder="密碼" id="pswdddv" />
+          <button type="submit" class="cybr-btn">登入<span aria-hidden class="cybr-btn__glitch">登入</span><span aria-hidden
               class="cybr-btn__tag">&emsp;&emsp;-PV-</span></button>
           <p class="go-register">還沒有帳戶嗎？<router-link to="/register"><span>註冊一個吧！</span></router-link></p>
           <p>忘記密碼</p>
@@ -33,90 +33,47 @@
   </div>
 </template>
 <script>
+
 export default {
   data() {
     return {
-      // userid: '',
-      // userpswvv: '',
-      // token: '',
-      // useridtrue: 'test@gmail.com',
-      // userpswtrue: '1111',
-      // headericon: false,
-
-      //test
-      username: 'mor_2314',
-      pswdddv: '83r5^_'
+      username: '',
+      pswdddv: ''
     };
   },
   methods: {
-    // loginCheck(){
-    //       if(this.userid == this.useridtrue && this.userpswvv == this.userpswtrue){
-    //         this.$router.push('/loginSuccess')
-    //       }else{
-    //         this.$router.push('/loginFail')
-    //       }
-    //     },
 
-    signin() {
+    login() {
+      if (this.username == '' || this.pswdddv == '') {
+        alert('請輸入帳號和密碼')
+      } else {
+        const info = new FormData();
+        info.append("memId", this.username);
+        info.append("memPsw", this.pswdddv);
+        console.log(info);
 
-
-      fetch('https://fakestoreapi.com/auth/login', {
-        method: 'POST',
-        headers: new Headers({
-          "Content-Type": "application/json",
-        }),
-        body: JSON.stringify({
-          username: this.username,
-          password: this.pswdddv
+        fetch('http://localhost/planet_voyager/Frontend/public/php/logincheck.php', {
+          method: 'POST',
+          body: info,
         })
-      })
-        .then(res => res.json())
-        .then(json => {
-          console.log(json)
-          if (json && json.token) {
-            localStorage.setItem('token', json.token)
-            this.$router.push('/loginSuccess')
-          }
-        })
-        .catch(error => {
-          console.error(error)
-          this.$router.push('/loginFail')
-        })
+          .then(res => res.json())
+          .then((result) => {
+            if (result.memId == this.username && result.memPsw == this.pswdddv) {
+              this.$router.push('/loginSuccess')
+            } else {
+              this.$router.push('/loginFail')
+            }
+          })
+          .catch(error => {
+            console.error(error);
+          })
 
-    },
-    //   {
-    //   handleLogin() {
-    //     const token = 'asds32adsavrAS3Fadf5567' // token本身就是加密過的字串，隨意
-    //     let username = this.userid
-    //     let password = this.userpswvv
-    //     // 帳號密碼需驗證不能為空
-    //     if (username !== '' && password !== '') {
-    //       this.loginForm.token = token
-    //     } else {
-    //       alert('帳號密碼不能為空')
-    //     }
-
-    //     Cookies.set('login', JSON.stringify(this.loginForm), { expires: 1 })
-    //     console.log(this.loginForm)
-
-    //     // cookie當中有token被設置才能改變路由
-    //     if (Cookies.get('login') && this.loginForm.token) {
-    //       this.$router.push({name: 'Dashboard'})
-    //     }
-    //   },
-
-    //   // 將Cookies清除的測試用button事件
-    //   removeCookie() {
-    //     Cookies.remove('login')
-    //   }
-    // }
-    //   },
-    // }
-  }
+      }
+    }
+  },
 }
 </script>
   
   
-<style scoped lang="scss"> 
-@import "@/assets/sass/page/_login.scss";
+<style scoped lang="scss"> @import "@/assets/sass/page/_login.scss";
 </style>
