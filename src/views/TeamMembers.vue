@@ -69,11 +69,7 @@
 @import "~@/assets/sass/page/_teamMembers.scss";
 </style>
 <script>
-<<<<<<< HEAD
 import axios from 'axios';
-=======
-import axios from'axios';
->>>>>>> Tiffany
 export default {
     components: {
 
@@ -244,7 +240,6 @@ export default {
 
         }
     },
-<<<<<<< HEAD
     created() {
         axios.get('http://localhost/PV/PlanetVoyager/public/php/teammembers.php')
       .then(response => {
@@ -255,17 +250,5 @@ export default {
       });
     }
 
-=======
-    // created() {
-    //     axios.get(http://localhost/Backend/teamintro.php){
-    //         .then(response => {
-    //     this.phpData = response.data;
-    //   })
-    //   .catch(error => {
-    //     console.error(error)
-    //   })
-        
-    // }
->>>>>>> Tiffany
 }
 </script>
