@@ -34,35 +34,35 @@ export default {
             ],
             cards: [
                 {
-                    image: require("@/assets/image/aboutUs/company01.svg"),
+                    image: require("@/assets/image/aboutUs/company01.jpg"),
                     alt: "公司外觀",
                     title: "公司外觀",
                     text: "本公司因有開發需求，故將位置選在離市區較遠的桃園市W52區",
                     page: "1/5"
                 },
                 {
-                    image: require("@/assets/image/aboutUs/company02.svg"),
+                    image: require("@/assets/image/aboutUs/company02.jpg"),
                     alt: "環境監測中心",
                     title: "環境監測中心",
                     text: "我們對太空環境進行持續監測，以確保旅客和工作人員的安全。我們使用先進的儀器來監測輻射水平、溫度變化、太空碎片等因素，並隨時調整太空船和設施的運作以確保安全。",
                     page: "2/5"
                 },
                 {
-                    image: require("@/assets/image/aboutUs/company03.svg"),
+                    image: require("@/assets/image/aboutUs/company03.jpg"),
                     alt: "科學實驗室",
                     title: "科學實驗室",
                     text: "科學實驗室配備了各種先進的實驗設備，包括光學和電子顯微鏡、光譜儀、質譜儀、氣相層析儀等。這些設備可用於分析太空中的物質、觀察星體、測量宇宙輻射等。",
                     page: "3/5"
                 },
                 {
-                    image: require("@/assets/image/aboutUs/company04.svg"),
+                    image: require("@/assets/image/aboutUs/company04.jpg"),
                     alt: "訓練中心",
                     title: "訓練中心",
                     text: "為太空旅遊的參與者提供全面的訓練和體驗，以確保他們在太空中的安全和準備充分。訓練項目包含重力模擬區域、太空船模擬、緊急情況模擬及生存訓練等。",
                     page: "4/5"
                 },
                 {
-                    image: require("@/assets/image/aboutUs/company05.svg"),
+                    image: require("@/assets/image/aboutUs/company05.jpg"),
                     alt: "訓練住宿房間",
                     title: "訓練住宿房間",
                     text: "房間的設計旨在提供舒適、安靜和放鬆的環境，以確保太空旅行者在經過訓練後能夠得到適當的休息和恢復。",
@@ -154,6 +154,6 @@ export default {
     setup() {
         return {
             modules: [EffectCards],
-        };;
+        };
     },
 }
