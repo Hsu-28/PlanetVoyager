@@ -20,36 +20,36 @@
         <div class="register-from-con">
           <div class="black"></div>
           <p>請輸入以下資訊</p>
-          <form action="">
+          <form @submit.prevent="signup">
 
             <label></label>
-            <input type="text" placeholder="姓名" required v-model="name">
+            <input type="text" placeholder="姓名" required v-model="name" name="mem_name">
             <label></label>
-            <input type="text" placeholder="信箱" required v-model="email">
+            <input type="text" placeholder="信箱" required v-model="email" name="email">
             <label></label>
             <input type="password" placeholder="密碼" required>
             <label></label>
-            <input type="password" placeholder="再次輸入密碼" required v-model="password">
+            <input type="password" placeholder="再次輸入密碼" required v-model="password" name="mem_pw">
             <label></label>
-            <input type="text" placeholder="身分證號碼/居留證號" required v-model="idNum">
+            <input type="text" placeholder="身分證號碼/居留證號" required v-model="idNum" name="mem_passport">
             <label></label>
-            <input type="text" placeholder="手機號碼" required v-model="phoneNum">
+            <input type="text" placeholder="手機號碼" required v-model="phoneNum" name="mem_phone">
             <label></label>
-            <input type="text" placeholder="收件/聯絡地址" required v-model="address">
+            <input type="text" placeholder="收件/聯絡地址" required v-model="address" name="address">
             <!-- <button class="cybr-btn">
                     送出<span aria-hidden></span>
                     <span aria-hidden class="cybr-btn__glitch">送出</span>
                     <span aria-hidden class="cybr-btn__tag">-pv-</span>
                   </button> -->
-            <ButtonFlashBox :buttonText="'送出'" :buttonBottomText="'-pv-'" @click="submitForm">
+            <ButtonFlashBox :buttonText="'送出'" :buttonBottomText="'-pv-'" @click="submitForm" type="submit">
             </ButtonFlashBox>
           </form>
         </div>
       </div>
     </div>
     <div class="imgContent">
-        <img class="sapcemanRight" src="../assets/image/register/sapcemanRight.svg" alt="sapcemanRight">
-  </div>
+      <img class="sapcemanRight" src="../assets/image/register/sapcemanRight.svg" alt="sapcemanRight">
+    </div>
     <!-- <img src="../assets/image/register/sapcemanRight.svg" alt="sapcemanRight"> -->
   </div>
   <!-- <router-view/> -->
@@ -74,12 +74,37 @@ export default {
       phoneNum: ""
     };
   },
-  methods: {
-    //  submitForm(){
 
-    //   alert("aaaa");
-    //  }
+  methods: {
+    signup() {
+
+      const info = new FormData();
+      info.append("mem_name", this.name);
+      info.append("email", this.email);
+      info.append("address", this.address);
+      info.append("mem_pw", this.password);
+      info.append("mem_passport", this.idNum);
+      info.append("mem_phone", this.phoneNum);
+      console.log(info);
+
+      fetch('http://localhost/planet_voyager/Frontend/public/php/register.php', {
+        method: 'POST',
+        body: info,
+      })
+        .then(res => res.json())
+        .then(() => {
+          this.$router.push('/registerv')
+        })
+        .catch(error => {
+          console.error(error);
+        })
+
+    }
   }
+  //  submitForm(){
+
+  //   alert("aaaa");
+  //  }
 }
 
 </script>
