@@ -17,8 +17,6 @@
                         <!-- <h1 v-if="myData.length > 0">{{ myData}}</h1> -->
                         <h1  v-if="myData && myData.itinerary && myData.itinerary.length > 0">
                             {{ myData.itinerary[0].planet_subtitle }}
-                            {{ schedules[0].imgUrls[0] }}
-                            
                         </h1>
                     </div>
 
@@ -81,7 +79,7 @@ export default {
             schedules: [
                 {
                     schedulenum: "schedule1",
-                    num: "Day111111 旅程啟航！",
+                    num: "Day1 旅程啟航！",
                     schedule: "從地球啟程後可飽覽星際風光，隔日中午抵達月球，在銀河中體驗太空中漂浮。",
                     imgUrls: [
                         require('@/assets/image/itinerary_combo/c11.svg'),  
@@ -91,7 +89,7 @@ export default {
                 },
                 {
                     schedulenum: "schedule2",
-                    num: "Day22222 月球美景饗宴",
+                    num: "Day2 月球美景饗宴",
                     schedule: "在月球周圍繞行，除了神奇的月亮景色，也能於月球的空中觀測未知的生物和奇異的地貌，滿足您的探索精神。",
                     imgUrls: [
                         // require('@/assets/image/itinerary_combo/c21.svg'),
@@ -191,6 +189,8 @@ export default {
                 direction: "horizontal"
             }
         });
+   
+
     },
     beforeUnmount() {
         console.log(this.scroll);
