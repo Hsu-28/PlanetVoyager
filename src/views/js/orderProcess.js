@@ -266,8 +266,7 @@ export default {
       .then(data => {
         if (data.msg === "未登入") {
           alert('請先登入會員');
-        } else {
-          alert('已登入');
+          this.$router.push('/Login');
         }
       })
       .catch(error => {
