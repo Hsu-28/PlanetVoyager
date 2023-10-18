@@ -267,13 +267,12 @@ export default {
       });
 
       //登入狀態驗證
-      fetch('http://localhost/PV/PlanetVoyager/public/php/verifyLogin.php')
+      fetch('https://tibamef2e.com/chd103/g3/php/verifyLogin.php')
       .then(response => response.json())
       .then(data => {
         if (data.msg === "未登入") {
           alert('請先登入會員');
-        } else {
-          alert('已登入');
+          this.$router.push('/Login');
         }
       })
       .catch(error => {
