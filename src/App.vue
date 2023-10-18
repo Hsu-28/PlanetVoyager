@@ -90,11 +90,11 @@
           <div id="happy">
 
 
- <router-link :to="{ name: 'quiz' }"  @click=" closeMenuF()">
-  <subscribe :buttonText="'- 馬上測驗 - '" :buttonBottomText="'  -pv-'"> <img
-                src="~@/assets/image/headerfooter/globle.svg" alt="" class="btn-c"></subscribe>
-          </router-link> 
-            
+            <router-link :to="{ name: 'quiz' }" @click=" closeMenuF()">
+              <subscribe :buttonText="'- 馬上測驗 - '" :buttonBottomText="'  -pv-'"> <img
+                  src="~@/assets/image/headerfooter/globle.svg" alt="" class="btn-c"></subscribe>
+            </router-link>
+
           </div>
           <!-- <div class="btn-container">
               <p class="btn-p">SUBSCRIBE &nbsp;US &nbsp; NOW
@@ -132,14 +132,14 @@
     </div>
     <!-- 快速按鈕 -->
     <div id="btnInput">
-      <button v-for="( btnMessage, index ) in btnMessages" :key="index" @click="handleButtonClick(index)" id="btnMessage">
-        {{ btnMessage.text }}
+      <button v-for="( item, index ) in btnMessages" :key="index" @click="handleButtonClick(index)" id="btnMessage">
+        {{ item.keyword }}
       </button>
     </div>
-    <div id="chatInput">
+    <!-- <div id="chatInput">
       <input type="text" id="messageInput" placeholder="Type your message..." v-model="newMessageText">
       <button id="sendButton" @click="sendMessage"><img src="~@/assets/image/chatbot/send.svg" alt=""></button>
-    </div>
+    </div> -->
   </div>
   <!-------------- 聊天機器人結束 -------------->
 

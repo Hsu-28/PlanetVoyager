@@ -167,15 +167,6 @@
             </div>
           </div>
 
-          <!-- <div v-else class="donation-data">
-            <h2>捐款完成</h2>
-            <p>謝謝您的捐款 捐款明細請至會員中心查詢</p>
-            <div class="but2">
-              <ButtonFlashBox @click="status = 'donate'" :buttonText="'繼續捐款'" :buttonBottomText="'-pv-'" class="btn2-ls">
-              </ButtonFlashBox>
-            </div>
-          </div> -->
-
           <div v-else-if="status == 'loading'" id="loading">
             <!-- 顯示 loading 界面 -->
             <div class="spinner-box" id="loading">
