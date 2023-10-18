@@ -228,8 +228,7 @@ export default {
       .then(response => response.json())
       .then(data => {
         if (data.msg === "未登入") {
-          alert('請先登入會員');
-          this.$router.push('/Login');
+          alert('請先登入會員再報名旅程！');
         }
       })
       .catch(error => {
