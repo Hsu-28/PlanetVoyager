@@ -74,7 +74,7 @@
       <div class="order-a apple">
      
       
-      <canvas class="threeJS"></canvas>
+      <canvas class=" threeJS " ref="canvas"></canvas>
       <div class="spacesuit-size">
         <div class="clothe">&nbsp; 太空服尺寸:&nbsp;&nbsp;
           <div class="chose-size">
@@ -93,14 +93,14 @@
           <div class="color-containerAll">
             <div class="color-container">
               <div class="color-b">星月白</div>
-              <label for="colorOption1" class="color-show white"></label>
-              <input type="radio" id="colorOption1" class="cantsee" @click="white"  :value="whiteC" v-model="form.scolor" name="infos">
+              <label for=" 'colorOption1' + numOrder" class="color-show white"></label>
+              <input type="radio" id=" 'colorOption1' + numOrder" class="cantsee" @click="white"  :value="whiteC" v-model="form.scolor" name="infos">
             </div>
             <div class="color-container">
               <div class="color-b ">銀河灰</div>
               <!-- <div class="color-show gray"></div> -->
-              <label for="colorOption2" class="color-show gray"></label>
-              <input type="radio" id="colorOption2" class="cantsee" @click="gray"  :value="grayC" v-model="顏色" name="infos">
+              <label for="'colorOption2' + numOrder" class="color-show gray"></label>
+              <input type="radio" id="'colorOption2' + numOrder" class="cantsee" @click="gray"  :value="grayC" v-model="顏色" name="infos">
             </div>
             <!-- <div class="color-container">
               <div class="color-b ">藍色</div>
@@ -174,7 +174,7 @@ export default {
 methods: {
   initThree() {
     const scene = new THREE.Scene();//先設定場景
-    const canvas = document.querySelector(".threeJS");//設定"canvas"抓到canvas畫布
+    const canvas =this.$refs.canvas;//設定"canvas"抓到canvas畫布
     const renderer = new THREE.WebGLRenderer({canvas,antialias: true,alpha: true });
     renderer.setSize(canvas.clientWidth, canvas.clientHeight);  // 设置 canvas 大小
     // new THREE.WebGLRenderer宣告在瀏覽器使用WebGL 技術渲染 3D 场景。
@@ -267,7 +267,7 @@ methods: {
     renderer.setSize(this.appleWidth, height);
   },
   white () {
-    this.color = 0xffffaa
+    this.color = 0xffffff
     this.updateAmbientLightColor();
   },
   gray () {
@@ -282,7 +282,9 @@ methods: {
   //   this.color = 0xffff00
   //   this.updateAmbientLightColor();
   // },
-  updateAmbientLightColor() {
+
+
+  updateAmbientLightColor(id) {
   const scene = this.initThree();
   const ambientLight = scene.getObjectByName('ambientLight'); // 获取环境光
   if (ambientLight) {
@@ -290,8 +292,11 @@ methods: {
   }
   return scene;
   }
+
+
 },
-  // emits
+
+
 }
 </script>
 

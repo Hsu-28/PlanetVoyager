@@ -236,25 +236,27 @@
           <div> 艙位號碼: {{ item.seatIndex }}</div>
           <div> 太空服尺寸: {{ item.ssize }}</div>
           <div> 太空服顏色: {{ item.scolor }}</div>
+          </div>
+
+        </div>
+        <div class="order-finall">
+
+          <div class="order-finall-btn btn-Cancle" @click="disOrder">修改資料</div>
+          <!-- <router-link to="OrderSuccess" id="submitBtn">  -->
+            <div class="order-finall-btn btn-Check" @click="Addorder">確認訂購</div>
+          <!-- </router-link> -->
+        
         </div>
 
       </div>
-      <div class="order-finall">
 
-        <div class="order-finall-btn btn-Cancle" @click="disOrder">修改資料</div>
-        <router-link to="OrderSuccess" id="submitBtn"> <div class="order-finall-btn btn-Check">確認訂購</div></router-link>
-       
-      </div>
+    </section>
 
-    </div>
-
-  </section>
-
-  <section class="alert" v-if="showAlert" >
-    <p @click="showAlert = false" ><img src="@/assets/image/orderProcess/X.jpg" alt=""></p>
-    尚有資料未填寫完成，請確認
-  </section>
-</template>
+    <section class="alert" v-if="showAlert" >
+      <p @click="showAlert = false" ><img src="@/assets/image/orderProcess/X.jpg" alt=""></p>
+      尚有資料未填寫完成，請確認
+    </section>
+  </template>
   
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
 <script src="@/views/js/orderProcess.js"></script>
