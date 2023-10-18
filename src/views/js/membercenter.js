@@ -50,16 +50,20 @@ import axios from 'axios';
         el: 'content',
         fromData: {
           image: '',
-          name: '',
-          nickname: '',
-          birthday: '',
-          selectedGender: '' ,
-          email: '',
-          address: '',
+          mem_name: "",
+          mem_nickname: "",
+          mem_birthday: "",
+          mem_gender: "",
+          // selectedGender: '' ,
+          mem_phone: "",
+          email: "",
+          address: " ",
+          mem_passport: " ",
+          mem_pw: " ",
           passportNumber: '',
           showPhoneError: false,
-          newPw: '',
-          confirmPw: '',
+          newPw: " ",
+          confirmPw: " ",
         },
         genderOptions: [
             { value: '男', label: '男性' },
@@ -287,6 +291,55 @@ import axios from 'axios';
           }
         },
 
+        
+
+         //修改會員  
+         saveBtn() {
+          const url = 'http://localhost/PV/PlanetVoyager/public/php/editMemberProfile.php';
+          const formData = new FormData();
+          formData.append("mem_name", this.phpData[0].mem_name);
+          formData.append("mem_nickname", this.phpData[0].mem_nickname);
+          formData.append("mem_gender", this.phpData[0].mem_gender);
+          formData.append("mem_birthday", this.phpData[0].mem_birthday);
+          formData.append("mem_phone", this.phpData[0].mem_phone);
+          formData.append("email", this.phpData[0].email);
+          formData.append("address", this.phpData[0].address);
+          formData.append("mem_passport", this.phpData[0].mem_passport);
+        
+          fetch(url, {
+            method: "POST",
+            body: formData,
+          })
+
+          // .then(response => {
+          //   console.log(response),
+          //   response.json()
+          // })
+          //  .then((jsonData) => {
+          //    window.location.reload();
+          //    console.log(jsonData);
+          //    alert('編輯成功');
+          //  })
+          // .catch((error) => {
+          //   console.log(error.message);
+          //   // alert('編輯失敗，請檢查輸入的資料');
+          // });
+          
+          .then((response) => {
+            if ( response.ok ) {
+              console.log(response);
+              alert('編輯成功');
+            } else {
+              throw new Error("編輯失敗"); 
+            }
+
+          })
+          .catch((error) => {
+            console.log(error.message);
+          });
+        },
+        
+
       // async loadData() {
       //   try {
       //     const [response1, response2, response3, response4, response5] = await Promise.all([
@@ -356,10 +409,6 @@ import axios from 'axios';
     },
   
 
-     updateItineraryImage() {
-      //  const planet_subtitle = this.phpData.result4[0].planet_subtitle;
-      //  this.itineraryImage = this.getItineraryImagePath( planet_subtitle);
-     },
 
     //抓取行程圖片
       getItineraryImagePath(planetSubtitle) {
@@ -510,26 +559,22 @@ import axios from 'axios';
           order.isExpanded = !order.isExpanded;
       },
   
-        handleSubmit() {
-            console.log(this.fromData.name, this.fromData.nickname,this.fromData.email,this.fromData.address,
-                      this.fromData.passportNumber, 'Submit button clicked');
-        },
+      handleSubmit() {
+        console.log(this.fromData.name, this.fromData.nickname,this.fromData.email,this.fromData.address,
+                    this.fromData.passportNumber, 'Submit button clicked');
+      },
   
       // 判斷是否是行動裝置（小於等於 768px）
-        checkMobile() {
-              const screenWidth = window.innerWidth;
-              this.isMobile = screenWidth <= 768;
-        },
+      checkMobile() {
+            const screenWidth = window.innerWidth;
+            this.isMobile = screenWidth <= 768;
+      },
   
-        beforeUnmount() {
-              // 在元件銷燬前移除窗口大小監聽器
-              window.removeEventListener('resize', this.checkMobile);
-        },
+      beforeUnmount() {
+        // 在元件銷燬前移除窗口大小監聽器
+          window.removeEventListener('resize', this.checkMobile);
       },
 
-    
-
-      
- 
-    
-};
+     
+},
+}

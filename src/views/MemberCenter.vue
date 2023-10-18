@@ -80,7 +80,7 @@
                   </div>
               </div>
                   <div class="top-button">
-                    <ButtonStyle buttonText="確認修改" buttonBottomText="-PV-"></ButtonStyle>
+                    <ButtonStyle buttonText="確認修改" buttonBottomText="-PV-"  @click="saveBtn()"></ButtonStyle>
                   </div>
               </div>
               </div>
@@ -151,7 +151,7 @@
                     </div>
                     <div v-for="(user, userIndex) in members" :key="user.id" class="journey">
                       <div class="journey-content">
-                        <p>{{ user.passenger_no }}</p>
+                        <p>{{ userIndex +1 }}</p>
                         <p>{{ user.passenger_name  }}</p>
                         <p>{{ user.passenger_status }}</p>
                         <div class="journey-detail" @click="showBookingDetails(user)"  v-if="!isMobile">
@@ -175,7 +175,7 @@
                           <p class="bookingTotalPassanger"> 旅客人數:<span>{{ phpData3[0].ord_people }}</span>人</p>
                           
                             <div class="container-control">
-                              <p class="bookingId">乘客{{ selectedUser ? selectedUser.passenger_no : '' }}</p>
+                              <p class="bookingId">乘客{{ userIndex +1 }}</p>
                               <div class="booking-container">
                                   <div class="bookingLastName">
                                       <span class="bookingSecondTitle">姓名</span>
