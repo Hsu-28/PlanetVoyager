@@ -8,6 +8,8 @@ import orderList from "@/components/PerOrder.vue";
 export default {
   data() {
     return {
+      // no:3 ,
+      formList: [], 
       formData: {
         lastName: '',
         name: '',
@@ -167,40 +169,44 @@ export default {
         }
     },
     Addorder() {  
-        var formData = {
-          lastName: document.getElementById("lastName").textContent,
-          name: document.getElementById("name").textContent,
-          gender: document.getElementById("gender").textContent,
-          birthday: document.getElementById("birthday").textContent,
-          nation: document.getElementById("nation").textContent,
-          passId: document.getElementById("passId").textContent,
-          size: document.getElementById("size").textContent,
-          status: document.getElementById("status").textContent,
-          other: document.getElementById("other").textContent,
-          seatIndex: document.getElementById("seatIndex").textContent,
-          ssize: document.getElementById("ssize").textContent,
-          scolor: document.getElementById("scolor").textContent
-        };
-      
-        // 使用fetch API 发送POST请求到服务器的PHP文件
-        fetch('insertPassenger.php', {
-          method: 'POST',
-          body: JSON.stringify(formData),
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
-        .then(response => response.json())
-        .then(data => {
-          // 处理服务器的响应
-          console.log(data);
-          // 可以在这里执行任何其他操作，如页面跳转或显示成功消息
-        })
-        .catch(error => {
-          console.error('请求错误:', error);
+      const formData = [];
+    
+      if (this.formList.length > 0) {
+        this.formList.forEach(item => {
+          formData.push({
+            lastName: item.lastName,
+            name: item.name,
+            gender: item.gender,
+            birthday: item.birthday,
+            nation: item.nation,
+            passId: item.passId,
+            size: item.size,
+            // status: item.status,
+            other: item.other,
+            seatIndex: item.seatIndex,
+            ssize: item.ssize,
+            scolor: item.scolor
+          });
         });
-      
-    },
+      }
+    
+      // 發送formData到伺服器
+      fetch('http://localhost/PV/PlanetVoyager/public/php/order.php', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        // 可以在這邊進行操作，例如跳轉頁面或成功消息
+      })
+      .catch(error => {
+        console.error('請求錯誤:', error);
+      });
+    }
   },
   
   computed: {
