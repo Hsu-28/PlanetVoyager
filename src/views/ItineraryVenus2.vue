@@ -14,7 +14,9 @@
             <div class="scrollsection" data-scroll-section>
                 <div class="title" style="writing-mode: vertical-lr" data-scroll data-scroll-speed="1">
                     <div>
-                        <h1>金 星 冒 險 尋 奇 之 旅</h1>
+                        <h1 v-if="planet_subtitle">
+                           {{ planet_subtitle }}
+                        </h1>
                     </div>
 
 
@@ -28,7 +30,7 @@
                     </div>
                     <div class="schedule-pic">
                         <div v-for="(URL, picIndex) in day.imgUrls" :key="picIndex" class="image-box" @click="showPic($event)">
-                            <img :src="URL">
+                            <img :src="`img/${URL.itinerary_pic}`">
                         </div>
                     </div>
                 </div>
@@ -39,13 +41,14 @@
 
 <script>
 import LocomotiveScroll from 'locomotive-scroll';
-
+import axios from 'axios';
 export default {
     data() {
         return {
             bigpic: '',
             showBtn: true,
             scroll: null,
+            myData: [],
             schedules: [
                 {
                     schedulenum: "schedule1",
@@ -119,7 +122,37 @@ export default {
             if (this.bigpic != '') {
                 this.bigpic = '';
             }
-        }
+        },
+        splitWord(text) {
+            let all = [];
+            let start = 0;
+            let end = text.indexOf('\n', start) + 1;
+
+            while (end > 0) {
+                const p = text.slice(start, end);
+                all.push(p);
+                start = end;
+                end = text.indexOf('\n', start) + 1;
+            }
+
+            // 如果 end 等于 -1，表示已经到达文本末尾
+            if (end === -1) {
+                const p = text.slice(start);
+                all.push(p);
+            }
+
+            console.log(all);
+
+
+            const schedules = [];
+            for (let i = 0; i < all.length; i += 2) {
+                const num = all[i].trim();  // 移除首尾空格和换行符
+                const schedule = all[i + 1].trim();
+                schedules.push({ num, schedule });
+            }
+
+            return schedules;
+        },
     },
     computed: {
         showBtn() {
@@ -128,7 +161,14 @@ export default {
         },
         coverbg() {
             return this.bigpic !== ''
-        }
+        },
+        planet_subtitle() {
+            if (this.myData && this.myData.itinerary && this.myData.itinerary.length > 0) {
+                return this.myData.itinerary[0].planet_subtitle
+            } else {
+                return ''
+            }
+        },
     },
     mounted() {
         const el = document.querySelector('#main-container')
@@ -164,6 +204,29 @@ export default {
     }
     console.log(this.scroll);
   },
+  created() {
+
+axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryVenus2.php')
+    .then(response => {
+        this.myData = response.data;
+        const text = this.myData?.itinerary?.[0]?.itinerary_day || ''
+        const schedules = this.splitWord(text)
+        const photos= Array.from({ length: this.schedules.length * 3 }, (v, i) => {
+            return this.myData.itinerary_photos[i % this.myData.itinerary_photos.length]
+        });
+        this.schedules = this.schedules.map((v, i) => {
+            return {
+                ...v,
+                ...schedules[i],
+                imgUrls: photos.slice(i * 3, (i + 1) * 3)
+            }
+        })
+    })
+    .catch(error => {
+        console.error(error);
+    });
+
+},
  
 };
 
