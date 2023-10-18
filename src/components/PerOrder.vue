@@ -93,14 +93,14 @@
           <div class="color-containerAll">
             <div class="color-container">
               <div class="color-b">星月白</div>
-              <label for=" 'colorOption1' + numOrder" class="color-show white"></label>
-              <input type="radio" id=" 'colorOption1' + numOrder" class="cantsee" @click="white"  :value="whiteC" v-model="form.scolor" name="infos">
+              <label :for=" 'colorOption1' + numOrder" class="color-show white"></label>
+              <input type="radio" :id=" 'colorOption1' + numOrder" class="cantsee" @click="white"  :value="whiteC" v-model="form.scolor" name="infos">
             </div>
             <div class="color-container">
               <div class="color-b ">銀河灰</div>
               <!-- <div class="color-show gray"></div> -->
-              <label for="'colorOption2' + numOrder" class="color-show gray"></label>
-              <input type="radio" id="'colorOption2' + numOrder" class="cantsee" @click="gray"  :value="grayC" v-model="顏色" name="infos">
+              <label :for="'colorOption2' + numOrder" class="color-show gray"></label>
+              <input type="radio" :id="'colorOption2' + numOrder" class="cantsee" @click="gray"  :value="grayC" v-model="顏色" name="infos">
             </div>
             <!-- <div class="color-container">
               <div class="color-b ">藍色</div>
@@ -255,6 +255,7 @@ methods: {
     // 更新 canvas 元素的大小
     const canvas = document.querySelector(".threeJS");
     canvas.width = this.appleWidth;
+    // canvas.width = width;
     canvas.height = height;
 
     // 更新 Three.js 相机的宽高比
