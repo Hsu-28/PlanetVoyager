@@ -74,7 +74,7 @@
       <div class="order-a apple">
      
       
-      <canvas class="threeJS" ref="canvas"></canvas>
+      <canvas class=" threeJS " ref="canvas"></canvas>
       <div class="spacesuit-size">
         <div class="clothe">&nbsp; 太空服尺寸:&nbsp;&nbsp;
           <div class="chose-size">
@@ -93,14 +93,14 @@
           <div class="color-containerAll">
             <div class="color-container">
               <div class="color-b">星月白</div>
-              <label for="colorOption1" class="color-show white"></label>
-              <input type="radio" id="colorOption1" class="cantsee" @click="white"  :value="whiteC" v-model="form.scolor" name="infos">
+              <label for=" 'colorOption1' + numOrder" class="color-show white"></label>
+              <input type="radio" id=" 'colorOption1' + numOrder" class="cantsee" @click="white"  :value="whiteC" v-model="form.scolor" name="infos">
             </div>
             <div class="color-container">
               <div class="color-b ">銀河灰</div>
               <!-- <div class="color-show gray"></div> -->
-              <label for="colorOption2" class="color-show gray"></label>
-              <input type="radio" id="colorOption2" class="cantsee" @click="gray"  :value="grayC" v-model="顏色" name="infos">
+              <label for="'colorOption2' + numOrder" class="color-show gray"></label>
+              <input type="radio" id="'colorOption2' + numOrder" class="cantsee" @click="gray"  :value="grayC" v-model="顏色" name="infos">
             </div>
             <!-- <div class="color-container">
               <div class="color-b ">藍色</div>
@@ -282,7 +282,9 @@ methods: {
   //   this.color = 0xffff00
   //   this.updateAmbientLightColor();
   // },
-  updateAmbientLightColor() {
+
+
+  updateAmbientLightColor(id) {
   const scene = this.initThree();
   const ambientLight = scene.getObjectByName('ambientLight'); // 获取环境光
   if (ambientLight) {
@@ -290,8 +292,11 @@ methods: {
   }
   return scene;
   }
+
+
 },
-  // emits
+
+
 }
 </script>
 

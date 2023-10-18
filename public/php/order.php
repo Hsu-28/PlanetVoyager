@@ -7,7 +7,7 @@ try {
     header("Content-Type: application/json"); 
     require_once("../../../connectdb.php");
 
-    $passenger_fname = $_POST['passenger_fname'];
+$passenger_fname = $_POST['passenger_fname'];
 $passenger_name = $_POST['passenger_name'];
 $passenger_gender = $_POST['passenger_gender'];
 $birthday = $_POST['birthday'];
