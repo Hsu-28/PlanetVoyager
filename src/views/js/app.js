@@ -1,6 +1,7 @@
 import scramble from '@/components/Scramble.vue'
 import subscribe from '@/components/ButtonFlash.vue'
 import { onMounted } from 'vue';
+import axios from 'axios';
 
 export default {
   components: {
@@ -80,20 +81,24 @@ export default {
         // 其他消息
       ],
       newMessageText: "", // 用於綁定新消息的文本
-      btnMessages: [
-        {
-          text: "可以造訪哪些星球?"
-        },
-        {
-          text: "我想了解行程"
-        },
-        {
-          text: "行程訓練要準備什麼呢?"
-        },
-        {
-          text: "捐款可以兌換什麼?"
-        }
-      ]
+      btnMessages: {},
+      // btnMessages: [
+      //   {
+      //     text: "可以造訪哪些星球？"
+      //   },
+      //   {
+      //     text: "我想了解行程"
+      //   },
+      //   {
+      //     text: "行程訓練要準備什麼呢？"
+      //   },
+      //   {
+      //     text: "捐款可以兌換什麼？"
+      //   },
+      //   {
+      //     text: "忘記密碼"
+      //   }
+      // ]
     };
   },
   methods: {
@@ -136,7 +141,7 @@ export default {
     handleButtonClick(index) {
       // 添加新消息到列表中
       this.messages.push({
-        text: this.btnMessages[index].text,
+        text: this.btnMessages[index]["keyword"],
         isCustomer: true // 假設這是顧客發送的消息
       });
       // 機器人回覆
@@ -145,38 +150,48 @@ export default {
       }, 1000);
     },
     replyToUser(index) {
+      this.messages.push({
+        text: this.btnMessages[index]["chat_ans"],
+        isCustomer: false
+      });
       // 根據按鈕回覆不同內容
-      switch (index) {
-        case 0:
-          this.messages.push({
-            text: "您可以造訪月球、火星及金星。",
-            isCustomer: false
-          });
-          break;
-        case 1:
-          this.messages.push({
-            text: "行程詳情請至<a href='/destination'>星際旅程</a>了解~",
-            isCustomer: false
-          });
-          break;
-        case 2:
-          this.messages.push({
-            text: "需要上傳健康評估、並參與七天訓練課程，其餘詳情請至<a href='/training'>行前準備</a>！",
-            isCustomer: false
-          });
-          break;
-        case 3:
-          this.messages.push({
-            text: "會員等級達到銀可兌換鑰匙圈、金兌換棒球帽、白金兌換帽T、鑽石兌換太空人頭盔，還有機會抽中大獎喔！快去<a href='/donate'>支持星際探索</a>看看！",
-            isCustomer: false
-          });
-          break;
-        default:
-          this.messages.push({
-            text: "我不明白您的問題",
-            isCustomer: false
-          });
-      }
+      // switch (index) {
+      //   case 0:
+      //     this.messages.push({
+      //       text: "您可以造訪月球、火星及金星。",
+      //       isCustomer: false
+      //     });
+      //     break;
+      //   case 1:
+      //     this.messages.push({
+      //       text: "行程詳情請至<a href='/destination'>星際旅程</a>了解~",
+      //       isCustomer: false
+      //     });
+      //     break;
+      //   case 2:
+      //     this.messages.push({
+      //       text: "需要上傳健康評估、並參與七天訓練課程，其餘詳情請至<a href='/training'>行前準備</a>！",
+      //       isCustomer: false
+      //     });
+      //     break;
+      //   case 3:
+      //     this.messages.push({
+      //       text: "會員等級達到銀可兌換鑰匙圈、金兌換棒球帽、白金兌換帽T、鑽石兌換太空人頭盔，還有機會抽中大獎喔！快去<a href='/donate'>支持星際探索</a>看看！",
+      //       isCustomer: false
+      //     });
+      //     break;
+      //   case 4:
+      //     this.messages.push({
+      //       text: "若您忘記了密碼，您可以在登入頁面點擊“忘記密碼”並按照指示重置密碼。",
+      //       isCustomer: false
+      //     });
+      //     break;
+      //   default:
+      //     this.messages.push({
+      //       text: "我不明白您的問題",
+      //       isCustomer: false
+      //     });
+      // }
     }
   },
   computed: {
@@ -201,4 +216,15 @@ export default {
       });
     };
   },
+  created() {
+    // 發起HTTP GET 請求
+    axios.get('http://localhost/PV/PlanetVoyager/public/php/chatbot.php')
+      .then(response => {
+        this.btnMessages = response.data;
+        console.log(this.btnMessages)
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
 };

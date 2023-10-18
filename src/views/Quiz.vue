@@ -45,7 +45,7 @@
               :id="`option${index}`"
               required 
             />
-            <div class="label-box">
+            <div class="label-box" @click="handleLabelBoxClick" :class="{ 'clicked': isClicked }">
               <label :for="`option${index}`" :class="{ 'selected': selectedOption === option.score }">{{ option.text }}</label>
             </div>
           </li>
@@ -172,6 +172,7 @@ export default {
       totalScore: 0,
       quizCompleted: false, 
       isMobile: false, 
+      isClicked: false,
     };
   },
   
@@ -286,6 +287,11 @@ export default {
       beforeUnmount() {
             // 在元件銷燬前移除窗口大小監聽器
          window.removeEventListener('resize', this.checkMobile);
+    },
+
+    handleLabelBoxClick() {
+      // this.$refs.labelBox.classList.add('clicked'); 
+      this.isClicked = true;
     },
 
   }

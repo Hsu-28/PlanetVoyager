@@ -1,5 +1,49 @@
-<?php 
+<?php
 try {
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+    header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+    header("Content-Type: application/json"); 
+
+    require_once("../../../connect_chd103g3.php");
+
+    // 获取前端数据
+    $formData = json_decode(file_get_contents("php://input"), true);
+
+    // $sql = "INSERT INTO passenger (passenger_fname, passenger_name, passenger_gender, birthday, passenger_nationality, passport, shirt_size, status, passenger_diet, seat_no, a_size, color)
+    //         VALUES (:passenger_fname, :passenger_name, :passenger_gender, :birthday, :passenger_nationality, :passport, :shirt_size, :status, :passenger_diet, :seat_no, :a_size, :color)";
+    $sql = "INSERT INTO passenger (passenger_fname, passenger_name, passenger_gender, birthday, passenger_nationality, passport, shirt_size,  passenger_diet, seat_no, a_size, color)
+    VALUES (:passenger_fname, :passenger_name, :passenger_gender, :birthday, :passenger_nationality, :passport, :shirt_size, :passenger_diet, :seat_no, :a_size, :color)";
+
+    $stmt = $pdo->prepare($sql);
+
+    foreach ($formData as $data) {
+        $stmt->bindParam(':passenger_fname', $data['lastName']);
+        $stmt->bindParam(':passenger_name', $data['name']);
+        $stmt->bindParam(':passenger_gender', $data['gender']);
+        $stmt->bindParam(':birthday', $data['birthday']);
+        $stmt->bindParam(':passenger_nationality', $data['nation']);
+        $stmt->bindParam(':passport', $data['passId']);
+        $stmt->bindParam(':shirt_size', $data['size']);
+        // $stmt->bindParam(':status', $data['status']);
+        $stmt->bindParam(':passenger_diet', $data['other']);
+        $stmt->bindParam(':seat_no', $data['seatIndex']);
+        $stmt->bindParam(':a_size', $data['ssize']);
+        $stmt->bindParam(':color', $data['scolor']);
+        $stmt->execute();
+    }
+
+    echo json_encode("Data inserted successfully");
+} catch (Exception $e) {
+    echo "錯誤行號 : ", $e->getLine(), "<br>";
+    echo "錯誤原因 : ", $e->getMessage(), "<br>";
+}
+?>
+
+
+
+
+<!-- try {
     // 引入連線工作的檔案
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
@@ -7,7 +51,7 @@ try {
     header("Content-Type: application/json"); 
     require_once("../../../connectdb.php");
 
-    $passenger_fname = $_POST['passenger_fname'];
+$passenger_fname = $_POST['passenger_fname'];
 $passenger_name = $_POST['passenger_name'];
 $passenger_gender = $_POST['passenger_gender'];
 $birthday = $_POST['birthday'];
@@ -46,5 +90,5 @@ $stmt->execute('Data inserted successfully');
 catch (Exception $e) {
     echo "錯誤行號 : ", $e->getLine(), "<br>";
     echo "錯誤原因 : ", $e->getMessage(), "<br>";
-}
-?>
+} -->
+
