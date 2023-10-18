@@ -259,9 +259,21 @@ export default {
       .catch(error => {
         console.error(error);
       });
-}
 
-
+      //登入狀態驗證
+      fetch('http://localhost/PV/PlanetVoyager/public/php/verifyLogin.php')
+      .then(response => response.json())
+      .then(data => {
+        if (data.msg === "未登入") {
+          alert('請先登入會員');
+        } else {
+          alert('已登入');
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
 }
 
 
