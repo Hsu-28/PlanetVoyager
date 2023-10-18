@@ -20,8 +20,11 @@ try{
 
     //自資料庫中取回資料
     $memRow = $member->fetch(PDO::FETCH_ASSOC);
+    session_start();
+    $_SESSION["memId"] = $memRow["email"];
+    $_SESSION["mem_pw"] = $memRow["mem_pw"];
     //送出登入者的姓名資料
-    $result = ["memId"=>$memRow["email"], "memPsw"=>$memRow["mem_pw"],"error" => false];
+    $result = ["memId"=>$memRow["email"], "memPsw"=>$memRow["mem_pw"],"error" => false, "memInfo"=>$_SESSION,"session_id"=>session_id()];
     echo json_encode($result);
   }
 } catch (PDOException $e) {
