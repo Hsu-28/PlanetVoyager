@@ -17,20 +17,26 @@ try{
     // echo "email : ", $_SESSION["email"], "<br>";
 
 
-    // 下sql指令
-    $sql_query = "SELECT 
-    *
-    FROM member WHERE mem_no = '1' ";
-    $statement = $pdo->query($sql_query);
-    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $sql = "
 
-    // 返回数据
-    header("Content-Type: application/json");
-    echo json_encode($result);
+    UPDATE member SET mem_pw = :newPw
+    
+    // WHERE email = :email";
 
-    }
+    $editPsw = $pdo->prepare($sql);
 
-    catch (Exception $e) {
+    $editPsw->bindValue(":password", $_POST["password"]);
+    // $editPsw->bindValue(":email", $_POST["email"]);
+
+    // 執行 SQL 更新
+    $editPsw->execute();
+
+    // 如果更新成功
+    $responseMessage = "更新成功";
+
+    echo json_encode($responseMessage);
+
+    }catch (Exception $e) {
         echo "錯誤行號 : ", $e->getLine(), "<br>";
         echo "錯誤原因 : ", $e->getMessage(), "<br>";
         //echo "系統暫時不能正常運行，請稍後再試<br>"; 
