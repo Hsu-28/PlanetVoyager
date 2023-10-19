@@ -6,7 +6,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 header("Content-Type: application/json"); 
 
 
-try{
+try {
     //引入連線工作的檔案
     require_once("../../../connect_chd103g3.php");
 
@@ -17,13 +17,10 @@ try{
     // echo "email : ", $_SESSION["email"], "<br>";
 
     // 下sql指令
-    $sql_query = "SELECT 
-    * FROM passenger WHERE orders_no = '1'";
+    $sql_query = "SELECT * FROM passenger WHERE orders_no = ".$_GET['id'];
     $statement = $pdo->query($sql_query);
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-    // 返回数据
-    header("Content-Type: application/json");
     echo json_encode($result);
 
     }

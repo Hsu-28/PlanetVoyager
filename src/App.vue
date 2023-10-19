@@ -10,7 +10,11 @@
     </router-link>
 
     <div ref="loginButton" class="login-btn" v-show="headericon">
-      <router-link to="/login">
+      <router-link to="/login"  v-if="!isLogin">
+        <img src="~@/assets/image/headerfooter/login.svg" alt="login" class="login">
+
+      </router-link>
+      <router-link to="/memberCenter" v-else>
         <img src="~@/assets/image/headerfooter/login.svg" alt="login" class="login">
 
       </router-link>

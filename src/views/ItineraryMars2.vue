@@ -224,7 +224,7 @@ export default {
     },
     created() {
 
-        axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryMars2.php')
+        axios.get(`${this.$store.state.phpPublicPath}ItineraryMars2.php`)
             .then(response => {
                 this.myData = response.data;
                 const text = this.myData?.itinerary?.[0]?.itinerary_day || ''
@@ -551,4 +551,17 @@ export default {
     }
 
 }
+@media screen and (max-width:400px) {
+
+#itinerary {
+
+    .scrollsection {
+        height: 100vh;
+        padding-top: 15vh;
+        padding-bottom: 50px;
+
+    }
+}
+}
+
 </style>

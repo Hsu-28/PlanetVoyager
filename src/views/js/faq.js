@@ -52,7 +52,7 @@ export default {
     },
     mounted() {
         // 發起HTTP GET 請求
-        axios.get('http://localhost/PV/PlanetVoyager/public/php/faq.php')
+        axios.get(`${this.$store.state.phpPublicPath}faq.php`)
             .then(response => {
                 this.questions = response.data;
                 console.log(this.questions)
@@ -65,7 +65,7 @@ export default {
     },
     created() {
         // 發起HTTP GET 請求
-        axios.get('http://localhost/PV/PlanetVoyager/public/php/faq.php')
+        axios.get(`${this.$store.state.phpPublicPath}faq.php`)
             .then(response => {
                 this.questions = response.data;
                 console.log(this.questions)

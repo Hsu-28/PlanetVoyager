@@ -19,7 +19,7 @@ try{
 
     // 下sql指令
     $sql_query = "SELECT 
-    * FROM itinerary WHERE itinerary_no = '1'";
+    * FROM itinerary WHERE itinerary_no = ".$_GET['id'];
     $statement = $pdo->query($sql_query);
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 

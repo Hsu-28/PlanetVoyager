@@ -87,7 +87,7 @@ export default {
       info.append("mem_phone", this.phoneNum);
       console.log(info);
 
-      fetch('http://localhost/PV/PlanetVoyager/public/php/register.php', {
+      fetch(`${this.$store.state.phpPublicPath}register.php`, {
         method: 'POST',
         body: info,
       })
