@@ -222,8 +222,8 @@ export default {
     console.log(this.scroll);
   },  
   created() {
-
-axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryMars.php')
+    // axios.get(`${this.$store.state.phpPublicPath}teammembers.php`)
+axios.get(`${this.$store.state.phpPublicPath}ItineraryMars.php`)
     .then(response => {
         this.myData = response.data;
         const text = this.myData?.itinerary?.[0]?.itinerary_day || ''

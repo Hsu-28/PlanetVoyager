@@ -201,7 +201,7 @@ export default {
                 donate_stat: "成功",
                 email: this.email,
             };
-            axios.post('http://localhost/PV/PlanetVoyager/public/php/donate.php', data, {
+            axios.post(`${this.$store.state.phpPublicPath}donate.php`, data, {
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 }
@@ -238,7 +238,7 @@ export default {
     },
     created() {
         // 發起HTTP GET 請求
-        axios.get('http://localhost/PV/PlanetVoyager/public/php/donate.php')
+        axios.get(`${this.$store.state.phpPublicPath}donate.php`)
             .then(response => {
                 this.questions = response.data;
                 console.log(this.questions)

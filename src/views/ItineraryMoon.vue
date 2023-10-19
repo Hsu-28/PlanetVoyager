@@ -220,7 +220,7 @@ export default {
   }   ,
   created() {
 
-axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryMoon.php')
+axios.get(`${this.$store.state.phpPublicPath}/ItineraryMoon.php`)
     .then(response => {
         this.myData = response.data;
         const text = this.myData?.itinerary?.[0]?.itinerary_day || ''
