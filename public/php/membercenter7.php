@@ -10,15 +10,15 @@ try{
      //引入連線工作的檔案
     require_once("../../../connect_chd103g3.php");
 
-        // echo "id : ", session_id() ,"<br>";
-        // //自session中取回登入者資料
-        // echo "帳號 : ", $_SESSION["memId"], "<br>";
-        // echo "姓名 : ", $_SESSION["memName"], "<br>";  
-        // echo "email : ", $_SESSION["email"], "<br>";
+
+        $id = $_GET['id'];  // 假設你已經確保 $id 的安全性
+
+        $sql_query = "SELECT * FROM donate WHERE donate_id = $id 
+        AND YEAR(donate_date) = 2022";
 
 
     // 下sql指令
-    $sql_query = "SELECT * FROM donate WHERE donate_id =  ".$_GET['id']. "AND YEAR(donate_date) = 2022;";
+    // $sql_query = "SELECT * FROM donate WHERE donate_id = ".$_GET['id'] AND YEAR(donate_date) = 2022;";
     $statement = $pdo->query($sql_query);
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 

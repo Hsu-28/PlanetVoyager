@@ -9,7 +9,7 @@
       <!-- 會員資訊 -->
               <div class="mem-box">
                 <div class="greeting" >
-                <img  :src="getIconPath()" alt="icon" class="icon">
+                <img  :src="getIconPath()" alt="icon" class="icon" >
                 <p>HI,<span class="nickname" v-if="phpData && phpData[0] && phpData[0].mem_nickname">{{ phpData[0].mem_nickname }}</span></p>
                 </div>
                 <div class="mem-number">
@@ -312,12 +312,12 @@
               <hr class="order-hr">
             </div>
             <div class="form-group">
-              <div v-for="(user, index) in donates" :key="index" class="donateInfo">
+              <div v-for="(donation, donationIndex) in phpData6" :key="donationIndex" class="donateInfo">
                 <div class="donate-order">
-                  <div class="donate-cell"><p>{{ index+1 }}</p></div>
-                  <div class="donate-cell"> <p>{{ user.donate_amount }}</p></div>
-                  <div class="donate-cell"> <p>{{ user.donate_date }}</p></div>
-                  <div class="donate-cell"> <p>{{ user.donate_stat }}</p></div>
+                  <div class="donate-cell"><p>{{ donationIndex + 1 }}</p></div>
+                  <div class="donate-cell"><p>{{ donation.donate_amount }}</p></div>
+                  <div class="donate-cell"><p>{{ donation.donate_date }}</p></div>
+                  <div class="donate-cell"><p>{{ donation.donate_stat }}</p></div>
               </div>
               <hr class="donate-order-hr">
               </div>
