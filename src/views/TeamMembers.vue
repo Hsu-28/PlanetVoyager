@@ -42,7 +42,8 @@
                     <div class="blur"></div>
                     <button @click="detailClose">CLOSE</button>
                     <p class="clickName">{{ detailContent.team_memname }}</p>
-                    <p class="clickTitle">{{ detailContent.team_memjob }}</p>
+                    <p class="clickTitle">{{ detailContent.team_memjob}}</p>
+ 
                     <div class="memberContent">
                         <div class="detailImg">
                             <img :src="require(`@/assets/image/teamMembers/memberSvg/${detailContent.team_memimage}`)" alt="團隊照片" class="memberImg">
