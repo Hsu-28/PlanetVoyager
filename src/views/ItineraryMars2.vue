@@ -551,4 +551,17 @@ export default {
     }
 
 }
+@media screen and (max-width:400px) {
+
+#itinerary {
+
+    .scrollsection {
+        height: 100vh;
+        padding-top: 15vh;
+        padding-bottom: 50px;
+
+    }
+}
+}
+
 </style>
