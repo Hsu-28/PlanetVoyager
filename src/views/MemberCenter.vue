@@ -88,12 +88,23 @@
                   <form action="" >
                   <div class="password-bottom-container">
                     <p class="account-sec-title">修改密碼</p>
-                    <span>舊密碼<br><input type="password" v-model="phpData[0].mem_pw"></span>
-                    <span>新密碼<br><input type="password" v-model="newPw"></span>
-                    <span>確認新密碼<br><input type="password" v-model="confirmPw"></span>
+                    <span class="pw">舊密碼<br>
+                    <span v-if="passwordDuplicate">密碼正確</span>
+                      <input :type='pwdFlag?"password":"text"' size='10' v-model="phpData[0].mem_pw" @blur="checkOldPassword">
+                      <img :src='pwdFlag?textIcon:pwdIcon' @click="changePwd" style="width:16px;"></span>      
+
+                    <span class="pw">新密碼 <br>
+                      <input :type='pwdFlag?"password":"text"' size='10' v-model="newPassword"  @keyup="handleKeyUp" 
+                      placeholder="8~12字元，需包含英文小寫和數字">
+                      <img :src='pwdFlag?textIcon:pwdIcon' @click="changePwd" style="width:16px;"></span>
+
+                    <span class="pw">確認新密碼 
+                      <span v-if="!consistent" class="red"> *密碼不一致</span><br>
+                      <input :type='pwdFlag?"password":"text"' size='10'  maxlength="12" 
+                      v-model="confirmPassword" @keyup="updatePassword">
+                      <img :src='pwdFlag?textIcon:pwdIcon' @click="changePwd" style="width:16px;"></span>
                   <div class="bottom-button">
-                    <ButtonStyle buttonText="確認修改" buttonBottomText="-PV-" @click="saveBtn()"
-                    :disabled="!newPw || !confirmPw || newPw !== confirmPw"></ButtonStyle> 
+                    <ButtonStyle buttonText="確認修改" buttonBottomText="-PV-" @click="updatePwd"></ButtonStyle> 
                   </div>
               </div>
             </form>
@@ -260,7 +271,7 @@
                 
               <!-- 遮罩 -->
               <div class="overlay" v-if="isPopupVisible"></div>
-              <!-- 彈窗 -->
+              <!-- 去年度明細彈窗 -->
               <div class="popup" v-if="isPopupVisible" >
                 <p class="last-year-according">2022年捐款紀錄</p>
                 <div class="receipt">
@@ -275,9 +286,9 @@
                         <hr class="receipt-hr">
                   </div>
                       <div class="form-group">
-                         <div v-for="(user, userIndex) in receipts" :key="index" class="receiptInfo"> 
+                         <div v-for="(user, index) in phpData7" :key="index" class="receiptInfo"> 
                           <div class="receipt-order">
-                            <div class="receipt-cell"><p>{{ user.donate_no  }}</p></div>
+                            <div class="receipt-cell"><p>{{ index+1  }}</p></div>
                             <div class="receipt-cell"><p>{{ user.donate_amount }}</p></div>
                             <div class="receipt-cell"><p>{{ user.donate_date }}</p></div>
                             <div class="receipt-cell"><p>{{ user.donate_stat }}</p></div>

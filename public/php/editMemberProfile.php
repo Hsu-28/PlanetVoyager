@@ -1,5 +1,6 @@
 <?php
-
+// print_r(123); exit;
+// error_reporting(E_ALL);
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
@@ -62,6 +63,7 @@ try{
         http_response_code(400);
         echo json_encode(["error" => "缺少必要 Data"]);
     }
+
 
     }catch (Exception $e) {
         http_response_code(500);
