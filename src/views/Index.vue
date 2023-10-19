@@ -340,7 +340,7 @@ export default {
         })
     },
     created() {
-        axios.get('http://localhost/PV/PlanetVoyager/public/php/Indexbanner.php')
+        axios.get(`${this.$store.state.phpPublicPath}Indexbanner.php`)
             .then(response => {
                 this.banner = response.data;
                 console.log(this.banner);
@@ -349,7 +349,7 @@ export default {
                 console.error(error);
             });
 
-        axios.get('http://localhost/PV/PlanetVoyager/public/php/IndexCarousel.php')
+        axios.get(`${this.$store.state.phpPublicPath}IndexCarousel.php`)
             .then(response => {
                 this.imgcarousel = response.data;
                 console.log(this. imgcarousel);
@@ -358,7 +358,7 @@ export default {
                 console.error(error);
             });
 
-        axios.get('http://localhost/PV/PlanetVoyager/public/php/IndexNews.php')
+        axios.get(`${this.$store.state.phpPublicPath}IndexNews.php`)
             .then(response => {
                 this.news = response.data;
                 console.log(this.news);
@@ -367,7 +367,7 @@ export default {
                 console.error(error);
             });
 
-        axios.get('http://localhost/PV/PlanetVoyager/public/php/teammembers.php')
+        axios.get(`${this.$store.state.phpPublicPath}teammembers.php`)
             .then(response => {
                 this.members = response.data;
                 console.log(this.members);

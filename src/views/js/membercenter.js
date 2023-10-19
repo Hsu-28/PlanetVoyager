@@ -184,7 +184,7 @@ import axios from 'axios';
     created(){
 
       //引入api
-      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter1.php')
+      axios.get(`${this.$store.state.phpPublicPath}membercenter1.php`)
       .then(response => {
         this.phpData= response.data;
       })
@@ -192,7 +192,7 @@ import axios from 'axios';
         console.error(error);
       });
 
-      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter2.php')
+      axios.get(`${this.$store.state.phpPublicPath}membercenter2.php`)
        .then(response => {
         this.phpData2 = response.data; 
         const trip_date = this.phpData2[0].trip_date;
@@ -202,7 +202,7 @@ import axios from 'axios';
         console.error(error);
       });
 
-      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter3.php')
+      axios.get(`${this.$store.state.phpPublicPath}membercenter3.php`)
       .then(response => {
         this.phpData3 = response.data;
         this.bookings = response.data;
@@ -218,7 +218,7 @@ import axios from 'axios';
         console.error(error);
       });
 
-      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter4.php')
+      axios.get(`${this.$store.state.phpPublicPath}membercenter4.php`)
       .then(response => {
         this.phpData4 = response.data; 
         const planetSubtitle = this.phpData4[0].planet_subtitle;
@@ -228,7 +228,7 @@ import axios from 'axios';
         console.error(error);
       });
 
-      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter5.php')
+      axios.get(`${this.$store.state.phpPublicPath}membercenter5.php`)
        .then(response => {
         this.members = response.data;
         this.bookings = response.data;
@@ -244,7 +244,7 @@ import axios from 'axios';
         console.error(error);
       });
 
-      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter6.php')
+      axios.get(`${this.$store.state.phpPublicPath}membercenter6.php`)
       .then(response => {
         this.donates = response.data;
         this.phpData6 = response.data;
@@ -262,7 +262,7 @@ import axios from 'axios';
          console.error(error);
       });
 
-      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter7.php')
+      axios.get(`${this.$store.state.phpPublicPath}membercenter7.php`)
       .then(response => {
         this.receipts = this.phpData7;
         this.phpData7 = response.data;
@@ -429,7 +429,7 @@ import axios from 'axios';
       //抓取會員等級icon
       async loadData() {
         try {
-          const response = await axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter1.php');
+          const response = await axios.get(`${this.$store.state.phpPublicPath}membercenter1.php`);
           this.phpData = response.data;
         } catch (error) {
           console.error(error);
@@ -515,7 +515,7 @@ import axios from 'axios';
   
        // 登出
         async handleOptionClick(option) {
-          const response = await axios.get('http://localhost/PV/PlanetVoyager/public/php/logout.php');
+          const response = await axios.get(`${this.$store.state.phpPublicPath}logout.php`);
           if (option.id === 5) {
             this.$router.push('/');
           } else {
