@@ -295,9 +295,9 @@ table.inside-bodrer.news-group {
     width: 100%;
 }
 
-#tbodyscroll {
+.tbodyscroll {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     max-height: 300px;
     padding-right: 8%;
     overflow-y: auto; 
@@ -326,7 +326,7 @@ tr {
     cursor: pointer;
 }
 
-.news-container tr:last-of-type td {
+.news-container tr:first-of-type td {
     margin-top: 1px;
 }
 
