@@ -1,5 +1,6 @@
 import ButtonFlashBox from '@/components/ButtonFlash.vue';
 import axios from 'axios';
+import { contains } from 'jquery';
 
 export default {
     components: {
@@ -203,7 +204,10 @@ export default {
                 donate_stat: "成功",
                 email: this.email,
             };
-            axios.post(`${this.$store.state.phpPublicPath}donate.php`, data, {
+            // axios.post('http://localhost/PV/PlanetVoyager/public/php/donate.php', data, {
+            // axios.post('https://tibamef2e.com/chd103/g3/PlanetVoyager/php/donate.php', data, {
+            axios.get(`${this.$store.state.phpPublicPath}/donate.php`, data, {
+
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 }

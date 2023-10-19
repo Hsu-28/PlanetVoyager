@@ -10,8 +10,8 @@ export default {
     return {
       showAlert: false,
       activeId: "",
-      jpRate:0,
-      ntRate:0,
+      jpRate: 0,
+      ntRate: 0,
       orderCheck: false,
       USD: 0,
       YEN: 0,
@@ -65,58 +65,58 @@ export default {
           p: "若因天氣因素而無法出發，則啟航日期向後順延14天，最多順延兩次，若依然因為天氣因素無法成團，則退費70%",
         },
       ],
-      subtitle:[
+      subtitle: [
         {
-            "planet_subtitle": "",
-            "content_title":'',
-            "introduction":''
-        },
-        {
-            "planet_subtitle": "",
-            "content_title":'',
-            "introduction":''
+          "planet_subtitle": "",
+          "content_title": '',
+          "introduction": ''
         },
         {
           "planet_subtitle": "",
-          "content_title":'',
-          "introduction":''
-      },
-      {
+          "content_title": '',
+          "introduction": ''
+        },
+        {
           "planet_subtitle": "",
-          "content_title":'',
-          "introduction":''
-      },{
-        "planet_subtitle": "",
-        "content_title":'',
-        "introduction":''
-    },
-    {
-        "planet_subtitle": "",
-        "content_title":'',
-        "introduction":''
-    },
-    {
-        "planet_subtitle": "",
-        "content_title":'',
-        "introduction":''
-    },
-    {
-        "planet_subtitle": "",
-        "content_title":'',
-        "introduction":''
-    }
+          "content_title": '',
+          "introduction": ''
+        },
+        {
+          "planet_subtitle": "",
+          "content_title": '',
+          "introduction": ''
+        }, {
+          "planet_subtitle": "",
+          "content_title": '',
+          "introduction": ''
+        },
+        {
+          "planet_subtitle": "",
+          "content_title": '',
+          "introduction": ''
+        },
+        {
+          "planet_subtitle": "",
+          "content_title": '',
+          "introduction": ''
+        },
+        {
+          "planet_subtitle": "",
+          "content_title": '',
+          "introduction": ''
+        }
 
-    ],
+      ],
       currentAmount: "1",
 
       // subContent: [
       // ],
-      
+
       formList: [],
     }
   },
   methods: {
-    
+
     show1F() {
       this.show1 = true;
       this.show2 = false;
@@ -137,13 +137,13 @@ export default {
     bf() {
       this.A = false;
       this.B = !this.Chosen01;
-      this.journey =  this.subtitle[4].planet_subtitle;
-    }, 
+      this.journey = this.subtitle[4].planet_subtitle;
+    },
     udpateForm(form, index) {
       console.log(form, index)
       this.formList[index] = form;
     },
-    disOrder(){
+    disOrder() {
       this.orderCheck = !this.orderCheck
     },
     checkOrder() {
@@ -154,14 +154,14 @@ export default {
       const checkbox = document.querySelector('.infoscheck');
       const seats = document.querySelector('.seats').innerText
       for (let input of inputs) {
-        if(input.value.trim() === "" || !checkbox.checked || seats == ""){
-          
+        if (input.value.trim() === "" || !checkbox.checked || seats == "") {
+
           this.orderCheck = false
           this.showAlert = true
           // alert("還有資料尚未填寫")
         }
-        }
-      },
+      }
+    },
   },
   computed: {
     options() {
@@ -171,17 +171,17 @@ export default {
         }
       })
     },
-    exchange () {
-      this.YEN = Math.floor(this.USD*this.jpRate.toFixed(2));
-      this.NT = Math.floor(this.USD*this.ntRate.toFixed(2));
+    exchange() {
+      this.YEN = Math.floor(this.USD * this.jpRate.toFixed(2));
+      this.NT = Math.floor(this.USD * this.ntRate.toFixed(2));
 
     },
     MJ1() {
-        return this.subtitle.filter(v => v.planet_subtitle === "星際繞行")
+      return this.subtitle.filter(v => v.planet_subtitle === "星際繞行")
     },
-    Addorder() {  
+    Addorder() {
       const formData = [];
-    
+
       if (this.formList.length > 0) {
         this.formList.forEach(item => {
           formData.push({
@@ -200,39 +200,39 @@ export default {
           });
         });
       }
-    
+
       // 發送formData到伺服器
-      fetch(`${this.$store.state.phpPublicPath}php/order.php`, {
+      fetch(`${this.$store.state.phpPublicPath}order.php`, {
         method: 'POST',
         body: JSON.stringify(formData),
         headers: {
           'Content-Type': 'application/json'
         }
       })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        // 可以在這邊進行操作，例如跳轉頁面或成功消息
-      })
-      .catch(error => {
-        console.error('請求錯誤:', error);
-      });
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          // 可以在這邊進行操作，例如跳轉頁面或成功消息
+        })
+        .catch(error => {
+          console.error('請求錯誤:', error);
+        });
     }
   },
   watch: {
     currentAmount() {
       this.formList = []
     },
-      activeId: {
-        handler(newActiveId) {
-          const index = this.MJ1.findIndex(v=> v.trip_no===newActiveId)
-          if (index ===-1)return 
-          this.amount = this.MJ1[index].signup_num;
-          this.date = this.MJ1[index].trip_date;
-        },
+    activeId: {
+      handler(newActiveId) {
+        const index = this.MJ1.findIndex(v => v.trip_no === newActiveId)
+        if (index === -1) return
+        this.amount = this.MJ1[index].signup_num;
+        this.date = this.MJ1[index].trip_date;
+      },
 
-      }
-    
+    }
+
   },
   name: 'App',
   components: {
@@ -245,9 +245,9 @@ export default {
   },
   created() {
     // 在 Vue 的 created 鉤子中發送請求
-    $.get('https://openexchangerates.org/api/latest.json', {app_id: '738d67de7ed043e690b7b729c87953c1'}, data => {
-        this.ntRate = data.rates.TWD;
-        this.jpRate = data.rates.JPY;
+    $.get('https://openexchangerates.org/api/latest.json', { app_id: '738d67de7ed043e690b7b729c87953c1' }, data => {
+      this.ntRate = data.rates.TWD;
+      this.jpRate = data.rates.JPY;
     });
 
     // 發起HTTP GET 請求
@@ -259,11 +259,11 @@ export default {
         console.error(error);
       });
 
-      //登入狀態驗證
-      fetch(`${this.$store.state.phpPublicPath}verifyLogin.php`,{
-        mode: "cors",
-        credentials: "include",
-      })
+    //登入狀態驗證
+    fetch(`${this.$store.state.phpPublicPath}verifyLogin.php`, {
+      mode: "cors",
+      credentials: "include",
+    })
       .then(response => response.json())
       .then(data => {
         if (data.msg === "未登入") {
@@ -273,7 +273,7 @@ export default {
       .catch(error => {
         console.error(error);
       });
-}
+  }
 
 
 }

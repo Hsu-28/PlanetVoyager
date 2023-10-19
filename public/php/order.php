@@ -5,7 +5,7 @@ try {
     header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
     header("Content-Type: application/json"); 
 
-    require_once("../../../connect_chd103g3.php");
+    require_once("../../connect_chd103g3.php");
 
     // 获取前端数据
     $formData = json_decode(file_get_contents("php://input"), true);
@@ -49,7 +49,7 @@ try {
     header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
     header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
     header("Content-Type: application/json"); 
-    require_once("../../../connectdb.php");
+    require_once("../../connect_chd103g3.php");
 
 $passenger_fname = $_POST['passenger_fname'];
 $passenger_name = $_POST['passenger_name'];

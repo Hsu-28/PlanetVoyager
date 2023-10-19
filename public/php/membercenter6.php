@@ -8,7 +8,7 @@
 
 try{
      //引入連線工作的檔案
-    require_once("../../../connect_chd103g3.php");
+    require_once("../../connect_chd103g3.php");
 
         // echo "id : ", session_id() ,"<br>";
         // //自session中取回登入者資料

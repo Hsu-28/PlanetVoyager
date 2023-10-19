@@ -9,7 +9,7 @@ export default {
   data() {
     return {
       // no:3 ,
-      formList: [], 
+      formList: [],
       formData: {
         lastName: '',
         name: '',
@@ -26,8 +26,8 @@ export default {
       },
       showAlert: false,
       activeId: "",
-      jpRate:0,
-      ntRate:0,
+      jpRate: 0,
+      ntRate: 0,
       orderCheck: false,
       USD: 0,
       YEN: 0,
@@ -43,26 +43,26 @@ export default {
       journey: "月球巡禮",
       imgs: [
         {
-           slide: require('@/assets/image/orderProcess/moonc1.jpg'),
-           altp: "在月球等你",
-         },
-         {
-           slide: require('@/assets/image/orderProcess/moonc2.jpg'),
-           altp: "太空儀器",
-         }, {
-           slide: require('@/assets/image/orderProcess/moonc3.jpg'),
-           altp: "月球外星人",
-         }, {
-           slide: require('@/assets/image/orderProcess/moonc4.jpg'),
-           altp: "太空環境",
-         }, {
-           slide: require('@/assets/image/orderProcess/moonc5.jpg'),
-           altp: "月球景色",
-         }, {
-           slide: require('@/assets/image/orderProcess/moonc6.jpg'),
-           altp: "太空高爾夫",
-         }
-       ],
+          slide: require('@/assets/image/orderProcess/moonc1.jpg'),
+          altp: "在月球等你",
+        },
+        {
+          slide: require('@/assets/image/orderProcess/moonc2.jpg'),
+          altp: "太空儀器",
+        }, {
+          slide: require('@/assets/image/orderProcess/moonc3.jpg'),
+          altp: "月球外星人",
+        }, {
+          slide: require('@/assets/image/orderProcess/moonc4.jpg'),
+          altp: "太空環境",
+        }, {
+          slide: require('@/assets/image/orderProcess/moonc5.jpg'),
+          altp: "月球景色",
+        }, {
+          slide: require('@/assets/image/orderProcess/moonc6.jpg'),
+          altp: "太空高爾夫",
+        }
+      ],
       tourInfo: [
         {
           id: 1,
@@ -81,48 +81,48 @@ export default {
           p: "若因天氣因素而無法出發，則啟航日期向後順延14天，最多順延兩次，若依然因為天氣因素無法成團，則退費70%",
         },
       ],
-      subtitle:[
+      subtitle: [
         {
-            "planet_subtitle": "",
-            "content_title":'',
-            "introduction":''
-        },
-        {
-            "planet_subtitle": "",
-            "content_title":'',
-            "introduction":''
+          "planet_subtitle": "",
+          "content_title": '',
+          "introduction": ''
         },
         {
           "planet_subtitle": "",
-          "content_title":'',
-          "introduction":''
-      },
-      {
+          "content_title": '',
+          "introduction": ''
+        },
+        {
           "planet_subtitle": "",
-          "content_title":'',
-          "introduction":''
-      },{
-        "planet_subtitle": "",
-        "content_title":'',
-        "introduction":''
-    },
-    {
-        "planet_subtitle": "",
-        "content_title":'',
-        "introduction":''
-    }
+          "content_title": '',
+          "introduction": ''
+        },
+        {
+          "planet_subtitle": "",
+          "content_title": '',
+          "introduction": ''
+        }, {
+          "planet_subtitle": "",
+          "content_title": '',
+          "introduction": ''
+        },
+        {
+          "planet_subtitle": "",
+          "content_title": '',
+          "introduction": ''
+        }
 
-    ],
+      ],
       currentAmount: "1",
 
       // subContent: [
       // ],
-      
+
       formList: [],
     }
   },
   methods: {
-    
+
     show1F() {
       this.show1 = true;
       this.show2 = false;
@@ -143,13 +143,13 @@ export default {
     bf() {
       this.A = false;
       this.B = !this.Chosen01;
-      this.journey =  this.subtitle[4].planet_subtitle;
-    }, 
+      this.journey = this.subtitle[4].planet_subtitle;
+    },
     udpateForm(form, index) {
       console.log(form, index)
       this.formList[index] = form;
     },
-    disOrder(){
+    disOrder() {
       this.orderCheck = !this.orderCheck
     },
     checkOrder() {
@@ -160,17 +160,17 @@ export default {
       const checkbox = document.querySelector('.infoscheck');
       const seats = document.querySelector('.seats').innerText
       for (let input of inputs) {
-        if(input.value.trim() === "" || !checkbox.checked || seats == ""){
-          
+        if (input.value.trim() === "" || !checkbox.checked || seats == "") {
+
           this.orderCheck = false
           this.showAlert = true
           // alert("還有資料尚未填寫")
         }
-        }
+      }
     },
-    Addorder() {  
+    Addorder() {
       const formData = [];
-    
+
       if (this.formList.length > 0) {
         this.formList.forEach(item => {
           formData.push({
@@ -189,10 +189,8 @@ export default {
           });
         });
       }
-    
+
       // 發送formData到伺服器
-      
-      // fetch('http://localhost/PV/PlanetVoyager/public/php/order.php',
       fetch(`${this.$store.state.phpPublicPath}/order.php`, {
         method: 'POST',
         body: JSON.stringify(formData),
@@ -200,17 +198,17 @@ export default {
           'Content-Type': 'application/json'
         }
       })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        // 可以在這邊進行操作，例如跳轉頁面或成功消息
-      })
-      .catch(error => {
-        console.error('請求錯誤:', error);
-      });
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          // 可以在這邊進行操作，例如跳轉頁面或成功消息
+        })
+        .catch(error => {
+          console.error('請求錯誤:', error);
+        });
     }
   },
-  
+
   computed: {
     options() {
       return Array.from({ length: this.amount }, (_, i) => {
@@ -219,29 +217,29 @@ export default {
         }
       })
     },
-    exchange () {
-      this.YEN = Math.floor(this.USD*this.jpRate.toFixed(2));
-      this.NT = Math.floor(this.USD*this.ntRate.toFixed(2));
+    exchange() {
+      this.YEN = Math.floor(this.USD * this.jpRate.toFixed(2));
+      this.NT = Math.floor(this.USD * this.ntRate.toFixed(2));
 
     },
     MJ1() {
-        return this.subtitle.filter(v => v.planet_subtitle === "月 球 巡 禮")
+      return this.subtitle.filter(v => v.planet_subtitle === "月 球 巡 禮")
     },
   },
   watch: {
     currentAmount() {
       this.formList = []
     },
-      activeId: {
-        handler(newActiveId) {
-          const index = this.MJ1.findIndex(v=> v.trip_no===newActiveId)
-          if (index ===-1)return 
-          this.amount = this.MJ1[index].vacancy_num;
-          this.date = this.MJ1[index].trip_date;
-        },
+    activeId: {
+      handler(newActiveId) {
+        const index = this.MJ1.findIndex(v => v.trip_no === newActiveId)
+        if (index === -1) return
+        this.amount = this.MJ1[index].vacancy_num;
+        this.date = this.MJ1[index].trip_date;
+      },
 
-      }
-    
+    }
+
   },
   name: 'App',
   components: {
@@ -253,43 +251,27 @@ export default {
     orderList: orderList,
   },
   created() {
-        // 發起HTTP GET 請求
-        // axios.get('http://localhost/PV/PlanetVoyager/public/php/orderprocess.php')
-        axios.get(`${this.$store.state.phpPublicPath}orderprocess.php`)
-        .then(response => {
-          this.subtitle = response.data;
-        })
-        .catch(error => {
-          console.error(error);
-        });
-    // 在 Vue 的 created 鉤子中發送請求
-    $.get('https://openexchangerates.org/api/latest.json', {app_id: '738d67de7ed043e690b7b729c87953c1'}, data => {
-        this.ntRate = data.rates.TWD;
-        this.jpRate = data.rates.JPY;
-    });
-
-
-
-      //登入狀態驗證
-      fetch(`${this.$store.state.phpPublicPath}verifyLogin.php`,{
-        mode: "cors",
-        credentials: "include",
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.msg === "未登入") {
-          alert('請先登入會員再報名旅程！');
-        }
+    // 發起HTTP GET 請求
+    axios.get(`${this.$store.state.phpPublicPath}/orderprocess.php`)
+      .then(response => {
+        this.subtitle = response.data;
       })
       .catch(error => {
         console.error(error);
       });
+    // 在 Vue 的 created 鉤子中發送請求
+    $.get('https://openexchangerates.org/api/latest.json', { app_id: '738d67de7ed043e690b7b729c87953c1' }, data => {
+      this.ntRate = data.rates.TWD;
+      this.jpRate = data.rates.JPY;
+    });
 
-      //登入狀態驗證
-      fetch(`${this.$store.state.phpPublicPath}verifyLogin.ph`,{
-        mode: "cors",
-        credentials: "include",
-      })
+
+
+    //登入狀態驗證
+    fetch(`${this.$store.state.phpPublicPath}verifyLogin.php`, {
+      mode: "cors",
+      credentials: "include",
+    })
       .then(response => response.json())
       .then(data => {
         if (data.msg === "未登入") {
