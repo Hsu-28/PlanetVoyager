@@ -9,94 +9,106 @@
       <!-- 會員資訊 -->
               <div class="mem-box">
                 <div class="greeting" >
-                  <img  :src="getIconPath(memLevel)" alt="icon" class="icon">
-                  <p>HI,<span class="nickname" v-if="myData && myData.itinerary && myData.itinerary.length > 0">{{  phpData[0].mem_nickname}}</span></p>
+                <img  :src="getIconPath()" alt="icon" class="icon">
+                <p>HI,<span class="nickname" v-if="phpData && phpData[0] && phpData[0].mem_nickname">{{ phpData[0].mem_nickname }}</span></p>
                 </div>
-              <div class="mem-number">
-                <p>會員編號<span class="number">{{  phpData[0].mem_no }}</span></p>
-                <p>今年度捐款金額<br><span class="sum">{{  phpData[0].donate_sum  }}</span></p>
-              </div>
+                <div class="mem-number">
+                <p>會員編號<span class="number"  v-if="phpData && phpData[0] && phpData[0].mem_no">{{  phpData[0].mem_no }}</span></p>
+                <p>今年度捐款金額<br><span class="sum"  v-if="phpData && phpData[0] && phpData[0].donate_sum">${{  phpData[0].donate_sum }}</span></p>
+                </div>
             </div>
-         
           </div>
+          
       <!-- 切換頁面 -->
-        <ul class="tab-mem-title">
-          <li v-for="(option, index) in optionCard" :key="option.id" class="option-tab">
-          <div class="top-tab" :class="{ 'active': option.id === activeId }">
-            <button @click="handleOptionClick(option)">
-            <div class="pic" :class="{ 'active-pic': option.id === activeId }" >
-              <img :src="option.img" alt="icon"></div>
-            {{ option.name }}
-            </button>
-        </div>
-          </li>
-        </ul>
-      </section>
+            <ul class="tab-mem-title">
+              <li v-for="(option, index) in optionCard" :key="option.id" class="option-tab">
+              <div class="top-tab" :class="{ 'active': option.id === activeId }">
+              <button @click="handleOptionClick(option)">
+              <div class="pic" :class="{ 'active-pic': option.id === activeId }" >
+                <img :src="option.img" alt="icon"></div>{{ option.name }}
+              </button>
+            </div>
+            </li>
+          </ul>
+        </section>
 
 
-        <div class="content">
-        <!-- 帳戶資料 -->
+      <div class="content">
+      <!-- 帳戶資料 -->
           <div v-if="activeId === 1" class="information">
-            <form action=""  @submit.prevent="handleSubmit">
+            <form action=""  @submit.prevent="handleSubmit"  v-if="phpData && phpData[0]">
               <p class="account-first-title">帳戶資訊</p>
               <div class="top-input">
               <div class="all-input">
-                  <div class="control-container">
-                    <p id="name">姓名<br><input type="text" required v-model="nameFromPHP"></p>
-                    <p>暱稱<br><input type="text" required v-model="nicknameFromPHP"></p>
+              <div class="control-container">
+                  <p id="name">姓名<br><input type="text" required  v-model="phpData[0].mem_name"></p>
+                  <p>暱稱<br><input type="text" required v-model="phpData[0].mem_nickname" ></p>
               </div>
-                  <div class="control-container">
-                      <p><span >性別</span><br>
-                          <select  required v-model="sexFromPHP" id="sex" style="color:#F0F0F0;">
-                            <option v-for="(option, index) in genderOptions" :key="index" :value="option.value">
-                           {{ option.label }}</option>
-                          </select></p>
-                      <p>生日<br><input type="date"  id="bir" required v-model="birthdayFromPHP"></p>
-                  </div>
-                  <div class="control-container">
-                    <p id="mobile">手機號碼<br><input type="text" maxlength="10" oninput="value=value.replace(/[^\d]/g,'')" required v-model="phoneNumberFromPHP"></p>
-                    <p>E-MAIL<br><input type="email" required v-model="emailFromPHP" ></p>
-                    </div>
-                  <div class="control-container">
-                    <p id="address">收件/聯絡地址<br><input type="text" required v-model="addressFromPHP"></p>
-                    <p>護照號碼<br><input type="text" maxlength="9" oninput="value=value.replace(/[^\d]/g,'')" v-model="passportNumberFromPHP" ></p> 
-                  </div>
+              <div class="control-container">
+                  <p><span >性別</span><br>
+                  <select  required v-model="phpData[0].mem_gender" id="sex" style="color:#F0F0F0;">
+                  <option v-for="(option, index) in genderOptions" :key="index" :value="option.value">
+                  {{ option.label }}</option></select></p>
+                  <p>生日<br><input type="date"  id="bir" required v-model="phpData[0].mem_birthday"></p>
               </div>
+              <div class="control-container">
+                  <p id="mobile">手機號碼<br><input type="text" maxlength="10" oninput="value=value.replace(/[^\d]/g,'')" required v-model="phpData[0].mem_phone"></p>
+                  <p>E-MAIL<br><input type="email" required v-model="phpData[0].email" ></p>
+              </div>
+              <div class="control-container">
+                  <p id="address">收件/聯絡地址<br><input type="text" required v-model="phpData[0].address"></p>
+                  <p>護照號碼<br><input type="text" maxlength="9" oninput="value=value.replace(/[^\d]/g,'')" v-model="phpData[0].mem_passport" ></p> 
+              </div>
+            </div>
 
-                <div class="top-box">
-
-                  <div class="social">
-                    <div class="facebook">
-                      <a href="" style="display: flex; align-items: center;">
-                        <img src="../assets/image/membercenter/facebook.svg" alt="fb">
-                      <p class="fb">FACEBOOK(已綁定)</p></a>
-                    </div>
-                    <div class="google">
+              <div class="top-box">
+              <div class="social">
+                  <div class="facebook">
                     <a href="" style="display: flex; align-items: center;">
-                        <img src="../assets/image/membercenter/google.svg" alt="google">
-                      <p class="google_text">GOOGLE(未綁定) </p></a>
-                    </div>
-                    <div class="line">
-                      <a href="" style="display: flex; align-items: center;">
-                        <img src="../assets/image/membercenter/line.svg" alt="line">
-                      <p class="line_text">LINE(未綁定) </p></a>
-                    </div>
+                    <img src="../assets/image/membercenter/facebook.svg" alt="fb">
+                    <p class="fb">FACEBOOK(已綁定)</p></a>
                   </div>
-                  <div class="top-button">
-                    <ButtonStyle buttonText="確認修改" buttonBottomText="-PV-"></ButtonStyle>
-                </div>
-                </div>
+                  <div class="google">
+                    <a href="" style="display: flex; align-items: center;">
+                    <img src="../assets/image/membercenter/google.svg" alt="google">
+                    <p class="google_text">GOOGLE(未綁定) </p></a>
+                  </div>
+                  <div class="line">
+                    <a href="" style="display: flex; align-items: center;">
+                    <img src="../assets/image/membercenter/line.svg" alt="line">
+                    <p class="line_text">LINE(未綁定) </p></a>
+                  </div>
               </div>
-                <hr class="account-hr" >
-                <div class="password-bottom-container">
-                  <p class="account-sec-title">修改密碼</p>
-                  <span>舊密碼<br><input type="password" v-model="oldPwFromPHP"></span>
-                  <span>新密碼<br><input type="password" v-model="newPw"></span>
-                  <span>確認新密碼<br><input type="password" v-model="confirmPw"></span>
-                <div class="bottom-button">
-                  <ButtonStyle buttonText="確認修改" buttonBottomText="-PV-"></ButtonStyle> 
-                </div>
-                </div>
+                  <div class="top-button">
+                    <ButtonStyle buttonText="確認修改" buttonBottomText="-PV-"  @click="saveBtn()"></ButtonStyle>
+                  </div>
+              </div>
+              </div>
+                  <hr class="account-hr" >
+                  <form action="" >
+                  <div class="password-bottom-container">
+                    <p class="account-sec-title">修改密碼</p>
+                    <span class="pw">舊密碼<br>
+                    <span v-if="passwordDuplicate">密碼正確</span>
+                      <input :type='pwdFlag?"password":"text"' size='10' v-model="phpData[0].mem_pw" @blur="checkOldPassword">
+                      <img :src='pwdFlag?textIcon:pwdIcon' @click="changePwd" style="width:16px;"></span>      
+
+                    <span class="pw">新密碼 <br>
+                      <input :type='pwdFlag?"password":"text"' size='10' v-model="newPassword"  @keyup="handleKeyUp" 
+                      placeholder="8~12字元，需包含英文小寫和數字">
+                      <img :src='pwdFlag?textIcon:pwdIcon' @click="changePwd" style="width:16px;"></span>
+
+                    <span class="pw">確認新密碼 
+                      <span v-if="!consistent" class="red"> *密碼不一致</span><br>
+                      <input :type='pwdFlag?"password":"text"' size='10'  maxlength="12" 
+                      v-model="confirmPassword" @keyup="updatePassword">
+                      <img :src='pwdFlag?textIcon:pwdIcon' @click="changePwd" style="width:16px;"></span>
+                  <div class="bottom-button">
+                    <ButtonStyle buttonText="確認修改" buttonBottomText="-PV-" @click="updatePwd"></ButtonStyle> 
+                  </div>
+              </div>
+            </form>
+
           </form>
          </div>
 
@@ -115,49 +127,47 @@
                 <div  class="odname">
                 <div class="oddetail">
                     <div class="od-sec" >
-                      <img :src="getItineraryImagePath(result.planet_subtitle)" alt="orderpic">
+                      <img :src="getItineraryImagePath(phpData4[0].planet_subtitle)" alt="orderpic">
                       <div class="trip-content"> 
-                        <p>行程：{{ phpData.result1 && phpData.result1.length > 0 ? phpData.result4[0].planet_subtitle : 'N/A' }}</p>
-                        <p>人數：{{ phpData.result1 && phpData.result1.length > 0 ? phpData.result3[0].ord_people : 'N/A' }}人</p>
-                        <p>出團日期：<br>{{ phpData.result1 && phpData.result1.length > 0 ? phpData.result2[0].trip_date : 'N/A' }}</p>
-                        <p class="rwdDate" v-if="isMobile">訂購日期：<br>{{ phpData.result1 && phpData.result1.length > 0 ? phpData.result3[0].orders_date : 'N/A' }}</p>
+                        <p>行程：{{ phpData4[0].planet_subtitle }}</p>
+                        <p>人數：{{ phpData3[0].ord_people }}人</p>
+                        <p>出團日期：<br>{{ phpData2[0].trip_date}}</p>
+                        <p class="rwdDate" v-if="isMobile">訂購日期：<br>{{ phpData3[0].orders_date }}</p>
                       </div> 
                     </div>
                     <button v-if="!isMobile" class="client-accordion" @click="toggleExpanded">
-                    <span class="accordion-icon" :class="{ 'expanded': isExpanded }"></span>
-                    </button>
+                      <span v-if="isExpanded !== undefined" class="accordion-icon" 
+                      :class="{ 'expanded': isExpanded }"></span>
+                    </button> 
 
-                    
-
-
-                    <div class="rwdPassanger" v-if="isMobile">
-                    <button v-if="!isMobile" class="client-accordion" @click="toggleExpanded">
+                   <div class="rwdPassanger" v-if="isMobile">
+                    <button v-if="isMobile" class="client-accordion" @click="toggleExpanded">
                     <p>乘客名單</p><br>
-                    <span class="accordion-icon" :class="{ 'expanded': isExpanded }"></span>
+                    <span v-if="isExpanded !== undefined " class="accordion-icon" 
+                    :class="{ 'expanded': isExpanded}"></span>
                     </button>
-                    </div>
-                    <p class="order-amount" v-if="!isMobile">{{ phpData.result1 && phpData.result1.length > 0 ? phpData.result3[0].total_amount : 'N/A' }}</p>
-                    <p class="order-date" v-if="!isMobile">{{ phpData.result1 && phpData.result1.length > 0 ? phpData.result3[0].orders_date : 'N/A' }}</p>    
+                    </div> 
+                    <p class="order-amount" v-if="!isMobile">{{ phpData3[0].total_amount }}</p>
+                    <p class="order-date" v-if="!isMobile">{{ phpData3[0].orders_date }}</p>    
                 </div>
           
           <!-- 手風琴下開內容     -->
-                <Collapse :when="order.isExpanded" :onExpanded="scrollIntoView" class="collapse">
-                  <div class="panel">
+                <Collapse :when="{ 'expanded': isExpanded }" :onExpanded="scrollIntoView" class="collapse">
+                  <div class="panel" v-if="isExpanded">
                     <div class="p-title">
                       <p>編號</p>
                       <p>姓名</p>
                       <p>狀態</p>
                       <p>明細</p>
                     </div>
-                    <div v-for="(user, userIndex) in members" :key="userIndex" class="journey">
+                    <div v-for="(user, userIndex) in members" :key="user.id" class="journey">
                       <div class="journey-content">
-                        <p>{{ user.passenger_no ? user.passenger_no: 'N/A' }}</p>
-                        <p>{{ user.passenger_name ? user.passenger_name : 'N/A' }}</p>
-                        <p>{{ user.passenger_status ? user.passenger_status : 'N/A' }}</p>
-
-                        <div class="journey-detail" @click="isPopupVisible = !isPopupVisible"  v-if="!isMobile">
+                        <p>{{ userIndex +1 }}</p>
+                        <p>{{ user.passenger_name  }}</p>
+                        <p>{{ user.passenger_status }}</p>
+                        <div class="journey-detail" @click="showBookingDetails(user)"  v-if="!isMobile">
                           <p>查看</p></div>
-                        <div class="journey-detail-rwd" @click="isPopupVisible = !isPopupVisible" v-if="isMobile">
+                        <div class="journey-detail-rwd" @click="showBookingDetails(user)" v-if="isMobile">
                           <span>查看</span></div>
                       </div>
                         <hr class="journey-hr">
@@ -168,50 +178,49 @@
                 <div class="overlay" v-if="isPopupVisible"></div>
                 <!-- 明細查看彈窗 -->
                 <div class="popupBooking" v-if="isPopupVisible">
-                    <div v-for="(user, userIndex) in bookings" :key="userIndex" class="bookingInfo">
+                    <div v-for="(user, userIndex) in bookings" :key="user.id" class="bookingInfo">
                       <button  @click="isPopupVisible = !isPopupVisible">CLOSE</button>
                       <p class="bookingTitle">旅程訂購資訊</p>
                       <div class="bookingInfoBox"> 
                         <div class="bookingForm">
-                          <p class="bookingTotalPassanger"> 旅客人數:
-                            <span>{{ phpData.result1 && phpData.result1.length > 0 ? phpData.result3[0].ord_people : 'N/A' }}</span>人</p>
+                          <p class="bookingTotalPassanger"> 旅客人數:<span>{{ phpData3[0].ord_people }}</span>人</p>
                           
                             <div class="container-control">
-                              <p class="bookingId">乘客{{ user.passenger_no ? user.passenger_no: 'N/A' }}</p>
+                              <p class="bookingId">乘客{{ userIndex +1 }}</p>
                               <div class="booking-container">
                                   <div class="bookingLastName">
                                       <span class="bookingSecondTitle">姓名</span>
-                                      <p>{{ user.passenger_name ? user.passenger_name: 'N/A' }}</p></div>
+                                      <p>{{ selectedUser ? selectedUser.passenger_name : '' }}</p></div>
                                   <div class="bookingBirthday">
                                       <span class="bookingSecondTitle">出生日期</span>
-                                      <p>{{user.birthday ? user.birthday: 'N/A' }}</p></div>
+                                      <p>{{ selectedUser ? selectedUser.birthday : '' }}</p></div>
                               </div>
                               
                               <div class="booking-container">
                                   <div class="bookingSex">
                                       <span class="bookingSecondTitle">性別</span>
-                                      <p>{{ user.passenger_gender ? user.passenger_gender: 'N/A' }}</p></div>
+                                      <p>{{ selectedUser ? selectedUser.passenger_gender : '' }}</p></div>
                                     <div class="bookingPassport">
                                       <span class="bookingSecondTitle">身分證或護照號碼</span>
-                                      <p>{{ user.passport ? user.passport: 'N/A' }}</p></div>
+                                      <p>{{ selectedUser ? selectedUser.passport : ''}}</p></div>
                               </div>
 
                               <div class="booking-container">
-                                <div class="bookingCountry">
+                                    <div class="bookingCountry">
                                       <span class="bookingSecondTitle">國籍</span>
-                                      <p>{{ user.passenger_nationality ? user.passenger_nationality: 'N/A' }}</p></div>
-                                <div class="bookingDiet">
+                                      <p>{{ selectedUser ? selectedUser.passenger_nationality : '' }}</p></div>
+                                    <div class="bookingDiet">
                                       <span class="bookingSecondTitle">飲食習慣</span>
-                                      <p class="diet">{{ user.passenger_diet ? user.passenger_diet: 'N/A' }}</p></div> 
-                                </div>
+                                      <p class="diet">{{ selectedUser ? selectedUser.passenger_diet : '' }}</p></div> 
+                              </div>
 
                                 <div class="booking-container">
-                                  <div class="bookingSize">
+                                    <div class="bookingSize">
                                       <span class="bookingSecondTitle">訓練服尺寸</span>
-                                      <p>{{ user.shirt_size ? user.shirt_size: 'N/A'}}</p></div>
-                                <div class="bookingTravelStatus">
-                                    <span class="bookingSecondTitle">旅位狀態</span>
-                                    <p>{{ user.passenger_status ? user.passenger_status: 'N/A'}}</p></div>     
+                                      <p>{{ selectedUser ? selectedUser.shirt_size : '' }}</p></div>
+                                    <div class="bookingTravelStatus">
+                                      <span class="bookingSecondTitle">旅位狀態</span>
+                                      <p>{{ selectedUser ? selectedUser.passenger_status : ''}}</p></div>     
                                 </div>
 
                               <div class="booking-container">
@@ -222,26 +231,25 @@
                               <!-- for rwd -->
                               <div class="bookingCheck" v-if="isMobile">
                                     <input type="checkbox" id="myCheckbox" class="myCheckboxRwd" v-model="isChecked" :disabled="isDisabled" @click="preventCheckboxChange">
-                                    <p >我已經詳閱健康規定</p></div>
-
-                                                             
+                                    <p >我已經詳閱健康規定</p></div>                         
                              </div>
+
                               <div class="bookingLineBox">
                                   <div class="bookingLine">
                                     <div class="bookingLine2"></div>
-                                    <div class="circleContent">
+                                  <div class="circleContent">
                                       <div class="bookingCircle"> </div>
                                       <p class="paymentStatus">付款狀態:<br><span>已付款</span></p>
-                                    </div>
-                                    <div class="circleContent">
+                                  </div>
+                                  <div class="circleContent">
                                       <div class="bookingCircle2"> </div>
                                       <p class="paymentStatus2">健康審核:<br><span>已通過</span></p>
-                                    </div>
-                                    <div class="circleContent">
+                                  </div>
+                                  <div class="circleContent">
                                       <div class="bookingCircle3"></div>
                                       <p class="paymentStatus3">行前訓練</p> 
-                                    </div>         
-                                  </div>
+                                  </div>         
+                                </div>
                               </div> 
                             </div>
                         <p class="notice">*若您需要取消訂單，請致電03-466-8490</p>
@@ -263,7 +271,7 @@
                 
               <!-- 遮罩 -->
               <div class="overlay" v-if="isPopupVisible"></div>
-              <!-- 彈窗 -->
+              <!-- 去年度明細彈窗 -->
               <div class="popup" v-if="isPopupVisible" >
                 <p class="last-year-according">2022年捐款紀錄</p>
                 <div class="receipt">
@@ -272,25 +280,23 @@
                         <p class="donate-title">收據編號</p>
                         <p class="donate-title">金額</p>
                         <p class="donate-title">捐款日期</p>
-                        <p class="donate-title">會員狀態</p>
+                        <p class="donate-title">狀態</p>
                     </div>
                         <div class="black-box"></div>
                         <hr class="receipt-hr">
                   </div>
                       <div class="form-group">
-                         <div v-for="(receipt, index) in receipts" :key="index" class="receiptInfo"> 
+                         <div v-for="(user, index) in phpData7" :key="index" class="receiptInfo"> 
                           <div class="receipt-order">
-                            <div class="receipt-cell"  v-if="dataLoaded">
-                              <!-- <p v-if="phpData.result6 && phpData.result6.length > 0">{{ phpData.result6[0].donate_no }}</p> -->
-                            </div>
-                            <div class="receipt-cell"> <p>{{ receipt.summary }}</p></div>
-                            <div class="receipt-cell"> <p>{{ receipt.donateDate }}</p></div>
-                            <div class="receipt-cell"> <p>{{ receipt.memberStatus }}</p></div>
+                            <div class="receipt-cell"><p>{{ index+1  }}</p></div>
+                            <div class="receipt-cell"><p>{{ user.donate_amount }}</p></div>
+                            <div class="receipt-cell"><p>{{ user.donate_date }}</p></div>
+                            <div class="receipt-cell"><p>{{ user.donate_stat }}</p></div>
                           </div>
                         <hr class="receipt-order-hr">
                        </div>
                     </div>
-                  <button  @click="isPopupVisible = !isPopupVisible">CLOSE</button>
+                  <button @click="isPopupVisible = !isPopupVisible">CLOSE</button>
                 </div>
               </div>       
           </div>
@@ -301,29 +307,25 @@
                     <p class="donate-title">收據編號</p>
                     <p class="donate-title">金額</p>
                     <p class="donate-title">捐款日期</p>
-                    <p class="donate-title">會員狀態</p>
+                    <p class="donate-title">狀態</p>
               </div>
               <hr class="order-hr">
             </div>
             <div class="form-group">
-              <div v-for="(donate, index) in donates" :key="index" class="donateInfo">
+              <div v-for="(user, userIndex) in donates" :key="index" class="donateInfo">
                 <div class="donate-order">
-                  <div class="donate-cell">  
-                    <p>{{ donate.receiptNumber }}</p></div>
-                  <div class="donate-cell"> 
-                    <p>{{ donate.summary }}</p></div>
-                  <div class="donate-cell"> 
-                    <p>{{ donate.donateDate }}</p></div>
-                  <div class="donate-cell"> 
-                    <p>{{ donate.memberStatus }}</p></div>
+                  <div class="donate-cell"><p>{{ user.donate_no }}</p></div>
+                  <div class="donate-cell"> <p>{{ user.donate_amount }}</p></div>
+                  <div class="donate-cell"> <p>{{ user.donate_date }}</p></div>
+                  <div class="donate-cell"> <p>{{ user.donate_stat }}</p></div>
               </div>
               <hr class="donate-order-hr">
               </div>
               <span  class="rwdLast" v-if="isMobile"  @click="isPopupVisible = !isPopupVisible">去年度明細</span>
-              ..
             </div>      
           </div>
           </div>
+          
           <!-- 會員等級 -->
           <div v-else-if="activeId === 4" class="mem-benefit">
             <div class="tab-level">
@@ -342,16 +344,18 @@
                 </div>
             </div>
 
+            <!-- 贈品兌換 -->
               <div v-if="showContent === 'content1'">
                 <div class="progress-bar">
                   <div class="level-box">
-                    <p class="nowLevel" v-if= "isMobile">目前已累積：<span>$10,000</span></p>
-                    <p class="nextLevel">離下個等級只剩：<span>$10,000</span></p></div>
+                    <p class="nowLevel" v-if= "isMobile">目前會員等級：<span>{{  phpData[0].mem_level }}</span></p>
+                    <p class="nextLevel">離下一個等級還剩：
+                      <span >{{  calculateNextLevelAmount(phpData[0].mem_level) }}</span></p></div>
                   <div class="line-box" v-if="!isMobile">
                     <div class="line1">
-                      <div class="circle3"><p>銀</p></div>
+                      <div class="circle3"><p>{{  phpData[0].mem_level }}</p></div>
                       <div class="circle2"></div>
-                      <div class="circle"><p>$20,000</p></div> 
+                      <div class="circle"><p>{{ calculateNextLevelDifference() }}</p></div> 
                     </div>
                   </div>
               
@@ -364,19 +368,20 @@
                 </div>
                 <hr class="benefit-hr">
                 <div class="form-group">
-                  <div v-for="(benefit, index) in benefits" :key="index">
+                  <div v-for="(user, userIndex) in benefits" :key="index">
                     <div class="benefit-order">
                       <div class="benefit-cell">  
-                        <p>{{ benefit.memberLevel }}</p></div>
+                        <p>{{ user.memberLevel }}</p></div>
                       <div class="benefit-cell"> 
-                        <p>{{ benefit.amount }}</p></div>
+                        <p>{{ user.amount }}</p></div>
                       <div class="benefit-cell"> 
-                        <p>{{ benefit.date }}</p></div>
+                        <p>{{ user.date }}</p></div>
                       <div class="benefit-cell"> 
                         <div class="input-box">
-                          <input type="checkbox" :id="'gift-' + benefits.id"   name="gift" 
-                          v-if="benefit.gift !== '棒球帽(已兌換)'"  :disabled="benefit.id === 'b'" >
-                          <p>{{ benefit.gift }}</p></div>
+                          <input type="checkbox" :id="'gift-' + user.id"   name="gift" 
+                          v-if="user.gift !== '棒球帽(已兌換)'"  :disabled="user.id === 'b'"
+                          @click="handleGiftSelection(user)" >
+                          <p>{{ user.gift }}</p></div>
                       </div>
                     </div>
                   <hr class="benefit-order-hr">
@@ -404,7 +409,7 @@
                         d="M 25,45 35,55 60,30"/></svg>
                 </div>
                   <div class="exchangeText">
-                      <p class="exchangeProduct">您兌換的商品為<span>鑰匙圈</span>1個</p>
+                      <p class="exchangeProduct">您兌換的商品為<span>{{ selectedGift }}</span>1個</p>
                       <p class="exchangeDate">兌換日期為<span>{{ currentDate }} {{ currentTime }}</span></p>
                       <p class="exchangeInfo">我們將於一星期內將商品寄出，<br>
                         若希望寄送至其他地址，<br>請與客服聯繫，謝謝。</p>

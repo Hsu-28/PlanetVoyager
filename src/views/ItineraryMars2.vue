@@ -14,9 +14,8 @@
             <div class="scrollsection" data-scroll-section>
                 <div class="title" style="writing-mode: vertical-lr" data-scroll data-scroll-speed="1">
                     <div>
-                        <h1  v-if="myData && myData.itinerary && myData.itinerary.length > 0">
-                            {{ myData.itinerary[0].planet_subtitle }}
-                            {{ schedules[0].imgUrls[0] }}
+                        <h1 v-if="planet_subtitle">
+                           {{ planet_subtitle }}
                         </h1>
                     </div>
 
@@ -30,8 +29,9 @@
                         <p>{{ day.schedule }}</p>
                     </div>
                     <div class="schedule-pic">
-                        <div v-for="(URL, picIndex) in day.imgUrls" :key="picIndex" class="image-box" @click="showPic($event)">
-                            <img :src="`/img/${URL.itinerary_pic}`">
+                        <div v-for="(URL, picIndex) in day.imgUrls" :key="picIndex" class="image-box"
+                            @click="showPic($event)">
+                            <img :src="`img/${URL.itinerary_pic}`">
                         </div>
                     </div>
                 </div>
@@ -49,6 +49,7 @@ export default {
             bigpic: '',
             showBtn: true,
             scroll: null,
+            myData: [],
             schedules: [
                 {
                     schedulenum: "schedule1",
@@ -123,10 +124,40 @@ export default {
             this.bigpic = e.target.src;
         },
         close() {
-            if( this.bigpic != ''){
+            if (this.bigpic != '') {
                 this.bigpic = '';
             }
-        }
+        },
+        splitWord(text) {
+            let all = [];
+            let start = 0;
+            let end = text.indexOf('\n', start) + 1;
+
+            while (end > 0) {
+                const p = text.slice(start, end);
+                all.push(p);
+                start = end;
+                end = text.indexOf('\n', start) + 1;
+            }
+
+            // 如果 end 等于 -1，表示已经到达文本末尾
+            if (end === -1) {
+                const p = text.slice(start);
+                all.push(p);
+            }
+
+            console.log(all);
+
+
+            const schedules = [];
+            for (let i = 0; i < all.length; i += 2) {
+                const num = all[i].trim();  // 移除首尾空格和换行符
+                const schedule = all[i + 1].trim();
+                schedules.push({ num, schedule });
+            }
+
+            return schedules;
+        },
     },
     computed: {
         showBtn() {
@@ -136,24 +167,31 @@ export default {
         coverbg() {
             return this.bigpic !== ''
         },
-        D1() {
-        return this.schedules[0].imgUrls = this.photos.filter(v => v.itinerary_photo_no < 67)   
+        planet_subtitle() {
+            if (this.myData && this.myData.itinerary && this.myData.itinerary.length > 0) {
+                return this.myData.itinerary[0].planet_subtitle
+            } else {
+                return ''
+            }
         },
-        D2() {
-        return this.schedules[1].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 63 && v.itinerary_photo_no < 67);
-        },
-        D3() {
-        return this.schedules[2].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 66 && v.itinerary_photo_no < 70)   
-        },
-        D4() {
-        return this.schedules[3].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 69 && v.itinerary_photo_no < 73)   
-        },
-        D5() {
-        return this.schedules[4].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 73 && v.itinerary_photo_no < 77)   
-        },
-        D6() {
-        return this.schedules[5].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 63 && v.itinerary_photo_no < 67)   
-        },
+        // D1() {
+        // return this.schedules[0].imgUrls = this.photos.filter(v => v.itinerary_photo_no < 67)   
+        // },
+        // D2() {
+        // return this.schedules[1].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 63 && v.itinerary_photo_no < 67);
+        // },
+        // D3() {
+        // return this.schedules[2].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 66 && v.itinerary_photo_no < 70)   
+        // },
+        // D4() {
+        // return this.schedules[3].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 69 && v.itinerary_photo_no < 73)   
+        // },
+        // D5() {
+        // return this.schedules[4].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 73 && v.itinerary_photo_no < 77)   
+        // },
+        // D6() {
+        // return this.schedules[5].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 63 && v.itinerary_photo_no < 67)   
+        // },
     },
     mounted() {
         const el = document.querySelector('#main-container')
@@ -179,23 +217,34 @@ export default {
     },
     beforeUnmount() {
         console.log(this.scroll);
-    if (this.scroll) {
-      this.scroll.destroy();
-    }
-    console.log(this.scroll);
-  },
-  created() {
+        if (this.scroll) {
+            this.scroll.destroy();
+        }
+        console.log(this.scroll);
+    },
+    created() {
 
-axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryMars2.php')
-    .then(response => {
-        this.myData = response.data;
-        this.photos = this.myData.itinerary_photos;
-    })
-    .catch(error => {
-        console.error(error);
-    });
+        axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryMars2.php')
+            .then(response => {
+                this.myData = response.data;
+                const text = this.myData?.itinerary?.[0]?.itinerary_day || ''
+                const schedules = this.splitWord(text)
+                const photos= Array.from({ length: this.schedules.length * 3 }, (v, i) => {
+                    return this.myData.itinerary_photos[i % this.myData.itinerary_photos.length]
+                });
+                this.schedules = this.schedules.map((v, i) => {
+                    return {
+                        ...v,
+                        ...schedules[i],
+                        imgUrls: photos.slice(i * 3, (i + 1) * 3)
+                    }
+                })
+            })
+            .catch(error => {
+                console.error(error);
+            });
 
-},            
+    },
 };
 
 </script>
@@ -260,7 +309,7 @@ axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryMars2.php')
         z-index: 10;
 
         img {
-            z-index:2;
+            z-index: 2;
             max-width: 100%;
             width: 100%;
             height: 100%;
@@ -391,6 +440,7 @@ axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryMars2.php')
                 right: 2%;
                 width: 45%;
             }
+
             .schedule-text::after {
                 top: 80%;
                 left: 140%;
@@ -462,6 +512,7 @@ axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryMars2.php')
         .schedule5 {
             flex-direction: column-reverse;
             margin-left: 15vh;
+
             .schedule-pic {
                 position: relative;
                 transform: translateY(10%);
@@ -469,6 +520,7 @@ axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryMars2.php')
                 flex-direction: row;
                 width: 50%;
             }
+
             .schedule-text::after {
                 transform: rotate(-60deg);
             }

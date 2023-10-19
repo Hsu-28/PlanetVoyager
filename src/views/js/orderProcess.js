@@ -8,6 +8,22 @@ import orderList from "@/components/PerOrder.vue";
 export default {
   data() {
     return {
+      // no:3 ,
+      formList: [], 
+      formData: {
+        lastName: '',
+        name: '',
+        gender: '',
+        birthday: '',
+        nation: '',
+        passId: '',
+        size: '',
+        status: '',
+        other: '',
+        seatIndex: '',
+        ssize: '',
+        scolor: ''
+      },
       showAlert: false,
       activeId: "",
       jpRate:0,
@@ -152,43 +168,45 @@ export default {
         }
         }
     },
-    Addorder() {
-      document.getElementById("submitBtn").addEventListener("click", function() {
-        var formData = {
-          lastName: document.getElementById("lastName").textContent,
-          name: document.getElementById("name").textContent,
-          gender: document.getElementById("gender").textContent,
-          birthday: document.getElementById("birthday").textContent,
-          nation: document.getElementById("nation").textContent,
-          passId: document.getElementById("passId").textContent,
-          size: document.getElementById("size").textContent,
-          status: document.getElementById("status").textContent,
-          other: document.getElementById("other").textContent,
-          seatIndex: document.getElementById("seatIndex").textContent,
-          ssize: document.getElementById("ssize").textContent,
-          scolor: document.getElementById("scolor").textContent
-        };
-      
-        // 使用fetch API 发送POST请求到服务器的PHP文件
-        fetch('insertPassenger.php', {
-          method: 'POST',
-          body: JSON.stringify(formData),
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
-        .then(response => response.json())
-        .then(data => {
-          // 处理服务器的响应
-          console.log(data);
-          // 可以在这里执行任何其他操作，如页面跳转或显示成功消息
-        })
-        .catch(error => {
-          console.error('请求错误:', error);
+    Addorder() {  
+      const formData = [];
+    
+      if (this.formList.length > 0) {
+        this.formList.forEach(item => {
+          formData.push({
+            lastName: item.lastName,
+            name: item.name,
+            gender: item.gender,
+            birthday: item.birthday,
+            nation: item.nation,
+            passId: item.passId,
+            size: item.size,
+            // status: item.status,
+            other: item.other,
+            seatIndex: item.seatIndex,
+            ssize: item.ssize,
+            scolor: item.scolor
+          });
         });
+      }
+    
+      // 發送formData到伺服器
+      fetch('http://localhost/PV/PlanetVoyager/public/php/order.php', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        // 可以在這邊進行操作，例如跳轉頁面或成功消息
+      })
+      .catch(error => {
+        console.error('請求錯誤:', error);
       });
-      
-    },
+    }
   },
   
   computed: {
@@ -233,23 +251,52 @@ export default {
     orderList: orderList,
   },
   created() {
+        // 發起HTTP GET 請求
+        axios.get('http://localhost/PV/PlanetVoyager/public/php/orderprocess.php')
+        .then(response => {
+          this.subtitle = response.data;
+        })
+        .catch(error => {
+          console.error(error);
+        });
     // 在 Vue 的 created 鉤子中發送請求
     $.get('https://openexchangerates.org/api/latest.json', {app_id: '738d67de7ed043e690b7b729c87953c1'}, data => {
         this.ntRate = data.rates.TWD;
         this.jpRate = data.rates.JPY;
     });
 
-    // 發起HTTP GET 請求
-    axios.get('http://localhost/PV/PlanetVoyager/public/php/orderprocess.php')
-      .then(response => {
-        this.subtitle = response.data;
+
+
+      //登入狀態驗證
+      fetch('https://tibamef2e.com/chd103/g3/php/verifyLogin.php',{
+        mode: "cors",
+        credentials: "include",
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.msg === "未登入") {
+          alert('請先登入會員再報名旅程！');
+        }
       })
       .catch(error => {
         console.error(error);
       });
-}
 
-
+      //登入狀態驗證
+      fetch('https://tibamef2e.com/chd103/g3/php/verifyLogin.php',{
+        mode: "cors",
+        credentials: "include",
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.msg === "未登入") {
+          alert('請先登入會員再報名旅程！');
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
 }
 
 

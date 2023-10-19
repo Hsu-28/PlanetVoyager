@@ -77,6 +77,7 @@ export default {
     },
     data() {
         return {
+            phpData: '',
             title: "團隊介紹",
             titleText: `我們的團隊由一群對太空充滿熱情的專家組成，\n願景是將人類帶入太空，體驗浩渺宇宙的魅力。\n相信PlanetVoyager，\n讓我們帶領您進入夢想中的宇宙冒險吧！`,
             showDetail: false,
@@ -241,7 +242,8 @@ export default {
         }
     },
     created() {
-        axios.get('http://localhost/PV/PlanetVoyager/public/php/teammembers.php')
+        // axios.get('http://localhost/PV/PlanetVoyager/public/php/teammembers.php')
+        axios.get(`${this.$store.state.phpPublicPath}teammembers.php`)
       .then(response => {
         this.member = response.data;
       })

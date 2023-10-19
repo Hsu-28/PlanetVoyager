@@ -1,4 +1,4 @@
-// @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700;900&family=Noto+Serif+TC:wght@300;400;500;600;700;900&family=Oswald:wght@300;400;500;600;700&family=Roboto+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
 #membercenter{
     body{
         font-family: 'Oswald', 'Roboto Mono','Noto Serif JP', 'Noto Serif TC',  serif;
@@ -406,6 +406,17 @@
         color: $blueMem;   
     }
 
+    .accordion-icon:before {
+        content: "+"; 
+        display: inline-block;
+        margin-right: 5px; 
+        transition: transform 0.3s; 
+    }
+    
+    .accordion-icon.expanded:before {
+        content: "-"; 
+    }
+
     .collapse {
           transition: height 800ms cubic-bezier(0.3, 0, 0.6, 1);
           width: 100%;         
@@ -436,17 +447,55 @@
            padding: 5px 0;
            border-radius: 10px;   
            margin-bottom: 20px; 
+           display: inline-block;
+           vertical-align: middle;
+           -webkit-transform: perspective(1px) translateZ(0);
+           transform: perspective(1px) translateZ(0);
+           box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+           position: relative;
+           -webkit-transition-property: color;
+           transition-property: color;
+           -webkit-transition-duration: 0.3s;
+           transition-duration: 0.3s;
            cursor: pointer;
-           & :hover{
-            color: $white;
-           }
+    }
+
+     .journey-detail:before{
+           content: "";
+           position: absolute;
+           z-index: -1;
+           top: 0;
+           left: 0;
+           right: 0;
+           bottom: 0;
+           background: $blue;
+           -webkit-transform: scaleX(0);
+           transform: scaleX(0);
+           -webkit-transform-origin: 0 50%;
+           transform-origin: 0 50%;
+           -webkit-transition-property: transform;
+           transition-property: transform;
+           -webkit-transition-duration: 0.3s;
+           transition-duration: 0.3s;
+           -webkit-transition-timing-function: ease-out;
+           transition-timing-function: ease-out;
+           border-radius: 10px;
      }
+
+     .journey-detail p:hover, .journey-detail p:focus, .journey-detail p:active {
+           color: $white;
+    }
+    .journey-detail:hover:before, .journey-detail:focus:before, .journey-detail:active:before {
+          -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+    }
    
      .journey-detail p{
            color: $black;
            font-weight: 700;
            cursor: pointer;
      }
+
 
     .journey-hr{
           border-color:$blueMem;
@@ -556,6 +605,10 @@
          }
     }
 
+    .diet{
+      font-size: 13px;
+    }
+
     .bookingLastName, .bookingFirstName, .bookingSex, .bookingBirthday,
     .bookingCountry, .bookingPassport, .bookingSize, .bookingDiet,
     .bookingSuit, .bookingTravelStatus
@@ -618,7 +671,7 @@
          font-size: 16px; 
          color: $white; 
          position: absolute;
-         top: 40%; 
+         top: 20%; 
          left: -1%; 
          line-height: 1;
     }
@@ -1281,27 +1334,29 @@
       }
       .journey-detail-rwd{  
             margin-bottom: 20px; 
+            padding: 1%;
+            border-radius: 5px;
             cursor: pointer;
+            background-color: $blueMem;
+      }
+      .journey-detail-rwd:active{  
+            background-color: $blue;
       }
       .journey-detail-rwd span{
-            color: $blueMem;
+            color: $black;
             font-weight: 700; 
       }
-   
-       .booking-container{
-            // flex-direction: column;
-       }
+      .journey-detail-rwd span:active{
+            color: $white;
+      }
        .bookingForm{
             top: 40%; 
             left: 50%; 
             transform: translate(-50%, -54%); 
-       }
+      }
        .bookingId{
             margin: auto;
-       }
-   
-     
-   
+      }
       .bookingCheckRwd{
             display: flex;
             align-items: center;
@@ -1335,7 +1390,7 @@
             font-size: 16px; 
              color: $white; 
             position: absolute;
-            top: 40%; 
+            top: 20%; 
             left: -1%; 
             line-height: 1;
       }

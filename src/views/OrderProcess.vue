@@ -220,6 +220,7 @@
         <h3> 旅客人數: {{ currentAmount }}</h3>
         <h3>旅費金額: {{ 500 * currentAmount }}萬美金</h3>
         <h3>航程日期: {{ date }}</h3>
+        <!-- <h3>旅程編號: {{no}}</h3> -->
       </div>
       <div class="confirm-content-container">
         <div class="confirm-content" v-for="(item, index) in formList" :key="index" v-if="formList.length > 0">
@@ -231,30 +232,32 @@
           <div>國籍:{{ item.nation }}</div>
           <div>護照號碼:{{ item.passId }}</div>
           <div>訓練服尺寸:{{ item.size }}</div>
-          <div>旅位狀態:{{ status }}</div>
+          <!-- <div>旅位狀態:{{ status }}</div> -->
           <div> 餐食備註:{{ item.other }}</div>
           <div> 艙位號碼: {{ item.seatIndex }}</div>
           <div> 太空服尺寸: {{ item.ssize }}</div>
           <div> 太空服顏色: {{ item.scolor }}</div>
+          </div>
+
+        </div>
+        <div class="order-finall">
+
+          <div class="order-finall-btn btn-Cancle" @click="disOrder">修改資料</div>
+          <!-- <router-link to="OrderSuccess" id="submitBtn"> -->
+            <div class="order-finall-btn btn-Check" @click="Addorder">確認訂購</div>
+          <!-- </router-link> -->
+        
         </div>
 
       </div>
-      <div class="order-finall">
 
-        <div class="order-finall-btn btn-Cancle" @click="disOrder">修改資料</div>
-        <router-link to="OrderSuccess" id="submitBtn"> <div class="order-finall-btn btn-Check">確認訂購</div></router-link>
-       
-      </div>
+    </section>
 
-    </div>
-
-  </section>
-
-  <section class="alert" v-if="showAlert" >
-    <p @click="showAlert = false" ><img src="@/assets/image/orderProcess/X.jpg" alt=""></p>
-    尚有資料未填寫完成，請確認
-  </section>
-</template>
+    <section class="alert" v-if="showAlert" >
+      <p @click="showAlert = false" ><img src="@/assets/image/orderProcess/X.jpg" alt=""></p>
+      尚有資料未填寫完成，請確認
+    </section>
+  </template>
   
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
 <script src="@/views/js/orderProcess.js"></script>

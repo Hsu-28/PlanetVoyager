@@ -14,11 +14,8 @@
             <div class="scrollsection" data-scroll-section>
                 <div class="title" style="writing-mode: vertical-lr" data-scroll data-scroll-speed="1">
                     <div>
-                        <!-- <h1 v-if="myData.length > 0">{{ myData}}</h1> -->
-                        <h1  v-if="myData && myData.itinerary && myData.itinerary.length > 0">
-                            {{ myData.itinerary[0].planet_subtitle }}
-                            {{ schedules[0].imgUrls[0] }}
-                            
+                        <h1 v-if="planet_subtitle">
+                           {{ planet_subtitle }}
                         </h1>
                     </div>
 
@@ -48,7 +45,7 @@
                             @click="showPic($event)">
                            
                             <!-- <img :src="URL"> 原來的 -->
-                            <img :src="`/img/${URL.itinerary_pic}`"> <!-- 好了拉  白癡喔 -->
+                            <img :src="`${this.$store.state.publicURL}/${URL.itinerary_pic}`"> <!-- 好了拉  白癡喔 -->
                         </div>
                     </div>
                 </div>
@@ -64,16 +61,7 @@ export default {
     data() {
         return {
             photos: [],
-            myData: {
-                // "itinerary": [
-                //     {
-                //         "planet_subtitle": "星際繞行",
-                //         "itinerary_day": "Day1 旅程啟航！\r\n從地球啟程後可飽覽星際風光，隔日中午抵達月球，在銀河中體驗太空中漂浮。\r\nDay2 月球美景饗宴\r\n在月球周圍繞行，除了神奇的月亮景色，也能於月球的空中觀測未知的生物和奇異的地貌，滿足您的探索精神。\r\nDay3 金星秘景探索\r\n藉由蟲洞跳躍，我們前往金星，探索這個炎熱的星球。在金星空中的飛航期間，您將發現更多奇異的景色和未知生物，使我們的旅程更加驚喜。\r\nDay4、5 火星遺跡巡航\r\n再次飛入蟲洞，前往火星。在這顆紅色星球上，於空中觀看遠古遺跡、麥田圈等等，尋訪生命的起源和消亡，為您的旅程添上色彩。\r\nDay 6 台日共構月球基地--蒂芬妮丘\r\n蒂芬妮丘是深太空探索的跳板，有助於實現我們登陸更遠的星系。月球基地的太陽能發電站將為未來太空任務提供可再生能源，強化星際探索空持續性。旅客在此休息養足精神，隔日再行返家。\r\nDay 7 返回家鄉--地球\r\n星際旅遊的壯闊冒險完美收尾！在無重力中飄浮的日子即將結束，我們即將返回地球。帶著難以置信的回憶和深刻的體驗，我們準備迎接重力的擁抱。也請各位珍惜回程最後飽覽太空的絕美景觀的機會。如果捨不得，我們期待著下次再與您共度星際旅遊的美好時光，感謝您的參與！\r\n"
-                //     }
-                // ],
-                // "itinerary_photos": [
-                // ]
-            },
+            myData:[],
             test: "",
             bigpic: '',
             showBtn: true,
@@ -81,17 +69,17 @@ export default {
             schedules: [
                 {
                     schedulenum: "schedule1",
-                    num: "Day111111 旅程啟航！",
+                    num: "Day1 旅程啟航！",
                     schedule: "從地球啟程後可飽覽星際風光，隔日中午抵達月球，在銀河中體驗太空中漂浮。",
                     imgUrls: [
-                        require('@/assets/image/itinerary_combo/c11.svg'),  
-                        require('@/assets/image/itinerary_combo/c12.svg'),
-                        require('@/assets/image/itinerary_combo/c13.svg'),
+                        require('@/assets/image/itinerary_combo/c11.jpg'),  
+                        require('@/assets/image/itinerary_combo/c12.jpg'),
+                        require('@/assets/image/itinerary_combo/c13.jpg'),
                     ],
                 },
                 {
                     schedulenum: "schedule2",
-                    num: "Day22222 月球美景饗宴",
+                    num: "Day2 月球美景饗宴",
                     schedule: "在月球周圍繞行，除了神奇的月亮景色，也能於月球的空中觀測未知的生物和奇異的地貌，滿足您的探索精神。",
                     imgUrls: [
                         // require('@/assets/image/itinerary_combo/c21.svg'),
@@ -167,6 +155,36 @@ export default {
                 this.bigpic = '';
             }
         },
+        splitWord(text) {
+            let all = [];
+            let start = 0;
+            let end = text.indexOf('\n', start) + 1;
+
+            while (end > 0) {
+                const p = text.slice(start, end);
+                all.push(p);
+                start = end;
+                end = text.indexOf('\n', start) + 1;
+            }
+
+            // 如果 end 等于 -1，表示已经到达文本末尾
+            if (end === -1) {
+                const p = text.slice(start);
+                all.push(p);
+            }
+
+            console.log(all);
+
+
+            const schedules = [];
+            for (let i = 0; i < all.length; i += 2) {
+                const num = all[i].trim();  // 移除首尾空格和换行符
+                const schedule = all[i + 1].trim();
+                schedules.push({ num, schedule });
+            }
+
+            return schedules;
+        },
     },
     
     mounted() {
@@ -191,6 +209,8 @@ export default {
                 direction: "horizontal"
             }
         });
+   
+
     },
     beforeUnmount() {
         console.log(this.scroll);
@@ -198,20 +218,6 @@ export default {
             this.scroll.destroy();
         }
         console.log(this.scroll);
-    },
-
-
-    created() {
-
-        axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryCombo.php')
-            .then(response => {
-                this.myData = response.data;
-                this.photos = this.myData.itinerary_photos;
-            })
-            .catch(error => {
-                console.error(error);
-            });
-        
     },
 
     computed: {
@@ -222,27 +228,56 @@ export default {
         coverbg() {
             return this.bigpic !== ''
         },
-        D1() {
-        return this.schedules[0].imgUrls = this.photos.filter(v => v.itinerary_photo_no < 4)   
+        planet_subtitle() {
+            if (this.myData && this.myData.itinerary && this.myData.itinerary.length > 0) {
+                return this.myData.itinerary[0].planet_subtitle
+            } else {
+                return ''
+            }
         },
-        D2() {
-        return this.schedules[1].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 3 && v.itinerary_photo_no < 7);
-        },
-        D3() {
-        return this.schedules[2].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 6 && v.itinerary_photo_no < 10)   
-        },
-        D4() {
-        return this.schedules[3].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 9 && v.itinerary_photo_no < 13)   
-        },
-        D5() {
-        return this.schedules[4].imgUrls = this.photos.filter(v => v.itinerary_photo_no < 4)   
-        },
-        D6() {
-        return this.schedules[5].imgUrls = this.photos.filter(v => v.itinerary_photo_no < 3 && v.itinerary_photo_no < 7)   
-        },
+        // D1() {
+        // return this.schedules[0].imgUrls = this.photos.filter(v => v.itinerary_photo_no < 4)   
+        // },
+        // D2() {
+        // return this.schedules[1].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 3 && v.itinerary_photo_no < 7);
+        // },
+        // D3() {
+        // return this.schedules[2].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 6 && v.itinerary_photo_no < 10)   
+        // },
+        // D4() {
+        // return this.schedules[3].imgUrls = this.photos.filter(v => v.itinerary_photo_no > 9 && v.itinerary_photo_no < 13)   
+        // },
+        // D5() {
+        // return this.schedules[4].imgUrls = this.photos.filter(v => v.itinerary_photo_no < 4)   
+        // },
+        // D6() {
+        // return this.schedules[5].imgUrls = this.photos.filter(v => v.itinerary_photo_no < 3 && v.itinerary_photo_no < 7)   
+        // },
 
 
     },
+    created() {
+axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryCombo.php')
+    .then(response => {
+        this.myData = response.data;
+        const text = this.myData?.itinerary?.[0]?.itinerary_day || ''
+        const schedules = this.splitWord(text)
+        const photos= Array.from({ length: this.schedules.length * 3 }, (v, i) => {
+            return this.myData.itinerary_photos[i % this.myData.itinerary_photos.length]
+        });
+        this.schedules = this.schedules.map((v, i) => {
+            return {
+                ...v,
+                ...schedules[i],
+                imgUrls: photos.slice(i * 3, (i + 1) * 3)
+            }
+        })
+    })
+    .catch(error => {
+        console.error(error);
+    });
+
+},
 };
 
 </script>

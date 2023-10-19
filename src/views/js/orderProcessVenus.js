@@ -24,7 +24,7 @@ export default {
       show2: false,
       btn1: "btn-active",
       btn2: "",
-      journey: "奧林帕斯山脈之旅",
+      journey: "人文遺跡之旅",
       imgs: [
         {
           slide: require('@/assets/image/orderProcess/venusc2.jpg'),
@@ -152,6 +152,7 @@ export default {
         }
         }
       },
+
   },
   computed: {
     options() {
@@ -169,6 +170,47 @@ export default {
     MJ1() {
         return this.subtitle.filter(v => v.planet_subtitle === "人文遺跡之旅")
     },
+    Addorder() {  
+      const formData = [];
+    
+      if (this.formList.length > 0) {
+        this.formList.forEach(item => {
+          formData.push({
+            lastName: item.lastName,
+            name: item.name,
+            gender: item.gender,
+            birthday: item.birthday,
+            nation: item.nation,
+            passId: item.passId,
+            size: item.size,
+            // status: item.status,
+            other: item.other,
+            seatIndex: item.seatIndex,
+            ssize: item.ssize,
+            scolor: item.scolor
+          });
+        });
+      }
+    
+      // 發送formData到伺服器
+      fetch('http://localhost/PV/PlanetVoyager/public/php/order.php', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        // 可以在這邊進行操作，例如跳轉頁面或成功消息
+      })
+      .catch(error => {
+        console.error('請求錯誤:', error);
+      });
+    },
+
+    
   },
   watch: {
     currentAmount() {
@@ -200,11 +242,26 @@ export default {
         this.ntRate = data.rates.TWD;
         this.jpRate = data.rates.JPY;
     });
-
-    // 發起HTTP GET 請求
-    axios.get('http://localhost/PV/PlanetVoyager/public/php/orderprocessVenus.php')
+    // getHttp(){
+      // 發起HTTP GET 請求
+      axios.get('http://localhost/PV/PlanetVoyager/public/php/orderprocessVenus.php')
       .then(response => {
         this.subtitle = response.data;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+
+      //登入狀態驗證
+      fetch('https://tibamef2e.com/chd103/g3/php/verifyLogin.php',{
+        mode: "cors",
+        credentials: "include",
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.msg === "未登入") {
+          alert('請先登入會員再報名旅程！');
+        }
       })
       .catch(error => {
         console.error(error);

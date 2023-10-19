@@ -83,14 +83,18 @@
           <div class="subus">
             <img src="~@/assets/image/headerfooter/dec.svg" alt="" class="dec">
             <div class="subus-contain">
-              <h4 class="dec-h4"> <strong> 訂閱我們 </strong></h4>
-              <p class="dec-p">第一時間接收我們的最新消息</p>
+              <h4 class="dec-h4"> <strong> 旅遊測驗 </strong></h4>
+              <p class="dec-p">還在猶豫自己該參加什麼行程嗎?</p>
             </div>
           </div>
           <div id="happy">
 
-            <subscribe :buttonText="'- SUBCRIBE US  NOW- '" :buttonBottomText="'  -pv-'"> <img
-                src="~@/assets/image/headerfooter/globle.svg" alt="" class="btn-c"></subscribe>
+
+            <router-link :to="{ name: 'quiz' }" @click=" closeMenuF()">
+              <subscribe :buttonText="'- 馬上測驗 - '" :buttonBottomText="'  -pv-'"> <img
+                  src="~@/assets/image/headerfooter/globle.svg" alt="" class="btn-c"></subscribe>
+            </router-link>
+
           </div>
           <!-- <div class="btn-container">
               <p class="btn-p">SUBSCRIBE &nbsp;US &nbsp; NOW
@@ -128,14 +132,14 @@
     </div>
     <!-- 快速按鈕 -->
     <div id="btnInput">
-      <button v-for="( btnMessage, index ) in btnMessages" :key="index" @click="handleButtonClick(index)" id="btnMessage">
-        {{ btnMessage.text }}
+      <button v-for="( item, index ) in btnMessages" :key="index" @click="handleButtonClick(index)" id="btnMessage">
+        {{ item.keyword }}
       </button>
     </div>
-    <div id="chatInput">
+    <!-- <div id="chatInput">
       <input type="text" id="messageInput" placeholder="Type your message..." v-model="newMessageText">
       <button id="sendButton" @click="sendMessage"><img src="~@/assets/image/chatbot/send.svg" alt=""></button>
-    </div>
+    </div> -->
   </div>
   <!-------------- 聊天機器人結束 -------------->
 
