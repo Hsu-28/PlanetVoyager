@@ -259,6 +259,7 @@ export default {
                 },
             ],
             activeId: 1,
+            
             news: [],
 
             vehicles: [
