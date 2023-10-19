@@ -1,4 +1,4 @@
-<?php 
+<!-- <?php  
 // $headerCookies = explode('; ', getallheaders()['Cookie']);
 // $cookies = array();
 // foreach($headerCookies as $itm) {
@@ -14,7 +14,7 @@
 //     die();
 // }
 
-if(! isset($_SESSION['memId'])) {
-   alert('請先登入會員')
-}
-?>
+// if(! isset($_SESSION['memId'])) {
+//    alert('請先登入會員')
+// }
+// ?>

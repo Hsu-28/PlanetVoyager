@@ -251,26 +251,35 @@ export default {
     orderList: orderList,
   },
   created() {
+        // 發起HTTP GET 請求
+        axios.get('http://localhost/PV/PlanetVoyager/public/php/orderprocess.php')
+        .then(response => {
+          this.subtitle = response.data;
+        })
+        .catch(error => {
+          console.error(error);
+        });
     // 在 Vue 的 created 鉤子中發送請求
     $.get('https://openexchangerates.org/api/latest.json', {app_id: '738d67de7ed043e690b7b729c87953c1'}, data => {
         this.ntRate = data.rates.TWD;
         this.jpRate = data.rates.JPY;
     });
 
-    // 發起HTTP GET 請求
-    axios.get('http://localhost/PV/PlanetVoyager/public/php/orderprocess.php')
-      .then(response => {
-        this.subtitle = response.data;
+
+
+      //登入狀態驗證
+      fetch('https://tibamef2e.com/chd103/g3/php/verifyLogin.php',{
+        mode: "cors",
+        credentials: "include",
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.msg === "未登入") {
+          alert('請先登入會員再報名旅程！');
+        }
       })
       .catch(error => {
         console.error(error);
       });
+  }
 }
-
-
-}
-
-
-
-
-

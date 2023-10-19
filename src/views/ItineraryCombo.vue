@@ -45,7 +45,7 @@
                             @click="showPic($event)">
                            
                             <!-- <img :src="URL"> 原來的 -->
-                            <img :src="`img/${URL.itinerary_pic}`"> <!-- 好了拉  白癡喔 -->
+                            <img :src="`${this.$store.state.publicURL}/${URL.itinerary_pic}`"> <!-- 好了拉  白癡喔 -->
                         </div>
                     </div>
                 </div>
@@ -72,9 +72,9 @@ export default {
                     num: "Day1 旅程啟航！",
                     schedule: "從地球啟程後可飽覽星際風光，隔日中午抵達月球，在銀河中體驗太空中漂浮。",
                     imgUrls: [
-                        require('@/assets/image/itinerary_combo/c11.svg'),  
-                        require('@/assets/image/itinerary_combo/c12.svg'),
-                        require('@/assets/image/itinerary_combo/c13.svg'),
+                        require('@/assets/image/itinerary_combo/c11.jpg'),  
+                        require('@/assets/image/itinerary_combo/c12.jpg'),
+                        require('@/assets/image/itinerary_combo/c13.jpg'),
                     ],
                 },
                 {
@@ -257,7 +257,6 @@ export default {
 
     },
     created() {
-
 axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryCombo.php')
     .then(response => {
         this.myData = response.data;

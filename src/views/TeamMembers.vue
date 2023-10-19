@@ -241,7 +241,8 @@ export default {
         }
     },
     created() {
-        axios.get('http://localhost/PV/PlanetVoyager/public/php/teammembers.php')
+        // axios.get('http://localhost/PV/PlanetVoyager/public/php/teammembers.php')
+        axios.get(`${this.$store.state.phpPublicPath}teammembers.php`)
       .then(response => {
         this.member = response.data;
       })

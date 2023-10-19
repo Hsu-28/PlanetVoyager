@@ -162,13 +162,11 @@ export default {
       },
       deep: true,
     },
-  //   appleWidth() {
-  //   this.appleWidth = window.innerWidth* 0.5 ;
-  // }
+
   },
   mounted() {
   this.initThree();
-  window.addEventListener("resize", this.onWindowResize);
+  // window.addEventListener("resize", this.onWindowResize);
   
 },
 methods: {
@@ -181,12 +179,11 @@ methods: {
     // antialias 啟動讓畫面更平滑，但是運算上比較吃耗能
     // alpha 啟動背景為透明，可以讓後面的東西透出來
 
+
     const parentContainer = document.querySelector(".apple"); // 获取父容器元素
     const width = parentContainer.clientWidth; // 获取父容器的宽度
     const height = parentContainer.clientHeight
     this.appleWidth = width;
-    // const width = this.appleWidth*0.9; // 20% of window width，自己設的變數不重要
-    // const height = width ; // 20% of window height，自己設的變數不重要
 
     renderer.setSize( this.appleWidth , height );//設定場景尺寸
     renderer.setClearColor(0xffffff, 0);//設定場景背景顏色
@@ -246,27 +243,22 @@ methods: {
     animate();
     return scene;
   },
-  onWindowResize() {
-    const parentContainer = document.querySelector(".apple"); // 获取父容器元素
-    const width = parentContainer.clientWidth; // 获取父容器的宽度
-    const height = parentContainer.clientHeight
-    this.appleWidth = width;
+  // onWindowResize() {
+  //   const parentContainer = document.querySelector(".apple"); // 获取父容器元素
+  //   const width = parentContainer.clientWidth; // 获取父容器的宽度
+  //   const height = parentContainer.clientHeight
+  //   this.appleWidth = width;
 
-    // 更新 canvas 元素的大小
-    const canvas = document.querySelector(".threeJS");
-    canvas.width = this.appleWidth;
-    // canvas.width = width;
-    canvas.height = height;
+  //   // 更新 canvas 元素的大小
+  //   const canvas = document.querySelector(".threeJS");
+  //   // canvas.width = this.appleWidth;
+  //   // canvas.width = width;
+  //   canvas.height = height;
 
-    // 更新 Three.js 相机的宽高比
-    // const camera = canvas.camera;
-    // camera.aspect = width / height;
-    // camera.updateProjectionMatrix();
-
-    // 更新渲染器的大小
-    const renderer = canvas.renderer;
-    renderer.setSize(this.appleWidth, height);
-  },
+  //   // 更新渲染器的大小
+  //   const renderer = canvas.renderer;
+  //   renderer.setSize(width, height);
+  // },
   white () {
     this.color = 0xffffff
     this.updateAmbientLightColor();
