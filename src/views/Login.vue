@@ -53,7 +53,7 @@ export default {
         info.append("memPsw", this.pswdddv);
         console.log(info);
 
-        fetch('http://localhost/PV/PlanetVoyager/public/php/logincheck.php', {
+        fetch(`{this.$store.state.phpPublicPath}logincheck.php`, {
           method: 'POST',
           body: info,
         })
