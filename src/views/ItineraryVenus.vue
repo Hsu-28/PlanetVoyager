@@ -15,7 +15,7 @@
                 <div class="title" style="writing-mode: vertical-lr" data-scroll data-scroll-speed="1">
                     <div>
                         <h1 v-if="planet_subtitle">
-                           {{ planet_subtitle }}
+                            {{ planet_subtitle }}
                         </h1>
                     </div>
 
@@ -29,8 +29,9 @@
                         <p>{{ day.schedule }}</p>
                     </div>
                     <div class="schedule-pic">
-                        <div v-for="(URL, picIndex) in day.imgUrls" :key="picIndex" class="image-box" @click="showPic($event)">
-                            <img :src="`img/${URL.itinerary_pic}`">
+                        <div v-for="(URL, picIndex) in day.imgUrls" :key="picIndex" class="image-box"
+                            @click="showPic($event)">
+                            <img :src="`${this.$store.state.publicURL}/img/${URL.itinerary_pic}`">
                         </div>
                     </div>
                 </div>
@@ -199,34 +200,34 @@ export default {
     },
     beforeUnmount() {
         console.log(this.scroll);
-    if (this.scroll) {
-      this.scroll.destroy();
-    }
-    console.log(this.scroll);
-  },
-  created() {
+        if (this.scroll) {
+            this.scroll.destroy();
+        }
+        console.log(this.scroll);
+    },
+    created() {
 
-axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryVenus.php')
-    .then(response => {
-        this.myData = response.data;
-        const text = this.myData?.itinerary?.[0]?.itinerary_day || ''
-        const schedules = this.splitWord(text)
-        const photos= Array.from({ length: this.schedules.length * 3 }, (v, i) => {
-            return this.myData.itinerary_photos[i % this.myData.itinerary_photos.length]
-        });
-        this.schedules = this.schedules.map((v, i) => {
-            return {
-                ...v,
-                ...schedules[i],
-                imgUrls: photos.slice(i * 3, (i + 1) * 3)
-            }
-        })
-    })
-    .catch(error => {
-        console.error(error);
-    });
+        axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryVenus.php')
+            .then(response => {
+                this.myData = response.data;
+                const text = this.myData?.itinerary?.[0]?.itinerary_day || ''
+                const schedules = this.splitWord(text)
+                const photos = Array.from({ length: this.schedules.length * 3 }, (v, i) => {
+                    return this.myData.itinerary_photos[i % this.myData.itinerary_photos.length]
+                });
+                this.schedules = this.schedules.map((v, i) => {
+                    return {
+                        ...v,
+                        ...schedules[i],
+                        imgUrls: photos.slice(i * 3, (i + 1) * 3)
+                    }
+                })
+            })
+            .catch(error => {
+                console.error(error);
+            });
 
-},
+    },
 };
 
 </script>
@@ -422,6 +423,7 @@ axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryVenus.php')
                 right: 2%;
                 width: 45%;
             }
+
             .schedule-text::after {
                 left: 130%;
             }
@@ -456,10 +458,11 @@ axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryVenus.php')
         .schedule3 {
             margin-left: 15vh;
             flex-direction: column;
+
             .schedule-pic {
-               
+
                 position: relative;
-               transform: translateY(-10%);
+                transform: translateY(-10%);
                 display: flex;
                 flex-direction: row;
                 width: 50%;
@@ -491,6 +494,7 @@ axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryVenus.php')
         .schedule5 {
             flex-direction: column;
             margin-left: 10vh;
+
             .schedule-pic {
                 position: relative;
                 transform: translateY(-30%);

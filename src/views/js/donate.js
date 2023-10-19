@@ -1,5 +1,6 @@
 import ButtonFlashBox from '@/components/ButtonFlash.vue';
 import axios from 'axios';
+import { contains } from 'jquery';
 
 export default {
     components: {
@@ -204,7 +205,9 @@ export default {
                 email: this.email,
             };
             // axios.post('http://localhost/PV/PlanetVoyager/public/php/donate.php', data, {
-            axios.post('https://tibamef2e.com/chd103/g3/PlanetVoyager/php/donate.php', data, {
+            // axios.post('https://tibamef2e.com/chd103/g3/PlanetVoyager/php/donate.php', data, {
+            axios.get(`${this.$store.state.phpPublicPath}/donate.php`, data, {
+
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 }
@@ -242,7 +245,9 @@ export default {
     created() {
         // 發起HTTP GET 請求
         // axios.get('http://localhost/PV/PlanetVoyager/public/php/donate.php')
-        axios.get('https://tibamef2e.com/chd103/g3/PlanetVoyager/php/donate.php')
+        // axios.get('https://tibamef2e.com/chd103/g3/PlanetVoyager/php/donate.php')
+        axios.get(`${this.$store.state.phpPublicPath}/donate.php`)
+
             .then(response => {
                 this.questions = response.data;
                 console.log(this.questions)
@@ -251,7 +256,8 @@ export default {
                 console.error(error);
             });
         // axios.get('http://localhost/PV/PlanetVoyager/public/php/donateMember.php')
-        axios.get('https://tibamef2e.com/chd103/g3/PlanetVoyager/php/donateMember.php')
+        // axios.get('https://tibamef2e.com/chd103/g3/PlanetVoyager/php/donateMember.php')
+        axios.get(`${this.$store.state.phpPublicPath}/donateMember.php`)
             .then(response => {
                 this.name = response.data["mem_name"]
                 this.email = response.data["email"]
@@ -264,10 +270,12 @@ export default {
             });
 
         //登入狀態驗證
-        fetch('https://tibamef2e.com/chd103/g3/PlanetVoyager/php/verifyLogin.php', {
-            mode: "cors",
-            credentials: "include",
-        })
+        console.log(this.$store.state.phpPublicPath);
+        axios.get('https://tibamef2e.com/chd103/g3/PlanetVoyager/php/verifyLogin.php')
+            // fetch('https://tibamef2e.com/chd103/g3/PlanetVoyager/php/verifyLogin.php', {
+            //     mode: "cors",
+            //     credentials: "include",
+            // })
             .then(response => response.json())
             .then(data => {
                 if (data.msg === "未登入") {

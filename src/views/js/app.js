@@ -218,7 +218,8 @@ export default {
   },
   created() {
     // 發起HTTP GET 請求
-    axios.get('http://localhost/PV/PlanetVoyager/public/php/chatbot.php')
+    // axios.get('http://localhost/PV/PlanetVoyager/public/php/chatbot.php')
+    axios.get(`${this.$store.state.phpPublicPath}/chatbot.php`)
       .then(response => {
         this.btnMessages = response.data;
         console.log(this.btnMessages)

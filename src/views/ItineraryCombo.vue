@@ -15,7 +15,7 @@
                 <div class="title" style="writing-mode: vertical-lr" data-scroll data-scroll-speed="1">
                     <div>
                         <h1 v-if="planet_subtitle">
-                           {{ planet_subtitle }}
+                            {{ planet_subtitle }}
                         </h1>
                     </div>
 
@@ -28,7 +28,7 @@
                     <div class="schedule-text">
                         <h3>{{ day.num }}</h3>
                         <p>{{ day.schedule }}</p>
-                       
+
                     </div>
                     <!-- <div class="schedule-pic">
                         <div v-for="(URL, picIndex) in day.imgUrls" :key="picIndex" class="image-box"
@@ -43,9 +43,9 @@
                     <div class="schedule-pic">
                         <div v-for="(URL, picIndex) in day.imgUrls" :key="picIndex" class="image-box"
                             @click="showPic($event)">
-                           
+
                             <!-- <img :src="URL"> 原來的 -->
-                            <img :src="`${this.$store.state.publicURL}/${URL.itinerary_pic}`"> <!-- 好了拉  白癡喔 -->
+                            <img :src="`${this.$store.state.publicURL}/img/${URL.itinerary_pic}`"> <!-- 好了拉  白癡喔 -->
                         </div>
                     </div>
                 </div>
@@ -61,7 +61,7 @@ export default {
     data() {
         return {
             photos: [],
-            myData:[],
+            myData: [],
             test: "",
             bigpic: '',
             showBtn: true,
@@ -72,9 +72,9 @@ export default {
                     num: "Day1 旅程啟航！",
                     schedule: "從地球啟程後可飽覽星際風光，隔日中午抵達月球，在銀河中體驗太空中漂浮。",
                     imgUrls: [
-                        require('@/assets/image/itinerary_combo/c11.jpg'),  
-                        require('@/assets/image/itinerary_combo/c12.jpg'),
-                        require('@/assets/image/itinerary_combo/c13.jpg'),
+                        // require('@/assets/image/itinerary_combo/c11.jpg'),
+                        // require('@/assets/image/itinerary_combo/c12.jpg'),
+                        // require('@/assets/image/itinerary_combo/c13.jpg'),
                     ],
                 },
                 {
@@ -186,7 +186,7 @@ export default {
             return schedules;
         },
     },
-    
+
     mounted() {
 
         const el = document.querySelector('#main-container')
@@ -209,7 +209,7 @@ export default {
                 direction: "horizontal"
             }
         });
-   
+
 
     },
     beforeUnmount() {
@@ -257,27 +257,27 @@ export default {
 
     },
     created() {
-axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryCombo.php')
-    .then(response => {
-        this.myData = response.data;
-        const text = this.myData?.itinerary?.[0]?.itinerary_day || ''
-        const schedules = this.splitWord(text)
-        const photos= Array.from({ length: this.schedules.length * 3 }, (v, i) => {
-            return this.myData.itinerary_photos[i % this.myData.itinerary_photos.length]
-        });
-        this.schedules = this.schedules.map((v, i) => {
-            return {
-                ...v,
-                ...schedules[i],
-                imgUrls: photos.slice(i * 3, (i + 1) * 3)
-            }
-        })
-    })
-    .catch(error => {
-        console.error(error);
-    });
+        axios.get(`${this.$store.state.phpPublicPath}ItineraryCombo.php`)
+            .then(response => {
+                this.myData = response.data;
+                const text = this.myData?.itinerary?.[0]?.itinerary_day || ''
+                const schedules = this.splitWord(text)
+                const photos = Array.from({ length: this.schedules.length * 3 }, (v, i) => {
+                    return this.myData.itinerary_photos[i % this.myData.itinerary_photos.length]
+                });
+                this.schedules = this.schedules.map((v, i) => {
+                    return {
+                        ...v,
+                        ...schedules[i],
+                        imgUrls: photos.slice(i * 3, (i + 1) * 3)
+                    }
+                })
+            })
+            .catch(error => {
+                console.error(error);
+            });
 
-},
+    },
 };
 
 </script>

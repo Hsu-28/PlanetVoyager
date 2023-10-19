@@ -5,7 +5,7 @@ try {
     header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
     header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
     header("Content-Type: application/json"); 
-    require_once("../../../connect_chd103g3.php");
+    require_once("../../connect_chd103g3.php");
 
     $donate_id = $_POST['donate_id'];
     $donate_amount = $_POST['donate_amount'];

@@ -15,7 +15,7 @@
                 <div class="title" style="writing-mode: vertical-lr" data-scroll data-scroll-speed="1">
                     <div>
                         <h1 v-if="planet_subtitle">
-                           {{ planet_subtitle }}
+                            {{ planet_subtitle }}
                         </h1>
                     </div>
 
@@ -29,8 +29,9 @@
                         <p>{{ day.schedule }}</p>
                     </div>
                     <div class="schedule-pic">
-                        <div v-for="(URL, picIndex) in day.imgUrls" :key="picIndex" class="image-box" @click="showPic($event)">
-                            <img :src="`img/${URL.itinerary_pic}`">
+                        <div v-for="(URL, picIndex) in day.imgUrls" :key="picIndex" class="image-box"
+                            @click="showPic($event)">
+                            <img :src="`${this.$store.state.publicURL}/img/${URL.itinerary_pic}`">
                         </div>
                     </div>
                 </div>
@@ -48,7 +49,7 @@ export default {
             bigpic: '',
             showBtn: true,
             scroll: null,
-            myData:[],
+            myData: [],
             schedules: [
                 {
                     schedulenum: "schedule1",
@@ -123,7 +124,7 @@ export default {
             this.bigpic = e.target.src;
         },
         close() {
-            if( this.bigpic != ''){
+            if (this.bigpic != '') {
                 this.bigpic = '';
             }
         },
@@ -216,34 +217,34 @@ export default {
     },
     beforeUnmount() {
         console.log(this.scroll);
-    if (this.scroll) {
-      this.scroll.destroy();
-    }
-    console.log(this.scroll);
-  },  
-  created() {
+        if (this.scroll) {
+            this.scroll.destroy();
+        }
+        console.log(this.scroll);
+    },
+    created() {
+        // axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryMars.php')
+        axios.get(`${this.$store.state.phpPublicPath}ItineraryMars.php`)
+            .then(response => {
+                this.myData = response.data;
+                const text = this.myData?.itinerary?.[0]?.itinerary_day || ''
+                const schedules = this.splitWord(text)
+                const photos = Array.from({ length: this.schedules.length * 3 }, (v, i) => {
+                    return this.myData.itinerary_photos[i % this.myData.itinerary_photos.length]
+                });
+                this.schedules = this.schedules.map((v, i) => {
+                    return {
+                        ...v,
+                        ...schedules[i],
+                        imgUrls: photos.slice(i * 3, (i + 1) * 3)
+                    }
+                })
+            })
+            .catch(error => {
+                console.error(error);
+            });
 
-axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryMars.php')
-    .then(response => {
-        this.myData = response.data;
-        const text = this.myData?.itinerary?.[0]?.itinerary_day || ''
-        const schedules = this.splitWord(text)
-        const photos= Array.from({ length: this.schedules.length * 3 }, (v, i) => {
-            return this.myData.itinerary_photos[i % this.myData.itinerary_photos.length]
-        });
-        this.schedules = this.schedules.map((v, i) => {
-            return {
-                ...v,
-                ...schedules[i],
-                imgUrls: photos.slice(i * 3, (i + 1) * 3)
-            }
-        })
-    })
-    .catch(error => {
-        console.error(error);
-    });
-
-},        
+    },
 };
 
 </script>
@@ -308,7 +309,7 @@ axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryMars.php')
         z-index: 10;
 
         img {
-            z-index:2;
+            z-index: 2;
             max-width: 100%;
             width: 100%;
             height: 100%;

@@ -5,7 +5,7 @@ try {
     header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
     header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
     header("Content-Type: application/json");
-    require_once("../../../connect_chd103g3.php");
+    require_once("../../connect_chd103g3.php");
 
     // SQL 查询1
     $sql_query = "SELECT planet_subtitle, itinerary_day FROM itinerary WHERE itinerary_no = 4";

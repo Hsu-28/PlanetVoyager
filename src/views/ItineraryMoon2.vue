@@ -15,7 +15,7 @@
                 <div class="title" style="writing-mode: vertical-lr" data-scroll data-scroll-speed="1">
                     <div>
                         <h1 v-if="planet_subtitle">
-                           {{ planet_subtitle }}
+                            {{ planet_subtitle }}
                         </h1>
                     </div>
 
@@ -31,7 +31,7 @@
                     <div class="schedule-pic">
                         <div v-for="(URL, picIndex) in day.imgUrls" :key="picIndex" class="image-box"
                             @click="showPic($event)">
-                            <img :src="`img/${URL.itinerary_pic}`">
+                            <img :src="`${this.$store.state.publicURL}/img/${URL.itinerary_pic}`">
                         </div>
                     </div>
                 </div>
@@ -229,27 +229,27 @@ export default {
     },
     created() {
 
-axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryMoon2.php')
-    .then(response => {
-        this.myData = response.data;
-        const text = this.myData?.itinerary?.[0]?.itinerary_day || ''
-        const schedules = this.splitWord(text)
-        const photos= Array.from({ length: this.schedules.length * 3 }, (v, i) => {
-            return this.myData.itinerary_photos[i % this.myData.itinerary_photos.length]
-        });
-        this.schedules = this.schedules.map((v, i) => {
-            return {
-                ...v,
-                ...schedules[i],
-                imgUrls: photos.slice(i * 3, (i + 1) * 3)
-            }
-        })
-    })
-    .catch(error => {
-        console.error(error);
-    });
+        axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryMoon2.php')
+            .then(response => {
+                this.myData = response.data;
+                const text = this.myData?.itinerary?.[0]?.itinerary_day || ''
+                const schedules = this.splitWord(text)
+                const photos = Array.from({ length: this.schedules.length * 3 }, (v, i) => {
+                    return this.myData.itinerary_photos[i % this.myData.itinerary_photos.length]
+                });
+                this.schedules = this.schedules.map((v, i) => {
+                    return {
+                        ...v,
+                        ...schedules[i],
+                        imgUrls: photos.slice(i * 3, (i + 1) * 3)
+                    }
+                })
+            })
+            .catch(error => {
+                console.error(error);
+            });
 
-},   
+    },
 };
 
 </script>

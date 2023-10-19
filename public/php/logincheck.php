@@ -5,7 +5,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 header("Content-Type: application/json"); 
 
 try{
-  require_once("../../../connect_chd103g3.php");
+  require_once("../../connect_chd103g3.php");
   $sql = "select * from `member` where email=:memId and mem_pw=:memPsw"; 
   $member = $pdo->prepare($sql);
   $member->bindValue(":memId", $_POST["memId"]);
@@ -21,6 +21,7 @@ try{
     //自資料庫中取回資料
     $memRow = $member->fetch(PDO::FETCH_ASSOC);
     session_start();
+    $_SESSION["mem_no"] = $memRow["mem_no"];
     $_SESSION["memId"] = $memRow["email"];
     $_SESSION["mem_pw"] = $memRow["mem_pw"];
     //送出登入者的姓名資料
