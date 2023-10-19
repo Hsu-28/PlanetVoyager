@@ -24,7 +24,7 @@ try{
     $_SESSION["memId"] = $memRow["email"];
     $_SESSION["mem_pw"] = $memRow["mem_pw"];
     //送出登入者的姓名資料
-    $result = ["memId"=>$memRow["email"], "memPsw"=>$memRow["mem_pw"],"error" => false, "memInfo"=>$_SESSION,"session_id"=>session_id()];
+    $result = ["memId"=>$memRow["email"], "memPsw"=>$memRow["mem_pw"],"error" => false, "memInfo"=>$_SESSION,"session_id"=>session_id(), "result"=>$memRow];
     echo json_encode($result);
   }
 } catch (PDOException $e) {

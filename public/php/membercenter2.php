@@ -18,10 +18,10 @@ try{
 
 
     // 下sql指令
-    $sql_query = "SELECT 
-    * FROM trip WHERE trip_no = '1'";
+    $sql_query = "SELECT * FROM trip WHERE trip_no =".$_GET['id'];
     $statement = $pdo->query($sql_query);
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    
 
     // 返回数据
     header("Content-Type: application/json");

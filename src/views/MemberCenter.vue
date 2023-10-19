@@ -178,7 +178,7 @@
                 <div class="overlay" v-if="isPopupVisible"></div>
                 <!-- 明細查看彈窗 -->
                 <div class="popupBooking" v-if="isPopupVisible">
-                    <div v-for="(user, userIndex) in bookings" :key="user.id" class="bookingInfo">
+                    <div v-for="(user, index) in bookings" :key="user.id" class="bookingInfo">
                       <button  @click="isPopupVisible = !isPopupVisible">CLOSE</button>
                       <p class="bookingTitle">旅程訂購資訊</p>
                       <div class="bookingInfoBox"> 
@@ -186,7 +186,7 @@
                           <p class="bookingTotalPassanger"> 旅客人數:<span>{{ phpData3[0].ord_people }}</span>人</p>
                           
                             <div class="container-control">
-                              <p class="bookingId">乘客{{ userIndex +1 }}</p>
+                              <p class="bookingId">乘客</p>
                               <div class="booking-container">
                                   <div class="bookingLastName">
                                       <span class="bookingSecondTitle">姓名</span>
@@ -312,9 +312,9 @@
               <hr class="order-hr">
             </div>
             <div class="form-group">
-              <div v-for="(user, userIndex) in donates" :key="index" class="donateInfo">
+              <div v-for="(user, index) in donates" :key="index" class="donateInfo">
                 <div class="donate-order">
-                  <div class="donate-cell"><p>{{ user.donate_no }}</p></div>
+                  <div class="donate-cell"><p>{{ index+1 }}</p></div>
                   <div class="donate-cell"> <p>{{ user.donate_amount }}</p></div>
                   <div class="donate-cell"> <p>{{ user.donate_date }}</p></div>
                   <div class="donate-cell"> <p>{{ user.donate_stat }}</p></div>

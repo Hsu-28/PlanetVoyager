@@ -17,10 +17,11 @@ try{
     // echo "email : ", $_SESSION["email"], "<br>";
 
 
+    $memid=$_GET['id'];
     // 下sql指令
     $sql_query = "SELECT 
     *
-    FROM member WHERE mem_no = '1' ";
+    FROM member WHERE mem_no =".$_GET['id'];
     $statement = $pdo->query($sql_query);
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 

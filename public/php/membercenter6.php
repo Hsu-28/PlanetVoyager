@@ -19,7 +19,7 @@ try{
 
     // 下sql指令
     $sql_query = "SELECT 
-    * FROM donate WHERE donate_id = '1'";
+    * FROM donate WHERE donate_id = ".$_GET['id'];
     $statement = $pdo->query($sql_query);
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 

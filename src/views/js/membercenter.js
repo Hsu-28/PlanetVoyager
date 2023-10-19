@@ -78,7 +78,6 @@ import axios from 'axios';
         activeIndex: 0, 
         showContent: 'content1',
         bookings: [],
-        selectedUser: null, 
         buttonColors: {
           content1: '#01C1FD',
           content2: '#F0F0F0',
@@ -175,16 +174,23 @@ import axios from 'axios';
         validPassword: true,//密碼小於8個
         consistent: true,//確認密碼
         memId: '' ,
-        textIcon: require("@/assets/image/membercenter/open.png"),//展示图标
-        pwdIcon: require("@/assets/image/membercenter/close.png"),//隐藏图标
-
+        textIcon: require("@/assets/image/membercenter/open.png"),//打開眼睛
+        pwdIcon: require("@/assets/image/membercenter/close.png"),//關閉眼睛
       };
     },
-
+    computed: {
+      memid(){
+        return JSON.parse(localStorage.getItem('user')).mem_no
+      }
+    },
     created(){
 
       //引入api
-      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter1.php')
+      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter1.php',{
+        params:{
+          id:this.memid
+        }
+      })
       .then(response => {
         this.phpData= response.data;
       })
@@ -192,7 +198,11 @@ import axios from 'axios';
         console.error(error);
       });
 
-      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter2.php')
+      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter2.php', {
+        params:{
+          id:this.memid
+        }
+      })
        .then(response => {
         this.phpData2 = response.data; 
         const trip_date = this.phpData2[0].trip_date;
@@ -202,7 +212,11 @@ import axios from 'axios';
         console.error(error);
       });
 
-      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter3.php')
+      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter3.php',{
+        params:{
+          id:this.memid
+        }
+      })
       .then(response => {
         this.phpData3 = response.data;
         this.bookings = response.data;
@@ -218,17 +232,26 @@ import axios from 'axios';
         console.error(error);
       });
 
-      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter4.php')
+      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter4.php',{
+        params:{
+          id:this.memid
+        }
+      })
       .then(response => {
         this.phpData4 = response.data; 
         const planetSubtitle = this.phpData4[0].planet_subtitle;
+        // this.itineraryImagePath = this.getItineraryImagePath(planetSubtitle);
         console.log('Planet Subtitle from membercenter4.php:', planetSubtitle);
       })
       .catch(error => {
         console.error(error);
       });
 
-      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter5.php')
+      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter5.php',{
+        params:{
+          id:this.memid
+        }
+      })
        .then(response => {
         this.members = response.data;
         this.bookings = response.data;
@@ -244,7 +267,11 @@ import axios from 'axios';
         console.error(error);
       });
 
-      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter6.php')
+      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter6.php',{
+        params:{
+          id:this.memid
+        }
+      })
       .then(response => {
         this.donates = response.data;
         this.phpData6 = response.data;
@@ -262,7 +289,11 @@ import axios from 'axios';
          console.error(error);
       });
 
-      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter7.php')
+      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter7.php',{
+        params:{
+          id:this.memid
+        }
+      })
       .then(response => {
         this.receipts = this.phpData7;
         this.phpData7 = response.data;
@@ -283,6 +314,8 @@ import axios from 'axios';
 
       //抓取會員等級icon
       this.getIconPath();
+      //抓取行程圖片
+      this.getItineraryImagePath();
     },
 
     mounted() {
@@ -388,28 +421,6 @@ import axios from 'axios';
             // mode: 'cors',
           })
 
-          //  .then(response => response.json())
-          //  .then(data => {
-          //    console.log(data);
-          //  })
-          //  .catch(error => {
-          //    console.error(error);
-          //  });
-
-          // .then(response => {
-          //   console.log(response),
-          //   response.json()
-          // })
-          //  .then((jsonData) => {
-          //    window.location.reload();
-          //    console.log(jsonData);
-          //    alert('編輯成功');
-          //  })
-          // .catch((error) => {
-          //   console.log(error.message);
-          //   // alert('編輯失敗，請檢查輸入的資料');
-          // });
-          
             .then((response) => {
               if ( response.ok ) {
                 console.log(response);
@@ -450,7 +461,7 @@ import axios from 'axios';
       //   // benefit.amount = `$${totalAmount.toLocaleString()}`;
       // });
 
-    },
+      },
 
       getIconPath() {
         if (this.phpData && this.phpData[0] && this.phpData[0].mem_level) {
@@ -471,9 +482,8 @@ import axios from 'axios';
             case '鑽':
                 return require('@/assets/image/membercenter/diamond.svg');
         }
-    },
-  
-    //抓取行程圖片
+      },
+      //抓取行程圖片
       getItineraryImagePath(planetSubtitle) {
           switch (planetSubtitle) {
               case '星際繞行':
@@ -505,12 +515,19 @@ import axios from 'axios';
         //   }
         // },
 
-        showBookingDetails(user) {
-          // 將點擊的使用者資訊賦值給 selectedUser
+        showBookingDetails(user, userIndex) {
           this.selectedUser = user;
-          // 顯示彈窗
+          this.selectedUserIndex = userIndex;
+          console.log("selectedUserIndex:", this.selectedUserIndex); // 确认值是否正确
           this.isPopupVisible = true;
-        },
+      },
+
+        // showBookingDetails(user) {
+        //   // 將點擊的使用者資訊賦值給 selectedUser
+        //   this.selectedUser = user;
+        //   // 顯示彈窗
+        //   this.isPopupVisible = true;
+        // },
       
   
        // 登出

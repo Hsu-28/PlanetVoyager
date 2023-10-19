@@ -18,7 +18,7 @@ try{
 
 
     // 下sql指令
-    $sql_query = "SELECT * FROM donate WHERE donate_id = '1' AND YEAR(donate_date) = 2022;";
+    $sql_query = "SELECT * FROM donate WHERE donate_id =  ".$_GET['id'] AND YEAR(donate_date) = 2022;";
     $statement = $pdo->query($sql_query);
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
