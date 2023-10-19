@@ -179,14 +179,20 @@ import axios from 'axios';
       };
     },
     computed: {
-      memid(){
-        return JSON.parse(localStorage.getItem('user')).mem_no
+      memid() {
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (!user || !user.mem_no) {
+          // 重定向到登錄或進行適當處理
+          return null;
+        }
+        return user.mem_no;
       }
+  
     },
     created(){
-
+     
       //引入api
-      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter1.php',{
+      axios.get( 'http://localhost/PV/PlanetVoyager/public/php/membercenter1.php',{
         params:{
           id:this.memid
         }
@@ -488,7 +494,7 @@ import axios from 'axios';
           switch (planetSubtitle) {
               case '星際繞行':
                   return require('@/assets/image/membercenter/c12.jpg');
-              case '月球巡禮':
+              case '月 球 巡 禮':
                   return require('@/assets/image/membercenter/moon2_booking.jpg');
               case '太空之心':
                   return require('@/assets/image/membercenter/moon_heart_marsLife_booking.jpg');
