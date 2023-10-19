@@ -19,7 +19,7 @@ try{
 
     // 下sql指令
     $sql_query = "SELECT 
-    * FROM donate WHERE donate_id = ".$_GET['id'];
+    * FROM donate WHERE donate_id = ".$_GET['id']." AND donate_date NOT LIKE '2022%'";
     $statement = $pdo->query($sql_query);
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 

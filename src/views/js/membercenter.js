@@ -174,6 +174,7 @@ import axios from 'axios';
         validPassword: true,//密碼小於8個
         consistent: true,//確認密碼
         memId: '' ,
+        pwdFlag:true,//控制眼睛開閉
         textIcon: require("@/assets/image/membercenter/open.png"),//打開眼睛
         pwdIcon: require("@/assets/image/membercenter/close.png"),//關閉眼睛
       };
@@ -187,12 +188,12 @@ import axios from 'axios';
         }
         return user.mem_no;
       }
-  
+    
     },
     created(){
-     
       //引入api
-      axios.get( `${this.$store.state.phpPublicPath}membercenter1.php`,{
+      // axios.get( 'http://localhost/PV/PlanetVoyager/public/php/membercenter1.php')
+      axios.get(`${this.$store.state.phpPublicPath}membercenter1.php`,{
         params:{
           id:this.memid
         }
@@ -204,6 +205,7 @@ import axios from 'axios';
         console.error(error);
       });
 
+      // axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter2.php')
       axios.get(`${this.$store.state.phpPublicPath}membercenter2.php`, {
         params:{
           id:this.memid
@@ -218,6 +220,7 @@ import axios from 'axios';
         console.error(error);
       });
 
+      // axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter3.php')
       axios.get(`${this.$store.state.phpPublicPath}membercenter3.php`,{
         params:{
           id:this.memid
@@ -238,6 +241,7 @@ import axios from 'axios';
         console.error(error);
       });
 
+      // axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter4.php')
       axios.get(`${this.$store.state.phpPublicPath}membercenter4.php`,{
         params:{
           id:this.memid
@@ -253,6 +257,7 @@ import axios from 'axios';
         console.error(error);
       });
 
+      //axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter5.php')
       axios.get(`${this.$store.state.phpPublicPath}membercenter5.php`,{
         params:{
           id:this.memid
@@ -273,13 +278,15 @@ import axios from 'axios';
         console.error(error);
       });
 
+      //axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter6.php')
       axios.get(`${this.$store.state.phpPublicPath}membercenter6.php`,{
         params:{
           id:this.memid
         }
       })
       .then(response => {
-        this.donates = response.data;
+        this.phpData7 = []; // 清空 phpData7
+        // this.donates = this.phpData6;
         this.phpData6 = response.data;
         
         const donate_no = this.phpData6[0].donate_no;
@@ -295,6 +302,7 @@ import axios from 'axios';
          console.error(error);
       });
 
+      // axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter7.php')
       axios.get(`${this.$store.state.phpPublicPath}membercenter7.php`,{
         params:{
           id:this.memid
@@ -303,11 +311,11 @@ import axios from 'axios';
       .then(response => {
         this.receipts = this.phpData7;
         this.phpData7 = response.data;
-        
-        const donate_no = this.phpData7[0].donate_no;
-        const donate_amount = this.phpData7[0].donate_amount ;
-        const donate_date  = this.phpData7[0].donate_date ;
-        const donate_stat  = this.phpData7[0].donate_stat ;
+
+         const donate_no = this.phpData7[0].donate_no;
+         const donate_amount = this.phpData7[0].donate_amount ;
+         const donate_date  = this.phpData7[0].donate_date ;
+         const donate_stat  = this.phpData7[0].donate_stat ;
         console.log('從membercenter7.php獲取的收據數據：', this.receipts);
         console.log('donate_no from membercenter7.php:', donate_no);
         console.log('donate_amount from membercenter7.php:', donate_amount);
@@ -346,7 +354,7 @@ import axios from 'axios';
           }
       },
 
-      //改变眼睛開關
+      //改變眼睛開關
       changePwd:function(){
            this.pwdFlag=!this.pwdFlag;
       },
@@ -377,6 +385,7 @@ import axios from 'axios';
       },
       //將新密碼傳到資料庫
        updatePwd() {
+          // const url = 'http://localhost/PV/PlanetVoyager/public/php/updatePassword.php';
           const url = `${this.$store.state.phpPublicPath}updatePassword.php`;
           const formData = new FormData();
           formData.append("mem_pw", this.newPassword);
@@ -405,9 +414,10 @@ import axios from 'axios';
           });
 
      },
-
+    
          //修改會員資料  
          saveBtn() {
+          //const url = 'http://localhost/PV/PlanetVoyager/public/php/editMemberProfile.php';
           const url = `${this.$store.state.phpPublicPath}editMemberProfile.php`;
           const formData = new FormData();
           formData.append("mem_no", this.phpData[0].mem_no);
@@ -446,6 +456,7 @@ import axios from 'axios';
       //抓取會員等級icon
       async loadData() {
         try {
+          //const response = await axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter1.php');
           const response = await axios.get(`${this.$store.state.phpPublicPath}membercenter1.php`);
           this.phpData = response.data;
         } catch (error) {
@@ -524,20 +535,14 @@ import axios from 'axios';
         showBookingDetails(user, userIndex) {
           this.selectedUser = user;
           this.selectedUserIndex = userIndex;
-          console.log("selectedUserIndex:", this.selectedUserIndex); // 确认值是否正确
+          console.log("selectedUserIndex:", this.selectedUserIndex); 
           this.isPopupVisible = true;
       },
 
-        // showBookingDetails(user) {
-        //   // 將點擊的使用者資訊賦值給 selectedUser
-        //   this.selectedUser = user;
-        //   // 顯示彈窗
-        //   this.isPopupVisible = true;
-        // },
-      
   
        // 登出
         async handleOptionClick(option) {
+          //const response = await axios.get('http://localhost/PV/PlanetVoyager/public/php/logout.php');
           const response = await axios.get(`${this.$store.state.phpPublicPath}logout.php`);
           if (option.id === 5) {
             this.$router.push('/');
