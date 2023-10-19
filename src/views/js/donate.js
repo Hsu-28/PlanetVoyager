@@ -241,7 +241,7 @@ export default {
     created() {
         // 發起HTTP GET 請求
         axios.get(`${this.$store.state.phpPublicPath}donate.php`)
-        // axios.get('http://localhost/PV/PlanetVoyager/public/php/donate.php')
+    // axios.get('http://localhost/PV/PlanetVoyager/public/php/donate.php')
         axios.get(`${this.$store.state.phpPublicPath}donate.php`)
             .then(response => {
                 this.questions = response.data;
@@ -250,7 +250,7 @@ export default {
             .catch(error => {
                 console.error(error);
             });
-        // axios.get('http://localhost/PV/PlanetVoyager/public/php/donateMember.php')
+     // axios.get('http://localhost/PV/PlanetVoyager/public/php/donateMember.php')
         axios.get(`${this.$store.state.phpPublicPath}donateMember.php`)
             .then(response => {
                 this.name = response.data["mem_name"]
