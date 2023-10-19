@@ -1,9 +1,15 @@
 <template>
-    <div class="bigImg">
+    <!-- <div class="bigImg">
         <img src="@/assets/image/teamMembers/big.jpg" alt="big-iamge">
         <div class="introduceTitle">
             <p>團隊介紹</p>
             <p>TOURIST GUIDE</p>
+        </div>
+    </div> -->
+    <div class="bannerImg">
+        <div class="introduceTitle">
+            <h1>團隊介紹</h1>
+            <span>TOURIST GUIDE</span>
         </div>
     </div>
     <div class="jobAll">
@@ -22,17 +28,18 @@
                 </p>
                 <p class="br">{{ jobContent.jobText }}</p>
             </div>
-            <div class='memberComtent'>        
+            <div class='memberComtent'>
                 <div v-for="(thisjob, memberIndex) in memberCount(jobIndex)" :key="'member-' + memberIndex"
                     class="individual" @click="detailShow(thisjob)">
 
                     <div class="imgContent">
-                        <img :src="require(`@/assets/image/teamMembers/memberSvg/${thisjob.team_memimage}`)" alt="團隊照片" class="memberImg">
+                        <img :src="require(`@/assets/image/teamMembers/memberSvg/${thisjob.team_memimage}`)" alt="團隊照片"
+                            class="memberImg">
                     </div>
                     <div class="membersSpan">
                         <p>{{ thisjob.team_memname }}</p>
                         <p class="jobTitleMem">{{ thisjob.team_memjob }}</p>
-                        <div class="number">{{ `00${memberIndex+1}`}}</div>
+                        <div class="number">{{ `00${memberIndex + 1}` }}</div>
                     </div>
                 </div>
             </div>
@@ -45,7 +52,8 @@
                     <p class="clickTitle">{{ detailContent.team_memjob }}</p>
                     <div class="memberContent">
                         <div class="detailImg">
-                            <img :src="require(`@/assets/image/teamMembers/memberSvg/${detailContent.team_memimage}`)" alt="團隊照片" class="memberImg">
+                            <img :src="require(`@/assets/image/teamMembers/memberSvg/${detailContent.team_memimage}`)"
+                                alt="團隊照片" class="memberImg">
                         </div>
                         <p class="br">{{ detailContent.team_memexperience }}</p>
                     </div>
@@ -105,7 +113,7 @@ export default {
                 },
 
             ],
-            member:[],
+            member: [],
             // member: [
             //     {
             //         number: "001",
@@ -242,12 +250,12 @@ export default {
     },
     created() {
         axios.get('http://localhost/PV/PlanetVoyager/public/php/teammembers.php')
-      .then(response => {
-        this.member = response.data;
-      })
-      .catch(error => {
-        console.error(error);
-      });
+            .then(response => {
+                this.member = response.data;
+            })
+            .catch(error => {
+                console.error(error);
+            });
     }
 
 }
