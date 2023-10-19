@@ -7,6 +7,7 @@ export default {
     },
     data() {
         return {
+            questions: {},
             status: "donate",
             inputText: '',
             name: "",
@@ -181,6 +182,7 @@ export default {
                 e.target.nextElementSibling.focus();
             }
         },
+
         changetomember() {
             this.status = 'checkinfo';
             console.log(this.status);
@@ -201,7 +203,8 @@ export default {
                 donate_stat: "成功",
                 email: this.email,
             };
-            axios.post('http://localhost/PV/PlanetVoyager/public/php/donate.php', data, {
+            // axios.post('http://localhost/PV/PlanetVoyager/public/php/donate.php', data, {
+            axios.post('https://tibamef2e.com/chd103/g3/PlanetVoyager/php/donate.php', data, {
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 }
@@ -238,10 +241,40 @@ export default {
     },
     created() {
         // 發起HTTP GET 請求
-        axios.get('http://localhost/PV/PlanetVoyager/public/php/donate.php')
+        // axios.get('http://localhost/PV/PlanetVoyager/public/php/donate.php')
+        axios.get('https://tibamef2e.com/chd103/g3/PlanetVoyager/php/donate.php')
             .then(response => {
                 this.questions = response.data;
                 console.log(this.questions)
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        // axios.get('http://localhost/PV/PlanetVoyager/public/php/donateMember.php')
+        axios.get('https://tibamef2e.com/chd103/g3/PlanetVoyager/php/donateMember.php')
+            .then(response => {
+                this.name = response.data["mem_name"]
+                this.email = response.data["email"]
+                this.address = response.data["address"]
+                // this.questions = response.data;
+                console.log(response.data)
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+        //登入狀態驗證
+        fetch('https://tibamef2e.com/chd103/g3/PlanetVoyager/php/verifyLogin.php', {
+            mode: "cors",
+            credentials: "include",
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.msg === "未登入") {
+                    alert('請先登入會員再報名旅程！');
+                    document.getElementById("pay_btn").disabled = true;
+                    document.getElementById("pay_btn").title = "請先登入會員！";
+                }
             })
             .catch(error => {
                 console.error(error);

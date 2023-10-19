@@ -97,7 +97,8 @@
               </div>
               <p>{{ money.p1 }}</p>
               <div class="but2">
-                <ButtonFlashBox type="submit" :buttonText="'我要捐款'" :buttonBottomText="'-pv-'" class="btn2-ls">
+                <ButtonFlashBox id="pay_btn" type="submit" :buttonText="'我要捐款'" :buttonBottomText="'-pv-'"
+                  class="btn2-ls">
                 </ButtonFlashBox>
               </div>
             </form>
@@ -114,6 +115,11 @@
 
                 <label for="address">聯絡地址：</label>
                 <input type="text" id="address" v-model="address" required><br><br>
+
+                <!-- <p class="mem-name">姓名：{{ questions.mem_neme }}</p>
+                <p class="mem-name">信箱：{{ money.p1 }}</p>
+                <p class="mem-name">聯絡地址：{{ money.p1 }}</p> -->
+
                 <div class="but2">
                   <ButtonFlashBox type="submit" :buttonText="'下一步 填寫信用卡'" :buttonBottomText="'-pv-'" class="btn2-ls">
                   </ButtonFlashBox>

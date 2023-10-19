@@ -1,9 +1,72 @@
-
-@mixin mobileBSb{
-    @media(max-width:450px){
-      @content;
+@mixin mobileBSb {
+    @media(max-width:450px) {
+        @content;
     }
-  }
+}
+
+.bannerImg {
+    background-image: url("../assets/image/teamMembers/big.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top left;
+    height: 400px;
+    width: 100%;
+    position: relative;
+    display: flex;
+
+    @include padBS {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .introduceTitle {
+        color: $white;
+        position: absolute;
+        top: 30%;
+        right: 7%;
+        text-align: center;
+
+        @include padBS {
+            top: auto;
+            right: auto;
+        }
+    }
+
+    .introduceTitle h1 {
+        font-size: $h1-l;
+        padding-bottom: 10px;
+        font-weight: 700;
+        text-shadow:
+            3px 3px 10px #20202075,
+            2px -1px 10px #20202075,
+            2px -1px 10px #20202075,
+            -1px 1px 10px #20202075,
+            3px 1px 0 #20202075;
+
+        @include padBS {
+            font-size: $h1-m;
+        }
+    }
+
+    .introduceTitle span {
+        font-size: $h1-l;
+        font-weight: 700;
+        display: block;
+        text-shadow:
+            3px 3px 10px #20202075,
+            2px -1px 10px #20202075,
+            2px -1px 10px #20202075,
+            -1px 1px 10px #20202075,
+            3px 1px 0 #20202075;
+
+        @include padBS {
+            font-size: $h1-m;
+            font-weight: 700;
+        }
+    }
+}
 
 .bigImg {
     margin-top: 20px;
