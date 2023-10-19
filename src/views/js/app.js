@@ -11,6 +11,7 @@ export default {
   data() {
 
     return {
+      isLogin: false,
       i: 0,
       displayText: '',
       showMenu: false,
@@ -226,5 +227,20 @@ export default {
       .catch(error => {
         console.error(error);
       });
+    //登入狀態驗證
+    fetch('https://tibamef2e.com/chd103/g3/php/verifyLogin.php', {
+      mode: "cors",
+      credentials: "include",
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.msg === "已登入") {
+          this.isLogin = true;
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    
   }
 };
