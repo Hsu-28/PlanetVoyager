@@ -206,7 +206,7 @@ export default {
             };
             // axios.post('http://localhost/PV/PlanetVoyager/public/php/donate.php', data, {
             // axios.post('https://tibamef2e.com/chd103/g3/PlanetVoyager/php/donate.php', data, {
-            axios.get(`${this.$store.state.phpPublicPath}/donate.php`, data, {
+            axios.get(`${this.$store.state.phpPublicPath}donate.php`, data, {
 
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -244,41 +244,48 @@ export default {
     },
     created() {
         // 發起HTTP GET 請求
-        axios.get(`${this.$store.state.phpPublicPath}donate.php`)
-    // axios.get('http://localhost/PV/PlanetVoyager/public/php/donate.php')
-        axios.get(`${this.$store.state.phpPublicPath}donate.php`)
-            .then(response => {
-                this.questions = response.data;
-                console.log(this.questions)
-            })
-            .catch(error => {
-                console.error(error);
-            });
-     // axios.get('http://localhost/PV/PlanetVoyager/public/php/donateMember.php')
-        axios.get(`${this.$store.state.phpPublicPath}donateMember.php`)
-            .then(response => {
-                this.name = response.data["mem_name"]
-                this.email = response.data["email"]
-                this.address = response.data["address"]
-                // this.questions = response.data;
-                console.log(response.data)
-            })
-            .catch(error => {
-                console.error(error);
-            });
+        // axios.get('http://localhost/PV/PlanetVoyager/public/php/donate.php')
+        // axios.get(`${this.$store.state.phpPublicPath}donate.php`)
+        //     .then(response => {
+        //         this.questions = response.data;
+        //         console.log(this.questions)
+        //     })
+        //     .catch(error => {
+        //         console.error(error);
+        //     });
 
         //登入狀態驗證
+        //axios.get('https://tibamef2e.com/chd103/g3/PlanetVoyager/php/verifyLogin.php')
+        // axios.get(`${this.$store.state.phpPublicPath}verifyLogin.php`)
         fetch(`${this.$store.state.phpPublicPath}verifyLogin.php`, {
             mode: "cors",
             credentials: "include",
         })
             .then(response => response.json())
             .then(data => {
+                console.log(data.msg);
                 if (data.msg === "未登入") {
                     alert('請先登入進行捐款喔！');
                     document.getElementById("pay_btn").disabled = true;
                     document.getElementById("pay_btn").title = "請先登入會員！";
                 }
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+        // axios.get('http://localhost/PV/PlanetVoyager/public/php/donateMember.php')
+        axios.get('https://tibamef2e.com/chd103/g3/PlanetVoyager/php/donateMember.php')
+            // axios.get(`${this.$store.state.phpPublicPath}donateMember.php`)
+            .then(response => {
+                this.name = response.data[0]["mem_name"]
+                this.email = response.data[0]["email"]
+                this.address = response.data[0]["address"]
+                // this.questions = response.data;
+                console.log(response.data);
+                console.log(response.data[0]["mem_name"]);
+                console.log(response.data[0]["email"]);
+                console.log(response.data[0]["address"]);
             })
             .catch(error => {
                 console.error(error);

@@ -14,8 +14,10 @@ $sql_query = "SELECT `mem_name`, `email`, `address` FROM `member` where `mem_no`
 
 $stmt = $pdo->prepare($sql_query);
 $stmt->bindParam(':mem_no', $_SESSION["mem_no"]);
-$stmt = $pdo->query($sql_query);
+$stmt->execute();
+// $stmt = $pdo->query($sql_query);
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 
 // 返回数据
 header("Content-Type: application/json");

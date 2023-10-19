@@ -7,7 +7,8 @@ try {
     header("Content-Type: application/json"); 
     require_once("../../connect_chd103g3.php");
 
-    $donate_id = $_POST['donate_id'];
+    session_start();
+    $donate_id = $_SESSION["mem_no"];
     $donate_amount = $_POST['donate_amount'];
     $donate_stat = $_POST['donate_stat'];
     $email = $_POST['email'];
