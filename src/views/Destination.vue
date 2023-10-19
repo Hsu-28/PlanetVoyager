@@ -422,7 +422,7 @@ export default {
     window.removeEventListener('scroll', this.scrollAppear2);
   },
   created() {
-    axios.get('http://localhost/PV/PlanetVoyager/public/php/DestinationItinerary.php')
+    axios.get(`${this.$store.state.phpPublicPath}DestinationItinerary.php`)
       .then(response => {
         const responseData = response.data;
         console.log('travelCard', this.travelCard);
@@ -444,7 +444,7 @@ export default {
       .catch(error => {
         console.error(error);
       });
-    axios.get('http://localhost/PV/PlanetVoyager/public/php/DestinationItineraryPhoto.php')
+    axios.get(`${this.$store.state.phpPublicPath}DestinationItineraryPhoto.php`)
       .then(response => {
           let banners = response.data;
           console.log('banner',banners);

@@ -192,7 +192,7 @@ import axios from 'axios';
     created(){
      
       //引入api
-      axios.get( 'http://localhost/PV/PlanetVoyager/public/php/membercenter1.php',{
+      axios.get( `${this.$store.state.phpPublicPath}membercenter1.php`,{
         params:{
           id:this.memid
         }
@@ -204,7 +204,7 @@ import axios from 'axios';
         console.error(error);
       });
 
-      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter2.php', {
+      axios.get(`${this.$store.state.phpPublicPath}membercenter2.php`, {
         params:{
           id:this.memid
         }
@@ -218,7 +218,7 @@ import axios from 'axios';
         console.error(error);
       });
 
-      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter3.php',{
+      axios.get(`${this.$store.state.phpPublicPath}membercenter3.php`,{
         params:{
           id:this.memid
         }
@@ -238,7 +238,7 @@ import axios from 'axios';
         console.error(error);
       });
 
-      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter4.php',{
+      axios.get(`${this.$store.state.phpPublicPath}membercenter4.php`,{
         params:{
           id:this.memid
         }
@@ -253,7 +253,7 @@ import axios from 'axios';
         console.error(error);
       });
 
-      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter5.php',{
+      axios.get(`${this.$store.state.phpPublicPath}membercenter5.php`,{
         params:{
           id:this.memid
         }
@@ -273,7 +273,7 @@ import axios from 'axios';
         console.error(error);
       });
 
-      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter6.php',{
+      axios.get(`${this.$store.state.phpPublicPath}membercenter6.php`,{
         params:{
           id:this.memid
         }
@@ -295,7 +295,7 @@ import axios from 'axios';
          console.error(error);
       });
 
-      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter7.php',{
+      axios.get(`${this.$store.state.phpPublicPath}membercenter7.php`,{
         params:{
           id:this.memid
         }
@@ -377,7 +377,7 @@ import axios from 'axios';
       },
       //將新密碼傳到資料庫
        updatePwd() {
-          const url = 'http://localhost/PV/PlanetVoyager/public/php/updatePassword.php';
+          const url = `${this.$store.state.phpPublicPath}updatePassword.php`;
           const formData = new FormData();
           formData.append("mem_pw", this.newPassword);
           formData.append("mem_no", this.phpData[0].mem_no);
@@ -408,7 +408,7 @@ import axios from 'axios';
 
          //修改會員資料  
          saveBtn() {
-          const url = 'http://localhost/PV/PlanetVoyager/public/php/editMemberProfile.php';
+          const url = `${this.$store.state.phpPublicPath}editMemberProfile.php`;
           const formData = new FormData();
           formData.append("mem_no", this.phpData[0].mem_no);
           formData.append("mem_name", this.phpData[0].mem_name);
@@ -446,7 +446,7 @@ import axios from 'axios';
       //抓取會員等級icon
       async loadData() {
         try {
-          const response = await axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter1.php');
+          const response = await axios.get(`${this.$store.state.phpPublicPath}membercenter1.php`);
           this.phpData = response.data;
         } catch (error) {
           console.error(error);
@@ -538,7 +538,7 @@ import axios from 'axios';
   
        // 登出
         async handleOptionClick(option) {
-          const response = await axios.get('http://localhost/PV/PlanetVoyager/public/php/logout.php');
+          const response = await axios.get(`${this.$store.state.phpPublicPath}logout.php`);
           if (option.id === 5) {
             this.$router.push('/');
           } else {
