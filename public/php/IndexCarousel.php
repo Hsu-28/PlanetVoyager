@@ -5,18 +5,15 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 header("Content-Type: application/json"); 
-require_once("../../connect_chd103g3.php");
+require_once("../../../connect_chd103g3.php");
+
 
 
 
 // 下sql指令
-$sql_query = "SELECT * FROM `news` order by news_date desc";
+$sql_query = "SELECT * FROM `index_carouse`";
 $statement = $pdo->query($sql_query);
 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-foreach($result as $i=>$row) {
-    $result[$i]["news_content"] = nl2br($result[$i]["news_content"]);
-    $result[$i]["news_title"] = nl2br($result[$i]["news_title"]);
-}
 
 // 返回数据
 header("Content-Type: application/json");

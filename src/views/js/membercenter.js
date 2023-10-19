@@ -50,16 +50,20 @@ import axios from 'axios';
         el: 'content',
         fromData: {
           image: '',
-          name: '',
-          nickname: '',
-          birthday: '',
-          selectedGender: '' ,
-          email: '',
-          address: '',
+          mem_name: "",
+          mem_nickname: "",
+          mem_birthday: "",
+          mem_gender: "",
+          // selectedGender: '' ,
+          mem_phone: "",
+          email: "",
+          address: " ",
+          mem_passport: " ",
+          mem_pw: " ",
           passportNumber: '',
           showPhoneError: false,
-          newPw: '',
-          confirmPw: '',
+          newPassword: '',
+          confirmPassword: '',
         },
         genderOptions: [
             { value: '男', label: '男性' },
@@ -168,20 +172,18 @@ import axios from 'axios';
         isPopupVisible:false,
         currentTime: '' ,
         isChecked: true ,
+        validPassword: true,//密碼小於8個
+        consistent: true,//確認密碼
+        memId: '' ,
+        textIcon: require("@/assets/image/membercenter/open.png"),//展示图标
+        pwdIcon: require("@/assets/image/membercenter/close.png"),//隐藏图标
+
       };
     },
 
     created(){
-      //發起HTTP GET請求
-      //  axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter.php') 
-      //  .then(response => {
-      //   this.phpData = response.data;
 
-
-      // })
-      // .catch(error =>{
-      //   console.error(error);
-      // });
+      //引入api
       axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter1.php')
       .then(response => {
         this.phpData= response.data;
@@ -244,20 +246,36 @@ import axios from 'axios';
 
       axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter6.php')
       .then(response => {
-        this.receipts = response.data;
         this.donates = response.data;
         this.phpData6 = response.data;
         
         const donate_no = this.phpData6[0].donate_no;
-        const donate_amount  = this.phpData6[0].donate_amount ;
+        const donate_amount = this.phpData6[0].donate_amount ;
         const donate_date  = this.phpData6[0].donate_date ;
         const donate_stat  = this.phpData6[0].donate_stat ;
-        console.log('從membercenter6.php獲取的收據數據：', this.receipts);
         console.log('donate_no from membercenter6.php:', donate_no);
         console.log('donate_amount from membercenter6.php:', donate_amount);
         console.log('donate_date from membercenter6.php:', donate_date);
         console.log('donate_stat from membercenter6.php:', donate_stat);
-      
+      })
+      .catch(error => {
+         console.error(error);
+      });
+
+      axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter7.php')
+      .then(response => {
+        this.receipts = this.phpData7;
+        this.phpData7 = response.data;
+        
+        const donate_no = this.phpData7[0].donate_no;
+        const donate_amount = this.phpData7[0].donate_amount ;
+        const donate_date  = this.phpData7[0].donate_date ;
+        const donate_stat  = this.phpData7[0].donate_stat ;
+        console.log('從membercenter7.php獲取的收據數據：', this.receipts);
+        console.log('donate_no from membercenter7.php:', donate_no);
+        console.log('donate_amount from membercenter7.php:', donate_amount);
+        console.log('donate_date from membercenter7.php:', donate_date);
+        console.log('donate_stat from membercenter7.php:', donate_stat);
       })
       .catch(error => {
          console.error(error);
@@ -273,11 +291,13 @@ import axios from 'axios';
         window.addEventListener('resize', this.checkMobile);
         //抓取時間
         this.updateDateTime();
+        //抓取id
+        this.memId = sessionStorage.getItem('memId'); 
+        this.allow = sessionStorage.getItem('forget'); 
     },
     
-
     methods: {
-
+     
       //上方按鈕點擊切換頁面
       getActiveOption(id) {
           if (this.fixedIds.includes(id)) {
@@ -285,23 +305,126 @@ import axios from 'axios';
           } else {
             return this.optionCard.find(option => option.id === this.activeId);
           }
-        },
+      },
 
-      // async loadData() {
-      //   try {
-      //     const [response1, response2, response3, response4, response5] = await Promise.all([
-      //       axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter1.php'),
-      //       axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter2.php'),
-      //       axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter3.php'),
-      //       axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter4.php'),
-      //       axios.get('http://localhost/PV/PlanetVoyager/public/php/membercenter5.php'),
-      //     ]);
-      //     this.phpData = response1.data;
-      //     // 处理其他响应的逻辑
-      //   } catch (error) {
-      //     console.error(error);
-      //   }
-      // },
+      //改变眼睛開關
+      changePwd:function(){
+           this.pwdFlag=!this.pwdFlag;
+      },
+
+      //檢查密碼
+      validatePwd() {
+       const accountRegex = /^(?=.*[a-z])(?=.*\d)[a-z\d]{8,12}$/i;  //英數字混合帳號8~12位
+       if (!accountRegex.test(this.newPassword)) {
+          this.validPassword = false;
+          this.account ="";
+          return;
+          }
+          this.validPassword = true;
+      },
+      updatePassword() {
+       if (this.confirmPassword !== '' && this.newPassword === this.confirmPassword) {
+          // 密碼一致，執行修改密碼的程式碼
+          this.consistent = true;
+          console.log('執行修改密碼的程式碼');
+          } else {
+          //密碼不一致，顯示錯誤提示
+          this.consistent = false;
+          }
+      },
+      handleKeyUp(){
+          this.validatePwd();
+          this.updatePassword();
+      },
+      //將新密碼傳到資料庫
+       updatePwd() {
+          const url = 'http://localhost/PV/PlanetVoyager/public/php/updatePassword.php';
+          const formData = new FormData();
+          formData.append("mem_pw", this.newPassword);
+          formData.append("mem_no", this.phpData[0].mem_no);
+
+          console.log("New Password:", this.newPassword);
+          console.log("Member Number:", this.phpData[0].mem_no);
+
+          
+          fetch(url, {
+            method: "POST",
+            body: formData,
+
+          })
+          .then((response) => {
+            if ( response.ok ) {
+              console.log(response);
+              alert('編輯成功');
+            } else {
+              throw new Error("編輯失敗"); 
+            }
+
+          })
+          .catch((error) => {
+            console.log(error.message);
+          });
+
+     },
+
+         //修改會員資料  
+         saveBtn() {
+          const url = 'http://localhost/PV/PlanetVoyager/public/php/editMemberProfile.php';
+          const formData = new FormData();
+          formData.append("mem_no", this.phpData[0].mem_no);
+          formData.append("mem_name", this.phpData[0].mem_name);
+          formData.append("mem_nickname", this.phpData[0].mem_nickname);
+          formData.append("mem_gender", this.phpData[0].mem_gender);
+          formData.append("mem_birthday", this.phpData[0].mem_birthday);
+          formData.append("mem_phone", this.phpData[0].mem_phone);
+          formData.append("email", this.phpData[0].email);
+          formData.append("address", this.phpData[0].address);
+          formData.append("mem_passport", this.phpData[0].mem_passport);
+          
+        
+          fetch(url, {
+            method: "POST",
+            body: formData,
+            // mode: 'cors',
+          })
+
+          //  .then(response => response.json())
+          //  .then(data => {
+          //    console.log(data);
+          //  })
+          //  .catch(error => {
+          //    console.error(error);
+          //  });
+
+          // .then(response => {
+          //   console.log(response),
+          //   response.json()
+          // })
+          //  .then((jsonData) => {
+          //    window.location.reload();
+          //    console.log(jsonData);
+          //    alert('編輯成功');
+          //  })
+          // .catch((error) => {
+          //   console.log(error.message);
+          //   // alert('編輯失敗，請檢查輸入的資料');
+          // });
+          
+            .then((response) => {
+              if ( response.ok ) {
+                console.log(response);
+                alert('編輯成功');
+              } else {
+                throw new Error("編輯失敗"); 
+              }
+
+            })
+            .catch((error) => {
+              console.log(error.message);
+            });
+      },
+
+       
 
       //抓取會員等級icon
       async loadData() {
@@ -329,11 +452,6 @@ import axios from 'axios';
 
     },
 
-      // 點擊 input 時更新 selectedGift
-      handleGiftSelection(benefit) {
-        this.selectedGift.push(benefit.gift);
-      },
-
       getIconPath() {
         if (this.phpData && this.phpData[0] && this.phpData[0].mem_level) {
           const memLevel = this.phpData[0].mem_level;
@@ -355,12 +473,6 @@ import axios from 'axios';
         }
     },
   
-
-     updateItineraryImage() {
-      //  const planet_subtitle = this.phpData.result4[0].planet_subtitle;
-      //  this.itineraryImage = this.getItineraryImagePath( planet_subtitle);
-     },
-
     //抓取行程圖片
       getItineraryImagePath(planetSubtitle) {
           switch (planetSubtitle) {
@@ -401,14 +513,16 @@ import axios from 'axios';
         },
       
   
-        //登出
-        handleOptionClick(option) {
-        if (option.id === 5) {
-          this.$router.push('/');
-        } else {
-          this.activeId = option.id;
-        }
-      },
+       // 登出
+        async handleOptionClick(option) {
+          const response = await axios.get('http://localhost/PV/PlanetVoyager/public/php/logout.php');
+          if (option.id === 5) {
+            this.$router.push('/');
+          } else {
+            this.activeId = option.id;
+          }
+        },
+
 
      //計算與下一個level還有多少差額
       calculateNextLevelAmount(currentLevel) {
@@ -446,11 +560,16 @@ import axios from 'axios';
           ? `$${nextLevel.amount }`
           : '已達最高等級';
       },
-      
 
-      checkMobile() {
-            // 根據窗口寬度判斷是否爲行動裝置
-            this.isMobile = window.innerWidth <= 768;
+       // 點擊 input 時更新 selectedGift
+       handleGiftSelection(benefit) {
+        this.selectedGift.push(benefit.gift);
+      },
+
+      
+      // 根據窗口寬度判斷是否爲行動裝置
+      checkMobile() {  
+        this.isMobile = window.innerWidth <= 768;
       },
 
       //點擊+,、展開
@@ -469,6 +588,7 @@ import axios from 'axios';
               }
             }
       },
+
       //獲取電腦時間
       updateDateTime(){
             const now = new Date();
@@ -505,31 +625,26 @@ import axios from 'axios';
       preventCheckboxChange() {
       event.preventDefault();
       },
-        //手風琴效果 點擊+號展開
-        toggleAccordion(order) {
+
+      //手風琴效果 點擊+號展開
+      toggleAccordion(order) {
           order.isExpanded = !order.isExpanded;
       },
   
-        handleSubmit() {
-            console.log(this.fromData.name, this.fromData.nickname,this.fromData.email,this.fromData.address,
-                      this.fromData.passportNumber, 'Submit button clicked');
-        },
+      handleSubmit() {
+        console.log(this.fromData.name, this.fromData.nickname,this.fromData.email,this.fromData.address,
+                    this.fromData.passportNumber, 'Submit button clicked');
+      },
   
       // 判斷是否是行動裝置（小於等於 768px）
-        checkMobile() {
-              const screenWidth = window.innerWidth;
-              this.isMobile = screenWidth <= 768;
-        },
-  
-        beforeUnmount() {
-              // 在元件銷燬前移除窗口大小監聽器
-              window.removeEventListener('resize', this.checkMobile);
-        },
+      checkMobile() {
+            const screenWidth = window.innerWidth;
+            this.isMobile = screenWidth <= 768;
       },
-
-    
-
-      
- 
-    
-};
+  
+      beforeUnmount() {
+        // 在元件銷燬前移除窗口大小監聽器
+          window.removeEventListener('resize', this.checkMobile);
+      },     
+},
+}

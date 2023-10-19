@@ -200,7 +200,6 @@ export default {
                 donate_amount: this.inputText,
                 donate_stat: "成功",
                 email: this.email,
-
             };
             axios.post('http://localhost/PV/PlanetVoyager/public/php/donate.php', data, {
                 headers: {
