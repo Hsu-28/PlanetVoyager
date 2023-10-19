@@ -193,7 +193,7 @@ export default {
       }
     
       // 發送formData到伺服器
-      fetch('http://localhost/PV/PlanetVoyager/public/php/order.php', {
+      fetch(`${this.$store.state.phpPublicPath}order.php`, {
         method: 'POST',
         body: JSON.stringify(formData),
         headers: {
@@ -244,7 +244,7 @@ export default {
     });
     // getHttp(){
       // 發起HTTP GET 請求
-      axios.get('http://localhost/PV/PlanetVoyager/public/php/orderprocessVenus.php')
+      axios.get(`${this.$store.state.phpPublicPath}orderprocessVenus.php`)
       .then(response => {
         this.subtitle = response.data;
       })
@@ -253,7 +253,7 @@ export default {
       });
 
       //登入狀態驗證
-      fetch('https://tibamef2e.com/chd103/g3/php/verifyLogin.php',{
+      fetch(`${this.$store.state.phpPublicPath}verifyLogin.php`,{
         mode: "cors",
         credentials: "include",
       })
