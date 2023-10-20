@@ -18,8 +18,9 @@ header("Content-Type: application/json");
 //     echo json_encode(["msg"=>"已登出",'session_id'=>session_id()]);
 //     die();
 // }
-
-if(! isset($_SESSION['memId'])) {
+session_start();
+echo $_SESSION['memId'];
+if(!isset($_SESSION['memId'])) {
     $response = ["msg" => "未登入"];
     echo json_encode($response);
 }else {

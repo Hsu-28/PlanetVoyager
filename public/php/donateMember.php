@@ -5,7 +5,7 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 header("Content-Type: application/json"); 
-require_once("../../../connectdb.php");
+require_once("../../connect_chd103g3.php");
 
 session_start(); //啟動session
 
@@ -14,8 +14,10 @@ $sql_query = "SELECT `mem_name`, `email`, `address` FROM `member` where `mem_no`
 
 $stmt = $pdo->prepare($sql_query);
 $stmt->bindParam(':mem_no', $_SESSION["mem_no"]);
-$stmt = $pdo->query($sql_query);
+$stmt->execute();
+// $stmt = $pdo->query($sql_query);
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 
 // 返回数据
 header("Content-Type: application/json");

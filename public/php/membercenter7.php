@@ -8,7 +8,7 @@
 
 try{
      //引入連線工作的檔案
-    require_once("../../../connect_chd103g3.php");
+    require_once("../../connect_chd103g3.php");
 
 
         $id = $_GET['id'];  // 假設你已經確保 $id 的安全性

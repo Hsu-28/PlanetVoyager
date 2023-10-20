@@ -31,7 +31,7 @@
                     <div class="schedule-pic">
                         <div v-for="(URL, picIndex) in day.imgUrls" :key="picIndex" class="image-box"
                             @click="showPic($event)">
-                            <img :src="`img/${URL.itinerary_pic}`">
+                            <img :src="`${this.$store.state.publicURL}/img/${URL.itinerary_pic}`">
                         </div>
                     </div>
                 </div>
@@ -223,7 +223,7 @@ export default {
         console.log(this.scroll);
     },
     created() {
-
+        // axios.get('http://localhost/PV/PlanetVoyager/public/php/ItineraryMars.php')
         axios.get(`${this.$store.state.phpPublicPath}ItineraryMars.php`)
             .then(response => {
                 this.myData = response.data;

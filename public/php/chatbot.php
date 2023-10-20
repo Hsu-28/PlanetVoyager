@@ -5,7 +5,7 @@ try {
     header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
     header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
     header("Content-Type: application/json"); 
-    require_once("../../../connect_chd103g3.php");
+    require_once("../../connect_chd103g3.php");
 
     // 使用反引號括住表名和欄位名
     $sql = "SELECT keyword, chat_ans FROM `chatbot`";

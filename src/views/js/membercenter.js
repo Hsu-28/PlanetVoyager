@@ -543,7 +543,7 @@ import axios from 'axios';
        // 登出
         async handleOptionClick(option) {
           //const response = await axios.get('http://localhost/PV/PlanetVoyager/public/php/logout.php');
-          const response = await axios.get(`${this.$store.state.phpPublicPath}logout.php`);
+          // const response = await axios.get(`${this.$store.state.phpPublicPath}logout.php`);
           if (option.id === 5) {
             this.$router.push('/');
           } else {
