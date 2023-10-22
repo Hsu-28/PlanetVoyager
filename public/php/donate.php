@@ -9,9 +9,9 @@ try {
 
     session_start();
     $donate_id = $_SESSION["mem_no"];
-    $donate_amount = $_POST['donate_amount'];
-    $donate_stat = $_POST['donate_stat'];
-    $email = $_POST['email'];
+    $donate_amount = $_POST["donate_amount"];
+    $donate_stat = "成功";
+    $email = $_POST["email"];
 
     // 使用反引號括住表名和欄位名
     $sql = "INSERT INTO `donate` (`donate_id`, `donate_amount`, `donate_stat`, `email`)

@@ -206,7 +206,7 @@ export default {
             };
             // axios.post('http://localhost/PV/PlanetVoyager/public/php/donate.php', data, {
             // axios.post('https://tibamef2e.com/chd103/g3/PlanetVoyager/php/donate.php', data, {
-            axios.get(`${this.$store.state.phpPublicPath}donate.php`, data, {
+            axios.post(`${this.$store.state.phpPublicPath}donate.php`, data, {
 
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -275,8 +275,8 @@ export default {
             });
 
         // axios.get('http://localhost/PV/PlanetVoyager/public/php/donateMember.php')
-        axios.get('https://tibamef2e.com/chd103/g3/PlanetVoyager/php/donateMember.php')
-            // axios.get(`${this.$store.state.phpPublicPath}donateMember.php`)
+        // axios.get('https://tibamef2e.com/chd103/g3/PlanetVoyager/php/donateMember.php')
+        axios.get(`${this.$store.state.phpPublicPath}donateMember.php`)
             .then(response => {
                 this.name = response.data[0]["mem_name"]
                 this.email = response.data[0]["email"]
