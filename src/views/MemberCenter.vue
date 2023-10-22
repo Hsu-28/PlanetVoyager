@@ -23,7 +23,7 @@
             <ul class="tab-mem-title">
               <li v-for="(option, index) in optionCard" :key="option.id" class="option-tab">
               <div class="top-tab" :class="{ 'active': option.id === activeId }">
-              <button @click="handleOptionClick(option)">
+              <button @click="handleOptionClick(option.id)">
               <div class="pic" :class="{ 'active-pic': option.id === activeId }" >
                 <img :src="option.img" alt="icon"></div>{{ option.name }}
               </button>

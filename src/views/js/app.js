@@ -228,7 +228,7 @@ export default {
         console.error(error);
       });
     //登入狀態驗證
-    fetch('https://tibamef2e.com/chd103/g3/php/verifyLogin.php', {
+    fetch(`${this.$store.state.phpPublicPath}verifyLogin.php`, {
       mode: "cors",
       credentials: "include",
     })
