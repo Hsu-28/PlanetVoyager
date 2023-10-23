@@ -189,7 +189,7 @@ export default {
           });
         });
       }
-
+      console.log(formData)
       // 發送formData到伺服器
       fetch(`${this.$store.state.phpPublicPath}/order.php`, {
         method: 'POST',
