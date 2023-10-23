@@ -227,20 +227,24 @@ export default {
       .catch(error => {
         console.error(error);
       });
+      
+      if (this.$store.state.userName = "") {
+        isLogin = false
+      };
+
     //登入狀態驗證
-    fetch(`${this.$store.state.phpPublicPath}verifyLogin.php`, {
-      mode: "cors",
-      credentials: "include",
-    })
-      .then(response => response.json())
-      .then(data => {
-        if (data.msg === "已登入") {
-          this.isLogin = true;
-        }
-      })
-      .catch(error => {
-        console.error(error);
-      });
+    // fetch(`${this.$store.state.phpPublicPath}verifyLogin.php`, {
+    //   mode: "cors",
+    // })
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     if (data.msg === "已登入") {
+    //       this.isLogin = true;
+    //     }
+    //   })
+    //   .catch(error => {
+    //     console.error(error);
+    //   });
 
   }
 };

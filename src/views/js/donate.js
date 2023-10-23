@@ -259,7 +259,6 @@ export default {
         // axios.get(`${this.$store.state.phpPublicPath}verifyLogin.php`)
         fetch(`${this.$store.state.phpPublicPath}verifyLogin.php`, {
             mode: "cors",
-            credentials: "include",
         })
             .then(response => response.json())
             .then(data => {

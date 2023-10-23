@@ -262,7 +262,6 @@ export default {
     //登入狀態驗證
     fetch(`${this.$store.state.phpPublicPath}verifyLogin.php`, {
       mode: "cors",
-      credentials: "include",
     })
       .then(response => response.json())
       .then(data => {
