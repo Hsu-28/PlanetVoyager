@@ -273,7 +273,7 @@ export default {
                 {
                     h3en: 'spacesuit',
                     h3enbig: 'SPACESUIT',
-                    h3ch: '太空服',
+                    h3ch: '太空裝',
                     img: require("@/assets/image/index/suit.png"),
                 },
             ],
