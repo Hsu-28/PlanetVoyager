@@ -27,7 +27,7 @@
             <label></label>
             <input type="text" placeholder="信箱" required v-model="email" name="email">
             <label></label>
-            <input type="password" placeholder="密碼" required>
+            <input type="password" placeholder="密碼" id="psw" required>
             <label></label>
             <input type="password" placeholder="再次輸入密碼" required v-model="password" name="mem_pw">
             <label></label>
@@ -41,7 +41,7 @@
                     <span aria-hidden class="cybr-btn__glitch">送出</span>
                     <span aria-hidden class="cybr-btn__tag">-pv-</span>
                   </button> -->
-            <ButtonFlashBox :buttonText="'送出'" :buttonBottomText="'-pv-'" @click="submitForm" type="submit">
+            <ButtonFlashBox :buttonText="'送出'" :buttonBottomText="'-pv-'" @click="validatePassword($event), submitForm" type="submit">
             </ButtonFlashBox>
           </form>
         </div>
@@ -71,7 +71,8 @@ export default {
       address: "",
       password: "",
       idNum: "",
-      phoneNum: ""
+      phoneNum: "",
+      password: ""
     };
   },
 
@@ -99,8 +100,18 @@ export default {
           console.error(error);
         })
 
+    },
+    validatePassword(event) {
+      const passwordPattern = /^\d{8}$/;
+
+      if (!passwordPattern.test(this.password)) {
+        alert('密碼長度需大於8個字');
+        event.preventDefault()
+      }
     }
-  }
+  },
+
+
   //  submitForm(){
 
   //   alert("aaaa");

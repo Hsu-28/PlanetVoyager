@@ -13,8 +13,7 @@ try{
 
         $id = $_GET['id'];  // 假設你已經確保 $id 的安全性
 
-        $sql_query = "SELECT * FROM donate WHERE donate_id = $id 
-        AND YEAR(donate_date) = 2022";
+        $sql_query = "SELECT *FROM donate WHERE donate_id = ".$_GET['id']." AND YEAR(donate_date) = 2022";
 
 
     // 下sql指令

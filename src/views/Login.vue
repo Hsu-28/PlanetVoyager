@@ -40,6 +40,7 @@ export default {
       username: '',
       pswdddv: '',
       signInAPI: null,
+      mem_name: this.$store.state.userName,
     };
   },
   methods: {
@@ -77,6 +78,8 @@ export default {
       }
     },
 
+    
+
   //   signInMem() {
   //     const formData = new FormData();
 
@@ -109,7 +112,8 @@ export default {
   //         this.$store.state.isUserLoggedIn = true;
   //       });
   // },
-  }
+  },
+
 }
 </script>
   

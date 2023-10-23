@@ -181,7 +181,7 @@
                             <div class="outside-border">
                                 <div class="memberContent inside-border">
                                     <img class="member-img"
-                                        :src="require(`@/assets//image/teamMembers/memberSvg/${members.team_memimage}`)"
+                                        :src="require(`@/assets/image/teamMembers/memberSvg/${members.team_memimage}`)"
                                         :alt="members.team_memname">
                                     <div class="members-info">
                                         <span class="members-name">{{ members.team_memname }}</span>
@@ -273,7 +273,7 @@ export default {
                 {
                     h3en: 'spacesuit',
                     h3enbig: 'SPACESUIT',
-                    h3ch: '太空服',
+                    h3ch: '太空裝',
                     img: require("@/assets/image/index/suit.png"),
                 },
             ],

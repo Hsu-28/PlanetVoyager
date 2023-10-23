@@ -5,6 +5,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 // import { ArrayCamera } from 'three'
 import ButtonFlashBox from '@/components/ButtonFlash.vue'
 import orderList from "@/components/PerOrder.vue";
+import { colProps } from 'element-plus';
 export default {
   data() {
     return {
@@ -25,6 +26,7 @@ export default {
         scolor: ''
       },
       showAlert: false,
+      showLogin: false,
       activeId: "",
       jpRate: 0,
       ntRate: 0,
@@ -119,10 +121,17 @@ export default {
       // ],
 
       formList: [],
+      
     }
   },
   methods: {
-
+    //登入狀態驗證
+    checkLoginState() {
+      if (this.$store.state.userName="") {
+        this.showLogin = true
+        console.log("true")
+      }
+    },
     show1F() {
       this.show1 = true;
       this.show2 = false;
@@ -153,7 +162,9 @@ export default {
       this.orderCheck = !this.orderCheck
     },
     checkOrder() {
-      this.orderCheck = true
+      if (this.$store.state.userName) {
+        this.orderCheck = true
+      }
     },
     checkOrderInfo() {
       const inputs = Array.from(document.getElementsByName("infos"));
@@ -206,7 +217,42 @@ export default {
         .catch(error => {
           console.error('請求錯誤:', error);
         });
-    }
+    },
+
+    //登入
+    login() {
+      if (this.username == '' || this.pswdddv == '') {
+        alert('請輸入帳號和密碼')
+      } else {
+        const info = new FormData();
+        info.append("memId", this.username);
+        info.append("memPsw", this.pswdddv);
+        console.log(info);
+
+        fetch(`${this.$store.state.phpPublicPath}logincheck.php`, {
+          method: 'POST',
+          body: info,
+        })
+          .then(res => res.json())
+          .then((result) => {
+            if (result.memId == this.username && result.memPsw == this.pswdddv) {
+              let user = JSON.stringify(result.result)
+              localStorage.setItem('user', user)
+              let id =result.result.mem_no
+              console.log(id);
+              this.$store.commit('setUserName', id)
+              alert('登入成功')
+              this.showLogin = false;
+            } else {
+              alert('登入失敗')
+            }
+          })
+          .catch(error => {
+            console.error(error);
+          })
+
+      }
+    },
   },
 
   computed: {
@@ -222,9 +268,9 @@ export default {
       this.NT = Math.floor(this.USD * this.ntRate.toFixed(2));
 
     },
-    MJ1() {
-      return this.subtitle.filter(v => v.planet_subtitle === "月 球 巡 禮")
-    },
+    // MJ1() {
+    //   return this.subtitle.filter(v => v.planet_subtitle === "月 球 巡 禮")
+    // },
   },
   watch: {
     currentAmount() {
@@ -264,23 +310,10 @@ export default {
       this.ntRate = data.rates.TWD;
       this.jpRate = data.rates.JPY;
     });
-
-
-
-    //登入狀態驗證
-    fetch(`${this.$store.state.phpPublicPath}verifyLogin.php`, {
-      mode: "cors",
-      credentials: "include",
-    })
-      .then(response => response.json())
-      .then(data => {
-        if (data.msg === "未登入") {
-          alert('請先登入會員再報名旅程！');
-        }
-      })
-      .catch(error => {
-        console.error(error);
-      });
+  
+    if (this.$store.state.userName = "") {
+      alert("請先登入會員再報名旅程！")
+    }
   }
 }
 

@@ -19,13 +19,18 @@ export default createStore({
     phpPublicPath: phpPublicPath,
     publicPath: publicPath,
     Pic:Pic,
+    userName:'',
+    
   },
   getters: {
   },
   mutations: {
     updateSiteLoad(state, value) {
       state.siteLoading = value
-    }
+    },
+    setUserName(state, id) {
+      state.userName = id;
+    },
   },
   actions: {
   },
