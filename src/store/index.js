@@ -18,7 +18,7 @@ export default createStore({
     phpPublicPath: phpPublicPath,
     publicPath: publicPath,
     userName:'',
-    
+    isLogin: false,
   },
   getters: {
   },
@@ -29,6 +29,9 @@ export default createStore({
     setUserName(state, id) {
       state.userName = id;
     },
+    setLoginState(state, boolean){
+      state.isLogin = boolean;
+    }
   },
   actions: {
   },

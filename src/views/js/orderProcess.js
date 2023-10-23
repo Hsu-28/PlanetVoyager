@@ -127,9 +127,11 @@ export default {
   methods: {
     //登入狀態驗證
     checkLoginState() {
-      if (this.$store.state.userName="") {
+      console.log(this.showLogin);
+      console.log(this.$store.state.userName);
+      if (!this.$store.state.userName) {
         this.showLogin = true
-        console.log("true")
+        
       }
     },
     show1F() {
@@ -310,8 +312,9 @@ export default {
       this.ntRate = data.rates.TWD;
       this.jpRate = data.rates.JPY;
     });
-  
-    if (this.$store.state.userName = "") {
+    console.log("showLogin"+this.showLogin);
+    console.log("userName"+this.$store.state.userName);
+    if (!this.$store.state.userName) {
       alert("請先登入會員再報名旅程！")
     }
   }
