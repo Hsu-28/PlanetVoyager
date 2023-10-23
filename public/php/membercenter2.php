@@ -16,7 +16,7 @@ try{
     // echo "姓名 : ", $_SESSION["memName"], "<br>";  
     // echo "email : ", $_SESSION["email"], "<br>";
 
-
+    $memid=$_GET['id'];
     // 下sql指令
     $sql_query = "SELECT * FROM trip WHERE trip_no =".$_GET['id'];
     $statement = $pdo->query($sql_query);

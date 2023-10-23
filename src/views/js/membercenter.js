@@ -246,9 +246,11 @@ import axios from 'axios';
         params:{
           id:this.memid
         }
+        
       })
       .then(response => {
         this.phpData4 = response.data; 
+
         const planetSubtitle = this.phpData4[0].planet_subtitle;
         // this.itineraryImagePath = this.getItineraryImagePath(planetSubtitle);
         console.log('Planet Subtitle from membercenter4.php:', planetSubtitle);
@@ -541,15 +543,15 @@ import axios from 'axios';
 
   
        // 登出
-        async handleOptionClick(option) {
-          //const response = await axios.get('http://localhost/PV/PlanetVoyager/public/php/logout.php');
-          // const response = await axios.get(`${this.$store.state.phpPublicPath}logout.php`);
-          if (option.id === 5) {
-            this.$router.push('/');
-          } else {
-            this.activeId = option.id;
-          }
-        },
+       async handleOptionClick(optionId) {
+        //const response = await axios.get('http://localhost/PV/PlanetVoyager/public/php/logout.php');
+        // const response = await axios.get(`${this.$store.state.phpPublicPath}logout.php`);
+        if (optionId === 5) {
+          this.$router.push('/');
+        } else {
+          this.activeId = optionId;
+        }
+      },
 
 
      //計算與下一個level還有多少差額
@@ -567,6 +569,30 @@ import axios from 'axios';
             return '未知等級';
         }
       },
+
+        // 检查选项ID是否冲突
+  // checkOptionIdConflict() {
+  //   const idSet = new Set();
+  //   let conflict = false;
+    
+  //   for (const option of this.optionCard) {
+  //     if (idSet.has(option.id)) {
+  //       conflict = true;
+  //       console.error(`Option ID ${option.id} is duplicated!`);
+  //     } else {
+  //       idSet.add(option.id);
+  //     }
+  //   }
+    
+  //   if (idSet.has(this.activeId)) {
+  //     conflict = true;
+  //     console.error(`Active ID ${this.activeId} conflicts with an option ID!`);
+  //   }
+    
+  //   if (conflict) {
+  //     console.error('Option IDs must be unique, and Active ID must not conflict with an option ID.');
+  //   }
+  // }
 
       //計算下一個level應該要達到的金額
       calculateNextLevelDifference() {
