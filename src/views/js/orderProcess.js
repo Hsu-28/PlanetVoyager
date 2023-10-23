@@ -312,8 +312,7 @@ export default {
       this.ntRate = data.rates.TWD;
       this.jpRate = data.rates.JPY;
     });
-    console.log("showLogin"+this.showLogin);
-    console.log("userName"+this.$store.state.userName);
+  
     if (!this.$store.state.userName) {
       alert("請先登入會員再報名旅程！")
     }

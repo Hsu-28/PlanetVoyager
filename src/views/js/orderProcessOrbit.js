@@ -260,18 +260,21 @@ export default {
       });
 
     //登入狀態驗證
-    fetch(`${this.$store.state.phpPublicPath}verifyLogin.php`, {
-      mode: "cors",
-    })
-      .then(response => response.json())
-      .then(data => {
-        if (data.msg === "未登入") {
-          alert('請先登入會員再報名旅程！');
-        }
-      })
-      .catch(error => {
-        console.error(error);
-      });
+    if (!this.$store.state.userName) {
+      alert("請先登入會員再報名旅程！")
+    }
+    // fetch(`${this.$store.state.phpPublicPath}verifyLogin.php`, {
+    //   mode: "cors",
+    // })
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     if (data.msg === "未登入") {
+    //       alert('請先登入會員再報名旅程！');
+    //     }
+    //   })
+    //   .catch(error => {
+    //     console.error(error);
+    //   });
   }
 
 
