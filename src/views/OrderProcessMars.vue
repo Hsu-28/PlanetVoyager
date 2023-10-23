@@ -183,7 +183,7 @@
           <p>航程日期: {{ date }}</p>
         </div>
         <div class="click">
-          <ButtonFlashBox :buttonText="'確認訂購'" :buttonBottomText="'-pv-'" class="kkss" @click="checkOrder">
+          <ButtonFlashBox :buttonText="'確認訂購'" :buttonBottomText="'-pv-'" class="kkss" @click="checkLoginState, checkOrder">
           </ButtonFlashBox>
         </div>
 
