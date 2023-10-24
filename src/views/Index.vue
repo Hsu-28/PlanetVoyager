@@ -27,7 +27,7 @@
             <el-carousel indicator-position="outside">
                 <el-carousel-item v-for="(imgcarousel, index) in imgcarousel" :key="index">
                     <div class="imgcarousel-img">
-                        <img :src="require(`@/assets/image/index/${imgcarousel.carouse_image}`)" :alt="imgcarousel.carouse_title">
+                        <img :src="`${this.$store.state.publicURL}/img/${imgcarousel.carouse_image}`" :alt="imgcarousel.carouse_title">
                     </div>
                     <div class="imgcarousel-note">{{imgcarousel.carouse_title }}</div>
                 </el-carousel-item>
@@ -92,7 +92,7 @@
                     <div class="more-base">
                         <div class="more-base-scroll">
                             <span class="close" @click="hideMore">&times</span>
-                            <img class="more-img" :src="require(`@/assets//image/index/${news.news_image}`)"
+                            <img class="more-img" :src="`${this.$store.state.publicURL}/img/${news.news_image}`"
                                 :alt="news.news_title">
                             <p>
                                 <span class="more-title" v-html="news.news_title"></span>
