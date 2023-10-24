@@ -34,7 +34,7 @@
 
                     <div class="imgContent">
                         <!-- <img :src="require(`@/assets/image/teamMembers/memberSvg/${thisjob.team_memimage}`)" alt="團隊照片"  class="memberImg">-->
-                        <img :src="$store.state.Pic +'teamMembers/memberSvg/'+ thisjob.team_memimage" alt="團隊照片" class="memberImg">
+                        <img :src="$store.state.TeamPic + thisjob.team_memimage" alt="團隊照片" class="memberImg">
                            
                           
                     </div>
@@ -55,7 +55,7 @@
 
                     <div class="memberContent">
                         <div class="detailImg">
-                            <img :src="require(`@/assets/image/teamMembers/memberSvg/${detailContent.team_memimage}`)"
+                            <img :src="$store.state.TeamPic +detailContent.team_memimage"
                                 alt="團隊照片" class="memberImg">
                         </div>
                         <p class="br">{{ detailContent.team_memexperience }}</p>
