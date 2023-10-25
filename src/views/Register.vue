@@ -27,7 +27,7 @@
             <label></label>
             <input type="text" placeholder="信箱" required v-model="email" name="email">
             <label></label>
-            <input type="password" placeholder="密碼" id="psw" required>
+            <input type="password" placeholder="密碼(至少8個字)" id="psw" required>
             <label></label>
             <input type="password" placeholder="再次輸入密碼" required v-model="password" name="mem_pw">
             <label></label>

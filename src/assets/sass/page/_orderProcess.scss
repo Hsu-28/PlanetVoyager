@@ -1943,12 +1943,15 @@ body{
 
   }
 //登入彈窗
+#login-sect{
   .black-cover{
-    position: absolute;
-    z-index:1100;
     width: 100%;
     height: 100%;
-    inset: 0;
+    position: fixed;
+    background-color: rgba(0, 0, 0, .8);
+    left: 0;
+    top: 0;
+    z-index: 999;
   }
   .wrap{
     position: fixed;
@@ -2221,3 +2224,4 @@ body{
         clip-path: var(--clip-four);
       }
     }
+  }

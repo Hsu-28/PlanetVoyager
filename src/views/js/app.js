@@ -11,7 +11,7 @@ export default {
   data() {
 
     return {
-      isLogin: false,
+      
       i: 0,
       displayText: '',
       showMenu: false,
@@ -228,8 +228,8 @@ export default {
         console.error(error);
       });
       
-      if (this.$store.state.userName = "") {
-        isLogin = false
+      if (this.$store.state.userName) {
+        this.$store.commit('setLoginState', true)
       };
 
     //登入狀態驗證
