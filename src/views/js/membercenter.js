@@ -546,6 +546,7 @@ import axios from 'axios';
           // const response = await axios.get(`${this.$store.state.phpPublicPath}logout.php`);
           if (option.id === 5) {
             this.$router.push('/');
+            this.$store.state.userName = '';
           } else {
             this.activeId = option.id;
           }
