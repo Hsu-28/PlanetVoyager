@@ -543,16 +543,15 @@ import axios from 'axios';
 
   
        // 登出
-        async handleOptionClick(option) {
-          //const response = await axios.get('http://localhost/PV/PlanetVoyager/public/php/logout.php');
-          // const response = await axios.get(`${this.$store.state.phpPublicPath}logout.php`);
-          if (option.id === 5) {
-            this.$router.push('/');
-            this.$store.state.userName = '';
-          } else {
-            this.activeId = option.id;
-          }
-        },
+       async handleOptionClick(optionId) {
+        //const response = await axios.get('http://localhost/PV/PlanetVoyager/public/php/logout.php');
+        // const response = await axios.get(`${this.$store.state.phpPublicPath}logout.php`);
+        if (optionId === 5) {
+          this.$router.push('/');
+        } else {
+          this.activeId = optionId;
+        }
+      },
 
 
      //計算與下一個level還有多少差額
