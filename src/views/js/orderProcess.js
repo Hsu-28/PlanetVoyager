@@ -270,9 +270,9 @@ export default {
       this.NT = Math.floor(this.USD * this.ntRate.toFixed(2));
 
     },
-    // MJ1() {
-    //   return this.subtitle.filter(v => v.planet_subtitle === "月 球 巡 禮")
-    // },
+    MJ1() {
+      return this.subtitle.filter(v => v.planet_subtitle === "月 球 巡 禮")
+    },
   },
   watch: {
     currentAmount() {
