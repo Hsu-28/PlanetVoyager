@@ -210,6 +210,7 @@ export default {
         axios.get(`${this.$store.state.phpPublicPath}ItineraryVenus.php`)
             .then(response => {
                 this.myData = response.data;
+                console.log(this.myData);
                 const text = this.myData?.itinerary?.[0]?.itinerary_day || ''
                 const schedules = this.splitWord(text)
                 const photos = Array.from({ length: this.schedules.length * 3 }, (v, i) => {

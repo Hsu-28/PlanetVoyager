@@ -22,10 +22,11 @@ try {
         "itinerary" => $result,
         "itinerary_photos" => $result2
     ];
-
+    var_dump($combinedResult);
     // 返回 JSON 数据
     header("Content-Type: application/json");
     echo json_encode($combinedResult);
+
 } catch (Exception $e) {
     echo "錯誤行號 : ", $e->getLine(), "<br>";
     echo "錯誤原因 : ", $e->getMessage(), "<br>";
