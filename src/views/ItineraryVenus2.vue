@@ -31,7 +31,8 @@
                     <div class="schedule-pic">
                         <div v-for="(URL, picIndex) in day.imgUrls" :key="picIndex" class="image-box"
                             @click="showPic($event)">
-                            <img :src="`${this.$store.state.publicURL}/img/${URL.itinerary_pic}`">
+                            <img :src="URL">
+                            <!-- <img :src="`${this.$store.state.publicURL}/img/${URL.itinerary_pic}`"> -->
                         </div>
                     </div>
                 </div>
