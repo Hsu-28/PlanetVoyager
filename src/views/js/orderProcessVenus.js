@@ -4,7 +4,8 @@ import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 // import { ArrayCamera } from 'three'
 import ButtonFlashBox from '@/components/ButtonFlash.vue'
-import orderList from "@/components/PerOrder.vue";
+import orderList from "@/components/PerOrder.vue"
+import LoginWindwo from "@/components/LoginWindow.vue"
 export default {
   data() {
     return {
@@ -235,6 +236,7 @@ export default {
     Navigation,
     ButtonFlashBox: ButtonFlashBox,
     orderList: orderList,
+    LoginWindow
   },
   created() {
     // 在 Vue 的 created 鉤子中發送請求

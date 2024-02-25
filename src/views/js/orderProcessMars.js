@@ -5,6 +5,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 // import { ArrayCamera } from 'three'
 import ButtonFlashBox from '@/components/ButtonFlash.vue'
 import orderList from "@/components/PerOrder.vue";
+import LoginWindow from "@/components/LoginWindow.vue"
 export default {
   data() {
     return {
@@ -110,8 +111,8 @@ export default {
     //登入狀態驗證
     checkLoginState() {
       console.log(this.showLogin);
-      console.log(this.$store.state.userName);
-      if (!this.$store.state.userName) {
+      console.log(this.$store.state.isLogin);
+      if (!this.$store.state.isLogin) {
         this.showLogin = true
 
       }
@@ -241,6 +242,7 @@ export default {
     Navigation,
     ButtonFlashBox: ButtonFlashBox,
     orderList: orderList,
+    LoginWindow
   },
   created() {
     // 在 Vue 的 created 鉤子中發送請求

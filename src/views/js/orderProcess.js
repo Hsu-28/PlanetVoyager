@@ -5,6 +5,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 // import { ArrayCamera } from 'three'
 import ButtonFlashBox from '@/components/ButtonFlash.vue'
 import orderList from "@/components/PerOrder.vue";
+import LoginWindow from "@/components/LoginWindow.vue"
 import { colProps } from 'element-plus';
 export default {
   data() {
@@ -128,7 +129,7 @@ export default {
     //登入狀態驗證
     checkLoginState() {
       console.log(this.showLogin);
-      console.log(this.$store.state.isLogin);
+      console.log("是否登入:"+this.$store.state.isLogin);
       if (!this.$store.state.isLogin) {
         this.showLogin = true
         
@@ -222,39 +223,39 @@ export default {
     },
 
     //登入
-    login() {
-      if (this.username == '' || this.pswdddv == '') {
-        alert('請輸入帳號和密碼')
-      } else {
-        const info = new FormData();
-        info.append("memId", this.username);
-        info.append("memPsw", this.pswdddv);
-        console.log(info);
+    // login() {
+    //   if (this.username == '' || this.pswdddv == '') {
+    //     alert('請輸入帳號和密碼')
+    //   } else {
+    //     const info = new FormData();
+    //     info.append("memId", this.username);
+    //     info.append("memPsw", this.pswdddv);
+    //     console.log(info);
 
-        fetch(`${this.$store.state.phpPublicPath}logincheck.php`, {
-          method: 'POST',
-          body: info,
-        })
-          .then(res => res.json())
-          .then((result) => {
-            if (result.memId == this.username && result.memPsw == this.pswdddv) {
-              let user = JSON.stringify(result.result)
-              localStorage.setItem('user', user)
-              let id =result.result.mem_no
-              console.log(id);
-              this.$store.commit('setUserName', id)
-              alert('登入成功')
-              this.showLogin = false;
-            } else {
-              alert('登入失敗')
-            }
-          })
-          .catch(error => {
-            console.error(error);
-          })
+    //     fetch(`${this.$store.state.phpPublicPath}logincheck.php`, {
+    //       method: 'POST',
+    //       body: info,
+    //     })
+    //       .then(res => res.json())
+    //       .then((result) => {
+    //         if (result.memId == this.username && result.memPsw == this.pswdddv) {
+    //           let user = JSON.stringify(result.result)
+    //           localStorage.setItem('user', user)
+    //           let id =result.result.mem_no
+    //           console.log(id);
+    //           this.$store.commit('setUserName', id)
+    //           alert('登入成功')
+    //           this.showLogin = false;
+    //         } else {
+    //           alert('登入失敗')
+    //         }
+    //       })
+    //       .catch(error => {
+    //         console.error(error);
+    //       })
 
-      }
-    },
+    //   }
+    // },
   },
 
   computed: {
@@ -297,6 +298,7 @@ export default {
     Navigation,
     ButtonFlashBox: ButtonFlashBox,
     orderList: orderList,
+    LoginWindow
   },
   created() {
     // 發起HTTP GET 請求
@@ -313,7 +315,7 @@ export default {
       this.jpRate = data.rates.JPY;
     });
   
-    if (!this.$store.state.userName) {
+    if (!this.$store.state.isLogin) {
       alert("請先登入會員再報名旅程！")
     }
   }

@@ -53,6 +53,7 @@ export default {
         info.append("memId", this.username);
         info.append("memPsw", this.pswdddv);
         console.log(info);
+        console.log(this.$store.state.isLogin);
 
         fetch(`${this.$store.state.phpPublicPath}logincheck.php`, {
           method: 'POST',
