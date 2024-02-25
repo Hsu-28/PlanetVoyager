@@ -128,8 +128,8 @@ export default {
     //登入狀態驗證
     checkLoginState() {
       console.log(this.showLogin);
-      console.log(this.$store.state.userName);
-      if (!this.$store.state.userName) {
+      console.log(this.$store.state.isLogin);
+      if (!this.$store.state.isLogin) {
         this.showLogin = true
         
       }

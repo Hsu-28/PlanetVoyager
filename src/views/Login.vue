@@ -66,6 +66,7 @@ export default {
               let id =result.result.mem_no
               console.log(id);
               this.$store.commit('getinfo', id)
+              this.$store.commit('setLoginState', true);
               this.$router.push('/loginSuccess')
             } else {
               this.$router.push('/loginFail')
