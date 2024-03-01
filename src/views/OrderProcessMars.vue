@@ -123,7 +123,7 @@
         </div>
       </div>
       <div class="inR">
-          <div  v-for="(index ,item) in MJ1" 
+          <div  v-for="(item ,index) in MJ1" 
           class="itinerary-d" 
           @click="activeId = item.trip_no " 
           :key="trip_no" 

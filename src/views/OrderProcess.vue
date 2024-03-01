@@ -10,7 +10,7 @@
   <!-- 輪播 -->
   <div class="carousel">
     <carousel :items-to-show="3" :wrapAround="true" :paginationColor="'#FFF'" class="custom-carousel" :autoplay="3000">
-      <slide v-for="(index, item) in imgs" :key="item.index">
+      <slide v-for="(item, index) in imgs" :key="item.index">
         <div class="cimgs">
           <img :src=item.slide alt="輪播圖片">
         </div>

@@ -10,7 +10,7 @@
   <!-- 輪播 -->
   <div class="carousel">
     <carousel :items-to-show="3" :wrapAround="true" :paginationColor="'#FFF'" class="custom-carousel" :autoplay="3000">
-      <slide v-for="(index, item) in imgs" :key="item.index">
+      <slide v-for="(item, index) in imgs" :key="item.index">
         <div class="cimgs">
           <img :src=item.slide alt="輪播圖片">
         </div>
@@ -62,7 +62,7 @@
       <h3>太空旅遊資訊和退費政策</h3>
       <h4>歡迎參加 PLANET VOYAGER太空旅遊團！</h4>
       <ul class="travelInfo">
-        <li v-for="(index, item) in tourInfo" :key="item.id">
+        <li v-for="(item, index) in tourInfo" :key="id">
           <div class="box">{{ item.id }}</div>
           <div class="itemp">{{ item.p }}</div>
         </li>
@@ -121,10 +121,10 @@
         </div>
       </div>
       <div class="inR">
-          <div  v-for="(index ,item) in MJ1" 
+          <div  v-for="(item ,index) in MJ1" 
           class="itinerary-d" 
           @click="activeId = item.trip_no " 
-          :key="item.trip_no" 
+          :key="trip_no" 
           :class="{ 'chosen': activeId === item.trip_no}"
           >
         
@@ -157,7 +157,7 @@
       <div class="p-num">
         乘客人數:
         <select name="" id="" v-model="currentAmount">
-          <option v-for="item in options" :value="item.num" :key="item.index"> {{ item.num }} </option>
+          <option v-for="item in options" :value="item.num"> {{ item.num }} </option>
         </select>
       </div>
       <section>
