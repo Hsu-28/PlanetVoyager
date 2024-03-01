@@ -11,7 +11,7 @@ export default {
   data() {
 
     return {
-      isLogin: this.$store.state.isLogin,
+      isLogin: false,
       i: 0,
       displayText: '',
       showMenu: false,
@@ -232,6 +232,8 @@ export default {
         this.$store.commit('setLoginState', true)
       };
 
+
+      this.isLogin = this.$store.state.isLogin;
     //登入狀態驗證
     // fetch(`${this.$store.state.phpPublicPath}verifyLogin.php`, {
     //   mode: "cors",
