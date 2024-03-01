@@ -5,7 +5,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 // import { ArrayCamera } from 'three'
 import ButtonFlashBox from '@/components/ButtonFlash.vue'
 import orderList from "@/components/PerOrder.vue"
-import LoginWindwo from "@/components/LoginWindow.vue"
+import LoginWindow from "@/components/LoginWindow.vue"
 export default {
   data() {
     return {
@@ -107,7 +107,15 @@ export default {
     }
   },
   methods: {
-
+    //登入狀態驗證
+    checkLoginState() {
+      console.log(this.showLogin);
+      console.log("是否登入:"+this.$store.state.isLogin);
+      if (!this.$store.state.isLogin) {
+        this.showLogin = true
+        
+      }
+    },
     show1F() {
       this.show1 = true;
       this.show2 = false;
@@ -138,7 +146,7 @@ export default {
       this.orderCheck = !this.orderCheck
     },
     checkOrder() {
-      if (this.$store.state.userName) {
+      if (this.$store.state.isLogin) {
         this.orderCheck = true
       }
     },

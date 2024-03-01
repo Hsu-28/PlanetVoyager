@@ -117,7 +117,15 @@ export default {
     }
   },
   methods: {
+    //登入狀態驗證
+    checkLoginState() {
+      console.log(this.showLogin);
+      console.log(this.$store.state.isLogin);
+      if (!this.$store.state.isLogin) {
+        this.showLogin = true
 
+      }
+    },
     show1F() {
       this.show1 = true;
       this.show2 = false;
@@ -148,7 +156,7 @@ export default {
       this.orderCheck = !this.orderCheck
     },
     checkOrder() {
-      if (this.$store.state.userName) {
+      if (this.$store.state.isLogin) {
         this.orderCheck = true
       }
     },

@@ -165,7 +165,7 @@ export default {
       this.orderCheck = !this.orderCheck
     },
     checkOrder() {
-      if (this.$store.state.userName) {
+      if (this.$store.state.isLogin) {
         this.orderCheck = true
       }
     },
