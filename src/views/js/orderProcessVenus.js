@@ -9,6 +9,7 @@ import LoginWindow from "@/components/LoginWindow.vue"
 export default {
   data() {
     return {
+      showLogin: false,
       showAlert: false,
       activeId: "",
       jpRate: 0,
