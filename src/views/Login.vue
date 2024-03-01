@@ -19,7 +19,7 @@
           </router-link>
           <button id="login-btn">登入</button>
         </div>
-        <form @submit.prevent="login">
+        <form @submit.prevent="login()">
           <p>請輸入信箱與密碼</p>
           <input type="email" name="memId" v-model="username" placeholder="信箱" id="username" /><br>
           <input type="password" name="memPsw" v-model="pswdddv" placeholder="密碼" id="pswdddv" />
@@ -52,8 +52,8 @@ export default {
         const info = new FormData();
         info.append("memId", this.username);
         info.append("memPsw", this.pswdddv);
-        console.log(info);
-        console.log(this.$store.state.isLogin);
+        console.log("帳號密碼："+info);
+        console.log("是否登入："+this.$store.state.isLogin);
 
         fetch(`${this.$store.state.phpPublicPath}logincheck.php`, {
           method: 'POST',
@@ -65,8 +65,9 @@ export default {
               let user = JSON.stringify(result.result)
               localStorage.setItem('user', user)
               let id =result.result.mem_no
-              console.log(id);
+              console.log('mem-id: '+id);
               this.$store.commit('getinfo', id)
+              this.$store.commit('setUserName', id)
               this.$store.commit('setLoginState', true);
               this.$router.push('/loginSuccess')
             } else {

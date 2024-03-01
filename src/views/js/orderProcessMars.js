@@ -147,7 +147,9 @@ export default {
       this.orderCheck = !this.orderCheck
     },
     checkOrder() {
-      this.orderCheck = true
+      if (this.$store.state.userName) {
+        this.orderCheck = true
+      }
     },
     checkOrderInfo() {
       const inputs = Array.from(document.getElementsByName("infos"));

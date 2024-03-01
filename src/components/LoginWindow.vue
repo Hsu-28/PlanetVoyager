@@ -1,6 +1,6 @@
 <template>
-  <section id="login-sect" v-if="showLogin">
-    <div class="black-cover">
+  <section id="login-sect">
+    <div class="black-cover" @click="$emit('closeWindow')"></div>
       <div class="wrap">
         <svg class="login-tag" height="45" width="200">
           <polygon points="0,0 140,0 160,47 0,47" style="fill:#5B13EC; stroke:turquoise ;stroke-width:3" />
@@ -17,7 +17,7 @@
             </router-link>
             <button id="login-btn">登入</button>
           </div>
-          <form @submit.prevent="login">
+          <form @submit.prevent="login()">
             <p>請輸入信箱與密碼</p>
             <input type="email" name="memId" v-model="username" placeholder="信箱" id="username" /><br>
             <input type="password" name="memPsw" v-model="pswdddv" placeholder="密碼" id="pswdddv" />
@@ -27,7 +27,6 @@
             <p>忘記密碼</p>
           </form>
         </div>
-      </div>
     </div>
 
   </section>
@@ -35,17 +34,16 @@
 
 <script>
 export default {
+    props: ['showLogin'],
+    data() {
+    return {
+      username: '',
+      pswdddv: '',
+      signInAPI: null,
+      mem_name: this.$store.state.userName,
+    };
+  },
     methods:{
-    //登入狀態驗證
-    checkLoginState() {
-      console.log(this.showLogin);
-      console.log(this.$store.state.isLogin);
-      if (!this.$store.state.isLogin) {
-        this.showLogin = true
-        
-      }
-    },
-
     login() {
       if (this.username == '' || this.pswdddv == '') {
         alert('請輸入帳號和密碼')
@@ -53,7 +51,7 @@ export default {
         const info = new FormData();
         info.append("memId", this.username);
         info.append("memPsw", this.pswdddv);
-        console.log(info);
+        console.log("表單資訊："+info);
 
         fetch(`${this.$store.state.phpPublicPath}logincheck.php`, {
           method: 'POST',
@@ -67,6 +65,7 @@ export default {
               let id =result.result.mem_no
               console.log(id);
               this.$store.commit('setUserName', id)
+              this.$store.commit('setLoginState', true);
               alert('登入成功')
               this.showLogin = false;
             } else {
@@ -79,6 +78,7 @@ export default {
 
       }
     },
+
   }
 }
 </script>

@@ -143,7 +143,7 @@
     </article>
 
   </section>
-  <LoginWindow></LoginWindow>
+  <LoginWindow v-if="showLogin" :showLogin="showLogin" @close-window="showLogin = false"></LoginWindow>
 
   <section class="passengerInfo">
 
