@@ -113,7 +113,8 @@ export default {
       console.log("是否登入:"+this.$store.state.isLogin);
       if (!this.$store.state.isLogin) {
         this.showLogin = true
-        
+      }else{
+        this.orderCheck = true
       }
     },
     show1F() {

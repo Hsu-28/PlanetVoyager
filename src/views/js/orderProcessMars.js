@@ -111,10 +111,11 @@ export default {
     //登入狀態驗證
     checkLoginState() {
       console.log(this.showLogin);
-      console.log(this.$store.state.isLogin);
+      console.log("是否登入:"+this.$store.state.isLogin);
       if (!this.$store.state.isLogin) {
         this.showLogin = true
-
+      }else{
+        this.orderCheck = true
       }
     },
     show1F() {

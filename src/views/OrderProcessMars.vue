@@ -123,7 +123,7 @@
         </div>
       </div>
       <div class="inR">
-          <div  v-for="(item ,index) in MJ1" 
+          <div  v-for="(index ,item) in MJ1" 
           class="itinerary-d" 
           @click="activeId = item.trip_no " 
           :key="trip_no" 
@@ -183,8 +183,7 @@
           <p>航程日期: {{ date }}</p>
         </div>
         <div class="click">
-          <ButtonFlashBox :buttonText="'確認訂購'" :buttonBottomText="'-pv-'" class="kkss" @click="checkLoginState(), 
-        checkOrder()">
+          <ButtonFlashBox :buttonText="'確認訂購'" :buttonBottomText="'-pv-'" class="kkss" @click="checkLoginState()">
           </ButtonFlashBox>
         </div>
 

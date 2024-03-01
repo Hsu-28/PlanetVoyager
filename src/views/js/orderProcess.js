@@ -132,7 +132,8 @@ export default {
       console.log("是否登入:"+this.$store.state.isLogin);
       if (!this.$store.state.isLogin) {
         this.showLogin = true
-        
+      }else{
+        this.orderCheck = true
       }
     },
     show1F() {
@@ -164,11 +165,11 @@ export default {
     disOrder() {
       this.orderCheck = !this.orderCheck
     },
-    checkOrder() {
-      if (this.$store.state.isLogin) {
-        this.orderCheck = true
-      }
-    },
+    // checkOrder() {
+    //   if (this.$store.state.isLogin) {
+    //     this.orderCheck = true
+    //   }
+    // },
     checkOrderInfo() {
       const inputs = Array.from(document.getElementsByName("infos"));
       const checkbox = document.querySelector('.infoscheck');
