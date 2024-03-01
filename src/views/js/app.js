@@ -11,7 +11,7 @@ export default {
   data() {
 
     return {
-      
+      isLogin: this.$store.state.isLogin,
       i: 0,
       displayText: '',
       showMenu: false,
